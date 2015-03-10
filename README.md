@@ -10,19 +10,19 @@ Upravljanje rezervacijama, žalbama/pohvalama, kategorijama zdravstva i korisnic
 
 Tipovi korisnika u sistemu
 
-gost korisnik - mogu postavljati pitanja
+Gost korisnik - može postavljati pitanja
 
-registrirani korisnik
+Registrovani korisnik
 
-Privilegije registriranog korisnika u aplikaciji: 
+Privilegije registrovanog korisnika u aplikaciji: 
 
-medicinska sestra - prihvata ili odbija zahtjeve (ukoliko je zahtjev odbijen ona daje obrazloženje za to) za rezervacijom termina i može upisivati dodatne rezervacije koje nisu napravljene putem ove aplikacije (napravljene putem telefona i sl).
+Medicinska sestra - prihvata ili odbija zahtjeve (ukoliko je zahtjev odbijen ona daje obrazloženje za to) za rezervacijom termina i može upisivati dodatne rezervacije koje nisu napravljene putem ove aplikacije (napravljene putem telefona i sl).
 
-doktor - odgovara na postavljena pitanja.
+Doktor - odgovara na postavljena pitanja.
 
-menadžer - upravlja rezervacijama, žalbama/pohvalama, kategorijama zdravstva i korisnicima aplikacije i njihovim privilegijama kroz administracijski panel.
+Menadžer - upravlja rezervacijama, žalbama/pohvalama, kategorijama zdravstva i korisnicima aplikacije i njihovim privilegijama kroz administracijski panel.
 
-pacijent - pored mogućnosti postavljanja pitanja, korisnik koji je registrovan na sistem kao pacijent može rezervisati termine za pregled i imati uvid u slobodne termine za rezervaciju u vidu kalendara. On također može ostavljati pohvale i žalbe na rad klinike.
+Pacijent - pored mogućnosti postavljanja pitanja, korisnik koji je registrovan na sistem kao pacijent može rezervisati termine za pregled i imati uvid u slobodne termine za rezervaciju u vidu kalendara. On također može ostavljati pohvale i žalbe na rad klinike.
 
 Moduli: 
 
