@@ -7,15 +7,21 @@ Također, aplikacija omogućuje pacijentima da imaju uvid u slobodne termine kod
 Ostavljanje pohvala ili žalbi na rad klinike je još jedna funkcionalnost koja je omogućena pacijentima, a uvid u to ima uprava klinike.
 
 Upravljanje rezervacijama, žalbama/pohvalama, kategorijama zdravstva i korisnicima aplikacije i njihovim privilegijama je zadatak menadžera klinike koji ima pristup ovim opcijama kroz administracijski panel.
+
 Tipovi korisnika u sistemu
 
-Tipovi korisnika u aplikaciji: 
 gost korisnik - mogu postavljati pitanja
+
 registrirani korisnik
+
 Privilegije registriranog korisnika u aplikaciji: 
+
 medicinska sestra - prihvata ili odbija zahtjeve (ukoliko je zahtjev odbijen ona daje obrazloženje za to) za rezervacijom termina i može upisivati dodatne rezervacije koje nisu napravljene putem ove aplikacije (napravljene putem telefona i sl).
+
 doktor - odgovara na postavljena pitanja.
+
 menadžer - upravlja rezervacijama, žalbama/pohvalama, kategorijama zdravstva i korisnicima aplikacije i njihovim privilegijama kroz administracijski panel.
+
 pacijent - pored mogućnosti postavljanja pitanja, korisnik koji je registrovan na sistem kao pacijent može rezervisati termine za pregled i imati uvid u slobodne termine za rezervaciju u vidu kalendara. On također može ostavljati pohvale i žalbe na rad klinike.
 
 Moduli: 
