@@ -1,4 +1,6 @@
 ESavjetovaliste::Application.routes.draw do
+  resources :feedbacks
+
   resources :users
 
   resources :roles
