@@ -2010,3 +2010,28 @@ Processing by FeedbacksController#show as JSON
   [1m[35mFeedback Load (1.0ms)[0m  SELECT "feedbacks".* FROM "feedbacks" WHERE "feedbacks"."id" = $1 LIMIT 1  [["id", "1"]]
   Rendered feedbacks/show.json.jbuilder (1.0ms)
 Completed 200 OK in 10ms (Views: 6.0ms | ActiveRecord: 1.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRoles (20150315164628)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (328.2ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (15.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150315164628"]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20150315233709)
+  [1m[35m (15.6ms)[0m  BEGIN
+  [1m[36m (78.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "surname" character varying(255), "role_id" integer, "adress" character varying(255), "phone" character varying(255), "job" character varying(255), "title" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (31.3ms)[0m  CREATE INDEX "index_users_on_role_id" ON "users" ("role_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150315233709"]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Migrating to CreateFeedbacks (20150316214804)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (93.8ms)[0m  CREATE TABLE "feedbacks" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150316214804"]]
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20150317103014)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (78.1ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150317103014"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
