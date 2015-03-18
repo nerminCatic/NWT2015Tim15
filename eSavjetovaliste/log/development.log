@@ -2035,3 +2035,42 @@ Migrating to CreateCategories (20150317103014)
   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150317103014"]]
   [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRoles (20150315164628)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (663.0ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (16.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150315164628"]]
+  [1m[36m (80.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20150315233709)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (110.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "surname" character varying(255), "role_id" integer, "adress" character varying(255), "phone" character varying(255), "job" character varying(255), "title" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (35.0ms)[0m  CREATE INDEX "index_users_on_role_id" ON "users" ("role_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150315233709"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Migrating to CreateFeedbacks (20150316214804)
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (87.0ms)[0m  CREATE TABLE "feedbacks" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150316214804"]]
+  [1m[35m (3.0ms)[0m  COMMIT
+Migrating to CreateCategories (20150317103014)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (88.0ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150317103014"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateQuestions (20150318212234)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (63.0ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "name" character varying(255), "question" text, "description" text, "user_id" integer, "category_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (27.0ms)[0m  CREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")
+  [1m[36m (34.0ms)[0m  [1mCREATE INDEX "index_questions_on_category_id" ON "questions" ("category_id")[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150318212234"]]
+  [1m[36m (29.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20150318212449)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (77.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "name" character varying(255), "comment" text, "description" text, "user_id" integer, "question_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (32.0ms)[0m  CREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (102.0ms)[0m  [1mCREATE INDEX "index_comments_on_question_id" ON "comments" ("question_id")[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150318212449"]]
+  [1m[36m (32.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
