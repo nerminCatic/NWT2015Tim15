@@ -1,7 +1,7 @@
 ESavjetovaliste::Application.routes.draw do
+  resources :comments
   resources :reservations
-
-  resources :categories
+  resources :questions  resources :categories
 
   resources :feedbacks
 
