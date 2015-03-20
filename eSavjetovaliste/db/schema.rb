@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150318100827) do
-=======
-ActiveRecord::Schema.define(version: 20150318212449) do
->>>>>>> 4299fca7e2cf419693dd43ec5bda975856f3242d
+ActiveRecord::Schema.define(version: 20150320155104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,32 +43,31 @@ ActiveRecord::Schema.define(version: 20150318212449) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-  create_table "reservations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "user_doctor_id"
-    t.integer  "user_paitent_id"
-    t.datetime "appointment"
-=======
   create_table "questions", force: true do |t|
     t.string   "name"
     t.text     "question"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "category_id"
->>>>>>> 4299fca7e2cf419693dd43ec5bda975856f3242d
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
+  add_index "questions", ["category_id"], name: "index_questions_on_category_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "reservations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "user_doctor_id"
+    t.integer  "user_paitent_id"
+    t.datetime "appointment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "reservations", ["user_doctor_id"], name: "index_reservations_on_user_doctor_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
   add_index "reservations", ["user_paitent_id"], name: "index_reservations_on_user_paitent_id", using: :btree
-=======
-  add_index "questions", ["category_id"], name: "index_questions_on_category_id", using: :btree
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
->>>>>>> 4299fca7e2cf419693dd43ec5bda975856f3242d
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -88,9 +83,11 @@ ActiveRecord::Schema.define(version: 20150318212449) do
     t.string   "adress"
     t.string   "phone"
     t.string   "job"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "confirmed"
+    t.string   "password_digest"
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
