@@ -1,4 +1,11 @@
 ESavjetovaliste::Application.routes.draw do
+<<<<<<< HEAD
+=======
+  resources :comments
+  resources :reservations
+  resources :questions  
+  resources :categories
+>>>>>>> ce997483529c6d17655df74d48c57b81776506a2
 
   namespace :api, defaults: { format: :json } do
     
