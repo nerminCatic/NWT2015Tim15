@@ -4238,3 +4238,106 @@ Processing by Api::QuestionsController#index as JSON
   Parameters: {"category_id"=>"1", "question"=>{}}
   [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."category_id" = 1 LIMIT 1
 Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-20 20:50:30 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (105.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__275198113__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (139.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20150317103014)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1144.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150317103014"]]
+  [1m[36m (142.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateReservations (20150318100827)
+  [1m[35m (23.2ms)[0m  BEGIN
+  [1m[36m (91.1ms)[0m  [1mCREATE TABLE "reservations" ("id" serial primary key, "user_id" integer, "user_doctor_id" integer, "user_paitent_id" integer, "appointment" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (57.7ms)[0m  CREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")
+  [1m[36m (28.2ms)[0m  [1mCREATE INDEX "index_reservations_on_user_doctor_id" ON "reservations" ("user_doctor_id")[0m
+  [1m[35m (37.5ms)[0m  CREATE INDEX "index_reservations_on_user_paitent_id" ON "reservations" ("user_paitent_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150318100827"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to CreateQuestions (20150318212234)
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (83.2ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "name" character varying(255), "question" text, "description" text, "user_id" integer, "category_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (34.3ms)[0m  [1mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (34.8ms)[0m  CREATE INDEX "index_questions_on_category_id" ON "questions" ("category_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150318212234"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to CreateComments (20150318212449)
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (165.1ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "name" character varying(255), "comment" text, "description" text, "user_id" integer, "question_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (25.3ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (31.4ms)[0m  CREATE INDEX "index_comments_on_question_id" ON "comments" ("question_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150318212449"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to ChangeColumnsUser (20150320152301)
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (30.5ms)[0m  ALTER TABLE "users" ADD COLUMN "email" character varying(255)
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "confirmed" character varying(255)[0m
+  [1m[35m (105.0ms)[0m  ALTER TABLE "users" DROP "title"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150320152301"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to AddPasswordDigestToUsers (20150320155104)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "users" ADD COLUMN "password_digest" character varying(255)
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150320155104"]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Migrating to ChangeColumnsInReservation (20150320185233)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "reservations" ADD COLUMN "status" character varying(255)
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "reservations" ADD COLUMN "receive_date" timestamp[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "reservations" ADD COLUMN "confirm_date" timestamp
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "reservations" RENAME COLUMN "user_id" TO "user_receive_id"[0m
+  [1m[35m (1.0ms)[0m  ALTER INDEX "index_reservations_on_user_id" RENAME TO "index_reservations_on_user_receive_id"
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "reservations" RENAME COLUMN "user_paitent_id" TO "user_patient_id"[0m
+  [1m[35m (1.0ms)[0m  ALTER INDEX "index_reservations_on_user_paitent_id" RENAME TO "index_reservations_on_user_patient_id"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "reservations" RENAME COLUMN "appointment" TO "appointment_date"[0m
+  [1m[35m (38.9ms)[0m  ALTER TABLE "reservations" ADD COLUMN "description" character varying(255)
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150320185233"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-20 20:51:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 111ms (Views: 73.9ms | ActiveRecord: 0.0ms)
