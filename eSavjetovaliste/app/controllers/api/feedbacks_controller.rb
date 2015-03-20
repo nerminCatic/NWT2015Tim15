@@ -1,5 +1,6 @@
 class Api::FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /feedbacks
   # GET /feedbacks.json

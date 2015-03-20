@@ -1,5 +1,6 @@
 class Api::ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /reservations
   # GET /reservations.json

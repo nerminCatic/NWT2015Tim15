@@ -1,5 +1,6 @@
 class Api::RolesController < ApplicationController
   #before_action :set_role, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /roles
   # GET /roles.json

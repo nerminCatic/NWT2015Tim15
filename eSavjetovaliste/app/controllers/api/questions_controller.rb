@@ -1,10 +1,24 @@
 class Api::QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+      begin
+        if params[:category_id] #&& params[:user_id]
+          @questions = Question.all.find_by(category_id: params[:category_id])
+        else
+          @questions = Question.all
+        end
+        respond_to do |format|
+          format.json {
+            render json: { questions: @questions }
+          }
+        end
+      rescue
+        render json: { message: 'Record not found!' }, :status => :bad_request
+      end
   end
 
   # GET /questions/1

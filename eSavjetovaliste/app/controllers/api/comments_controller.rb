@@ -1,5 +1,6 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /comments
   # GET /comments.json
@@ -14,7 +15,9 @@ class Api::CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @question = Question.find(params[:question_id])
+    @comment = @question.comments.build
+    respond_with(@comment)
   end
 
   # GET /comments/1/edit
@@ -24,11 +27,13 @@ class Api::CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @question = Question.find(params[:question_id])
+    @comment = @question.comments.build(comment_params)
+    #@comment = Comment.new(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.json { render action: 'show', status: :created, location: api_question_comment_url(@comment) }
+        format.json { render action: 'show', status: :created }
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
@@ -63,7 +68,7 @@ class Api::CommentsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
+   def comment_params
       params.require(:comment).permit(:name, :comment, :description, :user_id, :question_id)
     end
 end

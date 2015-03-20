@@ -3719,3 +3719,522 @@ Processing by Api::UsersController#index as JSON
   [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
   Rendered api/users/index.json.jbuilder (2.0ms)
 Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions/1" for 127.0.0.1 at 2015-03-20 19:04:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__554766635__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnsUser (20150320152301)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (50.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "email" character varying(255)[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "users" ADD COLUMN "confirmed" character varying(255)
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" DROP "title"[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150320152301"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddPasswordDigestToUsers (20150320155104)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "password_digest" character varying(255)[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150320155104"]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/api/questions/1" for 127.0.0.1 at 2015-03-20 19:06:05 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::QuestionsController#show as JSON
+  Parameters: {"id"=>"1", "question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered api/questions/show.json.jbuilder (21.8ms)
+Completed 200 OK in 62ms (Views: 35.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:06:16 +0100
+Processing by Api::CommentsController#index as JSON
+  Parameters: {"question_id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered api/comments/index.json.jbuilder (38.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (No route matches {:format=>:json, :action=>"show", :controller=>"api/comments", :question_id=>#<Comment id: 3, name: "Komentar 5", comment: nil, description: nil, user_id: nil, question_id: nil, created_at: "2015-03-20 16:14:55", updated_at: "2015-03-20 16:14:55">, :id=>nil} missing required keys: [:id]):
+    1: json.array!(@comments) do |comment|
+    2:   json.extract! comment, :id, :name, :comment, :description, :user_id, :question_id
+    3:   json.url api_question_comment_url(comment, format: :json)
+    4: end
+  app/views/api/comments/index.json.jbuilder:3:in `block in _app_views_api_comments_index_json_jbuilder__879193339_42304008'
+  app/views/api/comments/index.json.jbuilder:1:in `_app_views_api_comments_index_json_jbuilder__879193339_42304008'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.0ms)
+
+
+Started GET "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:09:32 +0100
+Processing by Api::CommentsController#index as JSON
+  Parameters: {"question_id"=>"1", "comment"=>{}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered api/comments/index.json.jbuilder (2.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (No route matches {:format=>:json, :action=>"show", :controller=>"api/comments", :question_id=>#<Comment id: 4, name: "Komentar 5", comment: nil, description: nil, user_id: nil, question_id: nil, created_at: "2015-03-20 16:44:09", updated_at: "2015-03-20 16:44:09">, :id=>nil} missing required keys: [:id]):
+    1: json.array!(@comments) do |comment|
+    2:   json.extract! comment, :id, :name, :comment, :description, :user_id, :question_id
+    3:   json.url api_question_comment_url(comment, format: :json)
+    4: end
+  app/views/api/comments/index.json.jbuilder:3:in `block in _app_views_api_comments_index_json_jbuilder__879193339_42304008'
+  app/views/api/comments/index.json.jbuilder:1:in `_app_views_api_comments_index_json_jbuilder__879193339_42304008'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.0ms)
+
+
+Started GET "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:10:10 +0100
+Processing by Api::CommentsController#index as JSON
+  Parameters: {"question_id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered api/comments/index.json.jbuilder (2.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:11:27 +0100
+Processing by Api::CommentsController#index as JSON
+  Parameters: {"question_id"=>"1", "comment"=>{}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered api/comments/index.json.jbuilder (1.0ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:12:52 +0100
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"name"=>"Kanita", "question_id"=>"1", "comment"=>{"name"=>"Kanita"}}
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 127ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/api/comments_controller.rb:31:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.1ms)
+
+
+Started POST "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:16:48 +0100
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"name"=>"Kanita", "question_id"=>"1", "comment"=>{"name"=>"Kanita"}}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 19ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/api/comments_controller.rb:31:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.7ms)
+
+
+Started POST "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:18:00 +0100
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"name"=>"Kanita", "question_id"=>"1", "comment"=>{"name"=>"Kanita"}}
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "comments" ("created_at", "name", "question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Fri, 20 Mar 2015 18:18:00 UTC +00:00], ["name", "Kanita"], ["question_id", 1], ["updated_at", Fri, 20 Mar 2015 18:18:00 UTC +00:00]]
+  [1m[35m (89.9ms)[0m  COMMIT
+Completed 500 Internal Server Error in 147ms
+
+ActionController::UrlGenerationError (No route matches {:format=>:json, :action=>"show", :controller=>"api/comments", :question_id=>#<Comment id: 5, name: "Kanita", comment: nil, description: nil, user_id: nil, question_id: 1, created_at: "2015-03-20 18:18:00", updated_at: "2015-03-20 18:18:00">, :id=>nil} missing required keys: [:id]):
+  app/controllers/api/comments_controller.rb:36:in `block (2 levels) in create'
+  app/controllers/api/comments_controller.rb:34:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started POST "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 19:19:08 +0100
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"name"=>"Irma", "question_id"=>"1", "comment"=>{"name"=>"Irma"}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "comments" ("created_at", "name", "question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Fri, 20 Mar 2015 18:19:08 UTC +00:00], ["name", "Irma"], ["question_id", 1], ["updated_at", Fri, 20 Mar 2015 18:19:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+  Rendered api/comments/show.json.jbuilder (0.0ms)
+Completed 201 Created in 41ms (Views: 5.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/questions/1/comments/1" for 127.0.0.1 at 2015-03-20 19:19:20 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Comment with id=1):
+  app/controllers/api/comments_controller.rb:67:in `set_comment'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started GET "/api/questions/1/comments/5" for 127.0.0.1 at 2015-03-20 19:21:16 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"5", "comment"=>{}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered api/comments/show.json.jbuilder (1.0ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions/1/comments/6" for 127.0.0.1 at 2015-03-20 19:21:23 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"6", "comment"=>{}}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  Rendered api/comments/show.json.jbuilder (1.0ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/api/questions/1/comments/6" for 127.0.0.1 at 2015-03-20 19:21:40 +0100
+Processing by Api::CommentsController#destroy as JSON
+  Parameters: {"name"=>"Irma", "question_id"=>"1", "id"=>"6", "comment"=>{"name"=>"Irma"}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", "6"]]
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = $1  [["id", 6]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Completed 204 No Content in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions/1/comments/5" for 127.0.0.1 at 2015-03-20 19:22:06 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"5", "comment"=>{}}
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered api/comments/show.json.jbuilder (0.0ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/questions/1/comments/5" for 127.0.0.1 at 2015-03-20 19:22:23 +0100
+Processing by Api::CommentsController#update as JSON
+  Parameters: {"name"=>"Irma i Kanita", "question_id"=>"1", "id"=>"5", "comment"=>{"name"=>"Irma i Kanita"}}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "comments" SET "name" = $1, "updated_at" = $2 WHERE "comments"."id" = 5[0m  [["name", "Irma i Kanita"], ["updated_at", Fri, 20 Mar 2015 18:22:23 UTC +00:00]]
+  [1m[35m (13.0ms)[0m  COMMIT
+Completed 204 No Content in 19ms (ActiveRecord: 14.0ms)
+
+
+Started PUT "/api/categories" for 127.0.0.1 at 2015-03-20 19:49:21 +0100
+
+ActionController::RoutingError (No route matches [PUT] "/api/categories"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (50.1ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (179.5ms)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2015-03-20 19:49:26 +0100
+Processing by Api::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered api/categories/index.json.jbuilder (2.3ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/categories" for 127.0.0.1 at 2015-03-20 19:49:38 +0100
+Processing by Api::CategoriesController#create as JSON
+  Parameters: {"name"=>"Doktor", "category"=>{"name"=>"Doktor"}}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (71.4ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 20 Mar 2015 18:49:38 UTC +00:00], ["name", "Doktor"], ["updated_at", Fri, 20 Mar 2015 18:49:38 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  Rendered api/categories/show.json.jbuilder (0.0ms)
+Completed 201 Created in 90ms (Views: 5.0ms | ActiveRecord: 72.4ms)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2015-03-20 19:49:43 +0100
+Processing by Api::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered api/categories/index.json.jbuilder (3.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions?category_id=1" for 127.0.0.1 at 2015-03-20 19:50:06 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"category_id"=>"1", "question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."category_id" = 1 LIMIT 1
+Completed 200 OK in 45ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:50:26 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions/1" for 127.0.0.1 at 2015-03-20 19:50:34 +0100
+Processing by Api::QuestionsController#show as JSON
+  Parameters: {"id"=>"1", "question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered api/questions/show.json.jbuilder (1.0ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/api/questions/1" for 127.0.0.1 at 2015-03-20 19:50:58 +0100
+Processing by Api::QuestionsController#update as JSON
+  Parameters: {"category_id"=>"1", "id"=>"1", "question"=>{"category_id"=>"1"}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "questions" SET "category_id" = $1, "updated_at" = $2 WHERE "questions"."id" = 1[0m  [["category_id", 1], ["updated_at", Fri, 20 Mar 2015 18:50:58 UTC +00:00]]
+  [1m[35m (32.8ms)[0m  COMMIT
+Completed 204 No Content in 40ms (ActiveRecord: 34.8ms)
+
+
+Started GET "/api/questions/1" for 127.0.0.1 at 2015-03-20 19:51:04 +0100
+Processing by Api::QuestionsController#show as JSON
+  Parameters: {"id"=>"1", "question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered api/questions/show.json.jbuilder (1.0ms)
+Completed 200 OK in 22ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:51:13 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:51:30 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/questions" for 127.0.0.1 at 2015-03-20 19:52:02 +0100
+Processing by Api::QuestionsController#create as JSON
+  Parameters: {"name"=>"Pitanje bez kategorije", "question"=>{"name"=>"Pitanje bez kategorije"}}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 20 Mar 2015 18:52:02 UTC +00:00], ["name", "Pitanje bez kategorije"], ["updated_at", Fri, 20 Mar 2015 18:52:02 UTC +00:00]]
+  [1m[35m (21.2ms)[0m  COMMIT
+  Rendered api/questions/show.json.jbuilder (0.0ms)
+Completed 201 Created in 30ms (Views: 4.0ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:52:06 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:52:13 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions"
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions?category_id=1" for 127.0.0.1 at 2015-03-20 19:52:33 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"category_id"=>"1", "question"=>{}}
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."category_id" = 1 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 19:55:19 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 20:01:38 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 3ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions/1" for 127.0.0.1 at 2015-03-20 20:02:05 +0100
+Processing by Api::QuestionsController#show as JSON
+  Parameters: {"id"=>"1", "question"=>{}}
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered api/questions/show.json.jbuilder (0.0ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/api/questions/1" for 127.0.0.1 at 2015-03-20 20:02:42 +0100
+Processing by Api::QuestionsController#update as JSON
+  Parameters: {"description"=>"Opis za Pitanje", "id"=>"1", "question"=>{"description"=>"Opis za Pitanje"}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "questions" SET "description" = $1, "updated_at" = $2 WHERE "questions"."id" = 1[0m  [["description", "Opis za Pitanje"], ["updated_at", Fri, 20 Mar 2015 19:02:42 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Completed 204 No Content in 6ms (ActiveRecord: 1.0ms)
+
+
+Started PUT "/api/questions" for 127.0.0.1 at 2015-03-20 20:02:52 +0100
+
+ActionController::RoutingError (No route matches [PUT] "/api/questions"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (65.5ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 20:02:57 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions/1/comments/1" for 127.0.0.1 at 2015-03-20 20:06:06 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"1", "comment"=>{}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Comment with id=1):
+  app/controllers/api/comments_controller.rb:67:in `set_comment'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started GET "/api/questions/1/comments/5" for 127.0.0.1 at 2015-03-20 20:08:23 +0100
+Processing by Api::CommentsController#show as JSON
+  Parameters: {"question_id"=>"1", "id"=>"5", "comment"=>{}}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  Rendered api/comments/show.json.jbuilder (1.2ms)
+Completed 200 OK in 18ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 20:09:59 +0100
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"name"=>"Komentar 6", "description"=>"opis", "question_id"=>"1", "comment"=>{"name"=>"Komentar 6", "description"=>"opis"}}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "comments" ("created_at", "description", "name", "question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Fri, 20 Mar 2015 19:09:59 UTC +00:00], ["description", "opis"], ["name", "Komentar 6"], ["question_id", 1], ["updated_at", Fri, 20 Mar 2015 19:09:59 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered api/comments/show.json.jbuilder (1.0ms)
+Completed 201 Created in 13ms (Views: 4.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/questions/1/comments" for 127.0.0.1 at 2015-03-20 20:10:07 +0100
+Processing by Api::CommentsController#index as JSON
+  Parameters: {"question_id"=>"1", "comment"=>{}}
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered api/comments/index.json.jbuilder (2.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/questions" for 127.0.0.1 at 2015-03-20 20:10:19 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"question"=>{}}
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/questions?category_id=1" for 127.0.0.1 at 2015-03-20 20:10:32 +0100
+Processing by Api::QuestionsController#index as JSON
+  Parameters: {"category_id"=>"1", "question"=>{}}
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."category_id" = 1 LIMIT 1
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
