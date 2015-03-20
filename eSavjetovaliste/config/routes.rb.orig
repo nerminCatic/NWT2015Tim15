@@ -1,21 +1,20 @@
 ESavjetovaliste::Application.routes.draw do
+<<<<<<< HEAD
+  resources :reservations
+=======
+  resources :comments
 
-  namespace :api, defaults: { format: :json } do
-    
-    resources :reservations
+  resources :questions
+>>>>>>> 4299fca7e2cf419693dd43ec5bda975856f3242d
 
-    resources :questions do
-       resources :comments
-    end 
+  resources :categories
 
-    resources :categories
+  resources :feedbacks
 
-    resources :feedbacks
+  resources :users
 
-    resources :users
+  resources :roles
 
-    resources :roles
-  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
