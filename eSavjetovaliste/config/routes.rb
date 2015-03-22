@@ -2,7 +2,10 @@ ESavjetovaliste::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     
-    resources :reservations
+    resources :reservations do
+      put 'confirm', on: :member
+      put 'decline', on: :member
+    end
 
     resources :questions do
        resources :comments
