@@ -7,7 +7,7 @@ class Api::QuestionsController < ApplicationController
   def index
       begin
         if params[:category_id] #&& params[:user_id]
-          @questions = Question.all.find_by(category_id: params[:category_id])
+          @questions = Question.where("category_id = ?", params[:category_id])
         else
           @questions = Question.all
         end

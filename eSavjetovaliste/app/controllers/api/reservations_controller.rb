@@ -5,7 +5,22 @@ class Api::ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+      begin
+        if params[:status] # Search by status
+          @reservations = Reservation.where("status = ?", params[:status])
+        elsif params[:user_doctor_id] # Search by doctor
+          @reservations = Reservation.where("user_doctor_id = ?", params[:user_doctor_id])
+        else
+          @reservations = Reservation.all
+        end
+        respond_to do |format|
+          format.json {
+            render json: { reservations: @reservations }
+          }
+        end
+      rescue
+        render json: { message: 'Record not found!' }, :status => :bad_request
+      end
   end
 
   # GET /reservations/1
@@ -95,6 +110,6 @@ class Api::ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :user_id, :appointment)
+      params.require(:reservation).permit(:status, :user_patient_id, :appointment_date, :receive_date, :description, :user_receive_id, :user_doctor_id, :confirm_date)
     end
 end

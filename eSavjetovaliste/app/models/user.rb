@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
 	validates :name, presence:true, length: {minimum: 3, maximum: 20}
 	validates :surname, presence:true, length: {minimum: 3, maximum: 25}
 	validates :role_id, presence:true
-
+  validates :password, length: { in: 6..20 }
+  
   # Not required fields and lengths
 	validates :job, length: {minimum: 2, maximum: 35}
 
