@@ -63,7 +63,12 @@ class Api::QuestionsController < ApplicationController
 
   # DELETE /questions/1
   # DELETE /questions/1.json
+  #automaticaly destroy all coments on this question
   def destroy
+    @comments = Comment.where(question_id: @question.id)
+    @comments.each do |comment|
+      comment.destroy
+    end
     @question.destroy
     respond_to do |format|
       format.json { head :no_content }
