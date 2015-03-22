@@ -12,7 +12,11 @@ ESavjetovaliste::Application.routes.draw do
 
     resources :feedbacks
 
-    resources :users
+    resources :users do
+        collection do
+            post :register
+        end
+    end
 
     resources :roles
   end

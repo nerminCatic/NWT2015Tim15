@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_with @user 
   end
 
   # GET /users/new
@@ -20,6 +21,23 @@ class Api::UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def register
+    @user = User.new(user_params)
+    # default role: Gost
+    @role = Role.find_by(name:"gost")
+    @user.role = @role
+    # default status : Waiting 
+    @user.confirmed = "W"
+    # json response
+    respond_to do |format|
+      if @user.save
+        format.json { render json: @user, status: :created,  location: api_user_url(@user) }
+      else
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /users
@@ -65,6 +83,6 @@ class Api::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :name, :surname, :role_id, :adress, :phone, :job, :password, :password_confirmation)
+      params.require(:user).permit(:email, :name, :surname, :role_id, :adress, :phone, :job, :password, :password_confirmation, :confirmed)
     end
 end
