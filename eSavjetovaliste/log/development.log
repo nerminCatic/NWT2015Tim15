@@ -4403,3 +4403,64 @@ Unpermitted parameters: email
   [1m[35m (0.0ms)[0m  BEGIN
   [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
 Completed 422 Unprocessable Entity in 63ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-22 13:36:44 +0100
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"Irma", "surname"=>"Balic", "job"=>"it", "email"=>"irmabalic@gmail.com"}}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 16ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-22 13:38:28 +0100
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"Irma", "surname"=>"Balic", "job"=>"it", "email"=>"irmabalic@gmail.com"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 31ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropUserReferencesInReservations (20150322165121)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (15.6ms)[0m  [1mALTER TABLE "reservations" DROP "user_recieve_id"[0m
+PG::UndefinedColumn: ERROR:  column "user_recieve_id" of relation "reservations" does not exist
+: ALTER TABLE "reservations" DROP "user_recieve_id"
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropUserReferencesInReservations (20150322165121)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (78.1ms)[0m  [1mALTER TABLE "reservations" DROP "user_receive_id"[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150322165121"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DropUserReferencesInReservations (20150322165121)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "reservations" ADD COLUMN "user_receive_id" integer
+  [1m[36m (46.9ms)[0m  [1mCREATE INDEX "index_reservations_on_user_receive_id" ON "reservations" ("user_receive_id")[0m
+  [1m[35mSQL (46.9ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150322165121'
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropUserReferencesInReservations (20150322165121)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "reservations" DROP "user_receive_id"[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "reservations" DROP "user_doctor_id"
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "reservations" DROP "user_patient_id"[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150322165121"]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserReferencesInReservations (20150322165522)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "reservations" ADD COLUMN "user_receive_id" integer[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "reservations" ADD COLUMN "user_doctor_id" integer
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "reservations" ADD COLUMN "user_patient_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150322165522"]]
+  [1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (15.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1[0m

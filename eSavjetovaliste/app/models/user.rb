@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :role
-  has_many :reservations
-  
+  belongs_to :role  
   #Callbacks because some database adapters use case-sensitive indices
 	before_validation(:on => :create) do
     self.password = "none"
