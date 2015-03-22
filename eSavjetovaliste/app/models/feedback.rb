@@ -1,4 +1,5 @@
 class Feedback < ActiveRecord::Base
 	# Required fields
-	validates :name, :description, presence: true
+	validates :name, presence: true, length: {minimum: 3, maximum: 25}
+	validates :description, presence: true
 end
