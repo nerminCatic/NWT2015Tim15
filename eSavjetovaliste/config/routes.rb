@@ -15,6 +15,8 @@ ESavjetovaliste::Application.routes.draw do
 
     resources :feedbacks
 
+    resources :sessions, :only => [:create, :destroy]
+
     resources :users do
         collection do
             post :register
