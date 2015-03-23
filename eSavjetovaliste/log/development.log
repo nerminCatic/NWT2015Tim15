@@ -4464,3 +4464,146 @@ Migrating to AddUserReferencesInReservations (20150322165522)
   [1m[36m (46.9ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (15.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-23 10:55:28 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic1@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"Irma", "surname"=>"Balic", "job"=>"it", "email"=>"irmabalic1@gmail.com"}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (46.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic1@gmail.com') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 362ms (Views: 0.0ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/api/roles" for 127.0.0.1 at 2015-03-23 10:55:42 +0100
+Processing by Api::RolesController#index as JSON
+  Parameters: {"role"=>{}}
+  [1m[36mRole Load (15.6ms)[0m  [1mSELECT "roles".* FROM "roles"[0m
+  Rendered api/roles/index.json.jbuilder (15.6ms)
+Completed 200 OK in 113ms (Views: 97.0ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/api/roles" for 127.0.0.1 at 2015-03-23 10:56:27 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{ 
+  "name":"gost",
+}'):
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__54985905__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (62.5ms)
+
+
+Started POST "/api/roles" for 127.0.0.1 at 2015-03-23 10:56:35 +0100
+Processing by Api::RolesController#create as JSON
+  Parameters: {"name"=>"gost", "role"=>{"name"=>"gost"}}
+Can't verify CSRF token authenticity
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 20ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/roles" for 127.0.0.1 at 2015-03-23 10:57:02 +0100
+Processing by Api::RolesController#create as JSON
+  Parameters: {"name"=>"gost", "description"=>"gost...", "role"=>{"name"=>"gost", "description"=>"gost..."}}
+Can't verify CSRF token authenticity
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (109.2ms)[0m  [1mINSERT INTO "roles" ("created_at", "description", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 23 Mar 2015 09:57:02 UTC +00:00], ["description", "gost..."], ["name", "gost"], ["updated_at", Mon, 23 Mar 2015 09:57:02 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  Rendered api/roles/show.json.jbuilder (1.0ms)
+Completed 201 Created in 118ms (Views: 5.3ms | ActiveRecord: 111.2ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-23 10:57:40 +0100
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic1@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role_id"=>"1", "user"=>{"name"=>"Irma", "surname"=>"Balic", "role_id"=>"1", "job"=>"it", "email"=>"irmabalic1@gmail.com"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic1@gmail.com') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "job", "name", "password_digest", "role_id", "surname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Mon, 23 Mar 2015 09:57:40 UTC +00:00], ["email", "irmabalic1@gmail.com"], ["job", "it"], ["name", "Irma"], ["password_digest", "$2a$10$Au1SriTl7OoIgfrrRj6YWOea39udKGdwGR.VnhQbbkVw.FlsxCi/a"], ["role_id", 1], ["surname", "Balic"], ["updated_at", Mon, 23 Mar 2015 09:57:40 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Completed 500 Internal Server Error in 78ms
+
+ActionView::MissingTemplate (Missing template api/users/show, application/show with {:locale=>[:en], :formats=>[:json], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "C:/Users/irma/Desktop/NWT2015Tim15/eSavjetovaliste/app/views"
+):
+  app/controllers/api/users_controller.rb:50:in `block (2 levels) in create'
+  app/controllers/api/users_controller.rb:48:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.0ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2015-03-23 10:58:14 +0100
+Processing by Api::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered api/users/index.json.jbuilder (0.0ms)
+Completed 200 OK in 31ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-23 11:00:22 +0100
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic1@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role_id"=>"1", "user"=>{"name"=>"Irma", "surname"=>"Balic", "role_id"=>"1", "job"=>"it", "email"=>"irmabalic1@gmail.com"}}
+Can't verify CSRF token authenticity
+  [1m[35m (15.6ms)[0m  BEGIN
+  [1m[36mUser Exists (15.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic1@gmail.com') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 109ms (Views: 0.0ms | ActiveRecord: 31.2ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-23 11:00:29 +0100
+Processing by Api::UsersController#create as JSON
+  Parameters: {"name"=>"Irma", "surname"=>"Balic", "email"=>"irmabalic12@gmail.com", "job"=>"it", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role_id"=>"1", "user"=>{"name"=>"Irma", "surname"=>"Balic", "role_id"=>"1", "job"=>"it", "email"=>"irmabalic12@gmail.com"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic12@gmail.com') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "job", "name", "password_digest", "role_id", "surname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Mon, 23 Mar 2015 10:00:29 UTC +00:00], ["email", "irmabalic12@gmail.com"], ["job", "it"], ["name", "Irma"], ["password_digest", "$2a$10$vTnSFCbbtWaqLCXLl0AV9OggKaLoPqwRGEEISP8oZfKzRKGY9wqFm"], ["role_id", 1], ["surname", "Balic"], ["updated_at", Mon, 23 Mar 2015 10:00:29 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Completed 201 Created in 96ms (Views: 0.0ms | ActiveRecord: 2.0ms)
