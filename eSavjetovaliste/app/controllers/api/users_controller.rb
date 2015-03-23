@@ -45,10 +45,12 @@ class Api::UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    # default status : Waiting 
+    @user.confirmed = "W"
+    # json response
     respond_to do |format|
       if @user.save
-        format.json { render action: 'show', status: :created,  location: api_user_url(@user) }
+        format.json { render json: @user,  status: :created,  location: api_user_url(@user) }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
