@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_action :authenticate_with_token!, only: [:update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -57,12 +58,12 @@ class Api::UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.json { head :no_content }
-      else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    user = current_user
+
+    if user.update(user_params)
+      render json: user, status: 200, location: [:api, user]
+    else
+      render json: { errors: user.errors }, status: 422
     end
   end
 
@@ -84,5 +85,9 @@ class Api::UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :name, :surname, :role_id, :adress, :phone, :job, :password, :password_confirmation, :confirmed)
+    end
+
+    def current_user
+      @current_user ||= User.find_by(auth_token: request.headers['Authorization'])
     end
 end

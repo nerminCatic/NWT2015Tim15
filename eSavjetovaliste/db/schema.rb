@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322165522) do
+ActiveRecord::Schema.define(version: 20150323142500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "api_keys", force: true do |t|
+    t.string   "access_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -57,17 +63,17 @@ ActiveRecord::Schema.define(version: 20150322165522) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "reservations", force: true do |t|
-    t.datetime "appointment_date"
+    t.integer  "user_id"
+    t.integer  "user_doctor_id"
+    t.integer  "user_paitent_id"
+    t.datetime "appointment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
-    t.datetime "receive_date"
-    t.datetime "confirm_date"
-    t.string   "description"
-    t.integer  "user_receive_id"
-    t.integer  "user_doctor_id"
-    t.integer  "user_patient_id"
   end
+
+  add_index "reservations", ["user_doctor_id"], name: "index_reservations_on_user_doctor_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+  add_index "reservations", ["user_paitent_id"], name: "index_reservations_on_user_paitent_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -88,6 +94,8 @@ ActiveRecord::Schema.define(version: 20150322165522) do
     t.string   "email"
     t.string   "confirmed"
     t.string   "password_digest"
+    t.string   "session_key"
+    t.string   "auth_token",      default: ""
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
