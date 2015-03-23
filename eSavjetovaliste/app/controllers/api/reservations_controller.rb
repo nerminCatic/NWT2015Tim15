@@ -41,12 +41,12 @@ class Api::ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    # user=logged_user 
+    # user = logged_user 
     # on create - only user, appointment and status (by default Waiting)
 
     @reservation = Reservation.new(reservation_params)
     @reservation.status = "W"
-
+    @reservation.receive_date = Time.now
     respond_to do |format|
       if @reservation.save
         format.json { render json: @reservation, status: :created, location: api_reservation_url(@reservation) }
@@ -63,22 +63,26 @@ class Api::ReservationsController < ApplicationController
     @reservation.user_receive = User.find(params[:user_receive_id])
     @reservation.confirm_date = Time.now
     @reservation.status = "A"
-    if @reservation.update(reservation_params)
-      format.json { head :no_content }
-    else
-      format.json { render json: @reservation.errors, status: :unprocessable_entity }
-    end
+    respond_to do |format|
+      if @reservation.save
+        format.json { head :no_content }
+      else
+        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      end
+    end 
   end
 
   # declining reservation
   def decline
    @reservation = Reservation.find(params[:id])
    @reservation.status = "D"
-   if @reservation.update(reservation_params)
-      format.json { head :no_content }
-    else
-      format.json { render json: @reservation.errors, status: :unprocessable_entity }
-    end
+   respond_to do |format|
+      if @reservation.save
+        format.json { head :no_content }
+      else
+        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      end
+   end
   end
 
   # PATCH/PUT /reservations/1
