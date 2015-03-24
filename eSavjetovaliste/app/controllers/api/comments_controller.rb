@@ -33,7 +33,7 @@ class Api::CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.json { render action: 'show', status: :created }
+        format.json { render json: @comment, status: :created }
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

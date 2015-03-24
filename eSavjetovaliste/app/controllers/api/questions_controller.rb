@@ -42,7 +42,7 @@ class Api::QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.json { render action: 'show', status: :created, location: api_question_url(@question) }
+        format.json { render json: @question, status: :created, location: api_question_url(@question) }
       else
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end

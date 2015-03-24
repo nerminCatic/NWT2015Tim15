@@ -29,7 +29,7 @@ class Api::FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
-        format.json { render action: 'show', status: :created, location: api_feedback_url(@feedback) }
+        format.json { render json: @feedback, status: :created, location: api_feedback_url(@feedback) }
       else
         format.json { render json: @feedback.errors, status: :unprocessable_entity }
       end

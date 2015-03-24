@@ -29,7 +29,7 @@ class Api::RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        format.json { render action: 'show', status: :created, location: api_role_url(@role) }
+        format.json { render json: @role, status: :created, location: api_role_url(@role) }
       else
         format.json { render json: @role.errors, status: :unprocessable_entity }
       end

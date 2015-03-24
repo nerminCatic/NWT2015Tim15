@@ -29,7 +29,7 @@ class Api::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.json { render action: 'show', status: :created, location: api_category_url(@category) }
+        format.json { render json: @category, status: :created, location: api_category_url(@category) }
       else
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
