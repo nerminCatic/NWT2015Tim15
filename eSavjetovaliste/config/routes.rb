@@ -1,5 +1,8 @@
 ESavjetovaliste::Application.routes.draw do
-
+  #Root 
+  root 'static_pages#index'
+  #Routes
+  get "static_pages/index"
   namespace :api, defaults: { format: :json } do
     
     resources :reservations do
