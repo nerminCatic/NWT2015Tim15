@@ -25,11 +25,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  def self.authenticate(password)
-    user = User.find_by(email: email).try(:authenticate, password)
-    return nil unless user
-  end
-
   def generate_authentication_token
       begin
         self.auth_token = Devise.friendly_token
