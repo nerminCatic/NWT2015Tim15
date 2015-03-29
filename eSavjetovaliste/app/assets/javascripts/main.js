@@ -1,0 +1,1 @@
+registration = angular.module('registration', []);
