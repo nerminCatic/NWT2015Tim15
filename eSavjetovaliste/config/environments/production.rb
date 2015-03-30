@@ -27,8 +27,14 @@ ESavjetovaliste::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
-
+  config.assets.compile = true
+  config.assets.initialize_on_precompile = true
+  # Email
+  config.mandrill_mailer.default_url_options = { :host => 'esavjetovaliste.heroku.com' }
+  MANDRILL_APIKEY='zeny82Jf1FrasLD5E9O7fQ'
+  MandrillMailer.configure do |config|
+    config.api_key = MANDRILL_APIKEY
+  end
   # Generate digests for assets URLs.
   config.assets.digest = true
 

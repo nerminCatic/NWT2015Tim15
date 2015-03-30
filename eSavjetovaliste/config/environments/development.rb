@@ -16,6 +16,11 @@ ESavjetovaliste::Application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  config.mandrill_mailer.default_url_options = { :host => 'localhost:3000' }
+  MANDRILL_APIKEY='zeny82Jf1FrasLD5E9O7fQ'
+  MandrillMailer.configure do |config|
+    config.api_key = MANDRILL_APIKEY
+  end
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

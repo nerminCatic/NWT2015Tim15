@@ -28,7 +28,14 @@ GEM
     arel (4.0.2)
     bcrypt (3.1.10-x86-mingw32)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    better_errors (0.0.8)
+      coderay
+      erubis
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.1.4)
+    coderay (1.1.0)
+    debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -37,6 +44,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.42.0)
     execjs (2.4.0)
     hike (1.2.3)
     i18n (0.7.0)
@@ -50,6 +58,13 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
+    mandrill_mailer (0.4.13)
+      actionpack
+      activesupport
+      mandrill-api (~> 1.0.9)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.11.0)
@@ -113,9 +128,12 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  better_errors (= 0.0.8)
+  binding_of_caller
   devise
   jbuilder (~> 1.2)
   jquery-rails
+  mandrill_mailer
   pg
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

@@ -35,6 +35,7 @@ class Api::UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.json { render json: @user, status: :created,  location: api_user_url(@user) }
+        UserMailer.registration_email(@user).deliver
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
