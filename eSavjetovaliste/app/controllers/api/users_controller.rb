@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :authenticate_with_token!, only: [:update, :destroy]
+  #before_action :authenticate_with_token!, only: [:update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -89,7 +89,5 @@ class Api::UsersController < ApplicationController
       params.require(:user).permit(:email, :name, :surname, :role_id, :adress, :phone, :job, :password, :password_confirmation, :confirmed)
     end
 
-    def current_user
-      @current_user ||= User.find_by(auth_token: request.headers['Authorization'])
-    end
+    
 end

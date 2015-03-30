@@ -1,17 +1,15 @@
 class User < ActiveRecord::Base
   before_create :generate_authentication_token
   belongs_to :role  
-  #Callbacks because some database adapters use case-sensitive indices
-	before_validation(:on => :create) do
-    self.password = "none"
-    self.password_confirmation = "none"
-  	end
+  has_many :reservations
+
+  has_secure_password
 
   # Required fields and lengths
 	validates :name, presence:true, length: {minimum: 3, maximum: 20}
 	validates :surname, presence:true, length: {minimum: 3, maximum: 25}
 	validates :role_id, presence:true
-  validates :password, length: { minimum: 3, maximum: 20 }
+  validates :password, length: { minimum: 3 }, allow_nil: true
   
   # Not required fields and lengths
 	validates :job, length: {minimum: 2, maximum: 35}
@@ -22,8 +20,6 @@ class User < ActiveRecord::Base
 	                    uniqueness: { case_sensitive: false }
 
   validates :auth_token, uniqueness: true
-
-  has_secure_password
 
   def generate_authentication_token
       begin
