@@ -1,29 +1,38 @@
-<div class="dodatiPraviNaziv" ng-controller="RegistrationControler">
-  <h1>User registration</h1>
-
-	  <label for="name">Name:</label>
-	  <input name="name" type="text" ng-model="user.name"/><br>
-
-	  <label for="surname">Surname:</label>
-	  <input name="surname" type="text" ng-model="user.surname" /><br>
-
-	  <label for="job">Job description:</label>
-	  <input name="job" type="text" ng-model="user.job" /><br>
-
-	  <label for="adress">Address:</label>
-	  <input name="adress" type="text" ng-model="user.adress" /><br>
-
-	  <label for="phone">Phone:</label>
-	  <input name="phone" type="text" ng-model="user.phone" /><br>
-
-	  <label for="email">Email:</label>
-	  <input name="email" type="text" ng-model="user.email" /><br>
-
-	  <label for="password">Password:</label>
-	  <input name="password" type="password" ng-model="user.password" /><br>
-
-	  <label for="passwordc">Confirm password:</label>
-	  <input name="passwordc" type="password" ng-model="user.password_confirmation" /><br>
-	  
+<div class="registrationForm" ng-controller="RegistrationControler">
+  <h1> Registracija </h1>
+  	<div class="field">
+	  <label for="name">Ime</label><br>
+	  <input name="name" type="text" ng-model="user.name"/>
+	</div>
+	<div class="field">
+	  <label for="surname">Prezime</label><br>
+	  <input name="surname" type="text" ng-model="user.surname" />
+	</div>
+	<div class="field">
+	  <label for="job">Zanimanje</label><br>
+	  <input name="job" type="text" ng-model="user.job" />
+	</div>
+	<div class="field">
+	  <label for="adress">Addresa</label><br>
+	  <input name="adress" type="text" ng-model="user.adress" />
+	</div>
+	<div class="field">
+	  <label for="phone">Telefon</label><br>
+	  <input name="phone" type="text" ng-model="user.phone" />
+	</div>
+	<div class="field">
+	  <label for="email">Email</label><br>
+	  <input name="email" type="text" ng-model="user.email" />
+	</div>
+	<div class="field">
+	  <label for="password">Šifra</label><br>
+	  <input name="password" type="password" ng-model="user.password" />
+	</div>
+	<div class="field">
+	  <label for="passwordc">Potvrda šifre</label><br>
+	  <input name="passwordc" type="password" ng-model="user.password_confirmation" />
+	</div>
+	<div class="actions">
 	  <button ng-click="registerUser()">Kreiraj</button>
+	</div>
 </div>
