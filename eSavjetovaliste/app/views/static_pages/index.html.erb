@@ -1,22 +1,29 @@
 <div class="dodatiPraviNaziv" ng-controller="RegistrationControler">
   <h1>User registration</h1>
+
 	  <label for="name">Name:</label>
 	  <input name="name" type="text" ng-model="user.name"/><br>
+
 	  <label for="surname">Surname:</label>
 	  <input name="surname" type="text" ng-model="user.surname" /><br>
-	  <label for="role_id">Role: (TBD dropdown ovdje sa pravim nazivima):</label>
-	  <input name="role_id" type="number" ng-model="user.role_id" /><br>
+
 	  <label for="job">Job description:</label>
 	  <input name="job" type="text" ng-model="user.job" /><br>
+
 	  <label for="adress">Address:</label>
 	  <input name="adress" type="text" ng-model="user.adress" /><br>
+
 	  <label for="phone">Phone:</label>
 	  <input name="phone" type="text" ng-model="user.phone" /><br>
+
 	  <label for="email">Email:</label>
 	  <input name="email" type="text" ng-model="user.email" /><br>
+
 	  <label for="password">Password:</label>
 	  <input name="password" type="password" ng-model="user.password" /><br>
+
 	  <label for="passwordc">Confirm password:</label>
 	  <input name="passwordc" type="password" ng-model="user.password_confirmation" /><br>
+	  
 	  <button ng-click="registerUser()">Kreiraj</button>
 </div>

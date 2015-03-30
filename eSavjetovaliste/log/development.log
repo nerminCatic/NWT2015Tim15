@@ -10373,3 +10373,216 @@ Processing by Api::SessionsController#create as JSON
 Can't verify CSRF token authenticity
   [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'dzenita@gmail.com' LIMIT 1
 Completed 200 OK in 161ms (Views: 2.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 20:41:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 1067ms (Views: 1062.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/api/sessions.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/feedbacks.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:07 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-03-30 20:41:08 +0200
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-30 20:41:56 +0200
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Irma", "surname"=>"Balic", "job"=>"Posao", "adress"=>"Nusreta Fazlibegovica", "phone"=>"555", "email"=>"irmabalic@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (109.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic@hotmail.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 484ms (Views: 0.0ms | ActiveRecord: 156.3ms)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2015-03-30 20:42:56 +0200
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Irma", "surname"=>"Balic", "job"=>"Posao", "adress"=>"Nusreta Fazlibegovica", "phone"=>"555", "email"=>"irmabalic@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role_id"=>1}}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('irmabalic@hotmail.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."auth_token" = 'WShbsusUDEAkWzBRGQsm' LIMIT 1[0m
+  [1m[35mSQL (78.2ms)[0m  INSERT INTO "users" ("adress", "auth_token", "confirmed", "created_at", "email", "job", "name", "password_digest", "phone", "role_id", "surname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["adress", "Nusreta Fazlibegovica"], ["auth_token", "WShbsusUDEAkWzBRGQsm"], ["confirmed", "W"], ["created_at", Mon, 30 Mar 2015 18:42:56 UTC +00:00], ["email", "irmabalic@hotmail.com"], ["job", "Posao"], ["name", "Irma"], ["password_digest", "$2a$10$NyD4gcUmnr19wgAv4UgjLO01pwzrRzqN5I6WsWoXVlhaVwXRJdmrG"], ["phone", "555"], ["role_id", 1], ["surname", "Balic"], ["updated_at", Mon, 30 Mar 2015 18:42:56 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 172ms (Views: 0.0ms | ActiveRecord: 78.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 125ms (Views: 125.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/api/sessions.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/feedbacks.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/reservations.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-03-30 20:47:04 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-30 20:47:05 +0200
+
+
+Started POST "/api/users/register" for 127.0.0.1 at 2015-03-30 20:47:33 +0200
+Processing by Api::UsersController#register as JSON
+  Parameters: {"user"=>{"name"=>"proba", "surname"=>"proba", "job"=>"proba", "adress"=>"proba", "phone"=>"555", "email"=>"proba@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'gost' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('proba@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."auth_token" = '5aD19R2r-Ye2DMnQBdkE' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("adress", "auth_token", "confirmed", "created_at", "email", "job", "name", "password_digest", "phone", "role_id", "surname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["adress", "proba"], ["auth_token", "5aD19R2r-Ye2DMnQBdkE"], ["confirmed", "W"], ["created_at", Mon, 30 Mar 2015 18:47:34 UTC +00:00], ["email", "proba@gmail.com"], ["job", "proba"], ["name", "proba"], ["password_digest", "$2a$10$mnZn5xtmiiN4bQXMqLny6.9YXaB8d1m74Ra4jV2.msyjBE9xbx8qG"], ["phone", "555"], ["role_id", 1], ["surname", "proba"], ["updated_at", Mon, 30 Mar 2015 18:47:34 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Completed 201 Created in 172ms (Views: 0.0ms | ActiveRecord: 0.0ms)

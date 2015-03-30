@@ -1,6 +1,6 @@
 registration.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
     $scope.registerUser = function(){
-        $http.post('/api/users', {
+        $http.post('/api/users/register', {
          	user: $scope.user}).
         	    success(function(data, status, headers, config) {
          	    // this callback will be called asynchronously
