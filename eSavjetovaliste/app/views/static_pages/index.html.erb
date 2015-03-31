@@ -2,37 +2,44 @@
   <h1> Registracija </h1>
   	<div class="field">
 	  <label for="name">Ime</label><br>
-	  <input name="name" type="text" ng-model="user.name"/>
+	  <input name="name" type="text" placeholder="Ime"ng-model="user.name"/>
 	</div>
+	 <div class="error" 
+        ng-show="registrationForm.name.$dirty && registrationForm.name.$invalid">
+    <small class="error" 
+        ng-show="registrationForm.name.$error.required">
+        Your name is required.
+    </small>
+    </div>
 	<div class="field">
 	  <label for="surname">Prezime</label><br>
-	  <input name="surname" type="text" ng-model="user.surname" />
+	  <input name="surname" type="text" placeholder="Prezime" ng-model="user.surname" />
 	</div>
 	<div class="field">
 	  <label for="job">Zanimanje</label><br>
-	  <input name="job" type="text" ng-model="user.job" />
+	  <input name="job" type="text" placeholder= "Posao" ng-model="user.job" />
 	</div>
 	<div class="field">
 	  <label for="adress">Addresa</label><br>
-	  <input name="adress" type="text" ng-model="user.adress" />
+	  <input name="adress" type="text" placeholder="Adresa" ng-model="user.adress" />
 	</div>
 	<div class="field">
 	  <label for="phone">Telefon</label><br>
-	  <input name="phone" type="text" ng-model="user.phone" />
+	  <input name="phone" type="text" placeholder="Telefon" ng-model="user.phone" />
 	</div>
 	<div class="field">
 	  <label for="email">Email</label><br>
-	  <input name="email" type="text" ng-model="user.email" />
+	  <input name="email" type="text" placeholder="E-mail" ng-model="user.email" />
 	</div>
 	<div class="field">
 	  <label for="password">Šifra</label><br>
-	  <input name="password" type="password" ng-model="user.password" />
+	  <input name="password" type="password" placeholder="Password" ng-model="user.password" />
 	</div>
 	<div class="field">
 	  <label for="passwordc">Potvrda šifre</label><br>
-	  <input name="passwordc" type="password" ng-model="user.password_confirmation" />
+	  <input name="passwordc" type="password" placeholder= "Password" ng-model="user.password_confirmation" />
 	</div>
 	<div class="actions">
-	  <button ng-click="registerUser()">Kreiraj</button>
+	  <button ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
 	</div>
 </div>
