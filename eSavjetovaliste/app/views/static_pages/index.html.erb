@@ -1,4 +1,4 @@
-<div class="registrationForm" ng-controller="RegistrationControler">
+<!--<div class="registrationForm" ng-controller="RegistrationControler">
   <h1> Registracija </h1>
   	<div class="field">
 	  <label for="name">Ime</label><br>
@@ -42,4 +42,27 @@
 	<div class="actions">
 	  <button ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
 	</div>
+</div>-->
+<div class="loginForm" ng-controller="LoginControler">
+
+	<h1> Login </h1>
+
+  	<div class="field">
+		<label for="email">Email</label><br>
+		<input name="email" type="text" placeholder="E-mail" ng-model="user.email" />
+	</div>
+
+	<div class="field">
+		<label for="password">Šifra</label><br>
+		<input name="password" type="password" placeholder="Password" ng-model="user.password" />
+	</div>
+
+	<input type="checkbox" name="remember">Zapamti me na ovom kompjuteru<br>
+
+	<div class="actions">
+		<button ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavi se</button>
+	</div>
+
+	<p>Novi korisnik?</p>
+
 </div>

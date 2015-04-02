@@ -1,1 +1,2 @@
-registration = angular.module('registration', []);
+//registration = angular.module('registration', []);
+login = angular.module('registration', []);

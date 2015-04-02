@@ -4,13 +4,26 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   after_filter :set_csrf_cookie_for_ng
 
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
   def authenticate_with_token!
     render json: { errors: "Not authenticated" },
                 status: :unauthorized unless current_user.present?
   end
 
-  def user_signed_in?
-    current_user.present?
+  def logged_in?
+    !current_user.nil?
+  end
+
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
   end
 
   def set_csrf_cookie_for_ng

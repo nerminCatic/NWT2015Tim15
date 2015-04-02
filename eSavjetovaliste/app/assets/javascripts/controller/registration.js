@@ -1,4 +1,4 @@
-registration.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
+/*registration.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
     $scope.registerUser = function(){
         $http.post('/api/users/register', {
          	user: $scope.user}).
@@ -13,5 +13,27 @@ registration.controller('RegistrationControler', ['$scope','$http', function($sc
         	    // or server returns response with an error status.
         	    alert(data.toSource());
 	});
+    };
+}]);*/
+
+login.controller('LoginControler', ['$scope','$http', function($scope,$http){
+    $scope.loginUser = function(){
+
+$http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.password,
+            session: $scope.user}).success(function (data, status, headers, config) {
+            alert(data.name + ", uspješno ste prijavljeni!");
+            alert(data.toSource());
+            //$window.location='/static_pages/home';
+        });
+        error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                alert(data.toSource());
+    });
+
+            
+
+
+
     };
 }]);

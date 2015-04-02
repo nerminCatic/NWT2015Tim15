@@ -90,5 +90,4 @@ class Api::UsersController < ApplicationController
       params.require(:user).permit(:email, :name, :surname, :role_id, :adress, :phone, :job, :password, :password_confirmation, :confirmed)
     end
 
-    
 end
