@@ -1,46 +1,60 @@
-<!--<div class="registrationForm" ng-controller="RegistrationControler">
-  <h1> Registracija </h1>
-  	<div class="field">
-	  <label for="name">Ime</label><br>
-	  <input name="name" type="text" placeholder="Ime"ng-model="user.name"/>
-	</div>
-	 <div class="error" 
-        ng-show="registrationForm.name.$dirty && registrationForm.name.$invalid">
-    <small class="error" 
-        ng-show="registrationForm.name.$error.required">
-        Your name is required.
-    </small>
-    </div>
-	<div class="field">
-	  <label for="surname">Prezime</label><br>
-	  <input name="surname" type="text" placeholder="Prezime" ng-model="user.surname" />
-	</div>
-	<div class="field">
-	  <label for="job">Zanimanje</label><br>
-	  <input name="job" type="text" placeholder= "Posao" ng-model="user.job" />
-	</div>
-	<div class="field">
-	  <label for="adress">Addresa</label><br>
-	  <input name="adress" type="text" placeholder="Adresa" ng-model="user.adress" />
-	</div>
-	<div class="field">
-	  <label for="phone">Telefon</label><br>
-	  <input name="phone" type="text" placeholder="Telefon" ng-model="user.phone" />
-	</div>
-	<div class="field">
-	  <label for="email">Email</label><br>
-	  <input name="email" type="text" placeholder="E-mail" ng-model="user.email" />
-	</div>
-	<div class="field">
-	  <label for="password">Šifra</label><br>
-	  <input name="password" type="password" placeholder="Password" ng-model="user.password" />
-	</div>
-	<div class="field">
-	  <label for="passwordc">Potvrda šifre</label><br>
-	  <input name="passwordc" type="password" placeholder= "Password" ng-model="user.password_confirmation" />
-	</div>
-	<div class="actions">
-	  <button ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
+
+<!--<div class="container">    
+    <div class="register-wall">
+		<div class="form-register" ng-controller="RegistrationControler">
+		  <h1 class="text-center login-title"> Registracija </h1>
+		  	
+		  	<div class="input-prepend">
+      			<span class="add-on"><i class="icon-user"></i></span>
+			  	<input name="name" class="formr-control" type="text" placeholder="Ime"ng-model="user.name" required autofocus/>
+			 </div>
+			 <div class="error" 
+		        ng-show="registrationForm.name.$dirty && registrationForm.name.$invalid">
+		    <small class="error" 
+		        ng-show="registrationForm.name.$error.required">
+		        Your name is required.
+		    </small>
+		    </div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-user"></i></span>
+			  	<input name="surname" type="text" class="formr-control" placeholder="Prezime" ng-model="user.surname" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-briefcase"></i></span>
+			  	<input name="job" type="text" class="formr-control" placeholder= "Posao" ng-model="user.job" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-map-marker"></i></span>
+			  	<input name="adress" type="text" class="formr-control" placeholder="Adresa" ng-model="user.adress" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-home"></i></span>
+			  	<input name="phone" type="text" class="formr-control" placeholder="Telefon" ng-model="user.phone" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-envelope"></i></span>
+			  	<input name="email" type="text" class="formr-control" placeholder="E-mail" ng-model="user.email" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-lock"></i></span>
+			  	<input name="password" type="password" class="formr-control" placeholder="Password" ng-model="user.password" />
+			</div>
+
+			<div class="input-prepend">
+      			<span class="add-on"><i class="icon-lock"></i></span>
+			  	<input name="passwordc" type="password" class="formr-control" placeholder= "Password" ng-model="user.password_confirmation" />
+			</div>
+
+			<div class="actions">
+			  <button class="btn btn-lg btn-primary btn-block" ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
+			</div>
+		</div>
 	</div>
 </div>-->
 

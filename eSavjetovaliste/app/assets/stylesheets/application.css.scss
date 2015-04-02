@@ -25,7 +25,7 @@
 }
 .form-control
 {
-    width:300px;
+    width:280px;
 }
 .form-signin input[type="text"]
 {
@@ -85,4 +85,58 @@ html {
 	position:absolute;
    bottom:0;
    left: 42%;
+}
+.register-wall
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 0px;
+    background-color: #000000;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+    opacity:0.9;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    width: 400px;
+    height: 500px;
+}
+.form-register
+{
+    max-width: 330px;
+    padding: 0px;
+    margin: 0 auto;
+}
+.form-register .formr-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 7px;
+    
+}
+.form-register .formr-control:focus
+{
+    z-index: 2;
+}
+.formr-control
+{
+    width:285px;
+}
+.formr-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.formr-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
