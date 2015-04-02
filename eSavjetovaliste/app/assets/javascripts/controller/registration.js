@@ -21,7 +21,7 @@ login.controller('LoginControler', ['$scope','$http', function($scope,$http){
 
 $http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.password,
             session: $scope.user}).success(function (data, status, headers, config) {
-            alert(data.name + ", uspješno ste prijavljeni!");
+            alert($scope.user.email + ", uspješno ste prijavljeni!");
             alert(data.toSource());
             //$window.location='/static_pages/home';
         });
