@@ -43,26 +43,35 @@
 	  <button ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
 	</div>
 </div>-->
-<div class="loginForm" ng-controller="LoginControler">
 
-	<h1> Login </h1>
+<div class="container">
+            
+            <div class="account-wall">
 
-  	<div class="field">
-		<label for="email">Email</label><br>
-		<input name="email" type="text" placeholder="E-mail" ng-model="user.email" />
-	</div>
+                <div class="form-signin" ng-controller="LoginControler">
+                	<h1 class="text-center login-title">eSavjetovaliste</h1>
 
-	<div class="field">
-		<label for="password">Šifra</label><br>
-		<input name="password" type="password" placeholder="Password" ng-model="user.password" />
-	</div>
+					<div class="input-prepend">
+      					<span class="add-on"><i class="icon-envelope"></i></span>
+      					<input type="text" class="form-control" name="email" placeholder="Email" ng-model="user.email" required autofocus>
+    				</div>
 
-	<input type="checkbox" name="remember">Zapamti me na ovom kompjuteru<br>
+    				<div class="input-prepend">
+      					<span class="add-on"><i class="icon-lock"></i></span>
+      					<input type="password" class="form-control" placeholder="Password" ng-model="user.password" required>
+    				</div>
 
-	<div class="actions">
-		<button ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavi se</button>
-	</div>
+	                <label class="checkbox pull-left">
+	                    <input type="checkbox" value="remember-me">
+	                    Zapamti me
+	                </label>
 
-	<p>Novi korisnik?</p>
+	                <button class="btn btn-lg btn-primary btn-block" ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavite se</button>
 
+	                <a href="#" class="pull-right new-account">Registriraj se</a>
+	                <a href="#" class="pull-left new-account">Zaboravio šifru?</a>
+
+                </div>
+
+    </div>
 </div>
