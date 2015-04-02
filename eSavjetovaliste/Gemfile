@@ -48,3 +48,5 @@ group :development do
 	gem "binding_of_caller"
 end
 gem 'mandrill_mailer'
+
+gem 'bootstrap-sass', '~>2.3.1.0'

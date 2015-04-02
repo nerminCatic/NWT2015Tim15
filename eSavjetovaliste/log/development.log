@@ -18569,3 +18569,445 @@ Processing by Api::SessionsController#create as JSON
   Parameters: {"email"=>"kanitaimamovic@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kanitaimamovic@gmail.com", "password"=>"[FILTERED]"}}
   [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kanitaimamovic@gmail.com' LIMIT 1[0m
 Completed 200 OK in 116ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:28:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (59.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 3960ms (Views: 3960.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:30 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:54 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:28:55 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:44 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:45 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:45 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:45 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:47 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:48 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:51 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:52 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:52 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:52 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:33:52 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 23ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:27 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:34:28 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-02 19:35:55 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1784ms (Views: 1783.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:57 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/controller/registration.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/feedbacks.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/reservations.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-02 19:35:58 +0200
