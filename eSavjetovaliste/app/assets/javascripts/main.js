@@ -1,2 +1,2 @@
 //registration = angular.module('registration', []);
-login = angular.module('registration', []);
+controllers = angular.module('controllers', []);

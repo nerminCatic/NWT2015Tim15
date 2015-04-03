@@ -1,4 +1,10 @@
-/*registration.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
+'use strict';
+
+//Controllers
+
+var controllers = angular.module('controllers', []);
+
+controllers.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
     $scope.registerUser = function(){
         $http.post('/api/users/register', {
          	user: $scope.user}).
@@ -14,9 +20,9 @@
         	    alert(data.toSource());
 	});
     };
-}]);*/
+}]);
 
-login.controller('LoginControler', ['$scope','$http', function($scope,$http){
+controllers.controller('LoginControler', ['$scope','$http', function($scope,$http){
     $scope.loginUser = function(){
 
 $http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.password,
@@ -30,10 +36,18 @@ $http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.pas
                 // or server returns response with an error status.
                 alert(data.toSource());
     });
-
-            
-
-
-
     };
+}]);
+
+controllers.controller('ResetControler', ['$scope', '$location',
+  function($scope, $location) {
+    // DOdati metod i servis
+    $scope.doReset = function() {
+        alert('Link za reset lozinke Vam je poslan na email.');
+    }
+    error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                alert(data.toSource());
+    });
 }]);
