@@ -1,8 +1,19 @@
 ESavjetovaliste::Application.routes.draw do
+  #Root 
+  root 'static_pages#index'
+  #Routes
+  get "static_pages/index"
+<<<<<<< HEAD
+  #get "static_pages/register"
+=======
 
+>>>>>>> 90f6c9eef133069648835e82e3814fe91ed96a60
   namespace :api, defaults: { format: :json } do
-    
-    resources :reservations
+    resources :password_resets  
+    resources :reservations do
+      put 'confirm', on: :member
+      put 'decline', on: :member
+    end
 
     resources :questions do
        resources :comments
@@ -12,7 +23,13 @@ ESavjetovaliste::Application.routes.draw do
 
     resources :feedbacks
 
-    resources :users
+    resources :sessions, :only => [:create, :destroy]
+
+    resources :users do
+        collection do
+            post :register
+        end
+    end
 
     resources :roles
   end

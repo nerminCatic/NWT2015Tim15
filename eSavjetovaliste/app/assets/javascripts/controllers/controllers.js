@@ -17,18 +17,36 @@ controllers.controller('LoginController', ['$scope','$http','$location',
         $scope.openRegistration = function() {
             $location.path('/register');
         }
+        $scope.openPassReset = function() {
+            $location.path('/password-reset');
+        }
 }]);
 //Registration
 controllers.controller('RegistrationController', ['$scope','$http', '$location',
     function($scope,$http,$location){
-    $scope.registerUser = function(){
-        $http.post('/api/users/register', {user: $scope.user}).
-            success(function(data, status, headers, config) {
-                alert(data.name + ", vaš zahtjev za registracijom je primljen!");
-                //$location.path('/index');
+        $scope.registerUser = function(){
+            $http.post('/api/users/register', {user: $scope.user}).
+                success(function(data, status, headers, config) {
+                    alert(data.name + ", vaš zahtjev za registracijom je primljen!");
+                    //$location.path('/index');
+                }).
+                error(function(data, status, headers, config) {
+                        alert(data.toSource());
+                });
+        }
+}]);
+//Reset
+controllers.controller('ResetController', ['$scope', '$http', '$location', 
+    function($scope,$http,$location){
+      $scope.doReset = function(){
+        alert('1');
+        //Nije pushan ovaj kontroler uopste..
+        $http.post('/api/password_resets', {email: $scope.user.email}).
+            success(function (data, status, headers, config) {
+                alert('Link za reset lozinke Vam je poslan na email.');
             }).
             error(function(data, status, headers, config) {
                     alert(data.toSource());
             });
-    };
+    }
 }]);

@@ -20,6 +20,10 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "home.html",
         //controller: 'HomeController'
       }).
+      when('/password-reset', {
+        templateUrl: "password-reset.html",
+        controller: 'ResetController'
+      }).
       otherwise({
         redirectTo: '/login'
       });
