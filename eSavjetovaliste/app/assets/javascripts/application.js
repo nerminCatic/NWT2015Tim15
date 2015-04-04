@@ -3,8 +3,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
- 
-// Add the following two lines
 //= require angular
-//= require main
+//= require angular-rails-templates
+//= require angular-route/angular-route
 //= require_tree .

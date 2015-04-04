@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
 
       if user.try(:authenticate, user_password)
           log_in user
-          render json: user.auth_token, status: 200, location: [:api, user]
+          render json: user, status: 200
           
       else
           render json: { errors: "Invalid email or password"}, status: 422
