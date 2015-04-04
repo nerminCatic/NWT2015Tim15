@@ -3,7 +3,7 @@
 //Controllers
 
 var controllers = angular.module('controllers', []);
-
+/*
 controllers.controller('RegistrationControler', ['$scope','$http', function($scope,$http){
     $scope.registerUser = function(){
         $http.post('/api/users/register', {
@@ -38,16 +38,20 @@ $http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.pas
     });
     };
 }]);
-
-controllers.controller('ResetControler', ['$scope', '$location',
-  function($scope, $location) {
-    // DOdati metod i servis
-    $scope.doReset = function() {
-        alert('Link za reset lozinke Vam je poslan na email.');
-    }
-    error(function(data, status, headers, config) {
+*/
+controllers.controller('ResetControler', ['$scope', '$location', function($scope,$http){
+  alert('0');
+  $scope.doReset = function(){
+    alert('1');
+    $http.post('/api/password_resets', {email: $scope.user.email})
+        alert('2');
+        .success(function (data, status, headers, config) {
+            alert('Link za reset lozinke Vam je poslan na email.');
+        });
+        error(function(data, status, headers, config) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
                 alert(data.toSource());
-    });
+        });
+        };
 }]);

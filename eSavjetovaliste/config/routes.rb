@@ -3,8 +3,9 @@ ESavjetovaliste::Application.routes.draw do
   root 'static_pages#index'
   #Routes
   get "static_pages/index"
+
   namespace :api, defaults: { format: :json } do
-    
+    resources :password_resets  
     resources :reservations do
       put 'confirm', on: :member
       put 'decline', on: :member

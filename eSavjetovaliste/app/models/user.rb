@@ -21,6 +21,19 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
 
+  def generate_token(column)
+    begin
+      slef[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.registration_email(@user).deliver
+  end
+
   def generate_authentication_token
       begin
         self.auth_token = Devise.friendly_token
