@@ -13,4 +13,16 @@ class UserMailer < MandrillMailer::TemplateMailer
       }
     )
   end
+
+  def reset_pass_email(user)
+    @user = user
+    mandrill_mail(
+      template: 'ResetPassword',
+      to:   @user.email, 
+      subject: "eSavjetovaliste - Reset lozinke",
+      vars: {
+        'RESET_LINK' =>user.password_reset_token,
+      }
+    )
+  end
 end
