@@ -1,18 +1,12 @@
 'use strict';
 var controllers = angular.module('controllers', []);
 //Login
-controllers.controller('LoginController', ['$scope','$http','$location',
-    function($scope,$http,$location){
-        $scope.loginUser = function(){
-            $http.post('/api/sessions', {email: $scope.user.email, password: $scope.user.password,
-                session: $scope.user}).
-            success(function(data, status, headers, config) {
-                alert(data.name + ", uspješno ste prijavljeni!");
-                $location.path('/home');
-            }).
-            error(function(data, status, headers, config) {
-                alert("Pogrešni pristupni podaci.");
-            });
+controllers.controller('LoginController', ['$scope','Session','$location',
+    function($scope, Session, $location){
+        $scope.loginUser = function() {
+            Session.create({email: $scope.user.email, password: $scope.user.password});
+            alert("Uspješno ste prijavljeni!");
+            $location.path('/home');
         }
         $scope.openRegistration = function() {
             $location.path('/register');
@@ -22,30 +16,20 @@ controllers.controller('LoginController', ['$scope','$http','$location',
         }
 }]);
 //Registration
-controllers.controller('RegistrationController', ['$scope','$http', '$location',
-    function($scope,$http,$location){
+controllers.controller('RegistrationController', ['$scope','UserRegister','$location',
+    function($scope, UserRegister, $location){
         $scope.registerUser = function(){
-            $http.post('/api/users/register', {user: $scope.user}).
-                success(function(data, status, headers, config) {
-                    alert(data.name + ", vaš zahtjev za registracijom je primljen!");
-                    //$location.path('/index');
-                }).
-                error(function(data, status, headers, config) {
-                        alert(data.toSource());
-                });
+            UserRegister.register({user: $scope.user});
+            alert($scope.user.name + ", vaš zahtjev za registracijom je primljen!");
+            $location.path('/login');
         }
 }]);
-//Reset
-controllers.controller('ResetController', ['$scope', '$http', '$location', 
-    function($scope,$http,$location){
+//Password reset
+controllers.controller('ResetController', ['$scope', 'PassReset', '$location', 
+    function($scope, PassReset ,$location){
       $scope.doReset = function(){
-        alert('1');
-        $http.post('/api/passwordresets', {email: "nermincatic1@gmail.com"}).
-            success(function (data, status, headers, config) {
-                alert('Link za reset lozinke Vam je poslan na email.');
-            }).
-            error(function(data, status, headers, config) {
-                    alert(data.toSource());
-            });
+        PassReset.create({email: $scope.user.email});
+        alert("Vaš zahtjev za obnovu šifre je primljen!");
+        $location.path('/login');
     }
 }]);

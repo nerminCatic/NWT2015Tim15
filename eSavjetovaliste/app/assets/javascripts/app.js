@@ -2,7 +2,8 @@
 var esavjetovaliste = angular.module('esavjetovaliste',[
   'templates',
   'ngRoute',
-  'controllers'
+  'controllers',
+  'services'
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
