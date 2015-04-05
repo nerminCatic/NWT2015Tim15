@@ -1,12 +1,12 @@
 @import "bootstrap";
 
+/*design for login form*/
 .form-signin
 {
     max-width: 330px;
     padding: 0px;
     margin: 0 auto;
 }
-
 .form-signin .checkbox
 {
     font-weight: normal;
@@ -17,7 +17,6 @@
     font-size: 16px;
     height: auto;
     padding: 10px;
-    
 }
 .form-signin .form-control:focus
 {
@@ -74,6 +73,9 @@
 {
     color: #ffffff;
 }
+/*end of design for login form*/
+
+/*application backround*/
 html { 
   background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -81,11 +83,17 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+/*end of application backround*/
+
+/*application footer*/
 #copyright{
 	position:absolute;
    bottom:0;
    left: 42%;
 }
+/*end of application footer*/
+
+/*design for registration form*/
 .register-wall
 {
     margin-top: 10px;
@@ -102,29 +110,9 @@ html {
     top: 50%;
     left: 50%;
     margin-left: -250px;
-    margin-top: -250px;
+    margin-top: -280px;
     width: 400px;
-    height: 500px;
-}
-.change-wall
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px 0px 10px 0px;
-    background-color: #000000;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
-    opacity:0.9;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: -250px;
-    width: 400px;
-    height: 300px;
+    height: 560px;
 }
 .form-register
 {
@@ -137,8 +125,7 @@ html {
     position: relative;
     font-size: 16px;
     height: auto;
-    padding: 7px;
-    
+    padding: 7px; 
 }
 .form-register .formr-control:focus
 {
@@ -160,8 +147,33 @@ html {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+/*end of design for registration form*/
 
-.forgot-acc
+/*design for change password when user is loged in form*/
+.change-wall
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 0px;
+    background-color: #000000;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+    opacity:0.9;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    width: 400px;
+    height: 300px;
+}
+/*end of design for change password when user is loged in form*/
+
+/*design for password reset form*/
+.reset-pass
 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -181,6 +193,9 @@ html {
     width: 400px;
     height: 220px;
 }
+/*end of design for password reset form*/
+
+/*design for forgot account form*/
 .forgot-acc
 {
     margin-top: 10px;
@@ -201,6 +216,9 @@ html {
     width: 400px;
     height: 170px;
 }
+/*end of design for forgot account form*/
+
+/*design for home page*/
 
 /*circle animated button*/
 .btn {
@@ -215,7 +233,6 @@ html {
   line-height: 1.428571429;
   -webkit-user-select: none;
   }
-
 .btn-circle {
   width: 70px;
   height: 70px;
@@ -231,16 +248,15 @@ html {
   top:300px;
   left: 520px;
 }
-
-
 .fa-angle-double-down:before {
   content: "\f103";
 }
-
-  a {
+a {
   text-decoration: none;
 }
+/*end of disign for circle animated button*/
 
+/*design for introduction section*/
 .intro {
   width: 100%;
   height: 100%;
@@ -250,7 +266,15 @@ html {
 #intro.intro {
   padding: 55% 0 0 0;
 }
+.intro .slogan {
+  text-align: center;
+}
+.intro .page-scroll {
+  text-align: center;
+}
+/*end of design for introduction section*/
 
+/*design for navigation bar*/
 .navbar-toggle {
   display: none;
   position: relative;
@@ -264,14 +288,12 @@ html {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-
 .navbar-collapse.collapse {
   display: block!important;
   height: auto!important;
   padding-bottom: 0;
   overflow: visible!important;
 }
-
 .navbar-collapse{
   margin-right: 0;
   margin-left: 0;
@@ -282,11 +304,9 @@ html {
   box-shadow: none;
   max-height: 340px;
 }
-
 .navbar-right {
   float: right!important;
 }
-
 .navbar {
   padding: 20px 0;
   border-bottom: 0;
@@ -294,15 +314,13 @@ html {
   background: 0 0;
   transition: background .5s ease-in-out,padding .5s ease-in-out;
   }
-
-  .container {
+.container {
   width: 1170px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
-
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
@@ -312,12 +330,24 @@ html {
   z-index: 1030;
     border-radius: 0;
 }
-
 .navbar-brand h1 {
   font-size: 20px;
   line-height: 40px;
 }
+.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left: -15px;
+}
+.navbar-brand {
+  height: 40px;
+  padding: 5px 15px;
+  font-size: 18px;
+  line-height: 1em;
+  font-weight: 700;
+  float: left;
+}
+/*end of design for navigation bar*/
 
+/*design for home titles*/
 h1.naslov1{
   text-transform: uppercase;
   font-weight: 700;
@@ -330,24 +360,4 @@ h2{
   top:200px;
   left:450px;
 }
-  
-.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-  margin-left: -15px;
-}
-
-.navbar-brand {
-  height: 40px;
-  padding: 5px 15px;
-  font-size: 18px;
-  line-height: 1em;
-  font-weight: 700;
-  float: left;
-}
-
-.intro .slogan {
-  text-align: center;
-}
-
-.intro .page-scroll {
-  text-align: center;
-}
+/*end of design for home title*/

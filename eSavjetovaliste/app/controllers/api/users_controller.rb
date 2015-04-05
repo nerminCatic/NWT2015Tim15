@@ -51,7 +51,7 @@ class Api::UsersController < ApplicationController
     @user.confirmed = "W"
     # json response
     respond_to do |format|
-      if @user.save
+      if !verify_recaptcha(:model => @user, :message => "CAPTCHA unos nije tacan!") && @user.save
         format.json { render json: @user, status: :created,  location: api_user_url(@user) }
         UserMailer.registration_email(@user).deliver
       else
