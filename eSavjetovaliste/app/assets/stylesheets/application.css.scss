@@ -201,3 +201,159 @@ html {
     width: 400px;
     height: 170px;
 }
+
+/*circle animated button*/
+.btn {
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+  margin-bottom: 5;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.428571429;
+  -webkit-user-select: none;
+  }
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+  padding: 7px 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #000000;
+  background: 0 0;
+  transition: background .3s ease-in-out;
+  position:absolute;
+  top:300px;
+  left: 520px;
+}
+
+
+.fa-angle-double-down:before {
+  content: "\f103";
+}
+
+  a {
+  text-decoration: none;
+}
+
+.intro {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: url('/assets/bcgnwt1.jpg') no-repeat top center;
+}
+#intro.intro {
+  padding: 55% 0 0 0;
+}
+
+.navbar-toggle {
+  display: none;
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-collapse.collapse {
+  display: block!important;
+  height: auto!important;
+  padding-bottom: 0;
+  overflow: visible!important;
+}
+
+.navbar-collapse{
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+  border-top: 0;
+  box-shadow: none;
+  max-height: 340px;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.navbar {
+  padding: 20px 0;
+  border-bottom: 0;
+  letter-spacing: 1px;
+  background: 0 0;
+  transition: background .5s ease-in-out,padding .5s ease-in-out;
+  }
+
+  .container {
+  width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+    border-radius: 0;
+}
+
+.navbar-brand h1 {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+h1{
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position:absolute;
+  top:10px;
+}
+h2{
+  position:absolute;
+  top:200px;
+  left:450px;
+}
+.logout{
+  position:absolute;
+  top:650px;
+  left:10px;
+  font-size:50px;
+}
+  
+.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left: -15px;
+}
+
+.navbar-brand {
+  height: 40px;
+  padding: 5px 15px;
+  font-size: 18px;
+  line-height: 1em;
+  font-weight: 700;
+  float: left;
+}
+
+.intro .slogan {
+  text-align: center;
+}
+
+.intro .page-scroll {
+  text-align: center;
+}

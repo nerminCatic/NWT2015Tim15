@@ -1,5 +1,44 @@
-<span class="user-info">
-    <small>Welcome,</small>
-    {{user.name}}
-</span>
-<span class="logout"><a href="" ng-click="logoutUser()">Logout</a></span>
+<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#/home">
+                    <h1>eSavjetovaliste</h1>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#/home">Home</a></li>
+		        <li><a href="#/home">About</a></li>
+				<li><a href="#/home">Service</a></li>
+				<li><a href="#/home">Contact</a></li>
+		      </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+		<div class="slogan">
+			<h2>DOBRO DOŠLI!</h2>
+		</div>
+		<div class="page-scroll">
+			<a href="#/home" class="btn btn-circle">
+				<i class="fa fa-angle-double-down animated"></i>
+			</a>
+		</div>
+    </section>
+	<!-- /Section: intro -->
+</body>
