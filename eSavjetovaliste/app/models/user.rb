@@ -21,17 +21,21 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
 
+  #metoda za generisanje tokena za prosljedjenu kolonu
   def generate_token(column)
     begin
-      slef[column] = SecureRandom.urlsafe_base64
+      self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
 
-  def send_password_reset
-    generate_token(:password_reset_token)
+  #metoda za slanje maila o resetu passworda
+  def send_password_reset(user)
+    @user = user
+    logger.debug("-----------------------------------------------" + Time.zone.now.to_s)
     self.password_reset_sent_at = Time.zone.now
+    generate_token(:password_reset_token)
     save!
-    UserMailer.registration_email(@user).deliver
+    UserMailer.reset_pass_email(@user).deliver
   end
 
   def generate_authentication_token

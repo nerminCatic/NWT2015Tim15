@@ -21,7 +21,7 @@ class UserMailer < MandrillMailer::TemplateMailer
       to:   @user.email, 
       subject: "eSavjetovaliste - Reset lozinke",
       vars: {
-        'RESET_LINK' =>user.password_reset_token,
+        'RESET_LINK' => "http://localhost:3000/api/passwordresets/" + @user.password_reset_token + "/edit",
       }
     )
   end
