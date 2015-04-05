@@ -1,11 +1,8 @@
 <!-- app/views/layouts/application.html.erb -->
 
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
-=======
 <html ng-app="controllers">
->>>>>>> 90f6c9eef133069648835e82e3814fe91ed96a60
 <head>
   <title>eSavjetovaliste</title>
   <%= stylesheet_link_tag    "application", media: "all" %>

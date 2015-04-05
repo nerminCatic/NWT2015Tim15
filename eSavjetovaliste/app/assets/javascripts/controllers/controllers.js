@@ -24,12 +24,25 @@ controllers.controller('RegistrationController', ['$scope','UserRegister','$loca
             $location.path('/login');
         }
 }]);
-//Password reset
+//Reset passworda - input email-a
 controllers.controller('ResetController', ['$scope', 'PassReset', '$location', 
     function($scope, PassReset ,$location){
       $scope.doReset = function(){
         PassReset.create({email: $scope.user.email});
         alert("Vaš zahtjev za obnovu šifre je primljen!");
-        $location.path('/login');
+        $location.path('/inputs-password-reset');
+    }
+}]);
+
+// Confirm Reset - Input passworda
+controllers.controller('InsertPwdForResetController', ['$scope', '$http', '$location', 
+    function($scope,$http,$location){
+      $scope.doResetConfirm = function(){
+        alert('1');
+        // TBD i token dodati!
+        ImputsPassReset.update('/api/passwordresets', {password: $scope.user.password, password_confirmation: $scope.user.password_confirmation});
+                alert('Lozinka je uspješno resetovana.');
+                $location.path('/login');
+            }).
     }
 }]);

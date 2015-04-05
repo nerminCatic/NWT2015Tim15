@@ -25,6 +25,10 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "password-reset.html",
         controller: 'ResetController'
       }).
+      when('/inputs-password-reset', {
+        templateUrl: "inputs-password-reset.html",
+        controller: 'InsertPwdForResetController'
+      }).
       otherwise({
         redirectTo: '/login'
       });

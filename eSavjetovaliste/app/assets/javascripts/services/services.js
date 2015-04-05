@@ -25,4 +25,10 @@ services.factory('PassReset', function ($resource) {
     create: { method: 'POST' }
   });
 });
+// Imputs passwords  reset service
+services.factory('ImputsPassReset', function ($resource) { // TBD token
+  return $resource('api/passwordresets', {password: '@password', password_confirmation: '@password_confirmation' }, {
+    create: { method: 'POST' }
+  });
+});
 

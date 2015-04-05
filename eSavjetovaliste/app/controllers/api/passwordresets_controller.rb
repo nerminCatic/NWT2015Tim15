@@ -2,23 +2,31 @@ class Api::PasswordresetsController < ApplicationController
   def new
   end
   def create
-    logger.debug("111111111111111111111111111111111")
     user_email = params[:email]
     user = user_email.present? && User.find_by(email: user_email)
 
-    user.send_password_reset 
+    user.send_password_reset(user) 
     if user
-	    redirect_to root_url, :notice => "Poslan Vam je e-mail sa instrukcijama za reset lozinke.";
 	    render json: user, status: 200
     else
           render json: { errors: "Invalid email"}, status: 422
     end
+  end
 
+  def edit
+  	user = User.find_by(password_reset_token: params[:password_reset_token])
+  	if user
+	    render json: user, status: 200
+    else
+          render json: { errors: "Invalid email"}, status: 422
+    end
+  end
 
-      #if user
-      #    render json: user, status: 200
-      #else
-      #    render json: { errors: "Invalid email"}, status: 422
-      #end
+  def update
+  	logger.debug("222222222222")
+  	@user = User.find_by_password_reset_token!(params[:id])
+  	if @user.password_reset_sent_at < 2.hours.ago
+  		
+  	end
   end
 end
