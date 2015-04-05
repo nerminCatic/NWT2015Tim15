@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token
   belongs_to :role  
   has_many :reservations
-#komentar
   has_secure_password
 
   # Required fields and lengths
@@ -31,7 +30,6 @@ class User < ActiveRecord::Base
   #metoda za slanje maila o resetu passworda
   def send_password_reset(user)
     @user = user
-    logger.debug("-----------------------------------------------" + Time.zone.now.to_s)
     self.password_reset_sent_at = Time.zone.now
     generate_token(:password_reset_token)
     save!

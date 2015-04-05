@@ -45,19 +45,21 @@ controllers.controller('ResetController', ['$scope', 'PassReset', '$location',
     function($scope, PassReset ,$location){
       $scope.doReset = function(){
         PassReset.create({email: $scope.user.email});
-        alert("Vaš zahtjev za obnovu šifre je primljen!");
+        alert("Vaš zahtjev za obnovu šifre je primljen! Upute za obnovu šifre bit će Vam poslane na email");
         $location.path('/inputs-password-reset');
     }
 }]);
 
 // Confirm Reset - Input passworda
-controllers.controller('InsertPwdForResetController', ['$scope', '$http', '$location', 
-    function($scope,$http,$location){
+controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams', 'InputsPassReset', '$location',
+    function($scope, $routeParams, InputsPassReset, $location){
       $scope.doResetConfirm = function(){
-        alert('1');
-        // TBD i token dodati!
-        ImputsPassReset.update('/api/passwordresets', {password: $scope.user.password, password_confirmation: $scope.user.password_confirmation});
-                alert('Lozinka je uspješno resetovana.');
-                $location.path('/login');    
+        // u resetPassObject-u se nalaze svi podaci koje dobavalja metod get
+        var resetPassObject = InputsPassReset.get({ id:$routeParams.id }); 
+        var idi = resetPassObject.id;
+        // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
+        InputsPassReset.update({ id:idi }, resetPassObject);
+        alert('Lozinka je uspješno resetovana.');
+        $location.path('/login');    
     }
 }]);
