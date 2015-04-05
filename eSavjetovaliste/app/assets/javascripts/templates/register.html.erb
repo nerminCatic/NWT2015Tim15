@@ -2,22 +2,21 @@
     <div class="register-wall">
 		<div class="form-register" ng-controller="RegistrationController">
 		  <h1 class="text-center login-title"> Registracija </h1>
-		  	
+		  	<form name="myForm">
 		  	<div class="input-prepend">
       			<span class="add-on"><i class="icon-user"></i></span>
-			  	<input name="name" class="formr-control" type="text" placeholder="Ime"ng-model="user.name" required autofocus/>
-			 </div>
-			 <div class="error" 
-		        ng-show="registrationForm.name.$dirty && registrationForm.name.$invalid">
-		    <small class="error" 
-		        ng-show="registrationForm.name.$error.required">
-		        Your name is required.
-		    </small>
+			  	<input name="name" class="formr-control" type="text" placeholder="Ime"ng-model="user.name" required autofocus/> <br>
+				<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">Unos imena je obavezan.</span>
+				</span>	
 		    </div>
 
 			<div class="input-prepend">
       			<span class="add-on"><i class="icon-user"></i></span>
-			  	<input name="surname" type="text" class="formr-control" placeholder="Prezime" ng-model="user.surname" />
+			  	<input name="surname" type="text" class="formr-control" placeholder="Prezime" ng-model="user.surname" required/>
+			  	<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+			    <span ng-show="myForm.user.$error.required">Unos prezimena je obavezan.</span>
+			    </span>	
 			</div>
 
 			<div class="input-prepend">
@@ -37,12 +36,18 @@
 
 			<div class="input-prepend">
       			<span class="add-on"><i class="icon-envelope"></i></span>
-			  	<input name="email" type="text" class="formr-control" placeholder="E-mail" ng-model="user.email" />
+			  	<input name="email" type="text" class="formr-control" placeholder="E-mail" ng-model="user.email" required />
+			  	<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+			    <span ng-show="myForm.user.$error.required">Unos emaila je obavezan.</span>
+			    </span>	
 			</div>
 
 			<div class="input-prepend">
       			<span class="add-on"><i class="icon-lock"></i></span>
-			  	<input name="password" type="password" class="formr-control" placeholder="Password" ng-model="user.password" />
+			  	<input name="password" type="password" class="formr-control" placeholder="Password" ng-model="user.password"  required/>
+			  	<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+			    <span ng-show="myForm.user.$error.required">Unos passworda je obavezan.</span>
+			    </span>	
 			</div>
 
 			<div class="input-prepend">
@@ -51,8 +56,9 @@
 			</div>
 
 			<div class="actions">
-			  <button class="btn btn-lg btn-primary btn-block" ng-click="registerUser()"  ng-disabled="registrationForm.$invalid">Kreiraj</button>
+			  <button class="btn btn-lg btn-primary btn-block" ng-click="registerUser()"  ng-disabled="myForm.$invalid">Kreiraj</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>
