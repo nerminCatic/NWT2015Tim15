@@ -318,7 +318,7 @@ html {
   line-height: 40px;
 }
 
-h1{
+h1.naslov1{
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
@@ -329,12 +329,6 @@ h2{
   position:absolute;
   top:200px;
   left:450px;
-}
-.logout{
-  position:absolute;
-  top:650px;
-  left:10px;
-  font-size:50px;
 }
   
 .container .navbar-brand, .navbar>.container-fluid .navbar-brand {
