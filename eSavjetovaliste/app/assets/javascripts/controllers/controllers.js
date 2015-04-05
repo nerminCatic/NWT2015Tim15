@@ -42,7 +42,6 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$http', '$loca
         // TBD i token dodati!
         ImputsPassReset.update('/api/passwordresets', {password: $scope.user.password, password_confirmation: $scope.user.password_confirmation});
                 alert('Lozinka je uspješno resetovana.');
-                $location.path('/login');
-            }).
+                $location.path('/login');    
     }
 }]);
