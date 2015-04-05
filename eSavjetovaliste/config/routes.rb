@@ -25,6 +25,7 @@ ESavjetovaliste::Application.routes.draw do
     resources :users do
         collection do
             post :register
+            post :change_password
         end
     end
 

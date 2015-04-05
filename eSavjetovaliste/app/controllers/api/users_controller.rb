@@ -24,6 +24,24 @@ class Api::UsersController < ApplicationController
   def edit
   end
 
+  def change_password
+    user_password = params[:password]
+    user_email = params[:email]
+    user_new_password = params[:new_password]
+    user_new_password_confirmation = params[:new_password_confirmation]
+    user = user_email.present? && User.find_by(email: user_email)
+
+      if user.try(:authenticate, user_password) 
+          user.password = user_new_password
+          user.password_confirmation = user_new_password_confirmation
+          user.save
+          render json: user, status: 200
+          
+      else
+          render json: { errors: "Invalid email or password"}, status: 422
+      end
+  end
+  
   def register
     @user = User.new(user_params)
     # default role: Gost

@@ -15,6 +15,22 @@ controllers.controller('LoginController', ['$scope','Session','$location',
             $location.path('/password-reset');
         }
 }]);
+// change password
+controllers.controller('ChangePassController', ['$scope','$http', '$location',
+    function($scope,$http,$location)
+        {
+        $scope.changePass = function(){
+        $http.post('/api/users/change_password', {password: $scope.user.password, 
+         email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation}).
+        success(function(data, status, headers, config) {
+                    alert(data.name + ", vaš zahtjev za promjenom passworda je primljen!");
+                    $location.path('/login');
+                }).
+                error(function(data, status, headers, config) {
+                        alert(data.toSource());
+                });
+            }
+    }]);
 //Registration
 controllers.controller('RegistrationController', ['$scope','UserRegister','$location',
     function($scope, UserRegister, $location){
