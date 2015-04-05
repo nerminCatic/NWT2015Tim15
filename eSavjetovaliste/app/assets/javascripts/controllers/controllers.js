@@ -40,8 +40,7 @@ controllers.controller('ResetController', ['$scope', '$http', '$location',
     function($scope,$http,$location){
       $scope.doReset = function(){
         alert('1');
-        //Nije pushan ovaj kontroler uopste..
-        $http.post('/api/password_resets', {email: $scope.user.email}).
+        $http.post('/api/passwordresets', {email: "nermincatic1@gmail.com"}).
             success(function (data, status, headers, config) {
                 alert('Link za reset lozinke Vam je poslan na email.');
             }).
