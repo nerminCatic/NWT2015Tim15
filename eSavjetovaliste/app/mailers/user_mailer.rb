@@ -1,7 +1,7 @@
 class UserMailer < MandrillMailer::TemplateMailer
   default from: "no-reply@esavjetovaliste.com"
   default from_name: "eSavjetovaliste"
-
+#Komentar
   def registration_email(user)
   	@user = user
     mandrill_mail(
@@ -9,7 +9,7 @@ class UserMailer < MandrillMailer::TemplateMailer
       to: @user.email, 
       subject: "eSavjetovaliste - Zahtjev za registraciju",
       vars: {
-        'IME_USERA' => @user.name,
+        'IME_USERA' => '<a>www.google.ba</a>',
       }
     )
   end

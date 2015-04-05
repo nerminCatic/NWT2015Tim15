@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token
   belongs_to :role  
   has_many :reservations
-
+#komentar
   has_secure_password
 
   # Required fields and lengths
