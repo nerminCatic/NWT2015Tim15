@@ -23,19 +23,16 @@ controllers.controller('NavBarController', ['$scope','$location',
         }
 }]);
 // change password
-controllers.controller('ChangePassController', ['$scope','$http', '$location',
-    function($scope,$http,$location)
+controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location',
+    function($scope,ChangePassword,$location)
         {
         $scope.changePass = function(){
-        $http.post('/api/users/change_password', {password: $scope.user.password, 
-         email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation}).
-        success(function(data, status, headers, config) {
-                    alert(data.name + ", vaš zahtjev za promjenom passworda je primljen!");
+         ChangePassword.change_password ({password: $scope.user.password, 
+         email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation});
+                    alert("Vaš zahtjev za promjenom passworda je primljen!");
                     $location.path('/login');
-                }).
-                error(function(data, status, headers, config) {
-                        alert(data.toSource());
-                });
+           
+            
             }
     }]);
 //Registration

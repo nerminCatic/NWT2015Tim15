@@ -60041,3 +60041,945 @@ Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 17:37:17 +0200
 
 
 Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 17:37:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (76.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddConfirmationTokenToUsers (20150406080447)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (167.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "confirm_user_token" character varying(255)[0m
+  [1m[35m (2.0ms)[0m  ALTER TABLE "users" ADD COLUMN "confirmation_sent_at" timestamp
+  [1m[36mSQL (33.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150406080447"]]
+  [1m[35m (111.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 21:29:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 10385ms (Views: 10383.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:12 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:13 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 21:30:14 +0200
+
+
+Started POST "/api/users/register" for 127.0.0.1 at 2015-04-06 21:31:08 +0200
+Processing by Api::UsersController#register as JSON
+  Parameters: {"user"=>{"name"=>"merima", "surname"=>"ziko", "job"=>"developer", "adress"=>"sarajevo", "phone"=>"061645909", "email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mRole Load (84.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'gost' LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (125.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('merima__1@hotmail.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."auth_token" = 'pzrqfRaScNxDw3eFgmU2' LIMIT 1
+  [1m[36mSQL (135.0ms)[0m  [1mINSERT INTO "users" ("adress", "auth_token", "confirmed", "created_at", "email", "job", "name", "password_digest", "phone", "role_id", "surname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["adress", "sarajevo"], ["auth_token", "pzrqfRaScNxDw3eFgmU2"], ["confirmed", "W"], ["created_at", Mon, 06 Apr 2015 19:31:10 UTC +00:00], ["email", "merima__1@hotmail.com"], ["job", "developer"], ["name", "merima"], ["password_digest", "$2a$10$S3sOyEE.xwKQa6khFr12cusFI5tJG0gIc9BSb2S.aclZARpHK4vMu"], ["phone", "061645909"], ["role_id", 5], ["surname", "ziko"], ["updated_at", Mon, 06 Apr 2015 19:31:10 UTC +00:00]]
+  [1m[35m (19.0ms)[0m  COMMIT
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."confirm_user_token" = 'uqwna7XONgS_-fqLEs49Kw' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mUser Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('merima__1@hotmail.com') AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."auth_token" = 'pzrqfRaScNxDw3eFgmU2' AND "users"."id" != 10) LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = $1, "confirm_user_token" = $2, "updated_at" = $3 WHERE "users"."id" = 10[0m  [["confirmation_sent_at", Mon, 06 Apr 2015 19:31:10 UTC +00:00], ["confirm_user_token", "uqwna7XONgS_-fqLEs49Kw"], ["updated_at", Mon, 06 Apr 2015 19:31:10 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Completed 201 Created in 3100ms (Views: 1.0ms | ActiveRecord: 388.0ms)
+
+
+Started POST "/api/sessions?email=merima__1@hotmail.com&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 21:31:21 +0200
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 228ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users/change_password" for 127.0.0.1 at 2015-04-06 21:31:50 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('merima__1@hotmail.com') AND "users"."id" != 10) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."auth_token" = 'pzrqfRaScNxDw3eFgmU2' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = 10  [["password_digest", "$2a$10$BsEeb0dEIFr4LVqY5MwCcOyoBz4C7KRXqwhRgupil/S0JExRkFiEy"], ["updated_at", Mon, 06 Apr 2015 19:31:50 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 371ms (Views: 1.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/sessions?email=merima__1@hotmail.com&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 21:31:59 +0200
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+Completed 422 Unprocessable Entity in 193ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:02:29 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 526ms (Views: 526.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:30 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:02:31 +0200
+
+
+Started POST "/api/sessions?email=merima__1@hotmail.com&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:02:40 +0200
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 226ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:03:08 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:04:06 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 528ms (Views: 528.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:07 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:04:08 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:04:09 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:04:09 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:04:31 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:05:51 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 515ms (Views: 514.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:52 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:05:53 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:05:54 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:05:54 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:06:16 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:06:44 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 510ms (Views: 509.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:45 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:46 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:06:47 +0200
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:07:00 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('merima__1@hotmail.com') AND "users"."id" != 10) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."auth_token" = 'pzrqfRaScNxDw3eFgmU2' AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "users" SET "password_digest" = $1, "updated_at" = $2 WHERE "users"."id" = 10  [["password_digest", "$2a$10$W5VPq53AKzLPqu0BnsC1aeu7BP/HP6qcfmPoIt.shTs5zZIy.8beC"], ["updated_at", Mon, 06 Apr 2015 20:07:00 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 374ms (Views: 1.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:07:02 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+Completed 422 Unprocessable Entity in 190ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:07:02 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 214ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:07:03 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+Completed 422 Unprocessable Entity in 179ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:07:08 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:07:46 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 575ms (Views: 575.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:07:47 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:47 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:48 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:07:49 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:07:50 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:07:50 +0200
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:08:05 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 195ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:08:06 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+Completed 422 Unprocessable Entity in 194ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:08:07 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 234ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:08:13 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 22:09:29 +0200
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 575ms (Views: 575.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:30 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:31 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 22:09:32 +0200
+
+
+Started POST "/api/users/change_password?email=merima__1@hotmail.com&new_password=[FILTERED]&new_password_confirmation=[FILTERED]&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:09:47 +0200
+Processing by Api::UsersController#change_password as JSON
+  Parameters: {"password"=>"[FILTERED]", "email"=>"merima__1@hotmail.com", "new_password"=>"[FILTERED]", "new_password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"merima__1@hotmail.com"}}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1
+Completed 422 Unprocessable Entity in 190ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/sessions?email=merima__1@hotmail.com&password=[FILTERED]" for 127.0.0.1 at 2015-04-06 22:09:55 +0200
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"merima__1@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'merima__1@hotmail.com' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 261ms (Views: 0.0ms | ActiveRecord: 2.0ms)
