@@ -31,4 +31,19 @@ services.factory('InputsPassReset', function ($resource) {
     update: { method: 'PUT' }
   });
 });
-
+// CRUD services for Category
+services.factory('Category', function($resource) {
+  return $resource('/api/categories/:id');
+});
+// CRUD services for Question
+services.factory('Question', function($resource) {
+  return $resource('/api/questions/:id');
+});
+// CRUD services for Feedback
+services.factory('Feedback', function($resource) {
+  return $resource('/api/feedbacks/:id');
+});
+// CRUD services for Reservation
+services.factory('Reservation', function($resource) {
+  return $resource('/api/reservations/:id');
+});
