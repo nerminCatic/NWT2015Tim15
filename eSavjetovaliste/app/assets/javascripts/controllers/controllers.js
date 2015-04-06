@@ -54,11 +54,14 @@ controllers.controller('ResetController', ['$scope', 'PassReset', '$location',
 controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams', 'InputsPassReset', '$location',
     function($scope, $routeParams, InputsPassReset, $location){
       $scope.doResetConfirm = function(){
-        // u resetPassObject-u se nalaze svi podaci koje dobavalja metod get
-        var resetPassObject = InputsPassReset.get({ id:$routeParams.id }); 
-        var idi = resetPassObject.id;
+        var idi = $routeParams.id;
+        var obj = new Object();
+        obj.password = $scope.user.password;
+        obj.password_confirmation = $scope.user.password_confirmation;
+        var jsonString= JSON.stringify(obj);
+        
         // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
-        InputsPassReset.update({ id:idi }, resetPassObject);
+        InputsPassReset.update({ id:idi }, jsonString);
         alert('Lozinka je uspješno resetovana.');
         $location.path('/login');    
     }

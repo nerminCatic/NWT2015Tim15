@@ -1,7 +1,7 @@
 class Api::PasswordresetsController < ApplicationController
-  
   def new
   end
+  
   
   #service for sending request for reset password
   def create
