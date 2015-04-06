@@ -1,15 +1,16 @@
 class UserMailer < MandrillMailer::TemplateMailer
   default from: "no-reply@esavjetovaliste.com"
   default from_name: "eSavjetovaliste"
-#Komentar
+
   def registration_email(user)
   	@user = user
     mandrill_mail(
       template: 'Registration',
       to: @user.email, 
-      subject: "eSavjetovaliste - Zahtjev za registraciju",
+      subject: "eSavjetovaliste - Potvrda registracije",
       vars: {
-        'IME_USERA' => '<a>www.google.ba</a>',
+        'CONFIRMATION_LINK' => "http://localhost:3000/api/users/" + @user.confirm_user_token + "/confirm",
+        'IME_USERA' => @user.name,
       }
     )
   end

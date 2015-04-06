@@ -23,7 +23,25 @@ class Api::UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
-
+  # Link for user confirmation
+  def confirm
+    if User.find_by(confirm_user_token: params[:id])
+      user = User.find_by!(confirm_user_token: params[:id])
+      # User is confirmed
+      if user.confirmation_sent_at < 2.hours.ago
+        #Link has expired
+        redirect_to "/#/register"
+      else
+        user.confirmed = "Y"
+        user.confirm_user_token = nil
+        user.save
+        redirect_to root_url
+      end
+    else
+      render json: { errors: "This link is invalid."}, status: 404
+      #redirect_to "/#/login"
+    end
+  end
   def change_password
     user_password = params[:password]
     user_email = params[:email]
@@ -53,7 +71,7 @@ class Api::UsersController < ApplicationController
     respond_to do |format|
       if !verify_recaptcha(:model => @user, :message => "CAPTCHA unos nije tacan!") && @user.save
         format.json { render json: @user, status: :created,  location: api_user_url(@user) }
-        UserMailer.registration_email(@user).deliver
+        @user.send_user_confirmation
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

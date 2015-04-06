@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   after_filter :set_csrf_cookie_for_ng
 
-  def log_in(user)
+  /def log_in(user)
     session[:user_id] = user.id
   end
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def log_out
     session.delete(:user_id)
     @current_user = nil
-  end
+  end/
 
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?

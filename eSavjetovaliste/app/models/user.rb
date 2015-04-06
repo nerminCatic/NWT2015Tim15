@@ -19,7 +19,13 @@ class User < ActiveRecord::Base
 	                    uniqueness: { case_sensitive: false }
 
   validates :auth_token, uniqueness: true
-
+  def is_confirmed
+    if confirmed == "Y"
+      true
+    else
+      false
+    end
+  end
   #metoda za generisanje tokena za prosljedjenu kolonu
   def generate_token(column)
     begin
@@ -35,10 +41,18 @@ class User < ActiveRecord::Base
     save!
     UserMailer.reset_pass_email(@user).deliver
   end
+  #metoda za slanje maila o resetu passworda
+  def send_user_confirmation
+    @user = self
+    self.confirmation_sent_at = Time.zone.now
+    generate_token(:confirm_user_token)
+    save!
+    UserMailer.registration_email(@user).deliver
+  end
 
   def generate_authentication_token
       begin
         self.auth_token = Devise.friendly_token
       end while self.class.exists?(auth_token: auth_token)
-    end
+  end
 end

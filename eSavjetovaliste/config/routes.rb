@@ -18,7 +18,12 @@ ESavjetovaliste::Application.routes.draw do
 
     resources :feedbacks
 
-    resources :sessions, :only => [:create, :destroy]
+    resources :sessions, :only => [:create] do
+      collection do
+        get :current_user
+        post :log_out
+      end
+    end
 
     resources :passwordresets
     
@@ -27,6 +32,7 @@ ESavjetovaliste::Application.routes.draw do
             post :register
             post :change_password
         end
+        get 'confirm', on: :member
     end
 
     resources :roles
