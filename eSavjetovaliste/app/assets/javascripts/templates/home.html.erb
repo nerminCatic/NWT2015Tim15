@@ -6,7 +6,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <!-- Navigation bar -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" ng-controller="NavBarController">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
@@ -18,10 +18,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#/home">Home</a></li>
-                <li><a href="#/home">About</a></li>
-		        <li><a href="#/changepass">Change password</a></li>
-				<li><a href="#/home">Logout</a></li>
+		        <li class="active"><a>Home</a></li>
+                <li><a>About</a></li>
+		        <li><a ng-click="openChangePass()">Change password</a></li>
+				<li><a>Logout</a></li>
 		      </ul>
             </div>
             <!-- /.navbar-collapse -->

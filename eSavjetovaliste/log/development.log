@@ -55538,3 +55538,118 @@ Processing by Api::SessionsController#create as JSON
   Parameters: {"email"=>"kanitaimamovic@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"kanitaimamovic@gmail.com", "password"=>"[FILTERED]"}}
   [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kanitaimamovic@gmail.com' LIMIT 1
 Completed 422 Unprocessable Entity in 117ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-04-06 15:46:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 1450ms (Views: 1449.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:37 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-06 15:46:37 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:37 +0200
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:37 +0200
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:37 +0200
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/angular-resource/angular-resource.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/angular-route/angular-route.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/angular-mocks.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/api/sessions.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:38 +0200
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/controllers/controllers.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/services/services.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/changepass.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/home.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/login.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/inputs-password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/password-reset.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/templates/register.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/bcgnwt1.jpg" for 127.0.0.1 at 2015-04-06 15:46:39 +0200
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2015-04-06 15:46:44 +0200

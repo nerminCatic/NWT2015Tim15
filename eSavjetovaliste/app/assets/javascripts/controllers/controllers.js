@@ -15,6 +15,13 @@ controllers.controller('LoginController', ['$scope','Session','$location',
             $location.path('/password-reset');
         }
 }]);
+//Navigation bar home page
+controllers.controller('NavBarController', ['$scope','$location',
+    function($scope, $location){
+        $scope.openChangePass = function() {
+            $location.path('/changepass');
+        }
+}]);
 // change password
 controllers.controller('ChangePassController', ['$scope','$http', '$location',
     function($scope,$http,$location)
