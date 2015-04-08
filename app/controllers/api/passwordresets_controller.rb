@@ -9,7 +9,7 @@ class Api::PasswordresetsController < ApplicationController
     user = user_email.present? && User.find_by(email: user_email)
     user.send_password_reset(user) 
     if user
-	    render json: user, status: 200
+      render json: user, status: 200
     else
       render json: { errors: "Invalid email"}, status: 422
     end
@@ -18,7 +18,7 @@ class Api::PasswordresetsController < ApplicationController
   def edit
     #provjera da li postoji user sa ovim password_reset_token-om
     # TBD hashiranje
-  	user = User.find_by!(password_reset_token: params[:id])
+    user = User.find_by!(password_reset_token: params[:id])
     token = params[:id]
     if user
       #proslijedjivanje na unos novog passworda ukoliko je token validan

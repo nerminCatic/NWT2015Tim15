@@ -9,7 +9,7 @@ class UserMailer < MandrillMailer::TemplateMailer
       to: @user.email, 
       subject: "eSavjetovaliste - Potvrda registracije",
       vars: {
-        'CONFIRMATION_LINK' => "http://localhost:3000/api/users/" + @user.confirm_user_token + "/confirm",
+        'CONFIRMATION_LINK' => root_url + "/api/users/" + @user.confirm_user_token + "/confirm",
         'IME_USERA' => @user.name,
       }
     )
@@ -22,7 +22,7 @@ class UserMailer < MandrillMailer::TemplateMailer
       to:   @user.email, 
       subject: "eSavjetovaliste - Reset lozinke",
       vars: {
-        'RESET_LINK' => "http://localhost:3000/api/passwordresets/" + @user.password_reset_token + "/edit",
+        'RESET_LINK' => root_url + "/api/passwordresets/" + @user.password_reset_token + "/edit",
       }
     )
   end
