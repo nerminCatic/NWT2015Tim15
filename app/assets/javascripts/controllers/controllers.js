@@ -1,6 +1,7 @@
 'use strict';
 var controllers = angular.module('controllers', []);
 //Login
+
 controllers.controller('LoginController', ['$scope','Session','$location',
     function($scope, Session, $location){
         $scope.loginUser = function() {
@@ -30,9 +31,7 @@ controllers.controller('ChangePassController', ['$scope','ChangePassword', '$loc
          ChangePassword.change_password ({password: $scope.user.password, 
          email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation});
                     alert("Vaš zahtjev za promjenom passworda je primljen!");
-                    $location.path('/login');
-           
-            
+                    $location.path('/login');       
             }
     }]);
 //Registration

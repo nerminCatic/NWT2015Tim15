@@ -56,3 +56,5 @@ gem 'angular-rails-templates'
 gem 'bower-rails'
 
 gem "recaptcha", :require => "recaptcha/rails"
+
+gem 'rails_12factor', group: :production
