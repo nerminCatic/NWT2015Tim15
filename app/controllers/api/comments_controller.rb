@@ -72,3 +72,4 @@ class Api::CommentsController < ApplicationController
       params.require(:comment).permit(:name, :comment, :description, :user_id, :question_id)
     end
 end
+#komentar

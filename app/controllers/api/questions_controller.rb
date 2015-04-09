@@ -86,3 +86,4 @@ class Api::QuestionsController < ApplicationController
       params.require(:question).permit(:name, :question, :description, :user_id, :category_id)
     end
 end
+#komentar

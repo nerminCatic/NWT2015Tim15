@@ -68,3 +68,4 @@ class Api::CategoriesController < ApplicationController
       params.require(:category).permit(:name, :description)
     end
 end
+#komentar

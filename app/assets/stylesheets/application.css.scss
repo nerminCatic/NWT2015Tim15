@@ -110,9 +110,14 @@ html {
     top: 50%;
     left: 50%;
     margin-left: -250px;
-    margin-top: -280px;
+    /*kada je captcha ukljucena*/
+    /*margin-top: -280px;*/
+    /*width: 400px;*/
+    /*height: 560px;*/
+    margin-top: -250px;
     width: 400px;
-    height: 560px;
+    height: 500px;
+
 }
 .form-register
 {

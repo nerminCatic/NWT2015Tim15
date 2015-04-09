@@ -68,3 +68,4 @@ class Api::RolesController < ApplicationController
       params.require(:role).permit(:name, :description)
     end
 end
+#komentar

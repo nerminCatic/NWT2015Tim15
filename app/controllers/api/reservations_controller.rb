@@ -117,3 +117,4 @@ class Api::ReservationsController < ApplicationController
       params.require(:reservation).permit(:status, :user_patient_id, :appointment_date, :receive_date, :description, :user_receive_id, :user_doctor_id, :confirm_date)
     end
 end
+#komentar

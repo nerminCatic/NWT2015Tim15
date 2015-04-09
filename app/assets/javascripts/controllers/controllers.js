@@ -69,3 +69,5 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams',
         $location.path('/login');    
     }
 }]);
+
+//Komentar

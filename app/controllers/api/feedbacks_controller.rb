@@ -68,3 +68,4 @@ class Api::FeedbacksController < ApplicationController
       params.require(:feedback).permit(:name, :description)
     end
 end
+#komentar
