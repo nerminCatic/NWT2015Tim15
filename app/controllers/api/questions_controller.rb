@@ -1,5 +1,5 @@
 class Api::QuestionsController < ApplicationController
-  before_filter :restrict_api_access
+  #before_filter :restrict_api_access
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
 

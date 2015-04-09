@@ -1,5 +1,5 @@
 class Api::PasswordresetsController < ApplicationController
-  before_filter :restrict_api_access
+  #before_filter :restrict_api_access
   def new
   end
   
