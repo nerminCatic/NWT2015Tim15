@@ -4,10 +4,13 @@ class Api::SessionsController < ApplicationController
     user_email = params[:email]
     user = user_email.present? && User.find_by(email: user_email)
 
-    if user.try(:authenticate, user_password) && user.is_confirmed
-        #log_in user
-        session[:user_id] = user.id
-        render json: user, status: 200
+    if user.confirmed == 'Y'
+      if user.try(:authenticate, user_password) 
+          #log_in user
+          session[:user_id] = user.id
+          pom = User.find(session[:user_id])
+          render json: user, status: 200
+      end
     else
         render json: { errors: "Invalid email or password"}, status: 422
     end
@@ -25,6 +28,7 @@ class Api::SessionsController < ApplicationController
       render json: { message: "No logged users."}, status: 200
     end
   end
+
   def log_out
     session[:user_id] = nil
     #log_out if logged_in?

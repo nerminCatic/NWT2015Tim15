@@ -1,4 +1,5 @@
 class Api::CommentsController < ApplicationController
+  before_filter :restrict_api_access
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :json
 

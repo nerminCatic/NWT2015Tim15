@@ -1,4 +1,5 @@
 class Api::PasswordresetsController < ApplicationController
+  before_filter :restrict_api_access
   def new
   end
   
@@ -33,13 +34,15 @@ class Api::PasswordresetsController < ApplicationController
     user_new_password = params[:password]
     user_new_password_confirmation = params[:password_confirmation]
     user = User.find_by!(password_reset_token: params[:id])
-    if user
+    if user 
+      if user.password_reset_sent_at > 2.hours.ago
         user.password = user_new_password
         user.password_confirmation = user_new_password_confirmation
         user.save
-        render json: user, status: 200        
+        render json: user, status: 200       
+      end 
     else
-         render json: { errors: "Invalid password"}, status: 422
+        render json: { errors: "This link is invalid."}, status: 404
     end
   end
 end

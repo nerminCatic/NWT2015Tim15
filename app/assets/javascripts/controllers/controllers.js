@@ -1,13 +1,18 @@
 'use strict';
 var controllers = angular.module('controllers', []);
 //Login
-
 controllers.controller('LoginController', ['$scope','Session','$location',
     function($scope, Session, $location){
         $scope.loginUser = function() {
-            Session.create({email: $scope.user.email, password: $scope.user.password});
-            alert("Uspješno ste prijavljeni!");
-            $location.path('/home');
+            Session.create({email: $scope.user.email, password: $scope.user.password}, 
+                function success() {
+                    alert("Uspješno ste prijavljeni!");
+                    $location.path('/home');
+                }, 
+                function err(){
+                   alert("Pogrešni login podaci!"); 
+                   $location.path('/login');
+                });
         }
         $scope.openRegistration = function() {
             $location.path('/register');
@@ -31,7 +36,8 @@ controllers.controller('ChangePassController', ['$scope','ChangePassword', '$loc
          ChangePassword.change_password ({password: $scope.user.password, 
          email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation});
                     alert("Vaš zahtjev za promjenom passworda je primljen!");
-                    $location.path('/login');       
+                    $location.path('/login');
+
             }
     }]);
 //Registration
@@ -64,9 +70,15 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams',
         var jsonString= JSON.stringify(obj);
         
         // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
-        InputsPassReset.update({ id:idi }, jsonString);
-        alert('Lozinka je uspješno resetovana.');
-        $location.path('/login');    
+        InputsPassReset.update({ id:idi }, jsonString, 
+            function success() {
+                alert('Lozinka je uspješno promijenjena.');
+                $location.path('/login'); 
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške. Rok od dva sata za promjenu šifre je istekao.');
+            });
+           
     }
 }]);
 

@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   after_filter :set_csrf_cookie_for_ng
 
+  def login_required
+    redirect_to('/') if current_user.blank?
+  end
   /def log_in(user)
     session[:user_id] = user.id
   end
