@@ -24,8 +24,13 @@ controllers.controller('LoginController', ['$scope','Session','$location',
 //Navigation bar home page
 controllers.controller('NavBarController', ['$scope','$location',
     function($scope, $location){
+        //change password form
         $scope.openChangePass = function() {
             $location.path('/changepass');
+        }
+        //logout
+        $scope.logOut = function() {
+            $location.path('/login');
         }
 }]);
 // change password
@@ -34,28 +39,43 @@ controllers.controller('ChangePassController', ['$scope','ChangePassword', '$loc
         {
         $scope.changePass = function(){
          ChangePassword.change_password ({password: $scope.user.password, 
-         email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation});
-                    alert("Vaš zahtjev za promjenom passworda je primljen!");
-                    $location.path('/login');
-
-            }
+         email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation}, 
+            function success() {
+                alert("Vaš zahtjev za promjenom passworda je primljen!");
+                $location.path('/login');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/changepass');
+            });
+        }
     }]);
 //Registration
 controllers.controller('RegistrationController', ['$scope','UserRegister','$location',
     function($scope, UserRegister, $location){
         $scope.registerUser = function(){
-            UserRegister.register({user: $scope.user});
-            alert($scope.user.name + ", vaš zahtjev za registracijom je primljen!");
-            $location.path('/login');
+            UserRegister.register({user: $scope.user},
+                function success() {
+                    alert($scope.user.name + ", vaš zahtjev za registracijom je primljen!");
+                    $location.path('/login');
+                }, 
+                function err() {
+                alert('Pogrešni podaci!');
+            });
         }
 }]);
 //Reset passworda - input email-a
 controllers.controller('ResetController', ['$scope', 'PassReset', '$location', 
     function($scope, PassReset ,$location){
       $scope.doReset = function(){
-        PassReset.create({email: $scope.user.email});
-        alert("Vaš zahtjev za obnovu šifre je primljen! Upute za obnovu šifre bit će Vam poslane na email");
-        $location.path('/inputs-password-reset');
+        PassReset.create({email: $scope.user.email}, 
+            function success() {
+                alert("Vaš zahtjev za obnovu šifre je primljen! Upute za obnovu šifre bit će Vam poslane na email");
+                $location.path('/inputs-password-reset');
+            }, 
+            function err() {
+                alert('Došlo je do greške. Molim Vas pokušajte ponovo kasnije.');
+        });
     }
 }]);
 
