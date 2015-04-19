@@ -3,7 +3,8 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'templates',
   'ngRoute',
   'controllers',
-  'services'
+  'services',
+  'auth'
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
@@ -19,7 +20,7 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/home', {
         templateUrl: "home.html",
-        //controller: 'HomeController'
+        controller: 'HomeController'
       }).
       when('/password-reset', {
         templateUrl: "password-reset.html",

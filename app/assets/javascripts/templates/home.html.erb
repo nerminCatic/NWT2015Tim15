@@ -6,7 +6,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <!-- Navigation bar -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container" ng-controller="NavBarController">
+        <div class="container" ng-controller="HomeController">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
@@ -20,8 +20,8 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a>Home</a></li>
                 <li><a>About</a></li>
-                <li><a ng-click="openChangePass()">Change password</a></li>
-                <li><a ng-click="logOut()">Logout</a></li>
+                <li><a href ng-click="openChangePass()">Change password</a></li>
+                <li><a href ng-click="logout()">Logout</a></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->

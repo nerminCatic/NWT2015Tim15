@@ -1,18 +1,14 @@
 'use strict';
 var controllers = angular.module('controllers', []);
 //Login
-controllers.controller('LoginController', ['$scope','Session','$location',
-    function($scope, Session, $location){
+controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$location',
+    function($scope, AuthService, AuthToken, $location){
+        if(AuthToken.get()) {
+            $location.path('/home');
+            console.log("Vec ste logovani. Token: " + AuthToken.get());
+        }
         $scope.loginUser = function() {
-            Session.create({email: $scope.user.email, password: $scope.user.password}, 
-                function success() {
-                    alert("Uspješno ste prijavljeni!");
-                    $location.path('/home');
-                }, 
-                function err(){
-                   alert("Pogrešni login podaci!"); 
-                   $location.path('/login');
-                });
+            AuthService.login($scope.user.email, $scope.user.password);
         }
         $scope.openRegistration = function() {
             $location.path('/register');
@@ -21,15 +17,23 @@ controllers.controller('LoginController', ['$scope','Session','$location',
             $location.path('/password-reset');
         }
 }]);
-//Navigation bar home page
-controllers.controller('NavBarController', ['$scope','$location',
-    function($scope, $location){
-        //change password form
+// Home controller
+controllers.controller('HomeController', ['$scope','$location','AuthToken','CurrentUser',
+    function($scope, $location, AuthToken, CurrentUser) {
+        if(!AuthToken.get()) {
+            $location.path('/login');
+            console.log("Morate se logovati!");
+        }
+        /*var user = CurrentUser.get({}, function() {
+            console.log(user.email);
+          }); */
+        //$scope.fullName = user.email;
         $scope.openChangePass = function() {
             $location.path('/changepass');
         }
-        //logout
-        $scope.logOut = function() {
+        $scope.logout = function() {
+            AuthToken.unset();
+            console.log("Log out. Token: " + AuthToken.get());
             $location.path('/login');
         }
 }]);

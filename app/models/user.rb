@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  before_create :generate_authentication_token
   belongs_to :role  
   has_many :reservations
   has_secure_password
@@ -17,8 +16,6 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, length: {minimum: 5, maximum: 255}, format: { with: VALID_EMAIL_REGEX },
 	                    uniqueness: { case_sensitive: false }
-
-  validates :auth_token, uniqueness: true
   def is_confirmed
     if confirmed == "Y"
       true
@@ -49,10 +46,17 @@ class User < ActiveRecord::Base
     save!
     UserMailer.registration_email(@user).deliver
   end
-
+/
   def generate_authentication_token
       begin
         self.auth_token = Devise.friendly_token
       end while self.class.exists?(auth_token: auth_token)
   end
+/
+  # JWT token
+  def generate_auth_token
+    payload = { user_id: self.id }
+    AuthToken.encode(payload)
+  end
+
 end
