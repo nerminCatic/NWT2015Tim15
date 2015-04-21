@@ -18,16 +18,13 @@ controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$
         }
 }]);
 // Home controller
-controllers.controller('HomeController', ['$scope','$location','AuthToken','CurrentUser',
-    function($scope, $location, AuthToken, CurrentUser) {
+controllers.controller('HomeController', ['$scope','$location','AuthToken',
+    function($scope, $location, AuthToken) {
         if(!AuthToken.get()) {
             $location.path('/login');
             console.log("Morate se logovati!");
         }
-        /*var user = CurrentUser.get({}, function() {
-            console.log(user.email);
-          }); */
-        //$scope.fullName = user.email;
+        $scope.userName = AuthToken.getUser();
         $scope.openChangePass = function() {
             $location.path('/changepass');
         }
@@ -37,15 +34,18 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken','Curr
             $location.path('/login');
         }
 }]);
-// change password
-controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location',
-    function($scope,ChangePassword,$location)
-        {
+// Change password
+controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location', 'AuthToken' ,
+    function($scope,ChangePassword,$location,AuthToken) {
+        if(!AuthToken.get()) {
+            $location.path('/login');
+            console.log("Morate se logovati!");
+        }
         $scope.changePass = function(){
          ChangePassword.change_password ({password: $scope.user.password, 
          email: $scope.user.email, new_password: $scope.user.new_password, new_password_confirmation: $scope.user.new_password_confirmation}, 
             function success() {
-                alert("Vaš zahtjev za promjenom passworda je primljen!");
+                alert("Šifra je uspješno promijenjena!");
                 $location.path('/login');
             }, 
             function err(){

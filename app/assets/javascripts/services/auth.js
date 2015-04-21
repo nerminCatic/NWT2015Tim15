@@ -1,11 +1,6 @@
 var auth = angular.module('auth', ['ngResource']);
-// Logged
-auth.factory('CurrentUser', function ($resource) {
-  return $resource('api/auth', {}, {
-      get: { method: 'GET' }
-  });
-});
-// Auth = Login
+
+// Auth = Login service
 auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location) {
   return {
     login: function(email, password) {
@@ -14,7 +9,7 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         email: email,
         password: password
       }).success(function(resp) {
-        AuthToken.set(resp.auth_token);
+        AuthToken.set(resp.auth_token, resp.user_name, resp.user_role);
         d.resolve(resp.user);
         console.log("Uspjesno logovan. Dobiven token: " + resp.auth_token);
         $location.path('/home'); 
@@ -31,13 +26,22 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
 });
 
 auth.service('AuthToken', function() {
-  this.set = function(token, type) { localStorage.setItem("token", token); localStorage.setItem("type", type);};
+  this.set = function(token, name, role) { 
+    localStorage.setItem("token", token);
+    localStorage.setItem("name", name);
+    localStorage.setItem("role", role);
+  };
   this.get = function() { return localStorage.getItem("token"); };
-  this.tipKorisnika = function() { return localStorage.getItem("type"); };
-  this.unset =  function() { return localStorage.removeItem("token");}
+  this.getRole = function() { return localStorage.getItem("role"); };
+  this.getUser = function() { return localStorage.getItem("name"); };
+  this.unset =  function() { 
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("name");
+  }
 });
 
-auth.factory("AuthInterceptor", function($q, $injector) {
+auth.factory("AuthInterceptor", function($q, $injector, $location) {
   return {
     // This will be called on every outgoing http request
     request: function(config) {
@@ -45,9 +49,19 @@ auth.factory("AuthInterceptor", function($q, $injector) {
       var token = AuthToken.get();
       config.headers = config.headers || {};
       if (token) {
-        config.headers.Authorization = "Token token=" + token;
+        config.headers.Authorization = "Bearer " + token;
       }
       return config || $q.when(config);
+    },
+    responseError: function(response) {
+      var matchesAuthenticatePath = response.config && response.config.url.match(new RegExp('/api/auth'));
+      console.log("ne valja");
+      if (!matchesAuthenticatePath) {
+        console.log("nemate pravo pristupa");
+        $location.path('/login');
+      }
+      $location.path('/login');
+      return $q.reject(response);
     }
   };
 });

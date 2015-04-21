@@ -1,5 +1,5 @@
 class Api::AuthController < ApplicationController
-  skip_before_action :authenticate_request
+  skip_before_action :authenticate_request, :set_current_user, only: [:authenticate]
   respond_to :json
 # Authenticate
   def authenticate
@@ -8,17 +8,13 @@ class Api::AuthController < ApplicationController
     user = user_email.present? && User.find_by(email: user_email)
 
     if user.try(:authenticate, user_password) && user.is_confirmed
-      render json: { auth_token: user.generate_auth_token }, status: 200
+      render json: { 
+        auth_token: user.generate_auth_token, 
+        user_name: user.name, 
+        user_role: user.role.name }, status: 200
     else
       render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
-  end
-# Find current user
-  def current_user
-    if decoded_auth_token
-      @current_user = User.find(decoded_auth_token[:user_id])
-    end
-    render json: { user: @current_user }, status: 200
   end
 # Token status?
   def token_status

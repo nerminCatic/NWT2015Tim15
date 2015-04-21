@@ -13,20 +13,13 @@ services.factory('UserRegister', function ($resource) {
     register: { method: 'POST' }
   });
 });
-// Log in service
-services.factory('Session', function ($resource) {
-  return $resource('api/sessions', {email: '@email', password: '@password'}, {
-    	create: { method: 'POST' }
-  });
-});
-
+// Change password
 services.factory('ChangePassword', function ($resource) {
      return $resource('/api/users/change_password',   {password: '@password', 
          email: '@email', new_password: '@new_password' , new_password_confirmation: '@new_password_confirmation'}, {
           change_password: { method: 'POST' }
           });
 });
-
 // Password reset service
 services.factory('PassReset', function ($resource) {
   return $resource('api/passwordresets', {email: '@email'}, {

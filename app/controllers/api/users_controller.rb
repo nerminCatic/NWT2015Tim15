@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-  #before_filter :restrict_api_access, except: [:create, :confirm, :reset_password]
-  #before_action :authenticate_with_token!, only: [:update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -44,21 +42,19 @@ class Api::UsersController < ApplicationController
     end
   end
   def change_password
+    user = @current_user
+    user_email = user.email
     user_password = params[:password]
-    user_email = params[:email]
     user_new_password = params[:new_password]
-    user_new_password_confirmation = params[:new_password_confirmation]
-    user = user_email.present? && User.find_by(email: user_email)
-
-      if user.try(:authenticate, user_password) 
-          user.password = user_new_password
-          user.password_confirmation = user_new_password_confirmation
-          user.save
-          render json: user, status: 200
-          
-      else
-          render json: { errors: "Invalid email or password"}, status: 422
-      end
+    user_new_password_confirmation = params[:new_password_confirmation] 
+    if user.try(:authenticate, user_password) and user_new_password == user_new_password_confirmation
+        user.password = user_new_password
+        user.password_confirmation = user_new_password_confirmation
+        user.save
+        render json: user, status: 200
+    else
+        render json: { errors: "Invalid email or password"}, status: 422
+    end
   end
   
   def register

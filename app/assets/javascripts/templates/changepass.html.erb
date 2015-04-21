@@ -6,17 +6,6 @@
     	<!--title-->
 		<h1 class="text-center login-title"> Promjena passworda </h1>
 
-    	<!-- input email-->
-		<div class="input-prepend">
-	      	<span class="add-on"><i class="icon-envelope"></i></span>
-			<input name="email" type="email" class="formr-control" placeholder="E-mail" ng-model="user.email" required autofocus/><br>
-			<!--email validation (client side)-->
-			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-				<span ng-show="myForm.email.$error.required">Unos emaila je obavezan.</span>
-				<span ng-show="myForm.email.$error.email">Format email addrese nije dobar.</span>
-			</span>	
-		</div>
-
 		<!-- input current password-->
 		<div class="input-prepend">
 	      	<span class="add-on"><i class="icon-lock"></i></span>
