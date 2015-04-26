@@ -82,24 +82,19 @@
                         <div class="form-group">
                             <label for="name">
                                 Name</label>
-                            <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter name" required="required">
+                            <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter your name" required="required">
                         </div>
                         <div class="form-group">
                             <label for="email">
                                 Email Address</label>
                             <div class="input-group">
                                 <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
-                                <input type="email" class="formf-control" placeholder="Enter email"></div>
+                                <input type="email" class="formf-control" ng-model="feedback.email" placeholder="Enter email"></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
-                                Subject</label>
-                            <select name="subject" class="formf-control">
-                                <option value="na" selected="">Choose One:</option>
-                                <option value="comment">Comment</option>
-                                <option value="complaint">Complaint</option>
-                                <option value="suggestions">Suggestions</option>
-                                <option value="compliment">Compliment</option>
+                                Type od feedback</label>
+                            <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
                             </select>
                         </div>
                     </div>
@@ -111,7 +106,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="myForm.$invalid">
+                        <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="feedbackForm.$invalid">
                             Send Message</button>
                     </div>
                 </div>

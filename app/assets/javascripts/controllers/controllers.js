@@ -108,6 +108,7 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams',
 //Send Feedback
 controllers.controller('FeedbackController', ['$scope','Feedback','$location',
     function($scope, Feedback, $location){
+       $scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
         $scope.sendFeedback = function(){
             Feedback.send({feedback: $scope.feedback},
                 function success() {
