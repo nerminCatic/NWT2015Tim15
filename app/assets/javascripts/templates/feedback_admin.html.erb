@@ -5,8 +5,16 @@ Sort by:
   <option value="age">Newest</option>
 </select>
 
-<ul class="phones" ng-controller="two_way_control">
+<!--<ul class="phones" ng-controller="two_way_control">
   <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
     <span>{{phone.name}}</span>
   </li>
-</ul>
+</ul>-->
+
+<div ng-controller="StocksCtrl">
+  <ul>
+    <li ng-repeat="stock in stocks">
+      {{stock.name}}, {{stock.description}}
+    </li>
+  </ul>
+</div>

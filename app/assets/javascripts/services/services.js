@@ -62,6 +62,15 @@ services.factory('GetFeedback', function($resource) {
     }
   };
 });
+app.factory('Stock', ['$resource', function($resource) {
+  function Stock() {
+    this.service = $resource('/api/feedbacks/:stockId', {stockId: '@id'});
+  };
+  Stock.prototype.all = function() {
+    return this.service.query();
+  };
+  return new Stock;
+}]);
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');

@@ -144,7 +144,7 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
         }
 }]);
 // Feedback admin
-controllers.controller('two_way_control', function ($scope) {
+/*controllers.controller('two_way_control', function ($scope) {
   $scope.phones = [
     {'name': 'Nexus S',
      'snippet': 'Fast just got faster with Nexus S.',
@@ -158,4 +158,8 @@ controllers.controller('two_way_control', function ($scope) {
   ];
 
 
-});
+});*/
+controllers.controller('StocksCtrl', ['$scope', '$resource', function($scope, $resource) {
+  var Stocks = $resource('/api/feedbacks');
+  $scope.stocks = Stocks.query();
+}]);
