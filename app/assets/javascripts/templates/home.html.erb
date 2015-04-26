@@ -32,14 +32,112 @@
     <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
-            <h2>DOBRO DOŠLI {{ userName }}</h2>
+            <h2 id="main-title">DOBRO DOŠLI {{ userName }}</h2>
         </div>
         <div class="page-scroll">
             <a href="#/home" class="btn btn-circle">
-                <i class="fa fa-angle-double-down animated"></i>
+                <i class="fa fa-angle-double-down pulse animated"></i>
             </a>
         </div>
     </section>
     <!-- /Section: intro -->
 </body>
-<!--komentar-->
+
+<!--feedback form-->
+<div class="heading-contact-title">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                    <div class="section-heading">
+                    <h2>Your feedback is very important to us!</h2>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+<div class="heading-contact">
+            <div class="container">
+            <div class="row">
+                
+            </div>
+            </div>
+        </div>
+<div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="boxed-grey">
+                <form id="contact-form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="formf-control" placeholder="Enter name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
+                                <input type="email" class="formf-control" placeholder="Enter email" required="required"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select name="subject" class="formf-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="comment">Comment</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="suggestions">Suggestions</option>
+                                <option value="compliment">Compliment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6" id="msg">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" id="btnf">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-lg-4" id="contact">
+            <div class="widget-contact">
+                <h5>Main Office</h5>
+                
+                <address>
+                  <strong>ESAVJETOVALISTE</strong><br>
+                  Zmaja od Bosne bb<br>
+                  71000, Sarajevo<br>
+                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+
+                <address>
+                  <strong>Email</strong><br>
+                  <a href="mailto:#">kontakt@esavjetovaliste.com</a>
+                </address>                   
+            
+            </div>  
+        </div>
+    </div>  
+
+</div>
+<!--feedback form-->
