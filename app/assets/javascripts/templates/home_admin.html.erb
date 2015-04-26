@@ -18,8 +18,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a>Home</a></li>
-                <li><a>About</a></li>
+                <li class="active"><a href>Home</a></li>
+                <li><a href>About</a></li>
                 <li><a href ng-click="openChangePass()">Change password</a></li>
                 <li><a href ng-click="logout()">Logout</a></li>
               </ul>
@@ -48,44 +48,50 @@
         </div>
 </br></br>
 <div class="row" ng-controller="HomeAdminController">
-            <div class="col-sm-3 col-md-3" ng-click="openUserManagement()">
-                <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
-                    </div>
-                    <div class="service-desc">
-                        <h5>Upravljanje korisnicima</h5>
-                        <p>Omogućene opcije dodavanja novih, te brisanja i uređivanja već postojećih korisnika.</p>
+            <a href class="normal" ng-click="openUserManagement()">
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
                         </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3" ng-click="openFeedback()">
-                <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
+                        <div class="service-desc">
+                            <h5>Upravljanje korisnicima</h5>
+                            <p>Omogućene opcije dodavanja novih, te brisanja i uređivanja već postojećih korisnika.</p>
+                            </div>
                     </div>
-                    <div class="service-desc">
-                        <h5>Upravljanje feedback-om</h5>
-                        <p>Omogućeno pregledanje svih primljenih povratinih informacija od korisnika, te odabir određenih za prikaz na početnoj stranici.</p>
-                        </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3" ng-click="openFeedback()">
-                <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/assets/category.png" alt="" height="100" width="100" align="middle">
                     </div>
-                    <div class="service-desc">
-                        <h5>Upravljanje kategorijama</h5>
-                        <p>Omogućeno pregledanje, dodavanje novih i brisanje već postojećih kategorija.</p>
+                </div>
+            </a>
+            <a href class="normal" ng-click="openFeedback()">
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
                         </div>
+                        <div class="service-desc">
+                            <h5>Upravljanje feedback-om</h5>
+                            <p>Omogućeno pregledanje svih primljenih povratinih informacija od korisnika, te odabir određenih za prikaz na početnoj stranici.</p>
+                            </div>
+                    </div>
+                    </div>
                 </div>
+            </a>
+            <a href class="normal" ng-click="openCategory()">
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="/assets/category.png" alt="" height="100" width="100" align="middle">
+                        </div>
+                        <div class="service-desc">
+                            <h5>Upravljanje kategorijama</h5>
+                            <p>Omogućeno pregledanje, dodavanje novih i brisanje već postojećih kategorija.</p>
+                            </div>
+                    </div>
+                    </div>
                 </div>
-            </div>
+            </a>
             
         </div>
