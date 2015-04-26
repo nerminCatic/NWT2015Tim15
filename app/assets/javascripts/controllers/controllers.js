@@ -56,6 +56,9 @@ controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
         $scope.openUserManagement = function() {
             $location.path('/user_management');
         }
+        $scope.openCategory = function() {
+            $location.path('/category_admin');
+        }
 }]);
 // Change password
 controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location', 'AuthToken' ,

@@ -12,6 +12,7 @@ class Api::FeedbacksController < ApplicationController
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
+    @feedbacks = Feedback.all
   end
 
   # GET /feedbacks/new

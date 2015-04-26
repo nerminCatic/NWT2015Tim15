@@ -28,6 +28,10 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/feedback_admin', {
         templateUrl: "feedback_admin.html",
+        controller: 'FeedbackCtrl'
+      }).
+      when('/category_admin', {
+        templateUrl: "category_admin.html",
         //controller: 'FeedbackAdminController'
       }).
       when('/user_management', {

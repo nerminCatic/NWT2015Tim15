@@ -1,1 +1,1 @@
-json.extract! @feedback, :id, :name, :description, :created_at, :updated_at
+json.extract! @feedback, :id, :name, :description, :created_at, :updated_at, :email, :form
