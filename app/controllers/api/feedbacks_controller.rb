@@ -1,17 +1,24 @@
 class Api::FeedbacksController < ApplicationController
   #before_filter :restrict_api_access
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_request, :set_current_user
   respond_to :json
 
   # GET /feedbacks
   # GET /feedbacks.json
   def index
     @feedbacks = Feedback.all
+    respond_to do |format|
+      format.json {
+        render json: { feedbacks: @feedbacks }
+      }
+    end
   end
 
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
+    respond_with @feedback
   end
 
   # GET /feedbacks/new

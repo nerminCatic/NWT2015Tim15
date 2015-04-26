@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 20150426131555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "auth_tokens", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
