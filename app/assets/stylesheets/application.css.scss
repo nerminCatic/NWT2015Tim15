@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+#ha{
+  background-image: none !important;
+}
+.bcgnone
+{
+  background-image: none !important;
+}
+
 /*design for login form*/
 .form-signin
 {
@@ -76,8 +84,8 @@
 /*end of design for login form*/
 
 /*application backround*/
-body:not(#ha) { 
-  background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed; 
+.bcg { 
+  background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed !important; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -608,10 +616,11 @@ form#contact-form input, form#contact-form select, form#contact-form textarea {
 .col-md-3 {
   width: 25%;
   float: left;
-    position: relative;
+  position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left:70px;
 }
 .service-icon {
   margin-bottom: 20px;
@@ -622,8 +631,38 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
-#ha{
-  background-image: none !important;
+/*homeAdmin animation*/
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+/*end of homeAdmin animation*/
 /*end of design for home_Admin*/

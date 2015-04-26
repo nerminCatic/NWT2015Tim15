@@ -1,45 +1,47 @@
 <!--Login form-->
-<div class="container">      
-  <div class="account-wall">
-    <form class="form-signin" name="myForm" ng-controller="LoginController">
-      <!--title-->
-      <h1 class="text-center login-title">eSavjetovaliste</h1>
+<div class="container">  
+  <div class="bcg" style="height:600px">    
+    <div class="account-wall">
+      <form class="form-signin" name="myForm" ng-controller="LoginController">
+        <!--title-->
+        <h1 class="text-center login-title">eSavjetovaliste</h1>
 
-      <!--input email-->
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-        <input name="email" type="email" class="formr-control" placeholder="E-mail" ng-model="user.email" required autofocus/><br>
-        <!--email validation-->
-        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-          <span ng-show="myForm.email.$error.required">Unos emaila je obavezan.</span>
-          <span ng-show="myForm.email.$error.email">Format email addrese nije dobar.</span>
-        </span> 
+        <!--input email-->
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-envelope"></i></span>
+          <input name="email" type="email" class="formr-control" placeholder="E-mail" ng-model="user.email" required autofocus/><br>
+          <!--email validation-->
+          <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+            <span ng-show="myForm.email.$error.required">Unos emaila je obavezan.</span>
+            <span ng-show="myForm.email.$error.email">Format email addrese nije dobar.</span>
+          </span> 
+        </div>
+
+        <!-- input password-->
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-lock"></i></span>
+          <input name="password" type="password" minlength="3" class="formr-control" placeholder="Šifra" ng-model="user.password"  required/><br>
+          <!--password validation (client side)-->
+          <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+              <span ng-show="myForm.password.$error.required">Unos pasvorda je obavezan.</span>Pasvord mora imati više od 3 karaktera.
+          </span> 
+        </div>
+
+        <!--checkbox rememer me?-->
+        <label class="checkbox pull-left">
+            <input type="checkbox" value="remember-me">
+            Zapamti me
+        </label>
+
+        <!--submit button-->
+        <button class="btn btn-lg btn-primary btn-block" ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavite se</button>
+
+        <!--link for registration form-->
+        <a class="pull-right new-account" href ng-click="openRegistration()">Registriraj se</a>
+        <!--link for forgot password form-->
+        <a class="pull-left new-account" href ng-click="openPassReset()">Zaboravio šifru?</a>
+
+        </form>
       </div>
-
-      <!-- input password-->
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-lock"></i></span>
-        <input name="password" type="password" minlength="3" class="formr-control" placeholder="Šifra" ng-model="user.password"  required/><br>
-        <!--password validation (client side)-->
-        <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
-            <span ng-show="myForm.password.$error.required">Unos pasvorda je obavezan.</span>Pasvord mora imati više od 3 karaktera.
-        </span> 
-      </div>
-
-      <!--checkbox rememer me?-->
-      <label class="checkbox pull-left">
-          <input type="checkbox" value="remember-me">
-          Zapamti me
-      </label>
-
-      <!--submit button-->
-      <button class="btn btn-lg btn-primary btn-block" ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavite se</button>
-
-      <!--link for registration form-->
-      <a class="pull-right new-account" href ng-click="openRegistration()">Registriraj se</a>
-      <!--link for forgot password form-->
-      <a class="pull-left new-account" href ng-click="openPassReset()">Zaboravio šifru?</a>
-
-      </form>
-    </div>
+  </div>
 </div>
