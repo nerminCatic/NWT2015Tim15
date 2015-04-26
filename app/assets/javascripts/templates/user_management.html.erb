@@ -1,25 +1,61 @@
-Dodavanje novog usera: 
-<div class="actions">				<!-- TBD dodati formu za dodavanje novog usera sa rolom!-->
-	<button class="btn btn-lg btn-primary btn-block" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
+<!--</br></br>
+<div class="pretraga">
+  Dodavanje novog usera: 
+  <div class="actions">				<!-- TBD dodati formu za dodavanje novog usera sa rolom!-->
+ <!-- 	<button class="btn btn-primary" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
+  </div>
+</div>-->
+</br></br>
+<div class="pretraga">
+  Sortiraj po:
+  <select ng-model="orderProp" class="form-control">
+    <option value="name">Imenima</option>
+    <option value="surname">Prezimenima</option>
+  </select>
+  Pretraga: <input ng-model="query" class="form-control">
+  Dodavanje novog usera: 
+  <button class="btn btn-primary" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
 </div>
 
-Pretraga: <input ng-model="query">
-Sortiraj po:
-<select ng-model="orderProp">
-  <option value="name">Imenima</option>
-  <option value="surname">Prezimenima</option>
-</select>
 
-<div ng-controller="SearchUsersControler">
+<!--<div ng-controller="SearchUsersControler">
   <ul>
     <li ng-repeat="user in users | filter:query | orderBy:orderProp">
       {{user.name}}, {{user.surname}}, {{user.email}},  {{user.job}}
       <div class="actions">				<!-- TBD dodati metodu da otvara formu za editovanje usera!-->
-	  	<button class="btn btn-lg btn-primary btn-block" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
+	<!--  	<button class="btn btn-primary" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
 	  </div>
 	  <div class="actions">				<!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
-	  	<button class="btn btn-lg btn-primary btn-block" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
+	<!--  	<button class="btn btn-primary" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
 	  </div>
     </li>
   </ul>
-</div>
+</div>-->
+
+</br></br>
+<table class="table table-hover table-condensed tabela" ng-controller="SearchUsersControler">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Email</th>
+            <th>Posao</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users | filter:query | orderBy:orderProp">
+        <td> {{user.name}}</td>
+        <td> {{user.surname}}</td>
+        <td> {{user.email}}</td>
+        <td> {{user.job}}</td>
+        <td>
+          <div class="actions">       <!-- TBD dodati metodu da otvara formu za editovanje usera!-->
+            <button class="btn btn-primary btn-usr-mng" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          </div>
+          <div class="actions">       <!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
+            <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
+          </div>
+        </td>
+      </tr>
+</table>
