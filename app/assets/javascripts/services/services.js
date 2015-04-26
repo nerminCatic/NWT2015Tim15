@@ -47,30 +47,16 @@ services.factory('Feedback', function($resource) {
   });
 });
 // get Feedback
-services.factory('GetFeedback', function($resource) {
-  return {
-    get: function() {
-      var d = $q.defer();
-      $http.get('/api/feedbacks', {}).success(function(resp) {
-        if(resp.status.message == "OK") { $rootScope.content = resp; }
-        else { flash.setMessage(resp.status.message); $location.path('/'); }
-      }).error(function(resp) {
-        flash.setMessage(resp.status.message);
-        $location.path('/');
-      });
-      return d.promise;
-    }
-  };
-});
-app.factory('Stock', ['$resource', function($resource) {
-  function Stock() {
+services.factory('GetFeedback', ['$resource', function($resource) {
+  function GetFeedback() {
     this.service = $resource('/api/feedbacks/:stockId', {stockId: '@id'});
   };
-  Stock.prototype.all = function() {
+  GetFeedback.prototype.all = function() {
     return this.service.query();
   };
-  return new Stock;
+  return new GetFeedback;
 }]);
+
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');
