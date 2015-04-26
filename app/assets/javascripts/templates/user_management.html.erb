@@ -1,0 +1,25 @@
+Dodavanje novog usera: 
+<div class="actions">				<!-- TBD dodati formu za dodavanje novog usera sa rolom!-->
+	<button class="btn btn-lg btn-primary btn-block" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
+</div>
+
+Pretraga: <input ng-model="query">
+Sortiraj po:
+<select ng-model="orderProp">
+  <option value="name">Imenima</option>
+  <option value="surname">Prezimenima</option>
+</select>
+
+<div ng-controller="SearchUsersControler">
+  <ul>
+    <li ng-repeat="user in users | filter:query | orderBy:orderProp">
+      {{user.name}}, {{user.surname}}, {{user.email}},  {{user.job}}
+      <div class="actions">				<!-- TBD dodati metodu da otvara formu za editovanje usera!-->
+	  	<button class="btn btn-lg btn-primary btn-block" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
+	  </div>
+	  <div class="actions">				<!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
+	  	<button class="btn btn-lg btn-primary btn-block" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
+	  </div>
+    </li>
+  </ul>
+</div>

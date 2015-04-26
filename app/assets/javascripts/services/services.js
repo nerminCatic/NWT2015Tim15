@@ -13,6 +13,18 @@ services.factory('UserRegister', function ($resource) {
     register: { method: 'POST' }
   });
 });
+
+// get Users
+services.factory('GetUser', ['$resource', function($resource) {
+  function GetUser() {
+    this.service = $resource('/api/users/:userId', {userId: '@id'});
+  };
+  GetUser.prototype.all = function() {
+    return this.service.query();
+  };
+  return new GetUser;
+}]);
+
 // Change password
 services.factory('ChangePassword', function ($resource) {
      return $resource('/api/users/change_password',   {password: '@password', 

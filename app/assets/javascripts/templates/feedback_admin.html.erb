@@ -10,7 +10,7 @@ Sortiraj po:
 <div ng-controller="FeedbackCtrl">
   <ul>
     <li ng-repeat="feedback in feedbacks | filter:query | orderBy:orderProp">
-      {{feedback.id}}, {{feedback.name}}, {{feedback.description}}, {{feedback.email}},  {{feedback.form}}
+      {{feedback.name}}, {{feedback.description}}, {{feedback.email}},  {{feedback.form}}
     </li>
   </ul>
 </div>

@@ -150,3 +150,8 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
 controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope, GetFeedback) {
   $scope.feedbacks = GetFeedback.all();
 }]);
+
+// User management searching
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser', function($scope, GetUser) {
+  $scope.users = GetUser.all();
+}]);
