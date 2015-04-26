@@ -1,0 +1,78 @@
+<!--home page for admin-->
+<head>
+    <!--font for icon in circle button on home page-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target=".navbar-custom" id="ha" >
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container" ng-controller="HomeAdminController">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#/home_admin">
+                    <h1 class="naslov1">eSavjetovaliste</h1>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a>Home</a></li>
+                <li><a>About</a></li>
+                <li><a href ng-click="openChangePass()">Change password</a></li>
+                <li><a href ng-click="logout()">Logout</a></li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+</body>
+</br></br></br>
+
+<div class="heading-contact-title">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                    <div class="section-heading">
+                    <h2>Opcije</h2>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</br></br>
+<div class="row" ng-controller="HomeAdminController">
+            <div class="col-sm-3 col-md-3" ng-click="openFeedback()">
+                <div class="wow fadeInLeft animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
+                    </div>
+                    <div class="service-desc">
+                        <h5>Upravljanje korisnicima</h5>
+                        <p>Omogućene opcije dodavanja novih, te brisanja i uređivanja već postojećih korisnika.</p>
+                        </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3" ng-click="openUserManagement()">
+                <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
+                    </div>
+                    <div class="service-desc">
+                        <h5>Upravljanje feedback-om</h5>
+                        <p>Omogućeno pregledanje svih primljenih povratinih informacija od korisnika, te odabir određenih za prikaz na početnoj stranici.</p>
+                        </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
