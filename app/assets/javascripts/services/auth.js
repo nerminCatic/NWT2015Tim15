@@ -11,8 +11,18 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
       }).success(function(resp) {
         AuthToken.set(resp.auth_token, resp.user_name, resp.user_role);
         d.resolve(resp.user);
-        console.log("Uspjesno logovan. Dobiven token: " + resp.auth_token);
-        $location.path('/home'); 
+        console.log("Uspješno logovan. Dobiven token: " + resp.auth_token);
+        // For manager - special functionality
+        if(resp.user_role == "menadzer")
+        {
+          alert("Prijavljeni ste kao menadžer!");
+          $location.path('/home_admin'); 
+        }
+        else
+        {
+          alert("opcaca");
+          $location.path('/home'); 
+        }
       }).error(function(resp) {
         console.log($rootScope);
        // $scope.errorMsg ="Netačni podaci!";

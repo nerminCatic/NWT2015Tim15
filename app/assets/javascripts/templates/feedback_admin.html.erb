@@ -1,0 +1,16 @@
+Pretraga: <input ng-model="query">
+Sortiraj po:
+<select ng-model="orderProp">
+  <option value="name">Imenima</option>
+  <option value="description">Opisu</option>
+  <option value="email">Emailu</option>
+  <option value="form">Tipu</option>
+</select>
+
+<div ng-controller="FeedbackCtrl">
+  <ul>
+    <li ng-repeat="feedback in feedbacks | filter:query | orderBy:orderProp">
+      {{feedback.name}}, {{feedback.description}}, {{feedback.email}},  {{feedback.form}}
+    </li>
+  </ul>
+</div>

@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+#ha{
+  background-image: none !important;
+}
+.bcgnone
+{
+  background-image: none !important;
+}
+
 /*design for login form*/
 .form-signin
 {
@@ -76,8 +84,8 @@
 /*end of design for login form*/
 
 /*application backround*/
-html { 
-  background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed; 
+.bcg { 
+  background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed !important; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -239,14 +247,29 @@ html {
   -webkit-user-select: none;
   }
 .btn-circle {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   margin-top: 15px;
   padding: 7px 16px;
-  border: 2px solid #fff;
+  border: 2px solid #0000CD;
   border-radius: 50%;
   font-size: 40px;
-  color: #000000;
+  color: #0000CD;
+  background: 0 0;
+  transition: background .3s ease-in-out;
+  position:absolute;
+  top:300px;
+  left: 520px;
+}
+.btn-circle:hover {
+  width: 50px;
+  height: 50px;
+  margin-top: 15px;
+  padding: 7px 16px;
+  border: 2px solid #0000CD;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #0000CD;
   background: 0 0;
   transition: background .3s ease-in-out;
   position:absolute;
@@ -256,6 +279,46 @@ html {
 .fa-angle-double-down:before {
   content: "\f103";
 }
+/*button circle animation*/
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse:hover {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+/*end of button circle animation*/
 a {
   text-decoration: none;
 }
@@ -360,13 +423,246 @@ h1.naslov1{
   position:absolute;
   top:10px;
 }
-h2{
+#main-title{
   position:absolute;
   top:200px;
-  left:450px;
+  left:400px;
 }
 /*end of design for home title*/
 
 .input-prepend{
   font-size:15px;
 }
+
+/*design for feedback form*/
+/*title feedback form*/
+@-webkit-keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+.heading-contact-title{
+  text-align:center;
+}
+.col-lg-offset-2 {
+  margin-left: 16.666666666666664%;
+}
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+
+  -webkit-animation-fill-mode: both;
+
+}
+/*end of design for title of feedback form*/
+.container {
+  width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.col-lg-8 {
+  width: 66.66666666666666%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-lg-4 {
+  width: 33.33333333333333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.boxed-grey {
+  background: #f9f9f9;
+  padding: 20px;
+}
+.col-md-6 {
+  width: 50%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-md-12 {
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+textarea {
+  border-radius: 0;
+  border: 1px solid #eee;
+  box-shadow: none;
+  overflow: auto;
+  margin: 0;
+}
+textarea.form-control {
+  height: auto;
+}
+.widget-contact {
+  text-align: left;
+}
+form#contact-form input, form#contact-form select, form#contact-form textarea {
+  border-radius: 0;
+  border: 1px solid #eee;
+  box-shadow: none;
+}
+#msg{
+  position:absolute;
+  left:400px;
+  top:20px;
+}
+.formf-control
+{
+    width:350px;
+}
+#btnf{
+  position:absolute;
+  left:620px;
+}
+#contact{
+  position:absolute;
+  left:950px;
+}
+/*end of design for feedback form*/
+/*design for home_Admin*/
+.col-md-3 {
+  width: 25%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left:70px;
+}
+.service-icon {
+  margin-bottom: 20px;
+}
+img {
+  vertical-align: middle;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*homeAdmin animation*/
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+/*end of homeAdmin animation*/
+/*end of design for home_Admin*/

@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_request, :set_current_user, only: [:register]
-  respond_to :json
+  skip_before_action :authenticate_request, :set_current_user, only: [:register, :update, :destroy]  respond_to :json
 
   # GET /users
   # GET /users.json

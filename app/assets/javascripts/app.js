@@ -22,6 +22,18 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "home.html",
         controller: 'HomeController'
       }).
+      when('/home_admin', {
+        templateUrl: "home_admin.html",
+        controller: 'HomeAdminController'
+      }).
+      when('/feedback_admin', {
+        templateUrl: "feedback_admin.html",
+        //controller: 'FeedbackAdminController'
+      }).
+      when('/user_management', {
+        templateUrl: "user_management.html",
+        //controller: 'UserManagementController'
+      }).
       when('/password-reset', {
         templateUrl: "password-reset.html",
         controller: 'ResetController'

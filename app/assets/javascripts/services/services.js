@@ -40,10 +40,23 @@ services.factory('Category', function($resource) {
 services.factory('Question', function($resource) {
   return $resource('/api/questions/:id');
 });
-// CRUD services for Feedback
+// send Feedback
 services.factory('Feedback', function($resource) {
-  return $resource('/api/feedbacks/:id');
+  return $resource('/api/feedbacks', {}, {
+    send: { method: 'POST' }
+  });
 });
+// get Feedback
+services.factory('GetFeedback', ['$resource', function($resource) {
+  function GetFeedback() {
+    this.service = $resource('/api/feedbacks/:stockId', {stockId: '@id'});
+  };
+  GetFeedback.prototype.all = function() {
+    return this.service.query();
+  };
+  return new GetFeedback;
+}]);
+
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');
