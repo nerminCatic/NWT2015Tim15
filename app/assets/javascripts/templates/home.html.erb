@@ -76,25 +76,25 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="boxed-grey">
-                <form id="contact-form">
+                <form id="contact-form" name="feedbackForm" ng-controller="FeedbackController">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Name</label>
-                            <input type="text" class="formf-control" placeholder="Enter name" required="required">
+                            <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter name" required="required">
                         </div>
                         <div class="form-group">
                             <label for="email">
                                 Email Address</label>
                             <div class="input-group">
                                 <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
-                                <input type="email" class="formf-control" placeholder="Enter email" required="required"></div>
+                                <input type="email" class="formf-control" placeholder="Enter email"></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
                                 Subject</label>
-                            <select name="subject" class="formf-control" required="required">
+                            <select name="subject" class="formf-control">
                                 <option value="na" selected="">Choose One:</option>
                                 <option value="comment">Comment</option>
                                 <option value="complaint">Complaint</option>
@@ -107,11 +107,11 @@
                         <div class="form-group">
                             <label for="name">
                                 Message</label>
-                            <textarea name="message" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                            <textarea name="message" ng-model="feedback.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="btnf">
+                        <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="myForm.$invalid">
                             Send Message</button>
                     </div>
                 </div>

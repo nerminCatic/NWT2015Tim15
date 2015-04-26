@@ -105,5 +105,17 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams',
            
     }
 }]);
-
-//Komentar
+//Send Feedback
+controllers.controller('FeedbackController', ['$scope','Feedback','$location',
+    function($scope, Feedback, $location){
+        $scope.sendFeedback = function(){
+            Feedback.send({feedback: $scope.feedback},
+                function success() {
+                    alert($scope.feedback.name + ", Vaša poruka je primljena, hvala Vam!");
+                    $scope.feedback = null;
+                }, 
+                function err() {
+                alert('Pogrešni podaci!');
+            });
+        }
+}]);

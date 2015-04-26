@@ -40,9 +40,11 @@ services.factory('Category', function($resource) {
 services.factory('Question', function($resource) {
   return $resource('/api/questions/:id');
 });
-// CRUD services for Feedback
+// send Feedback
 services.factory('Feedback', function($resource) {
-  return $resource('/api/feedbacks/:id');
+  return $resource('/api/feedbacks', {}, {
+    send: { method: 'POST' }
+  });
 });
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
