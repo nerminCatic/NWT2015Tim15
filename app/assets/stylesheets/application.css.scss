@@ -76,7 +76,7 @@
 /*end of design for login form*/
 
 /*application backround*/
-html { 
+body:not(#ha) { 
   background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -604,4 +604,26 @@ form#contact-form input, form#contact-form select, form#contact-form textarea {
   left:950px;
 }
 /*end of design for feedback form*/
+/*design for home_Admin*/
+.col-md-3 {
+  width: 25%;
+  float: left;
+    position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.service-icon {
+  margin-bottom: 20px;
+}
+img {
+  vertical-align: middle;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#ha{
+  background-image: none !important;
+}
 
+/*end of design for home_Admin*/

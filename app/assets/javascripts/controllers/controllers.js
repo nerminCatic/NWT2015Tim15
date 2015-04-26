@@ -34,6 +34,29 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
             $location.path('/login');
         }
 }]);
+// Home Admin controller
+controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
+    function($scope, $location, AuthToken) {
+        if(!AuthToken.get()) {
+            $location.path('/login');
+            console.log("Morate se logovati!");
+        }
+        $scope.userName = AuthToken.getUser();
+        $scope.openChangePass = function() {
+            $location.path('/changepass');
+        }
+        $scope.logout = function() {
+            AuthToken.unset();
+            console.log("Log out. Token: " + AuthToken.get());
+            $location.path('/login');
+        }
+        $scope.openFeedback = function() {
+            $location.path('/feedback_admin');
+        }
+        $scope.openUserManagement = function() {
+            $location.path('/user_management');
+        }
+}]);
 // Change password
 controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location', 'AuthToken' ,
     function($scope,ChangePassword,$location,AuthToken) {
@@ -119,4 +142,10 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
                 alert('Pogrešni podaci!');
             });
         }
+}]);
+// Feedback admin
+controllers.controller('two_way_control', ['$scope', '$location', 'GetFeedback',
+  function($scope, $location, GetFeedback) {
+    GetFeedback.get();
+    
 }]);

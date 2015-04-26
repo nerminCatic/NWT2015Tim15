@@ -46,6 +46,22 @@ services.factory('Feedback', function($resource) {
     send: { method: 'POST' }
   });
 });
+// get Feedback
+services.factory('GetFeedback', function($resource) {
+  return {
+    get: function() {
+      var d = $q.defer();
+      $http.get('/api/feedbacks', {}).success(function(resp) {
+        if(resp.status.message == "OK") { $rootScope.content = resp; }
+        else { flash.setMessage(resp.status.message); $location.path('/'); }
+      }).error(function(resp) {
+        flash.setMessage(resp.status.message);
+        $location.path('/');
+      });
+      return d.promise;
+    }
+  };
+});
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');
