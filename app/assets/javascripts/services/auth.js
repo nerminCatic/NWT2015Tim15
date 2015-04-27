@@ -15,12 +15,10 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         // For manager - special functionality
         if(resp.user_role == "menadzer")
         {
-          alert("Prijavljeni ste kao menadžer!");
           $location.path('/home_admin'); 
         }
         else
         {
-          alert("opcaca");
           $location.path('/home'); 
         }
       }).error(function(resp) {

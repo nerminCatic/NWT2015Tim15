@@ -154,4 +154,19 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
 // Feedback admin
 controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope, GetFeedback) {
   $scope.feedbacks = GetFeedback.all();
+        $scope.checkAll = function () {
+        if ($scope.selectedAll) {
+            $scope.selectedAll = true;
+        } else {
+            $scope.selectedAll = false;
+        }
+        angular.forEach($scope.feedbacks, function (feedback) {
+            feedback.Selected = $scope.selectedAll;
+        });
+    }
+}]);
+
+// User management searching
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser', function($scope, GetUser) {
+  $scope.users = GetUser.all();
 }]);
