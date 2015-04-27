@@ -32,8 +32,8 @@ ESavjetovaliste::Application.routes.draw do
         collection do
             post :register
             post :change_password
+            get :confirm
         end
-        get 'confirm', on: :member
     end
 
     resources :roles

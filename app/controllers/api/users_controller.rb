@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json 
-  skip_before_action :authenticate_request, :set_current_user, only: [:index, :register, :update, :destroy]
+  skip_before_action :authenticate_request, :set_current_user, only: [:index, :confirm, :register, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
   end
   # Link for user confirmation
   def confirm
-    decoded_token = AuthToken.decode(params[:id])
+    decoded_token = AuthToken.decode(params[:token])
     if User.find(decoded_token[:user_id])
       user = User.find(decoded_token[:user_id])
       # User is confirmed
@@ -41,7 +41,7 @@ class Api::UsersController < ApplicationController
       #redirect_to "/#/login"
     end
   end
-  
+
   def change_password
     user = @current_user
     user_email = user.email
