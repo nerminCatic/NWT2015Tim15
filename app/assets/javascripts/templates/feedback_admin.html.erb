@@ -1,13 +1,13 @@
 </br>
 <div class="pretraga">
-	Sortiraj po:
+	{{ 'SORT' | translate }}
 	<select ng-model="orderProp" class="form-control">
-	  <option value="name">Imenima</option>
-	  <option value="description">Opisu</option>
-	  <option value="email">Emailu</option>
-	  <option value="form">Tipu</option>
+	  <option value="name"> {{ 'NAME' | translate }}</option>
+	  <option value="description">{{ 'MSG' | translate }}</option>
+	  <option value="email">{{ 'EMAIL' | translate }}</option>
+	  <option value="form">{{ 'TYPEF' | translate }}</option>
 	</select>
-	Pretraga: <input ng-model="query" class="form-control">
+	{{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
 </div>
 
 
@@ -18,10 +18,10 @@
             <th style="text-align: center; vertical-align: middle;">
               <input type="checkbox" name="query_myTextEditBox" ng-click="checkAll()" ng-model="selectedAll">    
             </th>
-            <th>Ime</th>
-            <th>Opis</th>
-            <th>Email</th>
-            <th>Tip</th>
+            <th> {{ 'NAME' | translate }}</th>
+            <th>{{ 'MSG' | translate }}</th>
+            <th>{{ 'EMAIL' | translate }}</th>
+            <th>{{ 'TYPEF' | translate }}</th>
         </tr>
     </thead>
     <tbody>

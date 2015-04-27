@@ -18,10 +18,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href>Home</a></li>
-                <li><a href>About</a></li>
-                <li><a href ng-click="openChangePass()">Change password</a></li>
-                <li><a href ng-click="logout()">Logout</a></li>
+                <li class="active"><a href>{{ 'HOME' | translate }}</a></li>
+                <li><a href>{{ 'ABOUT' | translate }}</a></li>
+                <li><a href ng-click="openChangePass()">{{ 'CHANGE_PASS' | translate }}</a></li>
+                <li><a href ng-click="logout()">{{ 'LOGOUT' | translate }}</a></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -37,7 +37,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                     <div class="section-heading">
-                    <h2>Opcije</h2>
+                    <h2>{{ 'OPT' | translate }}</h2>
                     <i class="fa fa-2x fa-angle-down"></i>
 
                     </div>
@@ -56,8 +56,8 @@
                             <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
                         </div>
                         <div class="service-desc">
-                            <h5>Upravljanje korisnicima</h5>
-                            <p>Omogućene opcije dodavanja novih, te brisanja i uređivanja već postojećih korisnika.</p>
+                            <h5>{{ 'USRMNG' | translate }}</h5>
+                            <p>{{ 'USRMNGD' | translate }}</p>
                             </div>
                     </div>
                     </div>
@@ -71,8 +71,8 @@
                             <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
                         </div>
                         <div class="service-desc">
-                            <h5>Upravljanje feedback-om</h5>
-                            <p>Omogućeno pregledanje svih primljenih povratinih informacija od korisnika, te odabir određenih za prikaz na početnoj stranici.</p>
+                            <h5>{{ 'FEEDBACKMNG' | translate }}</h5>
+                            <p>{{ 'FEEDBACKMNGD' | translate }}</p>
                             </div>
                     </div>
                     </div>
@@ -86,8 +86,8 @@
                             <img src="/assets/category.png" alt="" height="100" width="100" align="middle">
                         </div>
                         <div class="service-desc">
-                            <h5>Upravljanje kategorijama</h5>
-                            <p>Omogućeno pregledanje, dodavanje novih i brisanje već postojećih kategorija.</p>
+                            <h5>{{ 'CATEGORYMNG' | translate }}</h5>
+                            <p>{{ 'CATEGORYMNGD' | translate }}</p>
                             </div>
                     </div>
                     </div>

@@ -155,7 +155,7 @@ h2{
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>Need avice?</h2>
+                        <h2>{{ 'AHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
 
                         </div>
@@ -173,7 +173,7 @@ h2{
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>Online orders</h2>
+                        <h2>{{ 'OHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
 
                         </div>
@@ -192,7 +192,7 @@ h2{
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>Your feedback is very important to us!</h2>
+                        <h2>{{ 'FHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
 
                         </div>
@@ -223,19 +223,19 @@ h2{
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">
-                                    Name</label>
+                                    {{ 'NAME' | translate }}</label>
                                 <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter your name" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="email">
-                                    Email Address</label>
+                                    {{ 'EMAIL' | translate }}</label>
                                 <div class="input-group">
                                     <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
                                     <input type="email" class="formf-control" ng-model="feedback.email" placeholder="Enter email"></div>
                             </div>
                             <div class="form-group">
                                 <label for="subject">
-                                    Type od feedback</label>
+                                    {{ 'TYPEF' | translate }}</label>
                                 <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
                                 </select>
                             </div>
@@ -243,13 +243,13 @@ h2{
                         <div class="col-md-6" id="msg">
                             <div class="form-group">
                                 <label for="name">
-                                    Message</label>
+                                    {{ 'MSG' | translate }}</label>
                                 <textarea name="message" ng-model="feedback.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="feedbackForm.$invalid">
-                                Send Message</button>
+                                {{ 'SMSG' | translate }}</button>
                         </div>
                     </div>
                     </form>
@@ -258,7 +258,7 @@ h2{
             
             <div class="col-lg-4" id="contact">
                 <div class="widget-contact">
-                    <h5>Main Office</h5>
+                    <h5>{{ 'OFFICE' | translate}}</h5>
                     
                     <address>
                       <strong>ESAVJETOVALISTE</strong><br>
