@@ -2,6 +2,8 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular-route": "latest",
-    "angular-resource": "latest"
+    "angular-resource": "latest",
+    "angular-translate": "latest",
+    "angular-translate-loader-static-files": "latest"
   }
 }

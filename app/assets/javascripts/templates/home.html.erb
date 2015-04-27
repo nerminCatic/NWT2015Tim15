@@ -6,6 +6,10 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom" class="bcgnone">
     <!-- Navigation bar -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div ng-controller="LanguageController">
+      <button ng-click="changeLanguage('bs')">BS</button>
+      <button ng-click="changeLanguage('en')">EN</button>
+    </div> 
         <div class="container" ng-controller="HomeController">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -18,10 +22,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a>Home</a></li>
-                <li><a>About</a></li>
-                <li><a href ng-click="openChangePass()">Change password</a></li>
-                <li><a href ng-click="logout()">Logout</a></li>
+                <li class="active"><a>{{ 'HOME' | translate }}</a></li>
+                <li><a>{{ 'ABOUT' | translate }}</a></li>
+                <li><a href ng-click="openChangePass()">{{ 'CHANGE_PASS' | translate }}</a></li>
+                <li><a href ng-click="logout()">{{ 'LOGOUT' | translate }}</a></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -32,7 +36,7 @@
     <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
-            <h2 id="main-title">DOBRO DOŠLI {{ userName }}</h2>
+            <h2 id="main-title">{{ 'WELCOME' | translate }} {{ userName }}</h2>
         </div>
         <div class="page-scroll">
             <a href="#/home" class="btn btn-circle">

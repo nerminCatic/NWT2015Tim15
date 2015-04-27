@@ -1,6 +1,12 @@
 'use strict';
 var controllers = angular.module('controllers', []);
-//Login
+// Change language
+controllers.controller('LanguageController', function($translate, $scope) {
+  $scope.changeLanguage = function (langKey) {
+    $translate.use(langKey);
+  };
+});
+// Login
 controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$location',
     function($scope, AuthService, AuthToken, $location){
         if(AuthToken.get()) {
@@ -128,7 +134,6 @@ controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams',
             function err() {
                 alert('Došlo je do tehničke greške. Rok od dva sata za promjenu šifre je istekao.');
             });
-           
     }
 }]);
 //Send Feedback

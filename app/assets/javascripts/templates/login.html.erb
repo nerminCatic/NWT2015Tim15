@@ -1,6 +1,10 @@
 <!--Login form-->
 <div class="container">  
-  <div class="bcg" style="height:600px">    
+  <div class="bcg" style="height:600px">  
+    <div ng-controller="LanguageController">
+      <button ng-click="changeLanguage('bs')">BS</button>
+      <button ng-click="changeLanguage('en')">EN</button>
+    </div>  
     <div class="account-wall">
       <form class="form-signin" name="myForm" ng-controller="LoginController">
         <!--title-->
@@ -29,16 +33,17 @@
         <!--checkbox rememer me?-->
         <label class="checkbox pull-left">
             <input type="checkbox" value="remember-me">
-            Zapamti me
+            {{ 'REMEMBER_ME' | translate }}
         </label>
 
         <!--submit button-->
-        <button class="btn btn-lg btn-primary btn-block" ng-click="loginUser()"  ng-disabled="loginForm.$invalid">Prijavite se</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="loginUser()"  ng-disabled="loginForm.$invalid">    {{ 'LOGIN' | translate }}
+        </button>
 
         <!--link for registration form-->
-        <a class="pull-right new-account" href ng-click="openRegistration()">Registriraj se</a>
+        <a class="pull-right new-account" href ng-click="openRegistration()">{{ 'REGISTER' | translate }}</a>
         <!--link for forgot password form-->
-        <a class="pull-left new-account" href ng-click="openPassReset()">Zaboravio šifru?</a>
+        <a class="pull-left new-account" href ng-click="openPassReset()">{{ 'FORGOT_PASS' | translate }}</a>
 
         </form>
       </div>

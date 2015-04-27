@@ -1,2 +1,6 @@
 bs:
-  hello: "Zdravo"
+  login:
+	  REMEMBER_ME: 'Zapamti me',
+	  LOGIN: 'Prijavite se',
+	  REGISTER:'Registruj se',
+	  FORGOT_PASS:'Zaboravio šifru?'

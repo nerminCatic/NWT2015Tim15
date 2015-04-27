@@ -8,17 +8,13 @@ class Api::FeedbacksController < ApplicationController
   # GET /feedbacks.json
   def index
     @feedbacks = Feedback.all
-    respond_to do |format|
-      format.json {
-        render json: { feedbacks: @feedbacks }
-      }
-    end
   end
 
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
-@feedbacks = Feedback.all  end
+    @feedbacks = Feedback.all  
+  end
 
   # GET /feedbacks/new
   def new

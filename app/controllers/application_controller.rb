@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   after_filter :set_csrf_cookie_for_ng
   before_action :set_current_user, :authenticate_request
-  before_action :set_locale
   
   def current_user
     @current_user
@@ -43,15 +42,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
-  #Localization
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
-  def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
-    { locale: I18n.locale }
-  end
+
   # Protect from CSRF
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?

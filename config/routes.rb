@@ -1,44 +1,42 @@
 ESavjetovaliste::Application.routes.draw do
   #Root 
   root 'static_pages#index'
-  get '/:locale' => 'static_pages#index'
   #Routes
-  scope "(:locale)", locale: /bs|en/ do
-    get "static_pages/index"
-    namespace :api, defaults: { format: :json } do
-      post 'auth' => 'auth#authenticate'
-      resources :reservations do
-        put 'confirm', on: :member
-        put 'decline', on: :member
-      end
-
-      resources :questions do
-         resources :comments
-      end 
-
-      resources :categories
-
-      resources :feedbacks
-
-      resources :sessions, :only => [:create] do
-        collection do
-          get :current_user
-          post :log_out
-        end
-      end
-
-      resources :passwordresets
-      
-      resources :users do
-          collection do
-              post :register
-              post :change_password
-          end
-          get 'confirm', on: :member
-      end
-
-      resources :roles
+  get "static_pages/index"
+  resources :translations, only: :show
+  namespace :api, defaults: { format: :json } do
+    post 'auth' => 'auth#authenticate'
+    resources :reservations do
+      put 'confirm', on: :member
+      put 'decline', on: :member
     end
+
+    resources :questions do
+       resources :comments
+    end 
+
+    resources :categories
+
+    resources :feedbacks
+
+    resources :sessions, :only => [:create] do
+      collection do
+        get :current_user
+        post :log_out
+      end
+    end
+
+    resources :passwordresets
+    
+    resources :users do
+        collection do
+            post :register
+            post :change_password
+        end
+        get 'confirm', on: :member
+    end
+
+    resources :roles
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

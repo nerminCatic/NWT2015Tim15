@@ -4,7 +4,8 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'ngRoute',
   'controllers',
   'services',
-  'auth'
+  'auth',
+  'translations'
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
@@ -12,7 +13,7 @@ esavjetovaliste.config([ '$routeProvider',
     $routeProvider.
       when('/login', {
         templateUrl: "login.html",
-        controller: 'LoginController'
+        //controller: 'LoginController'
       }).
       when('/register', {
         templateUrl: "register.html",
@@ -20,7 +21,7 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/home', {
         templateUrl: "home.html",
-        controller: 'HomeController'
+      //  controller: 'HomeController'
       }).
       when('/home_admin', {
         templateUrl: "home_admin.html",
