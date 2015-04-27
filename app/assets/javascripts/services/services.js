@@ -25,6 +25,13 @@ services.factory('GetUser', ['$resource', function($resource) {
   return new GetUser;
 }]);
 
+// Delete user 
+services.factory('DeleteUser', function ($resource) { 
+  return $resource('api/users/:id', {id:'@id'}, {
+    destroy: { method: 'DELETE' }
+  });
+});
+
 // Change password
 services.factory('ChangePassword', function ($resource) {
      return $resource('/api/users/change_password',   {password: '@password', 

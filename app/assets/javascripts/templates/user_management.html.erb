@@ -1,10 +1,3 @@
-<!--</br></br>
-<div class="pretraga">
-  Dodavanje novog usera: 
-  <div class="actions">				<!-- TBD dodati formu za dodavanje novog usera sa rolom!-->
- <!-- 	<button class="btn btn-primary" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
-  </div>
-</div>-->
 </br></br>
 <div class="pretraga">
   Sortiraj po:
@@ -16,21 +9,6 @@
   Dodavanje novog usera: 
   <button class="btn btn-primary" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
 </div>
-
-
-<!--<div ng-controller="SearchUsersControler">
-  <ul>
-    <li ng-repeat="user in users | filter:query | orderBy:orderProp">
-      {{user.name}}, {{user.surname}}, {{user.email}},  {{user.job}}
-      <div class="actions">				<!-- TBD dodati metodu da otvara formu za editovanje usera!-->
-	<!--  	<button class="btn btn-primary" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
-	  </div>
-	  <div class="actions">				<!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
-	<!--  	<button class="btn btn-primary" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
-	  </div>
-    </li>
-  </ul>
-</div>-->
 
 </br></br>
 <table class="table table-hover table-condensed tabela" ng-controller="SearchUsersControler">
@@ -53,7 +31,7 @@
           <div class="actions">       <!-- TBD dodati metodu da otvara formu za editovanje usera!-->
             <button class="btn btn-primary btn-usr-mng" ng-click="openEditUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
           </div>
-          <div class="actions">       <!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
+          <div class="actions" ng-controller="DeleteUsersControler">       <!-- TBD dodati pitanje da li zelimo da se izbrise user ili ne!-->
             <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser()"  ng-disabled="myForm.$invalid">Obriši</button>
           </div>
         </td>
