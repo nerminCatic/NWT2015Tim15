@@ -73,3 +73,4 @@ services.factory('GetFeedback', ['$resource', function($resource) {
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');
 });
+// Commit for resolving error
