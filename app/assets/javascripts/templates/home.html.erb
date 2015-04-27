@@ -1,7 +1,62 @@
 <!--home page-->
 <head>
     <!--font for icon in circle button on home page-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    // Initializes the carousel
+    $(".start-slide").click(function(){
+        $("#myCarousel").carousel('cycle');
+    });
+    // Stops the carousel
+    $(".pause-slide").click(function(){
+        $("#myCarousel").carousel('pause');
+    });
+    // Cycles to the previous item
+    $(".prev-slide").click(function(){
+        $("#myCarousel").carousel('prev');
+    });
+    // Cycles to the next item
+    $(".next-slide").click(function(){
+        $("#myCarousel").carousel('next');
+    });
+    // Cycles the carousel to a particular frame 
+    $(".slide-one").click(function(){
+        $("#myCarousel").carousel(0);
+    });
+    $(".slide-two").click(function(){
+        $("#myCarousel").carousel(1);
+    });
+    $(".slide-three").click(function(){
+        $("#myCarousel").carousel(2);
+    });
+});
+</script>
+<style type="text/css">
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin: 20px 0;
+}
+.control-buttons{
+    text-align:center;
+}
+.bs-example{
+    margin: 20px;
+} 
+</style>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom" class="bcgnone">
     <div  ng-controller="HomeController">
@@ -33,12 +88,7 @@
     <!-- Section: intro -->
     <section id="intro" class="intro">
         <div class="slogan">
-            <h2 id="main-title">{{ 'WELCOME' | translate }} {{ userName }}</h2>
-        </div>
-        <div class="page-scroll">
-            <a href="#/home" class="btn btn-circle">
-                <i class="fa fa-angle-double-down pulse animated"></i>
-            </a>
+            <h3 id="main-title">{{ 'WELCOME' | translate }} {{ userName }}</h3>
         </div>
     </section>
     </div>
@@ -47,98 +97,186 @@
       <button ng-click="changeLanguage('en')">EN</button>
     </div>
     <!-- /Section: intro -->
-</body>
 
-<!--feedback form-->
-<div class="heading-contact-title">
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
-                    <div class="section-heading">
-                    <h2>Your feedback is very important to us!</h2>
-                    <i class="fa fa-2x fa-angle-down"></i>
-
+<!--image slider-->
+    </br></br></br></br>
+    <div class="bs-example">
+        <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item">
+                    <h2>Slide 1</h2>
+                    <div class="carousel-caption">
+                      <h3>First slide label</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
+                </div>
+                <div class="item">
+                    <h2>Slide 2</h2>
+                    <div class="carousel-caption">
+                      <h3>Second slide label</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <h2>Slide 3</h2>
+                    <div class="carousel-caption">
+                      <h3>Third slide label</h3>
+                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-<div class="heading-contact">
-            <div class="container">
-            <div class="row">
-                
+        <!-- Controls buttons -->
+        <div class="control-buttons">
+            <div class="btn-group">
+              <a class="btn btn-info start-slide" href="#"><i class="icon-play icon-white"></i></a>
             </div>
+            <div class="btn-group">
+              <a class="btn btn-info pause-slide" href="#"><i class="icon-stop icon-white"></i></a>
             </div>
+            <div class="btn-group">
+              <a class="btn btn-info prev-slide" href="#"><i class="icon-chevron-left icon-white"></i></a>
+            </div>
+            <div class="btn-group">
+              <a class="btn btn btn-info next-slide" href="#"><i class="icon-chevron-right icon-white"></i></a>
+            </div>   
+            <input type="button" class="btn btn-info slide-one" value="1">
+            <input type="button" class="btn btn-info slide-two" value="2">            
+            <input type="button" class="btn btn-info slide-three" value="3">
         </div>
-<div class="container">
+    </div>
+    <!-- /.image slider-->
 
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-                <hr class="marginbot-50">
-            </div>
-        </div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form" name="feedbackForm" ng-controller="FeedbackController">
+    <!--advice form-->
+    <div class="heading-contact-title">
+                <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter your name" required="required">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                        <div class="section-heading">
+                        <h2>Need avice?</h2>
+                        <i class="fa fa-2x fa-angle-down"></i>
+
                         </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
-                                <input type="email" class="formf-control" ng-model="feedback.email" placeholder="Enter email"></div>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Type od feedback</label>
-                            <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6" id="msg">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" ng-model="feedback.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="feedbackForm.$invalid">
-                            Send Message</button>
                     </div>
                 </div>
-                </form>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-lg-4" id="contact">
-            <div class="widget-contact">
-                <h5>Main Office</h5>
-                
-                <address>
-                  <strong>ESAVJETOVALISTE</strong><br>
-                  Zmaja od Bosne bb<br>
-                  71000, Sarajevo<br>
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address>
+    <!-- /.advice form-->
 
-                <address>
-                  <strong>Email</strong><br>
-                  <a href="mailto:#">kontakt@esavjetovaliste.com</a>
-                </address>                   
+    <!--orders form-->
+    <div class="heading-contact-title">
+                <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                        <div class="section-heading">
+                        <h2>Online orders</h2>
+                        <i class="fa fa-2x fa-angle-down"></i>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+    <!-- /.orders form-->
+
+    <!--feedback form-->
+    <div class="heading-contact-title">
+                <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                        <div class="section-heading">
+                        <h2>Your feedback is very important to us!</h2>
+                        <i class="fa fa-2x fa-angle-down"></i>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    <div class="heading-contact">
+                <div class="container">
+                <div class="row">
+                    
+                </div>
+                </div>
+            </div>
+    <div class="container">
+
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="boxed-grey">
+                    <form id="contact-form" name="feedbackForm" ng-controller="FeedbackController">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    Name</label>
+                                <input type="text" ng-model="feedback.name" class="formf-control" placeholder="Enter your name" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address</label>
+                                <div class="input-group">
+                                    <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
+                                    <input type="email" class="formf-control" ng-model="feedback.email" placeholder="Enter email"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">
+                                    Type od feedback</label>
+                                <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="msg">
+                            <div class="form-group">
+                                <label for="name">
+                                    Message</label>
+                                <textarea name="message" ng-model="feedback.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendFeedback()" ng-disabled="feedbackForm.$invalid">
+                                Send Message</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
             
-            </div>  
-        </div>
-    </div>  
+            <div class="col-lg-4" id="contact">
+                <div class="widget-contact">
+                    <h5>Main Office</h5>
+                    
+                    <address>
+                      <strong>ESAVJETOVALISTE</strong><br>
+                      Zmaja od Bosne bb<br>
+                      71000, Sarajevo<br>
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
+                    </address>
 
-</div>
-<!--feedback form-->
+                    <address>
+                      <strong>Email</strong><br>
+                      <a href="mailto:#">kontakt@esavjetovaliste.com</a>
+                    </address>                   
+                
+                </div>  
+            </div>
+        </div>  
+
+    </div>
+    <!--feedback form-->
+
+</body>
