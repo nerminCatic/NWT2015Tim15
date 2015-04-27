@@ -10,7 +10,10 @@ controllers.controller('LanguageController', function($translate, $scope) {
 controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$location',
     function($scope, AuthService, AuthToken, $location){
         if(AuthToken.get()) {
-            $location.path('/home');
+            if(AuthToken.getRole() == "gost")
+                $location.path('/home');
+            else 
+                $location.path('/home_admin');
             console.log("Vec ste logovani. Token: " + AuthToken.get());
         }
         $scope.loginUser = function() {
@@ -30,6 +33,7 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
             $location.path('/login');
             console.log("Morate se logovati!");
         }
+        if(AuthToken.getRole() == "menadzer") $location.path('/home_admin');
         $scope.userName = AuthToken.getUser();
         $scope.openChangePass = function() {
             $location.path('/changepass');
@@ -47,6 +51,7 @@ controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
             $location.path('/login');
             console.log("Morate se logovati!");
         }
+        if(AuthToken.getRole() == "gost") $location.path('/home');
         $scope.userName = AuthToken.getUser();
         $scope.openChangePass = function() {
             $location.path('/changepass');

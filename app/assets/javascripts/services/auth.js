@@ -13,7 +13,7 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         d.resolve(resp.user);
         console.log("Uspješno logovan. Dobiven token: " + resp.auth_token);
         // For manager - special functionality
-        if(resp.user_role == "menadzer")
+        if(AuthToken.getRole() == "menadzer")
         {
           $location.path('/home_admin'); 
         }

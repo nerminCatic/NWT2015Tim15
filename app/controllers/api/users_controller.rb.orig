@@ -1,7 +1,12 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  respond_to :json 
+<<<<<<< HEAD
+  skip_before_action :authenticate_request, :set_current_user, only: [:register, :update, :destroy]  respond_to :json
+=======
   skip_before_action :authenticate_request, :set_current_user, only: [:index, :register, :update, :destroy]
+  respond_to :json
+>>>>>>> 433a57b4531dbe7a1d038d7894d59ef8ee3739b7
+
   # GET /users
   # GET /users.json
   def index
