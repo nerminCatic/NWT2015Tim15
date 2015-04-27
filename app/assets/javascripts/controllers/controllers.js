@@ -12,7 +12,7 @@ controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$
         if(AuthToken.get()) {
             if(AuthToken.getRole() == "gost")
                 $location.path('/home');
-            else 
+            else if(AuthToken.getRole() == "menadzer")
                 $location.path('/home_admin');
             console.log("Vec ste logovani. Token: " + AuthToken.get());
         }

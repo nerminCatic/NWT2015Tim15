@@ -24,23 +24,24 @@ class Api::UsersController < ApplicationController
   end
   # Link for user confirmation
   def confirm
-    if User.find_by(confirm_user_token: params[:id])
-      user = User.find_by!(confirm_user_token: params[:id])
+    decoded_token = AuthToken.decode(params[:id])
+    if User.find(decoded_token[:user_id])
+      user = User.find(decoded_token[:user_id])
       # User is confirmed
-      if user.confirmation_sent_at < 2.hours.ago
+      #if user.confirmation_sent_at < 2.hours.ago
         #Link has expired
-        redirect_to "/#/register"
-      else
+        #redirect_to "/#/register"
+      #else
         user.confirmed = "Y"
-        user.confirm_user_token = nil
         user.save
         redirect_to root_url
-      end
+      #end
     else
       render json: { errors: "This link is invalid."}, status: 404
       #redirect_to "/#/login"
     end
   end
+  
   def change_password
     user = @current_user
     user_email = user.email
