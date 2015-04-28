@@ -14,28 +14,6 @@ services.factory('UserRegister', function ($resource) {
   });
 });
 
-// Managers functionality with users
-services.factory('GetUser', ['$resource', function($resource) {
-  function GetUser() {
-    this.service = $resource('/api/users/:userId', {userId: '@id'});
-  };
-
-  GetUser.prototype.all = function() {
-    return this.service.query();
-  };
-
-  GetUser.prototype.delete = function(usrId) {
-    this.service.remove({userId: usrId},
-    function success() {
-        alert("Korisnik je uspješno izbrisan!");
-    }, 
-    function err() {
-      alert('Došlo je do greške!');
-    });   
-  };
-  return new GetUser;
-}]);
-
 // Delete user - trenutno se ne koristi, ali je ispravna!
 services.factory('DeleteUser', function ($resource) { 
   return $resource('api/users/:id', {id:'@id'}, {
@@ -76,6 +54,17 @@ services.factory('Feedback', function($resource) {
     send: { method: 'POST' }
   });
 });
+
+
+// CRUD services for Reservation
+services.factory('Reservation', function($resource) {
+  return $resource('/api/reservations/:id');
+});
+// Commit for resolving error
+
+
+// --------------------------------- MANAGEMENT --------------------------------
+
 // get Feedback
 services.factory('GetFeedback', ['$resource', function($resource) {
   function GetFeedback() {
@@ -87,8 +76,27 @@ services.factory('GetFeedback', ['$resource', function($resource) {
   return new GetFeedback;
 }]);
 
-// CRUD services for Reservation
-services.factory('Reservation', function($resource) {
-  return $resource('/api/reservations/:id');
-});
-// Commit for resolving error
+
+// Managers functionality with users
+services.factory('GetUser', ['$resource', function($resource) {
+  function GetUser() {
+    this.service = $resource('/api/users/:userId', {userId: '@id'});
+  };
+
+  GetUser.prototype.all = function() {
+    return this.service.query();
+  };
+
+  GetUser.prototype.delete = function(usrId) {
+    this.service.remove({userId: usrId},
+    function success() {
+        alert("Korisnik je uspješno izbrisan!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
+  };
+  return new GetUser;
+}]);
+
+

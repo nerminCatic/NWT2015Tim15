@@ -156,6 +156,11 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
             });
         }
 }]);
+
+
+//---------------------------------- MANAGEMENT ------------------------------------------
+
+
 // Feedback admin
 controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope, GetFeedback) {
   $scope.feedbacks = GetFeedback.all();

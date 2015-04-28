@@ -28,8 +28,8 @@
         <td> {{user.email}}</td>
         <td> {{user.job}}</td>
         <td>
-          <div class="actions">       <!-- TBD dodati metodu da otvara formu za editovanje usera!-->
-            <button class="btn btn-primary btn-usr-mng" ng-click="editUser()"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          <div class="actions"> 
+            <button class="btn btn-primary btn-usr-mng" ng-click="updateUser(stock.id, $index)"  ng-disabled="myForm.$invalid">Izmijeni</button>
           </div>
           <div class="actions" >
             <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser(user.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
