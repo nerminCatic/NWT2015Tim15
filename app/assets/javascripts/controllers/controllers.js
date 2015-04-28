@@ -156,41 +156,6 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
             });
         }
 }]);
-// Feedback admin
-controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope, GetFeedback) {
-  $scope.feedbacks = GetFeedback.all();
-        $scope.checkAll = function () {
-        if ($scope.selectedAll) {
-            $scope.selectedAll = true;
-        } else {
-            $scope.selectedAll = false;
-        }
-        angular.forEach($scope.feedbacks, function (feedback) {
-            feedback.Selected = $scope.selectedAll;
-        });
-    }
-}]);
-
-// User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetUser', function($scope, GetUser) {
-  $scope.users = GetUser.all();
-}]);
-
-// User management - deleting user
-controllers.controller('DeleteUsersControler', ['$scope', '$routeParams', 'DeleteUser', '$location',
-    function($scope, $routeParams, DeleteUser, $location) {
-        $scope.deleteUser = function(){
-            var idi = $scope.user.id;
-            DeleteUser.destroy({ id:idi },
-                function success() {
-                    alert("Korisnik je uspješno izbrisan!");
-                }, 
-                function err() {
-                    alert('Došlo je do greške!');
-                    $location.path('/user_management');
-                });
-            }
-}]);
 // Questions controller
 controllers.controller('QuestionsController', ['$scope', 'Category', 'Question', 'AuthToken','$location',
     function($scope, Category, Question, AuthToken, $location) {
@@ -210,4 +175,35 @@ controllers.controller('QuestionsController', ['$scope', 'Category', 'Question',
                 $location.path('/add_question');
             });
       }
+}]);
+
+
+//---------------------------------- MANAGEMENT ------------------------------------------
+
+
+// Feedback admin
+controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope, GetFeedback) {
+  $scope.feedbacks = GetFeedback.all();
+        $scope.checkAll = function () {
+        if ($scope.selectedAll) {
+            $scope.selectedAll = true;
+        } else {
+            $scope.selectedAll = false;
+        }
+        angular.forEach($scope.feedbacks, function (feedback) {
+            feedback.Selected = $scope.selectedAll;
+        });
+    }
+}]);
+
+// User management searching
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
+    function($scope, GetUser) {
+
+        $scope.users = GetUser.all(); 
+
+        $scope.deleteUser = function(id, idx) {
+            $scope.users.splice(idx, 1);
+             return GetUser.delete(id);
+        };
 }]);
