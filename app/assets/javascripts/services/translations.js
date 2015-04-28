@@ -32,7 +32,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'QUESTION' : 'Question',
     'DSC' : 'Description',
     'CATEGORY' : 'Category',
-    'SQUESTION' : 'Send question'
+    'SQUESTION' : 'Send question',
+    'USER' : 'User'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -65,7 +66,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'QUESTION' : 'Pitanje',
     'DSC' : 'Opis',
     'CATEGORY' : 'Kategorija',
-    'SQUESTION' : 'Pošalji pitanje'
+    'SQUESTION' : 'Pošalji pitanje',
+    'USER' : 'Korisnik'
   });
  
   $translateProvider.preferredLanguage('bs');

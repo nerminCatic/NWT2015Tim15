@@ -1,19 +1,37 @@
-<table class="table table-hover table-condensed tabela" ng-controller="QuestionsController">
-    <thead>
-        <tr>
-            <th> {{ 'QUESTION' | translate }}</th>
-            <th>{{ 'DESCRIPTION' | translate }}</th>
-            <th>{{ 'CATEGORY' | translate }}</th>
-            <th>{{ 'User' | translate }}</th>
-        </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="question in questions">
-      <a>
-        <td> {{question.name}}</td>
-        <td> {{question.description}}</td>
-        <td> {{question.category.name}}</td>
-        <td> {{question.user.name}}</td>
-        </a>
-      </tr>
-</table>
+<section ng-controller="QuestionsController">
+    </br></br>
+    <div class="pretraga">
+      Pretraga: <input ng-model="query" class="form-control">
+    </div>
+
+    </br>  
+    <div style="text-align:center;">Trebate savjet? Postavite svoje pitanje <a href ng-click="newQuestion()">OVDJE</a>. </div>
+    </br><br>
+    <table class="table table-hover table-condensed tabela">
+        <thead>
+            <tr>
+                <th> {{ 'QUESTION' | translate }}</th>
+                <th>{{ 'DSC' | translate }}</th>
+                <th>{{ 'CATEGORY' | translate }}</th>
+                <th>{{ 'USER' | translate }}</th>
+                <!--<th>Akcija</th>-->
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="question in questions | filter:query">
+            <td> {{question.name}}</td>
+            <td> {{question.description}}</td>
+            <td> {{question.category.name}}</td>
+            <td> {{question.user.name}}</td>
+            <td>
+                <!--
+                <div class="actions">
+                    <button class="btn btn-primary btn-usr-mng" ng-click="deleteQuestion(question.id, $index)">
+                        Obriši
+                    </button>
+                </div>
+                -->
+            </td>
+          </tr>
+    </table>
+</section>

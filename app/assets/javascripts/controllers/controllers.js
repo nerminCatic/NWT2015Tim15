@@ -157,8 +157,8 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location',
         }
 }]);
 // Questions controller
-controllers.controller('QuestionsController', ['$scope', 'Category', 'Question', 'AuthToken','$location',
-    function($scope, Category, Question, AuthToken, $location) {
+controllers.controller('QuestionsController', ['$scope', 'Category', 'Question', 'DeleteQuestion','AuthToken','$location',
+    function($scope, Category, Question, DeleteQuestion, AuthToken, $location) {
       $scope.categories = Category.query();
       $scope.questions = Question.query();
       $scope.question = new Question();
@@ -168,11 +168,30 @@ controllers.controller('QuestionsController', ['$scope', 'Category', 'Question',
             function success() {
                 var user = AuthToken.getUser();
                 alert(user +", Vaše pitanje je dodano.");
+                $location.path('/questions');
                 $scope.question= null;
             }, 
             function err() {
                 alert('Desila se greška pri unosu, pokušajte ponovo.');
                 $location.path('/add_question');
+            });
+      }
+      $scope.newQuestion = function() {
+        $location.path('/add_question');
+      }
+      $scope.openQuestions = function() {
+        $location.path('/questions');
+      }
+      // ne radi
+      $scope.deleteQuestion= function(id, idx) {
+        $scope.questions.splice(idx, 1);
+        DeleteQuestion.destroy({id: id},
+            function success() {
+                alert("Izbrisano");
+                $location.path('/questions');
+            }, 
+            function err() {
+                alert('Greška!');
             });
       }
 }]);

@@ -98,4 +98,9 @@ services.factory('GetUser', ['$resource', function($resource) {
   return new GetUser;
 }]);
 
-//Komentar
+// Delete question
+services.factory('DeleteQuestion', function ($resource) { 
+  return $resource('api/questions/:id', {id:'@id'}, {
+    destroy: { method: 'DELETE' }
+  });
+});
