@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json 
   skip_before_action :authenticate_request, :set_current_user, only: [:index, :confirm, :register, :update]
+  #Komentar
   # GET /users
   # GET /users.json
   def index

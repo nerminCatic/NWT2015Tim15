@@ -9,9 +9,11 @@
     </thead>
     <tbody>
       <tr ng-repeat="question in questions">
+      <a>
         <td> {{question.name}}</td>
         <td> {{question.description}}</td>
         <td> {{question.category.name}}</td>
         <td> {{question.user.name}}</td>
+        </a>
       </tr>
 </table>

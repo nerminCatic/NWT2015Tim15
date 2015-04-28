@@ -97,3 +97,5 @@ services.factory('GetUser', ['$resource', function($resource) {
   };
   return new GetUser;
 }]);
+
+//Komentar
