@@ -48,10 +48,18 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "inputs-password-reset.html",
         controller: 'InsertPwdForResetController'
       }).
-       when('/changepass',{
-          templateUrl: "changepass.html",
-          controller: 'ChangePassController'
-        }).
+      when('/changepass',{
+         templateUrl: "changepass.html",
+         controller: 'ChangePassController'
+      }).
+      when('/register_user_by_manager',{
+         templateUrl: "register_user_by_manager.html",
+         controller: 'RegistrationUserByManagerController'
+      }).
+      when('/edit_user_by_manager',{
+         templateUrl: "edit_user_by_manager.html",
+         controller: 'EditUserFromManagerController'
+      }).
       when('/questions',{
         templateUrl: "questions.html",
         //controller: 'ChangePassController'

@@ -207,4 +207,27 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
              return GetUser.delete(id);
         };
 }]);
- // Komentar
+
+//Registration users from manager - Possible add role!
+controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',
+    function($scope, UserRegister, GetRole, $location){
+
+        $scope.roles = GetRole.all(); 
+
+        $scope.registerUserWithRole = function() {
+            $location.path('/register_user_by_manager');
+        }
+
+        $scope.registerUser = function(){
+            $scope.user.role_id = $scope.role.id;
+            UserRegister.register({user: $scope.user},
+                function success() {
+                    alert("Korisnik je dužan porvrditi registraciju preko email-a, a zatim izvršiti reset passworda preko istog emaila.");
+                    $location.path('/user_management');
+                }, 
+                function err() {
+                alert('Pogrešni podaci!');
+                $location.path('/register_user_by_manager');
+            });
+        }
+}]);
