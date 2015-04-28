@@ -61,9 +61,6 @@ class Api::UsersController < ApplicationController
   
   def register
     @user = User.new(user_params)
-    # default role: Gost
-    @role = Role.find_by(name:"gost")
-    @user.role = @role
     # default status : Waiting 
     @user.confirmed = "W"
     # json response

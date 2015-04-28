@@ -55,7 +55,6 @@ services.factory('Feedback', function($resource) {
   });
 });
 
-
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
   return $resource('/api/reservations/:id');
@@ -64,6 +63,7 @@ services.factory('Reservation', function($resource) {
 
 
 // --------------------------------- MANAGEMENT --------------------------------
+
 
 // get Feedback
 services.factory('GetFeedback', ['$resource', function($resource) {
@@ -98,9 +98,19 @@ services.factory('GetUser', ['$resource', function($resource) {
   return new GetUser;
 }]);
 
-// Delete question
-services.factory('DeleteQuestion', function ($resource) { 
+// Managers functionality with users
+services.factory('GetRole', ['$resource', function($resource) {
+  function GetRole() {
+    this.service = $resource('/api/roles/:roleId', {roleId: '@id'});
+  };
+
+  GetRole.prototype.all = function() {
+    return this.service.query();
+  };
+   return new GetRole;
+}]);services.factory('DeleteQuestion', function ($resource) { 
   return $resource('api/questions/:id', {id:'@id'}, {
     destroy: { method: 'DELETE' }
   });
 });
+
