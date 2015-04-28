@@ -1,6 +1,2 @@
-bs:
-  login:
-	  REMEMBER_ME: 'Remember me',
-	  LOGIN: 'Log in',
-	  REGISTER:'Register',
-	  FORGOT_PASS:'Forgot password?'
+en:
+  hello: 'Hello'

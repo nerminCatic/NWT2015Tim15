@@ -1,0 +1,38 @@
+<div classs="container" style="background-color:grey;"   ng-controller="QuestionsController">
+  <div class="row">
+       <div class="col-lg-4">
+       </div>
+       <div class="col-lg-4">
+                <div class="boxed-grey">
+                    <form id="contact-form" name="feedbackForm" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name">
+                                    {{ 'QUESTION' | translate }}</label>
+                                <input type="text" ng-model="question.name" class="formf-control" placeholder="Enter your question" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">
+                                    {{ 'DSC' | translate }}</label>
+                                <textarea  ng-model="question.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">
+                                    {{ 'CATEGORY' | translate }}</label>
+                                <select ng-model="category" ng-options="category.name for category in categories track by category.id" class="formf-control">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" ng-click="createQuestion()" ng-disabled="feedbackForm.$invalid">
+                                {{ 'SQUESTION' | translate }}</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+       <div class="col-lg-4">
+       </div>
+  </div>
+</div>

@@ -191,3 +191,23 @@ controllers.controller('DeleteUsersControler', ['$scope', '$routeParams', 'Delet
                 });
             }
 }]);
+// Questions controller
+controllers.controller('QuestionsController', ['$scope', 'Category', 'Question', 'AuthToken','$location',
+    function($scope, Category, Question, AuthToken, $location) {
+      $scope.categories = Category.query();
+      $scope.questions = Question.query();
+      $scope.question = new Question();
+      $scope.createQuestion = function() {
+        $scope.question.category_id = $scope.category.id;
+        Question.save($scope.question,
+            function success() {
+                var user = AuthToken.getUser();
+                alert(user +", Vaše pitanje je dodano.");
+                $scope.question= null;
+            }, 
+            function err() {
+                alert('Desila se greška pri unosu, pokušajte ponovo.');
+                $location.path('/add_question');
+            });
+      }
+}]);

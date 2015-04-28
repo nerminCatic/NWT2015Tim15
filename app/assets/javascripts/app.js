@@ -52,6 +52,14 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "changepass.html",
           controller: 'ChangePassController'
         }).
+      when('/questions',{
+        templateUrl: "questions.html",
+        //controller: 'ChangePassController'
+      }).
+      when('/add_question',{
+        templateUrl: "add_question.html",
+        //controller: 'ChangePassController'
+      }).
       otherwise({
         redirectTo: '/login'
       });

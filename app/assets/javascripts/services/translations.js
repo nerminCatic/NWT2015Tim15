@@ -29,8 +29,10 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'CATEGORYMNGD' : 'Options of adding new categories, deleting and editing existing categories enabled.',
     'SORT' : 'Order by',
     'SEARCH' : 'Search',
-
-
+    'QUESTION' : 'Question',
+    'DSC' : 'Description',
+    'CATEGORY' : 'Category',
+    'SQUESTION' : 'Send question'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -60,6 +62,10 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'CATEGORYMNGD' : 'Omogućeno pregledanje, dodavanje novih i brisanje već postojećih kategorija.',
     'SORT' : 'Sortiraj po:',
     'SEARCH' : 'Pretraga:',
+    'QUESTION' : 'Pitanje',
+    'DSC' : 'Opis',
+    'CATEGORY' : 'Kategorija',
+    'SQUESTION' : 'Pošalji pitanje'
   });
  
   $translateProvider.preferredLanguage('bs');

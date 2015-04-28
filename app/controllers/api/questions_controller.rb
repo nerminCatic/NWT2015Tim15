@@ -2,7 +2,7 @@ class Api::QuestionsController < ApplicationController
   #before_filter :restrict_api_access
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
-
+  skip_before_action :authenticate_request, :set_current_user
   # GET /questions
   # GET /questions.json
   def index
@@ -11,11 +11,6 @@ class Api::QuestionsController < ApplicationController
           @questions = Question.where("category_id = ?", params[:category_id])
         else
           @questions = Question.all
-        end
-        respond_to do |format|
-          format.json {
-            render json: { questions: @questions }
-          }
         end
       rescue
         render json: { message: 'Record not found!' }, :status => :bad_request
@@ -40,7 +35,7 @@ class Api::QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
+    @question.user = @current_user
     respond_to do |format|
       if @question.save
         format.json { render json: @question, status: :created, location: api_question_url(@question) }
