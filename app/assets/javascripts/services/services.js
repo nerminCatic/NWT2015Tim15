@@ -14,13 +14,17 @@ services.factory('UserRegister', function ($resource) {
   });
 });
 
-// get Users
+// Managers functionality with users
 services.factory('GetUser', ['$resource', function($resource) {
   function GetUser() {
     this.service = $resource('/api/users/:userId', {userId: '@id'});
   };
   GetUser.prototype.all = function() {
     return this.service.query();
+  };
+  GetUser.prototype.delete = function(usrId) {
+    this.service.remove({userId: usrId});
+    alert("Korisnik je uspješno izbrisan!");
   };
   return new GetUser;
 }]);

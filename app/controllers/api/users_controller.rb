@@ -107,10 +107,11 @@ class Api::UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    respond_with User.destroy(params[:id])
+    #@user.destroy
+    #respond_to do |format|
+    #  format.json { head :no_content }
+    #end
   end
 
   private

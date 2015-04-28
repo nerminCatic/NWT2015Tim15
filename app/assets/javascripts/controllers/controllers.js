@@ -172,22 +172,17 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 }]);
 
 // User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetUser', function($scope, GetUser) {
-  $scope.users = GetUser.all();
-}]);
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
+    function($scope, GetUser) {
+        /*$scope.$on('reloadajUsere', function (event,id) {
+               alert(id);
+               $scope.users = GetUser.all(); 
+            });*/
+        $scope.users = GetUser.all(); 
 
-// User management - deleting user
-controllers.controller('DeleteUsersControler', ['$scope', '$routeParams', 'DeleteUser', '$location',
-    function($scope, $routeParams, DeleteUser, $location) {
-        $scope.deleteUser = function(){
-            var idi = $scope.user.id;
-            DeleteUser.destroy({ id:idi },
-                function success() {
-                    alert("Korisnik je uspješno izbrisan!");
-                }, 
-                function err() {
-                    alert('Došlo je do greške!');
-                    $location.path('/user_management');
-                });
-            }
+        $scope.deleteUser = function(id, idx) {
+            alert("1");
+            $scope.users.splice(idx, 1);
+             return GetUser.delete(id);
+        };
 }]);
