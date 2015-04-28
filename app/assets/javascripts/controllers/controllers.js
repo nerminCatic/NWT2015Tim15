@@ -174,14 +174,10 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 // User management searching
 controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
     function($scope, GetUser) {
-        /*$scope.$on('reloadajUsere', function (event,id) {
-               alert(id);
-               $scope.users = GetUser.all(); 
-            });*/
+
         $scope.users = GetUser.all(); 
 
         $scope.deleteUser = function(id, idx) {
-            alert("1");
             $scope.users.splice(idx, 1);
              return GetUser.delete(id);
         };

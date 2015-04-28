@@ -19,17 +19,24 @@ services.factory('GetUser', ['$resource', function($resource) {
   function GetUser() {
     this.service = $resource('/api/users/:userId', {userId: '@id'});
   };
+
   GetUser.prototype.all = function() {
     return this.service.query();
   };
+
   GetUser.prototype.delete = function(usrId) {
-    this.service.remove({userId: usrId});
-    alert("Korisnik je uspješno izbrisan!");
+    this.service.remove({userId: usrId},
+    function success() {
+        alert("Korisnik je uspješno izbrisan!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
   };
   return new GetUser;
 }]);
 
-// Delete user 
+// Delete user - trenutno se ne koristi, ali je ispravna!
 services.factory('DeleteUser', function ($resource) { 
   return $resource('api/users/:id', {id:'@id'}, {
     destroy: { method: 'DELETE' }
