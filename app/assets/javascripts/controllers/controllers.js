@@ -47,7 +47,7 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
 controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '$location',
 
     function($scope,CreateCategory,$location) {
-       
+
         $scope.createCategoryC = function(){
          CreateCategory.create ({name: $scope.category.name, 
          description: $scope.category.description}, 
@@ -239,6 +239,7 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
 
         $scope.users = GetUser.all(); 
 
+
         $scope.deleteUser = function(id, idx) {
             $scope.users.splice(idx, 1);
              return GetUser.delete(id);
@@ -250,9 +251,9 @@ controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
 
         $scope.categories = GetCategory.all(); 
 
-        $scope.deleteUser = function(id, idx) {
-            $scope.users.splice(idx, 1);
-             return GetUser.delete(id);
+        $scope.deleteCategory = function(id, idx) {
+            $scope.categories.splice(idx, 1);
+             return GetCategory.delete(id);
         };
 }]);
 
@@ -280,3 +281,26 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
             });
         }
 }]);
+
+controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCategory', '$location',
+
+    function($scope,CreateCategory,$location) {
+
+        $scope.createCategoryByAdmin = function() {
+            $location.path('/new_category');
+        }
+
+        $scope.createCategoryC = function(){
+         CreateCategory.create ({name: $scope.category.name, 
+         description: $scope.category.description}, 
+            function success() {
+                alert("Kategorija uspješno kreirana!");
+                $location.path('/login');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/new_category');
+             });
+        }
+    }
+    ]);

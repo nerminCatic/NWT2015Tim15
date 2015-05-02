@@ -106,6 +106,27 @@ services.factory('GetUser', ['$resource', function($resource) {
   return new GetUser;
 }]);
 
+services.factory('GetCategory', ['$resource', function($resource) {
+  function GetCategory() {
+    this.service = $resource('/api/categories/:categoryId', {categoryId: '@id'});
+  };
+
+  GetCategory.prototype.all = function() {
+    return this.service.query();
+  };
+
+GetCategory.prototype.delete = function(catgoryId) {
+    this.service.remove({categoryId: catgoryId},
+    function success() {
+        alert("Kategorija je uspješno izbrisana!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
+  };
+  return new GetCategory;
+}]);
+
 // Managers functionality with users
 services.factory('GetRole', ['$resource', function($resource) {
   function GetRole() {
