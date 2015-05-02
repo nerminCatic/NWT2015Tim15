@@ -72,6 +72,15 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "new_category.html",
           controller: 'ChangePassController'
         }).
+      
+      when('/role_admin',{
+          templateUrl: "role_admin.html",
+          
+        }).
+      when('/add_new_role',{
+          templateUrl: "add_new_role.html",
+          
+        }).
       otherwise({
         redirectTo: '/login'
       });

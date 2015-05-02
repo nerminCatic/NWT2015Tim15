@@ -1,0 +1,13 @@
+</br></br>
+<div class="pretraga">
+  Sortiraj po:
+  <select ng-model="orderProp" class="form-control">
+    <option value="name">Ime</option>
+    <option value="name">Id</option>
+  </select>
+  Pretraga: <input ng-model="query" class="form-control"> <br><br>
+  Dodavanje nove role: 
+  <button class="btn btn-primary" ng-controller="CreateRoleController" ng-click="createRoleRead()"  ng-disabled="myForm.$invalid">Dodaj rolu</button>
+</div>
+
+</br></br>

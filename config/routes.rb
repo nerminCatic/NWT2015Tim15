@@ -40,7 +40,11 @@ ESavjetovaliste::Application.routes.draw do
         end
     end
 
-    resources :roles
+    resources :roles do
+    collection do
+          post :create
+          end
+        end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

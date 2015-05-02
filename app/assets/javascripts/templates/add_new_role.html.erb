@@ -1,0 +1,37 @@
+<body>
+	<div class="container"> 
+	<div class="bcg" style="height:600px">   
+	    <div class="category-wall">
+			<form class="form-register" name="myForm" ng-controller="CreateRoleController">
+
+			  	<h1 class="text-center login-title"> Unos role </h1>
+
+			  	<!-- input name-->
+			  	<div class="input-prepend">
+	      			<span class="add-on"><i class="icon-user"></i></span>
+				  	<input name="name" pattern="^([A-z]){3,}$" maxlength="20" class="formr-control" type="text" placeholder="Ime" ng-model="role.name" required autofocus/>
+				  	<br>
+				  	<!--name validation (client side)-->
+					<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+						<span ng-show="myForm.name.$error.required">Unos imena je obavezan.</span>Ime mora sadržavati više od 3 karaktera.
+					</span>	
+			    </div>
+
+				<!-- input job-->
+				<div class="input-prepend">
+	      			<span class="add-on"><i class="icon-briefcase"></i></span>
+				  	<input name="desc" type="text" pattern="^([A-z]){2,}$" maxlength="255" class="formr-control" placeholder= "Opis" ng-model="role.description" /><br>
+				  	<span style="color:red" ng-show="myForm.description.$dirty && myForm.jdescriptionb.$invalid">Opis mora sadržavati više od 3 karaktera.
+				    </span>	
+				</div>
+
+				<!-- submit button-->
+				<div class="actions">
+				  <button class="btn btn-lg btn-primary btn-block" ng-click="createRoleR()"  ng-disabled="myForm.$invalid">Kreiraj</button>
+				</div>
+			  </form>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>

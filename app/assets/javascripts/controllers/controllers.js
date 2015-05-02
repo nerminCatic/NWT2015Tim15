@@ -53,11 +53,33 @@ controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '
          description: $scope.category.description}, 
             function success() {
                 alert("Kategorija uspješno kreirana!");
-                $location.path('/login');
+                $location.path('/home_admin');
             }, 
             function err(){
                 alert("Pogrešni podaci!"); 
                 $location.path('/new_category');
+             });
+        }
+    }
+    ]);
+controllers.controller('CreateRoleController', ['$scope','CreateRole', '$location',
+
+    function($scope,CreateRole,$location) {
+
+        $scope.createRoleRead = function() {
+            $location.path('/add_new_role');
+        }
+
+        $scope.createRoleR = function(){
+         CreateRole.create ({name: $scope.role.name, 
+         description: $scope.role.description}, 
+            function success() {
+                alert("Rola uspješno kreirana!");
+                $location.path('/role_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/add_new_role');
              });
         }
     }
@@ -87,6 +109,9 @@ controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
         }
         $scope.openCategory = function() {
             $location.path('/category_admin');
+        }
+        $scope.openRoleManagement = function() {
+            $location.path('/role_admin');
         }
 }]);
 // Change password
@@ -295,7 +320,7 @@ controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCateg
          description: $scope.category.description}, 
             function success() {
                 alert("Kategorija uspješno kreirana!");
-                $location.path('/login');
+                $location.path('/category_admin');
             }, 
             function err(){
                 alert("Pogrešni podaci!"); 

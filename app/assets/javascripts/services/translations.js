@@ -33,7 +33,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'DSC' : 'Description',
     'CATEGORY' : 'Category',
     'SQUESTION' : 'Send question',
-    'USER' : 'User'
+    'USER' : 'User',
+    'USRROLE':'Role management',
+    'USRROLED':'Options of adding new roles, deleting and editing existing roles enabled.'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -67,7 +69,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'DSC' : 'Opis',
     'CATEGORY' : 'Kategorija',
     'SQUESTION' : 'Pošalji pitanje',
-    'USER' : 'Korisnik'
+    'USER' : 'Korisnik',
+    'USRROLE':'Upravljanje rolama',
+    'USRROLED':'Omogućeno pregledanje, dodavanje novih i brisanje već postojećih rola.',
   });
  
   $translateProvider.preferredLanguage('bs');

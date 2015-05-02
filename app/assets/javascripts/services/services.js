@@ -28,6 +28,12 @@ services.factory('CreateCategory', function ($resource) {
           });
 });
 
+services.factory('CreateRole', function ($resource) {
+     return $resource('/api/roles',   {name: '@name', 
+         description: '@description'}, {
+          create: { method: 'POST' }
+          });
+});
 
 // Change password
 services.factory('ChangePassword', function ($resource) {
@@ -114,7 +120,7 @@ services.factory('GetCategory', ['$resource', function($resource) {
   GetCategory.prototype.all = function() {
     return this.service.query();
   };
-
+ 
 GetCategory.prototype.delete = function(catgoryId) {
     this.service.remove({categoryId: catgoryId},
     function success() {
