@@ -1,0 +1,33 @@
+</br></br>
+<div class="pretraga">
+  Sortiraj po:
+  <select ng-model="orderProp" class="form-control">
+    <option value="name">Imenima</option>
+  </select>
+  Pretraga: <input ng-model="query" class="form-control">
+  Dodavanje nove kategorije: 
+  <button class="btn btn-primary" ng-controller="CreateCategoryController" ng-click="createCategoryC()"  ng-disabled="myForm.$invalid">Dodaj kategoriju</button>
+</div>
+
+</br></br>
+<table class="table table-hover table-condensed tabela" ng-controller="SearchCategoriesControler">
+    <thead>
+        <tr>s
+            <th>Naziv</th>
+            <th>Opis</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="category in categories | filter:query | orderBy:orderProp">
+        <td> {{category.name}}</td>
+        <td> {{category.description}}</td>
+        <td>
+          <div class="actions"> 
+            <button class="btn btn-primary btn-usr-mng" ng-click="updateUser(stock.id, $index)"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          </div>
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser(user.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
+          </div>
+        </td>
+      </tr>
+</table>

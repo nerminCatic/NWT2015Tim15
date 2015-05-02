@@ -48,7 +48,7 @@ controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '
 
     function($scope,CreateCategory,$location) {
        
-        $scope.changePass = function(){
+        $scope.createCategoryC = function(){
          CreateCategory.create ({name: $scope.category.name, 
          description: $scope.category.description}, 
             function success() {
@@ -244,6 +244,18 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
              return GetUser.delete(id);
         };
 }]);
+
+controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
+    function($scope, GetCategory) {
+
+        $scope.categories = GetCategory.all(); 
+
+        $scope.deleteUser = function(id, idx) {
+            $scope.users.splice(idx, 1);
+             return GetUser.delete(id);
+        };
+}]);
+
 
 //Registration users from manager - Possible add role!
 controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',
