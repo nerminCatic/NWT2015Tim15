@@ -21,6 +21,14 @@ services.factory('DeleteUser', function ($resource) {
   });
 });
 
+services.factory('CreateCategory', function ($resource) {
+     return $resource('/api/categories',   {name: '@name', 
+         description: '@description'}, {
+          create: { method: 'POST' }
+          });
+});
+
+
 // Change password
 services.factory('ChangePassword', function ($resource) {
      return $resource('/api/users/change_password',   {password: '@password', 

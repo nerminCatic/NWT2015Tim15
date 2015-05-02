@@ -68,6 +68,10 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "add_question.html",
         //controller: 'ChangePassController'
       }).
+      when('/new_category',{
+          templateUrl: "new_category.html",
+          controller: 'ChangePassController'
+        }).
       otherwise({
         redirectTo: '/login'
       });

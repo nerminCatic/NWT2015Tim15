@@ -44,6 +44,24 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
             $location.path('/login');
         }
 }]);
+controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '$location',
+
+    function($scope,CreateCategory,$location) {
+       
+        $scope.changePass = function(){
+         CreateCategory.create ({name: $scope.category.name, 
+         description: $scope.category.description}, 
+            function success() {
+                alert("Kategorija uspješno kreirana!");
+                $location.path('/login');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/new_category');
+             });
+        }
+    }
+    ]);
 // Home Admin controller
 controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
     function($scope, $location, AuthToken) {
