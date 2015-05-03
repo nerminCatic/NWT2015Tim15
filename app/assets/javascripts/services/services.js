@@ -109,8 +109,18 @@ services.factory('GetUser', ['$resource', function($resource) {
       alert('Došlo je do greške!');
     });   
   };
+
+  GetUser.prototype.getUserForUpdate = function(usrId) {
+    alert(usrId);
+    return $resource('/api/users/:userId', {userId: usrId});
+  };
+
   return new GetUser;
 }]);
+/*
+services.factory('Data', function(){
+    return { FirstName: '' };
+});*/
 
 // Managers functionality with categories
 services.factory('GetCategory', ['$resource', function($resource) {
@@ -166,7 +176,9 @@ services.factory('GetRole', ['$resource', function($resource) {
     return this.service.query();
   };
    return new GetRole;
-}]);services.factory('DeleteQuestion', function ($resource) { 
+}]);
+
+services.factory('DeleteQuestion', function ($resource) { 
   return $resource('api/questions/:id', {id:'@id'}, {
     destroy: { method: 'DELETE' }
   });

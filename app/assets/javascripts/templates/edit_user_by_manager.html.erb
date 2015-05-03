@@ -7,7 +7,7 @@
 	<div class="container">    
 	<div class="bcg" style="height:600px">
 	    <div class="register-wall">                      <!-- TBD dodati ovaj kontroler!-->
-			<form class="form-register" name="myForm" ng-controller="EditUserController">  
+			<form class="form-register" name="myForm" ng-controller="EditUserByManagerController">  
 
 			  	<h1 class="text-center login-title"> Izmjena podataka o korisniku </h1>
 
@@ -41,7 +41,7 @@
 				    </span>	
 				</div>
 
-				<!-- input adress-->
+				<!-- input adress -->
 				<div class="input-prepend">
 	      			<span class="add-on"><i class="icon-map-marker"></i></span>
 				  	<input name="adress" type="text" class="formr-control" placeholder="Adresa" ng-model="user.adress" />
@@ -64,7 +64,12 @@
 					</span>	
 				</div>
 
-				<!-- TBD dodati izbor role!-->
+				<!-- input role -->
+				<div class="input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>
+                    <select class="formr-control" ng-model="role" ng-options="role.name for role in roles track by role.id" required>
+                    </select>
+                </div>
 
 				<!-- submit button TBD osposobiti i dodati sta treba-->
 				<div class="actions">

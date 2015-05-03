@@ -58,7 +58,7 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/edit_user_by_manager',{
          templateUrl: "edit_user_by_manager.html",
-         controller: 'EditUserFromManagerController'
+         controller: 'EditUserByManagerController'
       }).
       when('/questions',{
         templateUrl: "questions.html",

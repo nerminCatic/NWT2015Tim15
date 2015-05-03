@@ -259,9 +259,8 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 }]);
 
 // User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
-    function($scope, GetUser) {
-
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser', '$location',
+    function($scope, GetUser, $location) {
         $scope.users = GetUser.all(); 
 
 
@@ -269,6 +268,33 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
             $scope.users.splice(idx, 1);
              return GetUser.delete(id);
         };
+
+        
+        $scope.openUpdateUser = function(id, idx) {
+            
+            $scope.users.splice(idx, 1);
+
+            var obj = new Object();
+            //obj.user = User(id);
+            var jsonString= JSON.stringify(obj);
+
+            alert(jsonString);
+
+            alert($scope.user.name);
+            //var pom = GetUser.getUserForUpdate(id);
+            //alert("asckjakscbja" + pom.name);
+            //alert("asckjakscbja" + UserZaUpdate.user.name);
+            
+            $location.path('/edit_user_by_manager');
+            //return GetUser.openHmtlUpdateUser(id);
+        };
+}]);
+
+
+// User management searching
+controllers.controller('EditUserByManagerController', ['$scope', '$location',
+    function($scope, $location) {
+
 }]);
 
 // Category management searching
@@ -318,6 +344,7 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
             });
         }
 }]);
+
 
 controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCategory', '$location',
 

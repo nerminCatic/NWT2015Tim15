@@ -13,6 +13,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'LOGOUT': 'Log out', 
     'OFFICE': 'Main Office', 
     'NAME' : 'Name',
+    'SURNAME':'Surname',
+    'JOB':'Job',
     'EMAIL' : 'Email adress', 
     'TYPEF' : 'Type of feedback',
     'MSG' : 'Message',
@@ -35,7 +37,14 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'SQUESTION' : 'Send question',
     'USER' : 'User',
     'USRROLE':'Role management',
-    'USRROLED':'Options of adding new roles, deleting and editing existing roles enabled.'
+    'USRROLED':'Options of adding new roles, deleting and editing existing roles enabled.',
+    'ORDNAME':'Name',
+    'ORDSURNAME':'Surname',
+    'ACTION':'Action',
+    'ADDNEWUSER':'Add new user:',
+    'ADDUSER':'Add user',
+    'CHANGE':'Change',
+    'DELETE':'Delete',
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -49,6 +58,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'LOGOUT': 'Odjava', 
     'OFFICE': 'Glavna poslovnica',
     'NAME' : 'Ime',
+    'SURNAME':'Prezime',
+    'JOB':'Posao',
     'EMAIL' : 'Email adresa',
     'TYPEF' : 'Tip povratne informacije',
     'MSG' : 'Poruka',
@@ -72,6 +83,15 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'USER' : 'Korisnik',
     'USRROLE':'Upravljanje rolama',
     'USRROLED':'Omogućeno pregledanje, dodavanje novih i brisanje već postojećih rola.',
+    'ORDNAME':'Imenima',
+    'ORDSURNAME':'Prezimenima',
+    'ACTION':'Akcija',
+    'ADDNEWUSER':'Dodavanje novog korisnika:',
+    'ADDUSER':'Dodaj korisnika',
+    'CHANGE':'Izmijeni',
+    'DELETE':'Obriši',
+    '':'',
+    '':''
   });
  
   $translateProvider.preferredLanguage('bs');

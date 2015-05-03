@@ -1,24 +1,24 @@
 </br></br>
 <div class="pretraga">
-  Sortiraj po:
+  {{ 'SORT' | translate }}
   <select ng-model="orderProp" class="form-control">
-    <option value="name">Imenima</option>
-    <option value="surname">Prezimenima</option>
+    <option value="name">{{ 'ORDNAME' | translate }}</option>
+    <option value="surname">{{ 'ORDSURNAME' | translate }}</option>
   </select>
-  Pretraga: <input ng-model="query" class="form-control">
-  Dodavanje novog usera: 
-  <button class="btn btn-primary" ng-controller="RegistrationUserByManagerController" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">Dodaj usera</button>
+  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
+  {{ 'ADDNEWUSER' | translate }} 
+  <button class="btn btn-primary" ng-controller="RegistrationUserByManagerController" ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid">{{ 'ADDUSER' | translate }}</button>
 </div>
 
 </br></br>
 <table class="table table-hover table-condensed tabela" ng-controller="SearchUsersControler">
     <thead>
         <tr>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Email</th>
-            <th>Posao</th>
-            <th>Akcija</th>
+            <th>{{ 'NAME' | translate }}</th>
+            <th>{{ 'SURNAME' | translate }}</th>
+            <th>{{ 'EMAIL' | translate }}</th>
+            <th>{{ 'JOB' | translate }}</th>
+            <th>{{ 'ACTION' | translate }}</th>
         </tr>
     </thead>
     <tbody>
@@ -28,11 +28,11 @@
         <td> {{user.email}}</td>
         <td> {{user.job}}</td>
         <td>
-          <div class="actions"> 
-            <button class="btn btn-primary btn-usr-mng" ng-click="updateUser(stock.id, $index)"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="openUpdateUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'CHANGE' | translate }}</button>
           </div>
           <div class="actions" >
-            <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser(user.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
+            <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'DELETE' | translate }}</button>
           </div>
         </td>
       </tr>
