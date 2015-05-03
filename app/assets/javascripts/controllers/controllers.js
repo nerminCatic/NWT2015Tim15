@@ -271,6 +271,7 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser',
         };
 }]);
 
+// Category management searching
 controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
     function($scope, GetCategory) {
 
@@ -282,6 +283,17 @@ controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
         };
 }]);
 
+// Role management searching
+controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
+    function($scope, GetRole) {
+
+        $scope.roles = GetRole.all(); 
+
+        $scope.deleteRole = function(id, idx) {
+            $scope.roles.splice(idx, 1);
+             return GetRole.delete(id);
+        };
+}]);
 
 //Registration users from manager - Possible add role!
 controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',

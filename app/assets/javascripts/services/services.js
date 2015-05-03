@@ -112,6 +112,7 @@ services.factory('GetUser', ['$resource', function($resource) {
   return new GetUser;
 }]);
 
+// Managers functionality with categories
 services.factory('GetCategory', ['$resource', function($resource) {
   function GetCategory() {
     this.service = $resource('/api/categories/:categoryId', {categoryId: '@id'});
@@ -131,6 +132,28 @@ GetCategory.prototype.delete = function(catgoryId) {
     });   
   };
   return new GetCategory;
+}]);
+
+// Managers functionality with roles
+services.factory('GetRole', ['$resource', function($resource) {
+  function GetRole() {
+    this.service = $resource('/api/roles/:roleId', {roleId: '@id'});
+  };
+
+  GetRole.prototype.all = function() {
+    return this.service.query();
+  };
+ 
+GetRole.prototype.delete = function(rlid) {
+    this.service.remove({roleId: rlid},
+    function success() {
+        alert("Rola je uspješno izbrisana!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
+  };
+  return new GetRole;
 }]);
 
 // Managers functionality with users
