@@ -8,6 +8,7 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'translations',
   'feedback_directives',
   'admin_directives',
+  'localization_directives',
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
