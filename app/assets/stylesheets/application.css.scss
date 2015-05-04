@@ -1,6 +1,6 @@
 
 @import "bootstrap";
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 #ha{
   background-image: none !important;
 }
@@ -295,6 +295,7 @@
   position:absolute;
   botom:0;
   left: 620px;
+  text-align: center;
 }
 .btn-circle:hover {
   width: 50px;
@@ -309,6 +310,7 @@
   transition: background .3s ease-in-out;
   botom:0;
   left: 620px;
+  text-align: center;
 }
 .fa-angle-double-down:before {
   content: "\f103";
@@ -719,4 +721,47 @@ img {
 /*end of design for feedback_admin*/
 .btn-usr-mng{
   width:100px;
+}
+
+
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: #21568b;
+}
+
+.bcgimgslider
+{
+  background: url('/assets/imgsliderbcg.jpg') no-repeat center center fixed !important;
+}
+
+.quoteBlock > div {
+  padding: 30px;
+  background: url('/assets/quoteBg.png');
+}
+
+.fa-quote-right:before, .fa-quote-left:before{
+  color:yellow;
+}
+.feedbacks li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
 }
