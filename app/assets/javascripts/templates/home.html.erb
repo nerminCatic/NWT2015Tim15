@@ -105,26 +105,77 @@ h2{
         <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
             <!-- Carousel items -->
             <div class="carousel-inner">
-                <div class="active item">
-                    <h2>Slide 1</h2>
-                    <div class="carousel-caption">
-                      <h3>First slide label</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
+                <div class="active item bcgimgslider">
+                    <ul class="feedbacks">
+                        <li> 
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="item">
-                    <h2>Slide 2</h2>
-                    <div class="carousel-caption">
-                      <h3>Second slide label</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
+                <div class="item bcgimgslider">
+                    <ul class="feedbacks">
+                        <li> 
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="item">
-                    <h2>Slide 3</h2>
-                    <div class="carousel-caption">
-                      <h3>Third slide label</h3>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
+                <div class="item bcgimgslider">
+                    <ul class="feedbacks">
+                        <li> 
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slide quoteBlock col-sm-6 col-md-4" style="width: 433px;">
+                                <div>
+                                    <i class="fa fa-quote-left"></i>
+                                    <p>I’m always on the clock, sometimes it feels like I work 24/7 and barely have time to schedule dinner with my wife. It’s so easy to decompress with a listener on my crazy schedule. I can just call in on my way home from work and it isn’t an ordeal like scheduling a therapist. Plus, my wife gets to enjoy me a little less stressed.</p>
+                                    <h5 class="cupBlue">Graham C. <em>North Carolina</em></h5>
+                                    <i class="fa fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -148,12 +199,6 @@ h2{
         </div>
     </div>
     <!-- /.image slider-->
-
-    <div my-dom-directive>Click Me!</div>
-
-
-   <!--<div rating score="song.score" max="5" class="pull-left"></div>-->
-
 
     <!--advice form-->
     <div class="heading-contact-title">
@@ -232,6 +277,10 @@ h2{
                     <form id="contact-form" name="feedbackForm" ng-controller="FeedbackController">
                     <div class="row">
                         <div class="col-md-6">
+                           <div ng-controller="RatingCtrl">
+                                <div ng-init="rating = star.rating + 1"></div>
+                                <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)"></div>
+                            </div>
                             <div class="form-group">
                                 <label for="name">
                                     {{ 'NAME' | translate }}</label>

@@ -368,3 +368,11 @@ controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCateg
         }
     }
 ]);
+
+//controller for star rating - feedback direcitive
+controllers.controller('RatingCtrl', function($scope) {
+    $scope.rating = 5;
+    $scope.rateFunction = function(rating) {
+      alert('Rating selected - ' + rating);
+    };
+  });
