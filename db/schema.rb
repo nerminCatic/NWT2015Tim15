@@ -12,7 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20150428165430) do
-  #Komentar
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20150428165430) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "reservations", force: true do |t|
+    t.integer  "user_receive_id"
+    t.integer  "user_doctor_id"
+    t.integer  "user_patient_id"
     t.datetime "appointment_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,10 +67,11 @@ ActiveRecord::Schema.define(version: 20150428165430) do
     t.datetime "receive_date"
     t.datetime "confirm_date"
     t.string   "description"
-    t.integer  "user_receive_id"
-    t.integer  "user_doctor_id"
-    t.integer  "user_patient_id"
   end
+
+  add_index "reservations", ["user_doctor_id"], name: "index_reservations_on_user_doctor_id", using: :btree
+  add_index "reservations", ["user_patient_id"], name: "index_reservations_on_user_patient_id", using: :btree
+  add_index "reservations", ["user_receive_id"], name: "index_reservations_on_user_receive_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

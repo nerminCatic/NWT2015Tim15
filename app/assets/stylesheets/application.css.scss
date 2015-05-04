@@ -8,6 +8,13 @@
 {
   background-image: none !important;
 }
+.bcgwhite{
+  /*background: url('/assets/white3.jpg') no-repeat center center fixed !important; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 /*design for login form*/
 .form-signin
