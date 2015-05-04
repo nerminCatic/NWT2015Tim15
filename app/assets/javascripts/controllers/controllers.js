@@ -260,11 +260,9 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 }]);
 
 // User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetUser', '$location',
-    function($scope, GetUser, $location) {
+controllers.controller('SearchUsersControler', ['$scope', 'GetUser', 'GetMeUser', 'SharedUser', '$location',
+    function($scope, GetUser, GetMeUser, SharedUser, $location) {
         $scope.users = GetUser.all(); 
-
-
         $scope.deleteUser = function(id, idx) {
             $scope.users.splice(idx, 1);
              return GetUser.delete(id);
@@ -274,27 +272,61 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetUser', '$location'
         $scope.openUpdateUser = function(id, idx) {
             
             $scope.users.splice(idx, 1);
-
             var obj = new Object();
-            //obj.user = User(id);
-            var jsonString= JSON.stringify(obj);
-
-            alert(jsonString);
-
-            alert($scope.user.name);
-            //var pom = GetUser.getUserForUpdate(id);
-            //alert("asckjakscbja" + pom.name);
-            //alert("asckjakscbja" + UserZaUpdate.user.name);
-            
-            $location.path('/edit_user_by_manager');
-            //return GetUser.openHmtlUpdateUser(id);
+            obj.user = GetMeUser.dajUsera({id: id},
+                function success() {
+                SharedUser.set(obj.user);
+                //var jsonString = JSON.stringify(Korisnik.get());
+                //alert(jsonString);
+                $location.path('/edit_user_by_manager');
+            }, 
+            function err() {
+                alert('Nije ga dobavio!');
+            }
+            );
         };
 }]);
 
 
-// User management searching
-controllers.controller('EditUserByManagerController', ['$scope', '$location',
-    function($scope, $location) {
+// User management - editing data about user
+controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', 'GetRole', 'UpdateUserByManager', '$location',
+    function($scope, SharedUser, GetRole, UpdateUserByManager, $location) {
+        
+        $scope.roles = GetRole.all(); 
+        $scope.user = SharedUser.get();
+        // Provjera :
+        //var jsonString = JSON.stringify(SharedUser.get());
+        //alert(jsonString);
+        //$scope.role = $scope.user.role_id;
+        $scope.editUser = function() {
+        // Provjera da li u scopeu ima shareovanog usera
+        //var jsonString= JSON.stringify($scope.user);
+        //alert(jsonString);
+
+        $scope.user.role_id = $scope.role.id;
+            
+        var obj = new Object();
+        obj.name = $scope.user.name;
+        obj.surname = $scope.user.surname;
+        obj.role_id = $scope.user.role_id;
+        obj.phone = $scope.user.phone;
+        obj.job = $scope.user.job;
+        obj.email = $scope.user.email;
+        obj.adress = $scope.user.adress;
+        var jsonString= JSON.stringify(obj);
+        alert(jsonString);
+        // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
+        UpdateUserByManager.update({ id:$scope.user.id }, jsonString, 
+            function success() {
+                alert('Podaci o korisniku su uspješno izmijenjeni.');
+                $location.path('/user_management'); 
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške.');
+                $location.path('/edit_user_by_manager');
+            });
+        };
+
 
 }]);
 

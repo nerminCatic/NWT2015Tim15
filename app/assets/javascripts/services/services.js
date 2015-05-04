@@ -4,6 +4,30 @@ var services = angular.module('services', ['ngResource']);
 
 
 // CRUD services for User
+services.factory('GetMeUser', function($resource) {
+  return $resource('/api/users/:id', {id:'@id'}, {
+    dajUsera: { method: 'GET' }
+  });
+});
+
+// For sharing data about User between controlers (SearchUsersControler and EditUserByManagerController)
+services.factory('SharedUser', function () {
+    //return { User: '' };
+    var savedData = {}
+    function set(data) {
+      savedData = data;
+    }
+    function get() {
+     return savedData;
+    }
+
+    return {
+     set: set,
+     get: get
+    }
+});
+
+// CRUD services for User
 services.factory('User', function($resource) {
   return $resource('/api/users/:id');
 });
@@ -117,10 +141,14 @@ services.factory('GetUser', ['$resource', function($resource) {
 
   return new GetUser;
 }]);
-/*
-services.factory('Data', function(){
-    return { FirstName: '' };
-});*/
+
+// Imputs passwords  reset service
+services.factory('UpdateUserByManager', function ($resource) { 
+  return $resource('api/users/:id', {id:'@id', name: '@name', surname: '@surname', 
+    role_id: '@role_id', phone: '@phone', job: '@job', email: '@email', adress: '@adress'}, {
+    update: { method: 'PUT' }
+  });
+});
 
 // Managers functionality with categories
 services.factory('GetCategory', ['$resource', function($resource) {
@@ -164,18 +192,6 @@ GetRole.prototype.delete = function(rlid) {
     });   
   };
   return new GetRole;
-}]);
-
-// Managers functionality with users
-services.factory('GetRole', ['$resource', function($resource) {
-  function GetRole() {
-    this.service = $resource('/api/roles/:roleId', {roleId: '@id'});
-  };
-
-  GetRole.prototype.all = function() {
-    return this.service.query();
-  };
-   return new GetRole;
 }]);
 
 services.factory('DeleteQuestion', function ($resource) { 

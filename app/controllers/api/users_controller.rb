@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json 
-  skip_before_action :authenticate_request, :set_current_user, only: [:index, :confirm, :register, :update]
+  skip_before_action :authenticate_request, :set_current_user, only: [:index, :show, :confirm, :register, :update]
   #Komentar
   # GET /users
   # GET /users.json
@@ -12,7 +12,8 @@ class Api::UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @users = User.all
+    @user = User.find(params[:id])
+    render json: @user, status: 200
   end
 
   # GET /users/new
@@ -95,11 +96,19 @@ class Api::UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    user = current_user
-    if user.update(user_params)
-      render json: user, status: 200, location: [:api, user]
+    user = User.find_by!(id: params[:id])
+    if user 
+      user.name = params[:name]
+      user.surname = params[:surname]
+      user.role_id = params[:role_id]
+      user.phone = params[:phone]
+      user.job = params[:job]
+      user.email = params[:email]
+      user.adress = params[:adress]
+      user.save
+      render json: user, status: 200        
     else
-      render json: { errors: user.errors }, status: 422
+      render json: { errors: "This link is invalid."}, status: 404
     end
   end
 

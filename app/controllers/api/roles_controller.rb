@@ -12,6 +12,7 @@ class Api::RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
+    @role = Role.find(params[:id])
   end
 
   # GET /roles/new
