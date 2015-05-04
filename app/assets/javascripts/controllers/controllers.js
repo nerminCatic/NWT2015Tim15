@@ -145,6 +145,7 @@ controllers.controller('RegistrationController', ['$scope','UserRegister','$loca
                 }, 
                 function err() {
                 alert('Pogrešni podaci!');
+                $location.path('/register');
             });
         }
 }]);
