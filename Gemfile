@@ -49,8 +49,6 @@ group :development do
 end
 gem 'mandrill_mailer'
 
-gem 'bootstrap-sass', '~> 3.3.4'
-
 gem 'angular-rails-templates'
 
 gem 'bower-rails'

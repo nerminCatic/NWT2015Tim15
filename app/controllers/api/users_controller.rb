@@ -63,6 +63,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     # default status : Waiting 
     @user.confirmed = "W"
+    @user.role = Role.find_by(name:"gost")
     # json response
     respond_to do |format|
       #if !verify_recaptcha(:model => @user, :message => "CAPTCHA unos nije tacan!") && @user.save

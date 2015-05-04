@@ -1,5 +1,9 @@
-
-@import "bootstrap";
+/*
+*= require bootstrap
+*= require_self
+*= require_tree .
+*/
+/*@import "bootstrap";*/
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 #ha{
   background-image: none !important;
