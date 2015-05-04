@@ -1,5 +1,5 @@
 'use strict';
-var controllers = angular.module('controllers', []);
+var controllers = angular.module('controllers', ['ui.bootstrap']);
 // Change language
 controllers.controller('LanguageController', function($translate, $scope) {
   $scope.changeLanguage = function (langKey) {
@@ -345,7 +345,7 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
         }
 }]);
 
-
+// Create category
 controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCategory', '$location',
 
     function($scope,CreateCategory,$location) {
@@ -367,4 +367,4 @@ controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCateg
              });
         }
     }
-    ]);
+]);

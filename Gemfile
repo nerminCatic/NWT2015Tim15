@@ -49,7 +49,7 @@ group :development do
 end
 gem 'mandrill_mailer'
 
-gem 'bootstrap-sass', '~>2.3.1.0'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'angular-rails-templates'
 
@@ -60,3 +60,5 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'rails_12factor', group: :production
 
 gem 'jwt'
+
+gem 'angular-ui-bootstrap-rails'
