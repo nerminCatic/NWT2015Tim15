@@ -1,6 +1,6 @@
 
 var category_directives = angular.module('category_directives', []);
-category_directives.directive('categoryNavBar', function() {
+category_directives.directive('categoryNavbar', function() {
 return {
 restrict : 'A',
 template : '<table class="table table-hover table-condensed tabela1" ng-controller="SearchCategoriesControler">'

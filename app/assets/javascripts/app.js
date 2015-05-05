@@ -9,6 +9,7 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'feedback_directives',
   'navbar_directives',
   'localization_directives',
+  'category_directives',
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
