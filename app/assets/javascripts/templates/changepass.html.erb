@@ -3,14 +3,15 @@
 	<div class="bcg" style="height:600px">   
 	    <div class="change-wall">
 
-	    <form class="form-register" name="myForm" ng-controller="ChangePassController">
+	    <form class="form-register form-inline" role="form" name="myForm" ng-controller="ChangePassController">
 	    	<!--title-->
 			<h1 class="text-center login-title"> Promjena passworda </h1>
 
 			<!-- input current password-->
-			<div class="input-prepend">
-		      	<span class="add-on"><i class="icon-lock"></i></span>
-				<input name="passwordEx" type="password" class="formr-control" placeholder="Trenutna šifra" ng-model="user.password"  required/><br>
+			<div class="input-prepend  form-group has success has-feedback">
+				<label class="control-label" for="inputSuccess4"></label>
+				<input name="passwordEx" type="password" class="form-control" placeholder="Trenutna šifra" ng-model="user.password"  required id="inputSuccess4"/>
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span></br></br>
 				<!--password validation (client side)-->
 				<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
 					<span ng-show="myForm.password.$error.required">Unos pasvorda je obavezan.</span>
@@ -18,9 +19,10 @@
 			</div>
 
 			<!-- input new password-->
-			<div class="input-prepend">
-		      	<span class="add-on"><i class="icon-lock"></i></span>
-				<input name="password" type="password" minlength="3" class="formr-control" placeholder="Nova šifra" ng-model="user.new_password" required/><br>
+			<div class="input-prepend  form-group has success has-feedback">
+				<label class="control-label" for="inputSuccess4"></label>
+				<input name="password" type="password" minlength="3" class="form-control" placeholder="Nova šifra" ng-model="user.new_password" required id="inputSuccess4"/>
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span></br></br>
 				<!--password validation (client side)-->
 				<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
 					<span ng-show="myForm.password.$error.required">Unos pasvorda je obavezan.</span>Pasvord mora imati više od tri karaktera.
@@ -28,9 +30,10 @@
 			</div>
 
 			<!-- input new password confirmation-->
-			<div class="input-prepend">
-		      	<span class="add-on"><i class="icon-lock"></i></span>
-				<input name="passwordc" type="password" minlength="3" class="formr-control" placeholder= "Potvrda šifre" ng-model="user.new_password_confirmation" required/><br>
+			<div class="input-prepend  form-group has success has-feedback">
+				<label class="control-label" for="inputSuccess4"></label>
+				<input name="passwordc" type="password" minlength="3" class="form-control" placeholder= "Potvrda šifre" ng-model="user.new_password_confirmation" required id="inputSuccess4"/>
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span></br></br>
 				<!--password validation (client side)-->
 				<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
 					<span ng-show="myForm.password.$error.required">Unos pasvorda je obavezan.</span>Pasvord mora imati više od tri karaktera.

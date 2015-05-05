@@ -74,7 +74,7 @@ a:hover{
 .form-signin input[type="password"]
 {
     margin-bottom: 1px;
-    margin-top:10px;
+    
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
@@ -161,6 +161,31 @@ a:hover{
   color:#ffffff;
 }
 /*end of application footer*/
+/*design for registration admin */
+.register-admin-wall{
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 0px;
+    background-color: #000000;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+    opacity:0.9;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    /*kada je captcha ukljucena*/
+    /*margin-top: -280px;*/
+    /*width: 400px;*/
+    /*height: 560px;*/
+    margin-top: -270px;
+    width: 400px;
+    height: 540px;
+
+}
+/*end of design for registration admin */
 
 /*design for registration form*/
 .register-wall
