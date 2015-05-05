@@ -260,9 +260,12 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 }]);
 
 // User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetUser', 'GetMeUser', 'SharedUser', '$location',
-    function($scope, GetUser, GetMeUser, SharedUser, $location) {
+controllers.controller('SearchUsersControler', ['$scope', 'GetRole', 'GetUser', 'GetMeUser', 'SharedUser', '$location',
+    function($scope, GetRole, GetUser, GetMeUser, SharedUser, $location) {
+        $scope.roles = GetRole.all();
         $scope.users = GetUser.all(); 
+        
+
         $scope.deleteUser = function(id, idx) {
             $scope.users.splice(idx, 1);
              return GetUser.delete(id);
@@ -320,6 +323,7 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
             function success() {
                 alert('Podaci o korisniku su uspješno izmijenjeni.');
                 $location.path('/user_management'); 
+                // TBD SharedUser set to null
             }, 
             function err() {
                 alert('Došlo je do tehničke greške.');

@@ -27,6 +27,7 @@
         <td> {{user.surname}}</td>
         <td> {{user.email}}</td>
         <td> {{user.job}}</td>
+        <td> {{user.role.name}}</td>
         <td>
           <div class="actions" >
             <button class="btn btn-primary btn-usr-mng" ng-click="openUpdateUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'CHANGE' | translate }}</button>
