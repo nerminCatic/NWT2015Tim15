@@ -5,6 +5,12 @@
 *= require_tree .
 */
 
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+tbody > tr > td {
+  font-family: 'Open Sans', sans-serif;
+}
 #ha{
   background-image: none !important;
 }
