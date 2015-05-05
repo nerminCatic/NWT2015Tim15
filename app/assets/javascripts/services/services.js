@@ -52,6 +52,13 @@ services.factory('CreateCategory', function ($resource) {
           });
 });
 
+services.factory('UpdateCategory', function ($resource) {
+     return $resource('/api/categories',   {name: '@name', 
+         description: '@description'}, {
+          create: { method: 'PUT' }
+          });
+});
+
 services.factory('CreateRole', function ($resource) {
      return $resource('/api/roles',   {name: '@name', 
          description: '@description'}, {
@@ -169,6 +176,7 @@ GetCategory.prototype.delete = function(catgoryId) {
       alert('Došlo je do greške!');
     });   
   };
+
   return new GetCategory;
 }]);
 

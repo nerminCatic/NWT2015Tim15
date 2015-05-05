@@ -76,7 +76,9 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "new_category.html",
           controller: 'ChangePassController'
         }).
-      
+      when('/update_category',{
+          templateUrl: "update_category.html",
+        }).
       when('/role_admin',{
           templateUrl: "role_admin.html",
           

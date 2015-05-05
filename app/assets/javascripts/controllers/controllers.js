@@ -62,6 +62,24 @@ controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '
         }
     }
     ]);
+controllers.controller('UpdateCategoryController', ['$scope','UpdateCategory', '$location',
+
+    function($scope,UpdateCategory,$location) {
+
+        $scope.updateCategoryC = function(){
+         UpdateCategory.update ({name: $scope.category.name, 
+         description: $scope.category.description}, 
+            function success() {
+                alert("Kategorija uspješno izmijenjena!");
+                $location.path('/home_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/category_admin ');
+             });
+        }
+    }
+    ]);
 controllers.controller('CreateRoleController', ['$scope','CreateRole', '$location',
 
     function($scope,CreateRole,$location) {
@@ -335,7 +353,7 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
 }]);
 
 // Category management searching
-controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
+controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory', 
     function($scope, GetCategory) {
 
         $scope.categories = GetCategory.all(); 
@@ -344,7 +362,9 @@ controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
             $scope.categories.splice(idx, 1);
              return GetCategory.delete(id);
         };
-}]);
+  
+     }
+]);
 
 // Role management searching
 controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
@@ -356,7 +376,9 @@ controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
             $scope.roles.splice(idx, 1);
              return GetRole.delete(id);
         };
-}]);
+}
+    
+]);
 
 //Registration users from manager - Possible add role!
 controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',
