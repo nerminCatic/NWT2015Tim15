@@ -1,0 +1,35 @@
+</br></br>
+<div class="pretraga">
+  Sortiraj po:
+  <select ng-model="orderProp" class="form-control">
+    <option value="name">Naziv</option>
+    <option value="name">Opis</option>
+  </select>
+  Pretraga: <input ng-model="query" class="form-control"> <br><br>
+  Dodavanje nove role: 
+  <button class="btn btn-primary" ng-controller="CreateRoleController" ng-click="createRoleRead()"  ng-disabled="myForm.$invalid">Dodaj rolu</button>
+</div>
+
+</br></br>
+<table class="table table-hover table-condensed tabela" ng-controller="SearchRoleControler">
+    <thead>
+        <tr>s
+            <th>Naziv</th>
+            <th>Opis</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="role in roles | filter:query | orderBy:orderProp">
+        <td> {{role.name}}</td>
+        <td> {{role.description}}</td>
+        <td>
+          <div class="actions"> 
+            <button class="btn btn-primary btn-usr-mng" ng-click="updateUser(stock.id, $index)"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          </div>
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="deleteRole(role.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
+          </div>
+        </td>
+      </tr>
+</table>
+<div id="copyright">© Copyright 2015</div>
