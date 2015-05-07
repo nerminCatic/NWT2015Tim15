@@ -30,7 +30,12 @@ ESavjetovaliste::Application.routes.draw do
       end
     end
 
-    resources :passwordresets
+    resources :passwordresets do
+      collection do
+          get :change_form
+          post :change_pass
+      end
+    end
     
     resources :users do
         collection do

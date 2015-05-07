@@ -183,23 +183,27 @@ controllers.controller('ResetController', ['$scope', 'PassReset', '$location',
 }]);
 
 // Confirm Reset - Input passworda
-controllers.controller('InsertPwdForResetController', ['$scope', '$routeParams', 'InputsPassReset', '$location',
-    function($scope, $routeParams, InputsPassReset, $location){
+controllers.controller('InsertPwdForResetController', ['$scope','$route', '$routeParams', 'InputsPassReset', '$location',
+    function($scope, $route, $routeParams, InputsPassReset, $location){
       $scope.doResetConfirm = function(){
-        var idi = $routeParams.id;
+        var token = $routeParams.token;
         var obj = new Object();
         obj.password = $scope.user.password;
         obj.password_confirmation = $scope.user.password_confirmation;
         var jsonString= JSON.stringify(obj);
         
-        // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
-        InputsPassReset.update({ id:idi }, jsonString, 
+        // Prosljedjuje se token, a zatim i objekat (u nasem slucaju json)
+        InputsPassReset.update({ token:token }, jsonString, 
             function success() {
-                alert('Lozinka je uspješno promijenjena.');
+                $route.updateParams({});
+                alert($route.current.templateUrl);
                 $location.path('/login'); 
             }, 
             function err() {
-                alert('Došlo je do tehničke greške. Rok od dva sata za promjenu šifre je istekao.');
+                $route.updateParams({
+                    token: 'p'
+                });
+                alert('Došlo je do greške.');
             });
     }
 }]);

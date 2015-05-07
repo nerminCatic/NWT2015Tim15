@@ -47,8 +47,7 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "password-reset.html",
         controller: 'ResetController'
       }).
-      when('/inputs-password-reset/:id', { 
-        // :id znaci da ce biti prosljedjivan id (token za reset u ovom slucaju)
+      when('/inputs-password-reset', { 
         templateUrl: "inputs-password-reset.html",
         controller: 'InsertPwdForResetController'
       }).

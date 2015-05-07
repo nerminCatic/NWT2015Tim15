@@ -11,7 +11,6 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
       }).success(function(resp) {
         AuthToken.set(resp.auth_token, resp.user_name, resp.user_role);
         d.resolve(resp.user);
-        console.log("Uspješno logovan. Dobiven token: " + resp.auth_token);
         // For manager - special functionality
         if(AuthToken.getRole() == "menadzer")
         {
@@ -63,9 +62,7 @@ auth.factory("AuthInterceptor", function($q, $injector, $location) {
     },
     responseError: function(response) {
       var matchesAuthenticatePath = response.config && response.config.url.match(new RegExp('/api/auth'));
-      console.log("ne valja");
       if (!matchesAuthenticatePath) {
-        console.log("nemate pravo pristupa");
         $location.path('/login');
       }
       $location.path('/login');

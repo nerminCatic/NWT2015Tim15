@@ -81,8 +81,8 @@ services.factory('PassReset', function ($resource) {
 });
 // Imputs passwords  reset service
 services.factory('InputsPassReset', function ($resource) { 
-  return $resource('api/passwordresets/:id', {id:'@id', password: '@password', password_confirmation: '@password_confirmation'}, {
-    update: { method: 'PUT' }
+  return $resource('api/passwordresets/change_pass', {token:'@token', password: '@password', password_confirmation: '@password_confirmation'}, {
+    update: { method: 'POST' }
   });
 });
 // CRUD services for Category
