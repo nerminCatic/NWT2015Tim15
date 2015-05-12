@@ -1,8 +1,7 @@
 class Api::QuestionsController < ApplicationController
-  #before_filter :restrict_api_access
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  skip_before_action :authenticate_request, :set_current_user
+  #skip_before_action :authenticate_request, :set_current_user
   # GET /questions
   # GET /questions.json
   def index
@@ -10,7 +9,7 @@ class Api::QuestionsController < ApplicationController
         if params[:category_id] #&& params[:user_id]
           @questions = Question.where("category_id = ?", params[:category_id])
         else
-          @questions = Question.all
+          @questions = Question.order('created_at DESC')
         end
       rescue
         render json: { message: 'Record not found!' }, :status => :bad_request

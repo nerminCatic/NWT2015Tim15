@@ -1,8 +1,7 @@
 class Api::CommentsController < ApplicationController
-  #before_filter :restrict_api_access
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :json
-
+  #skip_before_action :authenticate_request, :set_current_user
   # GET /comments
   # GET /comments.json
   def index
@@ -70,7 +69,7 @@ class Api::CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
    def comment_params
-      params.require(:comment).permit(:name, :comment, :description, :user_id, :question_id)
+      params.require(:comment).permit(:name, :content, :user_id, :question_id)
     end
 end
 #komentar

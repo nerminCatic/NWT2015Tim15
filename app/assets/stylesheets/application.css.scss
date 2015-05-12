@@ -845,3 +845,8 @@ a.white:hover {
   background-color:#0099CC !important;
 }
 
+a.list-group-item:hover {
+  .list-group-item-text:hover {
+    color: rgb(51, 102, 187);
+  }
+}
