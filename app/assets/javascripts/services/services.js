@@ -93,6 +93,10 @@ services.factory('Category', function($resource) {
 services.factory('Question', function($resource) {
   return $resource('/api/questions/:id');
 });
+// Comments
+services.factory('Comment', function($resource) {
+  return $resource('/api/questions/:questionId/comments/:id', {questionId:'questionId',id:'@id'});
+});
 // send Feedback
 services.factory('Feedback', function($resource) {
   return $resource('/api/feedbacks', {}, {

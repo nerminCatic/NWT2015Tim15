@@ -71,6 +71,10 @@ esavjetovaliste.config([ '$routeProvider',
         templateUrl: "add_question.html",
         //controller: 'ChangePassController'
       }).
+      when('/questions/:id',{
+        templateUrl: "show_question.html",
+        //controller: 'ChangePassController'
+      }).
       when('/new_category',{
           templateUrl: "new_category.html",
           controller: 'ChangePassController'

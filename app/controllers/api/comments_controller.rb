@@ -1,11 +1,12 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  #skip_before_action :authenticate_request, :set_current_user
+  skip_before_action :authenticate_request, :set_current_user
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @question = Question.find(params[:question_id])
+    @comments = @question.comments.order('created_at DESC')
   end
 
   # GET /comments/1
@@ -29,6 +30,7 @@ class Api::CommentsController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @comment = @question.comments.build(comment_params)
+    @comment.user = @current_user
     #@comment = Comment.new(comment_params)
 
     respond_to do |format|

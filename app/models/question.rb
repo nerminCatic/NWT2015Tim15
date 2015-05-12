@@ -11,4 +11,7 @@ class Question < ActiveRecord::Base
 	 def number_of_comments
 	 	comments.count
 	 end
+	 def time_created
+	 	created_at.strftime("%d.%m.%Y   %H:%M")
+	 end
 end

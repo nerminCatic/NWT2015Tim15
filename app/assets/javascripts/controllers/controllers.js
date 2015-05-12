@@ -248,6 +248,9 @@ controllers.controller('QuestionsController', ['$scope', 'Category', 'Question',
       $scope.openQuestions = function() {
         $location.path('/questions');
       }
+      $scope.showQuestion = function(question_id) {
+        $location.path('/questions/'+question_id);
+      }
       // ne radi
       $scope.deleteQuestion= function(id, idx) {
         $scope.questions.splice(idx, 1);
@@ -261,7 +264,18 @@ controllers.controller('QuestionsController', ['$scope', 'Category', 'Question',
             });
       }
 }]);
+// Comments controller
+// Questions controller
+controllers.controller('CommentsController', ['$scope','AuthToken','Comment', 'Question','$routeParams','$location',
+    function($scope, AuthToken, Comment, Question, $routeParams, $location) {
+       // $scope.client = Clients.get({id:$routeParams.clientId})
+        //$scope.bills = ClientBills.get({clientId:$routeParams.clientId})
 
+        var question_id = $routeParams.id;
+        $scope.comments = Comment.query({questionId: question_id});
+        $scope.question = Question.get({ id: question_id  });
+    }
+]);
 
 //---------------------------------- MANAGEMENT ------------------------------------------
 
