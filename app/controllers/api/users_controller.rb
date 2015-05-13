@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json 
-  skip_before_action :authenticate_request, :set_current_user, only: [:index, :show, :confirm, :register, :update]
+  skip_before_action :authenticate_request, :set_current_user, only: [:index, :show, :confirm, :register, :update, :ban]
   #Komentar
   # GET /users
   # GET /users.json
@@ -107,6 +107,7 @@ class Api::UsersController < ApplicationController
       user.job = params[:job]
       user.email = params[:email]
       user.adress = params[:adress]
+      user.confirmed = params[:confirmed]
       user.save
       render json: user, status: 200        
     else

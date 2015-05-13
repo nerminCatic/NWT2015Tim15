@@ -19,6 +19,8 @@
             <th>{{ 'SURNAME' | translate }}</th>
             <th>{{ 'EMAIL' | translate }}</th>
             <th>{{ 'JOB' | translate }}</th>
+            <th></th>
+            <th>{{ 'STATUS' | translate }}</th>
             <th>{{ 'ACTION' | translate }}</th>
         </tr>
     </thead>
@@ -29,12 +31,19 @@
         <td> {{user.email}}</td>
         <td> {{user.job}}</td>
         <td> {{user.role.name}}</td>
+        <td> {{user.confirmed}}</td>
         <td>
           <div class="actions" >
             <button class="btn btn-primary btn-usr-mng" ng-click="openUpdateUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'CHANGE' | translate }}</button>
           </div>
           <div class="actions" >
             <button class="btn btn-primary btn-usr-mng" ng-click="deleteUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'DELETE' | translate }}</button>
+          </div>
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="banUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'BAN' | translate }}</button>
+          </div>
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="unbanUser(user.id, $index)"  ng-disabled="myForm.$invalid">{{ 'UNBAN' | translate }}</button>
           </div>
         </td>
       </tr>

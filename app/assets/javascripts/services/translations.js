@@ -45,6 +45,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'ADDUSER':'Add user',
     'CHANGE':'Change',
     'DELETE':'Delete',
+    'BAN':'Ban',
+    'UNBAN':'Unban',
+    'STATUS':'Status',
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -90,8 +93,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'ADDUSER':'Dodaj korisnika',
     'CHANGE':'Izmijeni',
     'DELETE':'Obriši',
-    '':'',
-    '':''
+    'BAN':'Ban',
+    'UNBAN':'Unban',
+    'STATUS':'Status',
   });
  
   $translateProvider.preferredLanguage('bs');

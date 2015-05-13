@@ -156,7 +156,7 @@ services.factory('GetUser', ['$resource', function($resource) {
 // Imputs passwords  reset service
 services.factory('UpdateUserByManager', function ($resource) { 
   return $resource('api/users/:id', {id:'@id', name: '@name', surname: '@surname', 
-    role_id: '@role_id', phone: '@phone', job: '@job', email: '@email', adress: '@adress'}, {
+    role_id: '@role_id', phone: '@phone', job: '@job', email: '@email', adress: '@adress', confirmed: '@confirmed'}, {
     update: { method: 'PUT' }
   });
 });

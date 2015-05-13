@@ -296,8 +296,8 @@ controllers.controller('FeedbackCtrl', ['$scope', 'GetFeedback', function($scope
 }]);
 
 // User management searching
-controllers.controller('SearchUsersControler', ['$scope', 'GetRole', 'GetUser', 'GetMeUser', 'SharedUser', '$location',
-    function($scope, GetRole, GetUser, GetMeUser, SharedUser, $location) {
+controllers.controller('SearchUsersControler', ['$scope', 'GetRole', 'GetUser', 'GetMeUser', 'SharedUser', 'UpdateUserByManager', '$location',
+    function($scope, GetRole, GetUser, GetMeUser, SharedUser, UpdateUserByManager, $location) {
         $scope.roles = GetRole.all();
         $scope.users = GetUser.all(); 
         
@@ -320,9 +320,90 @@ controllers.controller('SearchUsersControler', ['$scope', 'GetRole', 'GetUser', 
                 $location.path('/edit_user_by_manager');
             }, 
             function err() {
-                alert('Nije ga dobavio!');
+                alert('Došlo je do greške!');
             }
             );
+        };
+
+        $scope.banUser = function(id, idx) {
+            
+            $scope.users.splice(idx, 1);
+            var obj = new Object();
+            obj.user = GetMeUser.dajUsera({id: id},
+                function success() {
+                        
+                        SharedUser.set(obj.user);
+                        $scope.user = SharedUser.get();
+
+                        var obj2 = new Object();
+                        obj2.name = $scope.user.name;
+                        obj2.surname = $scope.user.surname;
+                        obj2.role_id = $scope.user.role_id;
+                        obj2.phone = $scope.user.phone;
+                        obj2.job = $scope.user.job;
+                        obj2.email = $scope.user.email;
+                        obj2.adress = $scope.user.adress;
+                        obj2.confirmed = 'B';
+
+                        var jsonString= JSON.stringify(obj2);
+
+                        // Moze se iskoristiti vec implementirana metoda za update podataka o useru
+                        UpdateUserByManager.update({ id:id }, jsonString, 
+                            function success() {
+                                alert('Korisnik ' + $scope.user.name + ' je banovan.');
+                                SharedUser.set('');
+                                // Reloadaj fino podatke u listu
+                                $scope.users = GetUser.all(); 
+                                $location.path('/user_management'); 
+                            }, 
+                            function err() {
+                                alert('Došlo je do tehničke greške prilikom banovanja korisnika!');
+                                $location.path('/user_management'); 
+                            });
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške prilikom banovanja korisnika!');
+            });
+        };
+
+        $scope.unbanUser = function(id, idx) {
+            
+            $scope.users.splice(idx, 1);
+            var obj = new Object();
+            obj.user = GetMeUser.dajUsera({id: id},
+                function success() {
+                        
+                        SharedUser.set(obj.user);
+                        $scope.user = SharedUser.get();
+
+                        var obj2 = new Object();
+                        obj2.name = $scope.user.name;
+                        obj2.surname = $scope.user.surname;
+                        obj2.role_id = $scope.user.role_id;
+                        obj2.phone = $scope.user.phone;
+                        obj2.job = $scope.user.job;
+                        obj2.email = $scope.user.email;
+                        obj2.adress = $scope.user.adress;
+                        obj2.confirmed = 'Y';
+
+                        var jsonString= JSON.stringify(obj2);
+
+                        UpdateUserByManager.update({ id:id }, jsonString, 
+                            function success() {
+                                alert('Korisnik ' + $scope.user.name + ' je unbanovan.');
+                                SharedUser.set('');
+                                // Reloadaj fino podatke u listu
+                                $scope.users = GetUser.all(); 
+                                $location.path('/user_management'); 
+                            }, 
+                            function err() {
+                                alert('Došlo je do tehničke greške prilikom unbanovanja korisnika!');
+                                $location.path('/user_management'); 
+                            });
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške prilikom unbanovanja korisnika!');
+            });
         };
 }]);
 
@@ -352,12 +433,14 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
         obj.job = $scope.user.job;
         obj.email = $scope.user.email;
         obj.adress = $scope.user.adress;
+        obj.confirmed = $scope.user.confirmed;
         var jsonString= JSON.stringify(obj);
-        alert(jsonString);
+        //alert(jsonString);
         // Posto se radi o metodi PUT, na ovaj nacin se prosljedjuje id, a zatim i objekat (u nasem slucaju json)
         UpdateUserByManager.update({ id:$scope.user.id }, jsonString, 
             function success() {
                 alert('Podaci o korisniku su uspješno izmijenjeni.');
+                SharedUser.set('');
                 $location.path('/user_management'); 
                 // TBD SharedUser set to null
             }, 
