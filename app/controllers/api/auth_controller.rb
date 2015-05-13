@@ -12,6 +12,8 @@ class Api::AuthController < ApplicationController
         auth_token: user.generate_auth_token, 
         user_name: user.name, 
         user_role: user.role.name }, status: 200
+    elsif user.confirmed == 'B'
+      render json: { error: "Banovani ste!"}, status: 422
     else
       render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
