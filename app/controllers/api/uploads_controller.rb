@@ -17,7 +17,15 @@ class Api::UploadsController < ApplicationController
    upload.question = Question.find(params[:question_id])
     upload.save_binary
     upload.save
-    render response: { upload: upload }
+
+    respond_to do |format|
+      if upload.save
+        format.json { render json: upload, status: :created }
+      else
+        format.json { render json: upload.errors, status: :unprocessable_entity }
+      end
+    end
+    #render response: { upload: upload }
   end
 
   def show

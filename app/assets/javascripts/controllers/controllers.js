@@ -545,7 +545,7 @@ controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$locatio
 
   $scope.upload = function() {
     $scope.uploader.uploadItem(0);
-    //$location.path('/questions/' + $routeParams.question_id);
+    $location.path('/questions/2');
   }
 }]);
 

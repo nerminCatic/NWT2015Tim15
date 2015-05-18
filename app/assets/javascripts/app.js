@@ -77,8 +77,8 @@ esavjetovaliste.config([ '$routeProvider',
         //controller: 'ChangePassController'
       }).
       when('/questions/:id/resources', {
-        templateUrl: 'resources.html',
-        controller: 'resourcesCtrl'
+        templateUrl: "resources.html",
+        controller: "ResourcesCtrl"
       }).
       when('/questions/:id/new_resource', {
         templateUrl: 'new_resource.html',

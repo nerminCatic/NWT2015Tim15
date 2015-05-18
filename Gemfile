@@ -29,7 +29,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 # Database
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
