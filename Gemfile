@@ -60,3 +60,5 @@ gem 'rails_12factor', group: :production
 gem 'jwt'
 
 gem 'angular-ui-bootstrap-rails'
+
+gem 'angularjs-file-upload-rails', '~> 1.1.6'

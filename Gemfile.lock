@@ -30,6 +30,7 @@ GEM
       sprockets (~> 2)
       tilt
     angular-ui-bootstrap-rails (0.12.1)
+    angularjs-file-upload-rails (1.1.6)
     arel (4.0.2)
     bcrypt (3.1.10-x86-mingw32)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -142,6 +143,7 @@ PLATFORMS
 DEPENDENCIES
   angular-rails-templates
   angular-ui-bootstrap-rails
+  angularjs-file-upload-rails (~> 1.1.6)
   bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.0.8)
   binding_of_caller

@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
  	belongs_to :user
   	belongs_to :category
   	has_many :comments
+  	has_many :uploads
 
 	 # Required fields
 	 validates :name, presence:true, length: {minimum: 3, maximum: 25}

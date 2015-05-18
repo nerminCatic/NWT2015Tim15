@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428165430) do
+ActiveRecord::Schema.define(version: 20150518125528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "binaries", force: true do |t|
+    t.binary "data"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -76,6 +80,17 @@ ActiveRecord::Schema.define(version: 20150428165430) do
   create_table "roles", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploads", force: true do |t|
+    t.string   "filename"
+    t.string   "content_type"
+    t.integer  "size"
+    t.integer  "question_id"
+    t.integer  "binary_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

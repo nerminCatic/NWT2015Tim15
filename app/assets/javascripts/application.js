@@ -9,4 +9,5 @@
 //= require angular-ui-bootstrap-tpls
 //= require angular-translate/angular-translate
 //= require angular-translate-loader-static-files/angular-translate-loader-static-files
+//= require angularjs-file-upload
 //= require_tree .

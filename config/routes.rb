@@ -15,6 +15,8 @@ ESavjetovaliste::Application.routes.draw do
        resources :comments
     end 
 
+    resources :uploads
+
     resources :categories do
         collection do
           post :create

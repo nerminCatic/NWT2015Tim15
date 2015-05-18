@@ -536,3 +536,27 @@ controllers.controller('RatingCtrl', function($scope) {
       alert('Rating selected - ' + rating);
     };
   });
+
+//controller for file upload
+controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$location', 'FileUploader', '$routeParams',
+  function($scope, uploadsFactory, $location, FileUploader, $routeParams) {
+  $scope.title = "RESOURCES";
+  $scope.uploader = new FileUploader({url: '/api/questions/' + $routeParams.question_id + '/uploads'});
+
+  $scope.upload = function() {
+    $scope.uploader.uploadItem(0);
+    //$location.path('/questions/' + $routeParams.question_id);
+  }
+}]);
+
+//controller for uploaded files
+controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routeParams', function($scope, uploadsFactory, $routeParams) {
+  $scope.title = "RESOURCES";
+  $scope.question_id = $routeParams.question_id;
+
+  uploadsFactory.all($routeParams.question_id)
+  .success(function(data) {
+    console.log(data);
+    $scope.resources = data.document.resources;
+  });
+}]);
