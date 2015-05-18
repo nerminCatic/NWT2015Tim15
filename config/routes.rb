@@ -13,6 +13,7 @@ ESavjetovaliste::Application.routes.draw do
 
     resources :questions do
        resources :comments
+       resources :uploads
     end 
 
     resources :uploads

@@ -1,5 +1,9 @@
-class Api::UploadsController < ApiController
-  before_filter :restrict_api_access, except: [:create, :show]
+class Api::UploadsController < ApplicationController
+  
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  respond_to :json 
+  skip_before_action :authenticate_request, :set_current_question, only: [:index, :show, :create]
+  
 
   def index
     question = Question.find(params[:question_id])

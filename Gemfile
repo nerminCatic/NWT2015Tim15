@@ -62,3 +62,9 @@ gem 'jwt'
 gem 'angular-ui-bootstrap-rails'
 
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
+gem "gritter", "1.1.0"
+gem 'bootstrap-growl-rails'

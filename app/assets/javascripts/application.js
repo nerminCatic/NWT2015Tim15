@@ -10,4 +10,7 @@
 //= require angular-translate/angular-translate
 //= require angular-translate-loader-static-files/angular-translate-loader-static-files
 //= require angularjs-file-upload
+//= require moment
+//= require bootstrap-datetimepicker
+//= require gritter
 //= require_tree .

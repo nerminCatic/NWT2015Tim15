@@ -541,7 +541,7 @@ controllers.controller('RatingCtrl', function($scope) {
 controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$location', 'FileUploader', '$routeParams',
   function($scope, uploadsFactory, $location, FileUploader, $routeParams) {
   $scope.title = "RESOURCES";
-  $scope.uploader = new FileUploader({url: '/api/questions/' + $routeParams.question_id + '/uploads'});
+  $scope.uploader = new FileUploader({url: '/api/questions/2/uploads'});
 
   $scope.upload = function() {
     $scope.uploader.uploadItem(0);
