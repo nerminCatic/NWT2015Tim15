@@ -2,7 +2,6 @@ var services = angular.module('services', ['ngResource']);
 // Link - how to use CRUD services
 // http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/
 
-
 // CRUD services for User
 services.factory('GetMeUser', function($resource) {
   return $resource('/api/users/:id', {id:'@id'}, {
@@ -118,9 +117,13 @@ services.factory('Reservation', function($resource) {
 services.factory('GetFeedback', ['$resource', function($resource) {
   function GetFeedback() {
     this.service = $resource('/api/feedbacks/:stockId', {stockId: '@id'});
+    this.charts = $resource('/api/feedbacks/chart', {});
   };
   GetFeedback.prototype.all = function() {
     return this.service.query();
+  };
+  GetFeedback.prototype.chart = function() {
+    return this.charts.query();
   };
   return new GetFeedback;
 }]);

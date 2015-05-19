@@ -10,6 +10,7 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'navbar_directives',
   'localization_directives',
   'category_directives',
+  'nvd3'
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
@@ -88,6 +89,10 @@ esavjetovaliste.config([ '$routeProvider',
         }).
       when('/add_new_role',{
           templateUrl: "add_new_role.html",
+          
+        }).
+       when('/charts',{
+          templateUrl: "charts.html",
           
         }).
       otherwise({

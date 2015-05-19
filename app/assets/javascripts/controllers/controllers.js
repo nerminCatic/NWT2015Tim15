@@ -131,6 +131,9 @@ controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
         $scope.openRoleManagement = function() {
             $location.path('/role_admin');
         }
+        $scope.openChartManagement = function() {
+            $location.path('/charts');
+        }
 }]);
 // Change password
 controllers.controller('ChangePassController', ['$scope','ChangePassword', '$location', 'AuthToken' ,
@@ -536,3 +539,35 @@ controllers.controller('RatingCtrl', function($scope) {
       alert('Rating selected - ' + rating);
     };
   });
+
+//Charts controller - Feedback
+controllers.controller('ChartsController', ['$scope','GetFeedback', '$location', 
+    function($scope, GetFeedback, $location) {
+        $scope.data_pie = GetFeedback.chart();
+        $scope.options_pie = {
+            chart: {
+                type: 'pieChart',
+                height: 400,
+                x: function(d){return d.key;},
+                y: function(d){return d.y;},
+                showLabels: true,
+                transitionDuration: 500,
+                labelThreshold: 0.01,
+                legend: {
+                    margin: {
+                        top: 5,
+                        right: 35,
+                        bottom: 0,
+                        left: 0
+                    }
+                }
+            }
+        };
+    $scope.config_pie = {
+        visible: true, // default: true
+        extended: false, // default: false
+        disabled: false, // default: false
+        autorefresh: true, // default: true
+        refreshDataOnly: false // default: false
+    };
+}]);

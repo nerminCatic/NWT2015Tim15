@@ -21,7 +21,11 @@ ESavjetovaliste::Application.routes.draw do
           end
         end
 
-    resources :feedbacks
+    resources :feedbacks do
+       collection do
+        get :chart
+        end      
+    end
 
     resources :sessions, :only => [:create] do
       collection do

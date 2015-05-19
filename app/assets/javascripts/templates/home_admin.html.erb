@@ -23,67 +23,85 @@
             </div>
         </div>
 </br></br>
-
-<div class="row" ng-controller="HomeAdminController">
-            <a href class="normal" ng-click="openUserManagement()">
-                <div class="col-sm-3 col-md-3">
-                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
-                        </div>
-                        <div class="service-desc">
-                            <h5>{{ 'USRMNG' | translate }}</h5>
-                            <p>{{ 'USRMNGD' | translate }}</p>
-                            </div>
-                    </div>
-                    </div>
+<section  ng-controller="HomeAdminController">
+<div class="row">
+    <a href class="normal" ng-click="openUserManagement()">
+        <div class="col-sm-3 col-md-3">
+            <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="/assets/group.png" alt="" height="100" width="100" align="middle">
                 </div>
-            </a>
-            <a href class="normal" ng-click="openFeedback()">
-                <div class="col-sm-3 col-md-3">
-                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
-                        </div>
-                        <div class="service-desc">
-                            <h5>{{ 'FEEDBACKMNG' | translate }}</h5>
-                            <p>{{ 'FEEDBACKMNGD' | translate }}</p>
-                            </div>
+                <div class="service-desc">
+                    <h5>{{ 'USRMNG' | translate }}</h5>
+                    <p>{{ 'USRMNGD' | translate }}</p>
                     </div>
-                    </div>
-                </div>
-            </a>
-            <a href class="normal" ng-click="openCategory()">
-                <div class="col-sm-3 col-md-3">
-                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <img src="/assets/category.png" alt="" height="100" width="100" align="middle">
-                        </div>
-                        <div class="service-desc">
-                            <h5>{{ 'CATEGORYMNG' | translate }}</h5>
-                            <p>{{ 'CATEGORYMNGD' | translate }}</p>
-                            </div>
-                    </div>
-                    </div>
-                </div>
-            </a>
-           <a href class="normal" ng-click="openRoleManagement()">
-                <div class="col-sm-3 col-md-3">
-                    <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <img src="/assets/role_icon.jpg" alt="" height="100" width="100" align="middle">
-                        </div>
-                        <div class="service-desc">
-                            <h5>{{ 'USRROLE' | translate }}</h5>
-                            <p>{{ 'USRROLED' | translate }}</p>
-                            </div>
-                    </div>
-                    </div>
-                </div>
-            </a> 
+            </div>
+            </div>
         </div>
-        <div id="copyright">© Copyright 2015</div>
+    </a>
+    <a href class="normal" ng-click="openFeedback()">
+        <div class="col-sm-3 col-md-3">
+            <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="/assets/feedback-icon.png" alt="" height="100" width="100" align="middle">
+                </div>
+                <div class="service-desc">
+                    <h5>{{ 'FEEDBACKMNG' | translate }}</h5>
+                    <p>{{ 'FEEDBACKMNGD' | translate }}</p>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </a>
+    <a href class="normal" ng-click="openCategory()">
+        <div class="col-sm-3 col-md-3">
+            <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="/assets/category.png" alt="" height="100" width="100" align="middle">
+                </div>
+                <div class="service-desc">
+                    <h5>{{ 'CATEGORYMNG' | translate }}</h5>
+                    <p>{{ 'CATEGORYMNGD' | translate }}</p>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </a>
+   <a href class="normal" ng-click="openRoleManagement()">
+        <div class="col-sm-3 col-md-3">
+            <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="/assets/role_icon.jpg" alt="" height="100" width="100" align="middle">
+                </div>
+                <div class="service-desc">
+                    <h5>{{ 'USRROLE' | translate }}</h5>
+                    <p>{{ 'USRROLED' | translate }}</p>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="row">
+    <a href class="normal" ng-click="openChartManagement()">
+        <div class="col-sm-3 col-md-3">
+            <div class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">
+            <div class="service-box">
+                <div class="service-icon">
+                    <img src="/assets/role_icon.jpg" alt="" height="100" width="100" align="middle">
+                </div>
+                <div class="service-desc">
+                    <h5> Grafici </h5>
+                    <p> Opis grafika </p>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </a> 
+</div>
+</section>
+<div id="copyright">© Copyright 2015</div>

@@ -9,11 +9,13 @@ class Api::FeedbacksController < ApplicationController
   def index
     @feedbacks = Feedback.all
   end
-
+  def chart
+    @dataChart = Feedback.chart
+  end
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
-    @feedbacks = Feedback.all  
+    @feedbacks = Feedback.all 
   end
 
   # GET /feedbacks/new
