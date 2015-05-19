@@ -20,9 +20,6 @@ class Api::RolesController < ApplicationController
     @role = Role.new
   end
 
-  def chart
-  @dataChart = Role.chart
-  end
   # GET /roles/1/edit
   def edit
   end

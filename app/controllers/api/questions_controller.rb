@@ -1,10 +1,7 @@
 class Api::QuestionsController < ApplicationController
-  #before_filter :restrict_api_access
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  skip_before_action :authenticate_request, :set_current_user
-
-
+  #skip_before_action :authenticate_request, :set_current_user
   # GET /questions
   # GET /questions.json
   def index
@@ -17,10 +14,6 @@ class Api::QuestionsController < ApplicationController
       rescue
         render json: { message: 'Record not found!' }, :status => :bad_request
       end
-  end
-
-  def chart
-  @dataChart = Question.chart
   end
 
   # GET /questions/1
