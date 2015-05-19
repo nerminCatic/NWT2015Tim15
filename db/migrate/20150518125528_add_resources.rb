@@ -1,5 +1,8 @@
 class AddResources < ActiveRecord::Migration
   def up
+    drop_table :binaries
+    drop_table :uploads
+    
     create_table :binaries do |t|
       t.binary :data
     end
