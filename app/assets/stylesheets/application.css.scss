@@ -480,6 +480,9 @@ a {
 .navbar-brand:hover{
   background-color:#006dcc !important;
 }
+.navbar-font{
+  font-size:20px !important;
+}
 /*end of design for navigation bar*/
 
 /*design for home titles*/
@@ -488,9 +491,9 @@ h1.naslov1{
   letter-spacing: 1px;
   position:absolute;
   top:10px;
-  left:180px;
+  left:130px;
   border: 2px solid white;
-  padding:30px;
+  padding:40px;
   background-color:#006dcc !important;
 }
 #main-title{
@@ -787,12 +790,14 @@ ul.rating {
 
 .bcgimgslider
 {
-  background: url('/assets/imgsliderbcg.jpg') no-repeat center center fixed !important;
+  /*background: url('/assets/imgsliderbcg.jpg') no-repeat center center fixed !important;*/
+  background-color:#00D081 !important;
 }
 
 .quoteBlock > div {
   padding: 30px;
-  background: url('/assets/quoteBg.png');
+  /*background: url('/assets/quoteBg.png');*/
+  /*background-color:#FF9500 !important;*/
   margin-top:20px;
   /*fantastic font*/
   font-family: 'Dancing Script' !important;
@@ -805,6 +810,9 @@ ul.rating {
 
 .fa-quote-right:before, .fa-quote-left:before{
   color:yellow;
+}
+.btn-info{
+  background-color:#0689FF !important;
 }
 .feedbacks li{
   list-style-type: none;
