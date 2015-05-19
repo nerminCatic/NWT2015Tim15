@@ -15,4 +15,17 @@ class Question < ActiveRecord::Base
 	 def time_created
 	 	created_at.strftime("%d.%m.%Y   %H:%M")
 	 end
+
+	 def self.chart
+	     my_values = []
+	     Question.all.each do |c|
+	      my_values << {:label => c.name, :value => c.comments.count }
+	     end
+	      @collection = [
+	        { :key => "Question",
+	         :values => my_values
+	        }
+	      ]
+      end
 end
+

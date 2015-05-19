@@ -70,6 +70,10 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def chart
+    @dataChart = Question.chart
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -81,4 +85,3 @@ class Api::QuestionsController < ApplicationController
       params.require(:question).permit(:name, :question, :description, :user_id, :category_id)
     end
 end
-#komentar

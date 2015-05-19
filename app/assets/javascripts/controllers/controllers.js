@@ -573,8 +573,8 @@ controllers.controller('ResourcesCtrl', ['$scope', 'GetUpload', '$routeParams', 
   
 }]);
 //Charts controller - Feedback
-controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory','$location', 
-    function($scope, GetFeedback, GetCategory, $location) {
+controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory', 'GetQuestion', '$location', 
+    function($scope, GetFeedback, GetCategory, GetQuestion, $location) {
         $scope.data_pie = GetFeedback.chart();
         $scope.options_pie = {
             chart: {
@@ -616,6 +616,30 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
                 },
                 yAxis: {
                     axisLabel: 'Broj pitanja',
+                    tickFormat: function(d){
+                        return d3.format(',.2f')(d);
+                    }
+                }
+            }
+    }
+
+    $scope.data_discretebar = GetQuestion.chart();
+    $scope.options_discretebar = {
+        chart: {
+                type: 'discreteBarChart',
+                height: 300,
+                width: 700,
+                x: function(d){return d.label;},
+                y: function(d){return d.value;},
+                showControls: true,
+                showValues: true,
+                transitionDuration: 500,
+                tooltips: false,
+                xAxis: {
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'Broj komentara',
                     tickFormat: function(d){
                         return d3.format(',.2f')(d);
                     }
