@@ -168,12 +168,15 @@ services.factory('UpdateUserByManager', function ($resource) {
 services.factory('GetCategory', ['$resource', function($resource) {
   function GetCategory() {
     this.service = $resource('/api/categories/:categoryId', {categoryId: '@id'});
+    this.charts = $resource('/api/categories/chart', {});
   };
 
   GetCategory.prototype.all = function() {
     return this.service.query();
   };
- 
+  GetCategory.prototype.chart = function() {
+    return this.charts.query();
+  };
 GetCategory.prototype.delete = function(catgoryId) {
     this.service.remove({categoryId: catgoryId},
     function success() {

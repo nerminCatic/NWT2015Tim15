@@ -573,8 +573,8 @@ controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routePara
 
 }]);
 //Charts controller - Feedback
-controllers.controller('ChartsController', ['$scope','GetFeedback', '$location', 
-    function($scope, GetFeedback, $location) {
+controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory','$location', 
+    function($scope, GetFeedback, GetCategory, $location) {
         $scope.data_pie = GetFeedback.chart();
         $scope.options_pie = {
             chart: {
@@ -598,12 +598,5 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', '$location',
                     }
                 }
             }
-        };
-    $scope.config_pie = {
-        visible: true, // default: true
-        extended: false, // default: false
-        disabled: false, // default: false
-        autorefresh: true, // default: true
-        refreshDataOnly: false // default: false
     };
 }]);

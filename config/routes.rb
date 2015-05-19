@@ -19,15 +19,15 @@ ESavjetovaliste::Application.routes.draw do
     resources :uploads
 
     resources :categories do
-        collection do
-          post :create
-          end
-        end
+      collection do
+        post :create
+      end
+    end
 
     resources :feedbacks do
-       collection do
+      collection do
         get :chart
-        end      
+      end      
     end
 
     resources :sessions, :only => [:create] do
