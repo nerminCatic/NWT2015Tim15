@@ -29,7 +29,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 # Database
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -60,3 +60,11 @@ gem 'rails_12factor', group: :production
 gem 'jwt'
 
 gem 'angular-ui-bootstrap-rails'
+
+gem 'angularjs-file-upload-rails', '~> 1.1.6'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
+gem "gritter", "1.1.0"
+gem 'bootstrap-growl-rails'

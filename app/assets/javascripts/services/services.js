@@ -215,3 +215,15 @@ services.factory('DeleteQuestion', function ($resource) {
   });
 });
 
+//file upload
+services.factory('uploadsFactory', function ($http) {
+  return {
+    all: function(question_id) {
+      return $http.get('api/questions/' + question_id + '/uploads');
+    },
+    create: function(question_id, file) {
+      return $http.post('api/questions/' + question_id + '/uploads', { file: file });
+    }
+  }
+});
+

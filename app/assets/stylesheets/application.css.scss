@@ -1,8 +1,8 @@
 
 /*
 = require bootstrap
-*= nvd3/nv.d3.css
-*= require_self
+*= require bootstrap-datetimepicker*= nvd3/nv.d3.css*= require_self
+*= require gritter
 *= require_tree .
 */
 
@@ -827,6 +827,13 @@ ul.rating {
   padding: 30px;
   background: url('/assets/quoteBg.png');
   margin-top:20px;
+  /*fantastic font*/
+  font-family: 'Dancing Script' !important;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .fa-quote-right:before, .fa-quote-left:before{

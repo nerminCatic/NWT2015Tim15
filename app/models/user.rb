@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :role  
   has_many :reservations
+  has_many :uploads
   has_secure_password
 
   # Required fields and lengths

@@ -10,7 +10,8 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'navbar_directives',
   'localization_directives',
   'category_directives',
-  'nvd3'
+  'angularFileUpload',
+ 'nvd3'
 ]);
 
 esavjetovaliste.config([ '$routeProvider',
@@ -75,6 +76,14 @@ esavjetovaliste.config([ '$routeProvider',
       when('/questions/:id',{
         templateUrl: "show_question.html",
         //controller: 'ChangePassController'
+      }).
+      when('/questions/:id/resources', {
+        templateUrl: "resources.html",
+        controller: "ResourcesCtrl"
+      }).
+      when('/questions/:id/new_resource', {
+        templateUrl: 'new_resource.html',
+        controller: 'NewResourceCtrl'
       }).
       when('/new_category',{
           templateUrl: "new_category.html",
