@@ -1,4 +1,7 @@
 <div classs="container"  ng-controller="QuestionsController">
+<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+</div>
   <div class="row">
        <div class="col-lg-4">
        </div>

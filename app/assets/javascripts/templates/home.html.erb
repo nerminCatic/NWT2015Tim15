@@ -285,9 +285,10 @@ h2{
                 </div>
             </div>
         <div class="row">
+
             <div class="col-lg-8">
-                <div class="boxed-grey">
-                    <form id="contact-form" name="feedbackForm" ng-controller="FeedbackController">
+                <div class="boxed-grey"  ng-controller="FeedbackController">
+                    <form id="contact-form" name="feedbackForm">
                     <div class="row">
                         <div class="col-md-6">
                            <div ng-controller="RatingCtrl">
@@ -326,6 +327,9 @@ h2{
                         </div>
                     </div>
                     </form>
+        <div>
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+        </div>
                 </div>
             </div>
             

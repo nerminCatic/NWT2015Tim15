@@ -211,23 +211,24 @@ controllers.controller('InsertPwdForResetController', ['$scope','$route', '$rout
     }
 }]);
 //Send Feedback
-controllers.controller('FeedbackController', ['$scope','Feedback','$location',
-    function($scope, Feedback, $location){
+controllers.controller('FeedbackController', ['$scope','Feedback','$location','alertService',
+    function($scope, Feedback, $location, alertService){
+       //alertService.add("success", "Vaše pitanje je dodano.");
        $scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
         $scope.sendFeedback = function(){
             Feedback.send({feedback: $scope.feedback},
                 function success() {
-                    alert($scope.feedback.name + ", Vaša poruka je primljena, hvala Vam!");
+                    alertService.add("success", $scope.feedback.name + ", Vaša poruka je primljena, hvala Vam!", 5000);
                     $scope.feedback = null;
                 }, 
                 function err() {
-                alert('Pogrešni podaci!');
+                    alertService.add("danger", 'Pokušajte ponovo.');
             });
         }
 }]);
 // Questions controller
-controllers.controller('QuestionsController', ['$scope', 'Category', 'Question', 'DeleteQuestion','AuthToken','$location',
-    function($scope, Category, Question, DeleteQuestion, AuthToken, $location) {
+controllers.controller('QuestionsController', ['$scope', 'alertService','Category', 'Question', 'DeleteQuestion','AuthToken','$location',
+    function($scope, alertService, Category, Question, DeleteQuestion, AuthToken, $location) {
       $scope.categories = Category.query();
       $scope.questions = Question.query();
       $scope.question = new Question();
@@ -236,12 +237,12 @@ controllers.controller('QuestionsController', ['$scope', 'Category', 'Question',
         Question.save($scope.question,
             function success() {
                 var user = AuthToken.getUser();
-                alert(user +", Vaše pitanje je dodano.");
+                alertService.add("success", "Vaše pitanje je dodano.", 5000);
                 $location.path('/questions');
                 $scope.question= null;
             }, 
             function err() {
-                alert('Desila se greška pri unosu, pokušajte ponovo.');
+                alertService.add("danger", "Desila se greška pri unosu.", 5000);
                 $location.path('/add_question');
             });
       }
@@ -649,8 +650,7 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
 
     $scope.data_historical = GetQuestion.chart();
     $scope.options_historical = {
-            chart: {
-                
+            chart: {      
                 type: 'historicalBarChart',
                 height: 450,
                 margin : {
@@ -668,10 +668,10 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
                 transitionDuration: 500,
                 xAxis: {
                     axisLabel: 'X Axis',
-                 //   tickFormat: function(d) {
-                   //     return d3.time.format('%x')(new Date(d))
-                    //},
-                    //rotateLabels: 50,
+                    tickFormat: function(d) {
+                       return d3.time.format('%x')(new Date(d))
+                    },
+                    rotateLabels: 50,
                     showMaxMin: false
                 },
                 yAxis: {
@@ -681,10 +681,6 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
                         return d3.format(',.2f')(d);
                     }
                 }
-
-
                } 
-
-
     }
 }]);

@@ -1,4 +1,7 @@
 <div classs="container"  ng-controller="QuestionsController">
+<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+</div>
     </br></br>
     <div class="pretraga">
       Pretraga: <input ng-model="query" class="form-control">

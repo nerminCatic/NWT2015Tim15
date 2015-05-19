@@ -17,9 +17,9 @@ class Question < ActiveRecord::Base
 	 end
 
 	 def self.chart
-	     my_values = []
+	    my_values = []
 	     Question.all.each do |c|
-	      my_values << {:label => c.name, :value => c.comments.count }
+	     	my_values << {:label => c.id, :value => c.comments.count }
 	     end
 	      @collection = [
 	        { :key => "Question",
