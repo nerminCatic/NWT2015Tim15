@@ -11,6 +11,7 @@ var esavjetovaliste = angular.module('esavjetovaliste',[
   'localization_directives',
   'category_directives',
   'angularFileUpload',
+  'alerts_directives',
  'nvd3'
 ]);
 

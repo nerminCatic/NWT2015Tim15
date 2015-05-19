@@ -7,8 +7,8 @@ controllers.controller('LanguageController', function($translate, $scope) {
   };
 });
 // Login
-controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$location',
-    function($scope, AuthService, AuthToken, $location){
+controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$location', 'alertService',
+    function($scope, AuthService, AuthToken, $location, alertService){
         if(AuthToken.get()) {
             if(AuthToken.getRole() == "gost")
                 $location.path('/home');
@@ -44,20 +44,20 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
             $location.path('/login');
         }
 }]);
-controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '$location',
-
-    function($scope,CreateCategory,$location) {
-
+controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '$location', 'alertService',
+    function($scope, CreateCategory, $location, alertService) {
         $scope.createCategoryC = function(){
          CreateCategory.create ({name: $scope.category.name, 
          description: $scope.category.description}, 
             function success() {
-                alert("Kategorija uspješno kreirana!");
-                $location.path('/home_admin');
+                //alert("Kategorija uspješno kreirana!");
+                alertService.add("success", "Kategorija uspješno kreirana!",5000);
+                //$location.path('/home_admin');
             }, 
             function err(){
-                alert("Pogrešni podaci!"); 
-                $location.path('/new_category');
+                //alert("Pogrešni podaci!"); 
+                alertService.add("danger", "Pogrešni podaci!");
+                //$location.path('/new_category');
              });
         }
     }

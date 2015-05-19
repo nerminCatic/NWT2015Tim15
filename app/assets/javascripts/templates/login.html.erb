@@ -3,12 +3,7 @@
   <div class="bcg" style="height:600px">  
     <div class="localization-bs-en" localization-bs-en></div> 
     <div class="account-wall">
-      
-
-
-
-</form>
-      <form class="form-signin form-inline" role="form" name="myForm" ng-controller="LoginController">
+        <form class="form-signin form-inline" role="form" name="myForm" ng-controller="LoginController">
         <!--title-->
         <h1 class="text-center login-title">eSavjetovaliste</h1>
         <!--input email-->
@@ -52,5 +47,11 @@
         </form>
       </div>
   </div>
+
+<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
 </div>
+
+</div>
+
 <div id="copyright">© Copyright 2015</div>

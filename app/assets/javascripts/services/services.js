@@ -2,6 +2,39 @@ var services = angular.module('services', ['ngResource']);
 // Link - how to use CRUD services
 // http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/
 
+// Alert service
+services.factory('alertService', ['$rootScope',
+  function($rootScope) {
+    var alertService = {};
+    $rootScope.alerts = [];
+    return alertService = {
+      add: function(type, msg, timeout) {
+        return $rootScope.alerts.push({
+          type: type,
+          msg: msg,
+          close: function() {
+            return alertService.closeAlert(this);
+          }
+        });
+        if (timeout) { 
+            $timeout(function(){ 
+                alertService.closeAlert(this); 
+            }, timeout); 
+        }
+      },
+      closeAlert: function(alert) {
+        return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
+      },
+      closeAlertIdx: function(index) {
+        return $rootScope.alerts.splice(index, 1);
+      },
+      clear: function(){
+        $rootScope.alerts = [];
+      }
+    };
+  }
+  ]);
+
 // CRUD services for User
 services.factory('GetMeUser', function($resource) {
   return $resource('/api/users/:id', {id:'@id'}, {
