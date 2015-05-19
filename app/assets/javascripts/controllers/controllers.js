@@ -599,4 +599,28 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
                 }
             }
     };
+    $scope.data_multibar = GetCategory.chart();
+    $scope.options_multibar = {
+        chart: {
+                type: 'multiBarHorizontalChart',
+                height: 300,
+                width: 700,
+                x: function(d){return d.label;},
+                y: function(d){return d.value;},
+                showControls: true,
+                showValues: true,
+                transitionDuration: 500,
+                tooltips: false,
+                xAxis: {
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'Broj pitanja',
+                    tickFormat: function(d){
+                        return d3.format(',.2f')(d);
+                    }
+                }
+            }
+    }
+
 }]);

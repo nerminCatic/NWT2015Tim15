@@ -21,6 +21,7 @@ ESavjetovaliste::Application.routes.draw do
     resources :categories do
       collection do
         post :create
+         get :chart
       end
     end
 
