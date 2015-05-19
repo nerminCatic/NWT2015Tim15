@@ -70,6 +70,10 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def chart
+    @dataChart = Question.chart
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question

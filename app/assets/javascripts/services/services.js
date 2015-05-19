@@ -223,6 +223,33 @@ GetCategory.prototype.delete = function(catgoryId) {
   return new GetCategory;
 }]);
 
+// Managers functionality with questions
+services.factory('GetQuestion', ['$resource', function($resource) {
+  function GetQuestion() {
+    this.service = $resource('/api/questions/:questionId', {questionId: '@id'});
+    this.charts = $resource('/api/questions/chart', {});
+  };
+
+  GetQuestion.prototype.all = function() {
+    return this.service.query();
+  };
+  GetQuestion.prototype.chart = function() {
+    return this.charts.query();
+  };
+GetQuestion.prototype.delete = function(questionId) {
+    this.service.remove({questionId: questionId},
+    function success() {
+        alert("Pitanje je uspješno izbrisano!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
+  };
+
+  return new GetQuestion;
+}]);
+
+
 // Managers functionality with roles
 services.factory('GetRole', ['$resource', function($resource) {
   function GetRole() {

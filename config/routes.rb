@@ -12,6 +12,10 @@ ESavjetovaliste::Application.routes.draw do
     end
 
     resources :questions do
+      collection do
+           get :chart
+           post :create
+      end
        resources :comments
        resources :uploads
     end 

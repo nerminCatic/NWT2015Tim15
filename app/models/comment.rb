@@ -10,4 +10,5 @@ class Comment < ActiveRecord::Base
    def time_created
 	 	created_at.strftime("%d.%m.%Y   %H:%M")
 	 end
+
 end
