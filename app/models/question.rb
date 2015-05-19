@@ -16,3 +16,4 @@ class Question < ActiveRecord::Base
 	 	created_at.strftime("%d.%m.%Y   %H:%M")
 	 end
 end
+
