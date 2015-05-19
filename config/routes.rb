@@ -14,6 +14,7 @@ ESavjetovaliste::Application.routes.draw do
     resources :questions do
        resources :comments
        resources :uploads
+       get :chart
     end 
 
     resources :uploads
@@ -56,6 +57,7 @@ ESavjetovaliste::Application.routes.draw do
     resources :roles do
     collection do
           post :create
+          get :chart
           end
         end
   end

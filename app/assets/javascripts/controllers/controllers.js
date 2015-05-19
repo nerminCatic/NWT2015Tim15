@@ -573,8 +573,8 @@ controllers.controller('ResourcesCtrl', ['$scope', 'GetUpload', '$routeParams', 
   
 }]);
 //Charts controller - Feedback
-controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory','$location', 
-    function($scope, GetFeedback, GetCategory, $location) {
+controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory','GetQuestion','$location', 
+    function($scope, GetFeedback, GetCategory,GetQuestion, $location) {
         $scope.data_pie = GetFeedback.chart();
         $scope.options_pie = {
             chart: {
@@ -621,6 +621,47 @@ controllers.controller('ChartsController', ['$scope','GetFeedback', 'GetCategory
                     }
                 }
             }
+    }
+
+    $scope.data_historical = GetQuestion.chart();
+    $scope.options_historical = {
+            chart: {
+                
+                type: 'historicalBarChart',
+                height: 450,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 50
+                },
+                x: function(d){return d.label;},
+                y: function(d){return d.value;},
+                showValues: true,
+                valueFormat: function(d){
+                    return d3.format(',.2f')(d);
+                },
+                transitionDuration: 500,
+                xAxis: {
+                    axisLabel: 'X Axis',
+                 //   tickFormat: function(d) {
+                   //     return d3.time.format('%x')(new Date(d))
+                    //},
+                    //rotateLabels: 50,
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'Y Axis',
+                    axisLabelDistance: 35,
+                    tickFormat: function(d){
+                        return d3.format(',.2f')(d);
+                    }
+                }
+
+
+               } 
+
+
     }
 
 }]);
