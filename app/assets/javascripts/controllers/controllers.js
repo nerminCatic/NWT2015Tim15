@@ -538,6 +538,7 @@ controllers.controller('RatingCtrl', function($scope) {
     $scope.rateFunction = function(rating) {
       alert('Rating selected - ' + rating);
     };
+});
 //controller for file upload
 controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$location', 'FileUploader', '$routeParams',
   function($scope, uploadsFactory, $location, FileUploader, $routeParams) {
