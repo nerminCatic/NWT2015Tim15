@@ -1,33 +1,29 @@
-<div class="container">
-  <div class="row">
-  <header title="title" description="description"></header>
-  </div>
-
-  <div class="col-md-3">
-    <menu></menu>
-  </div>
-
-  <div class="col-md-9">
-    <div class="row">
-      <a ng-href="/#/questions/{{question.id}}/new_resource" class="btn btn-primary">New resource</a>
-    </div><br>
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading"></div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th translate="NAME"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="resource in resources">
-              <td><a href="/api/questions/{{question_id}}/uploads/{{resource.id}}" target="_blank">{{resource.filename}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
+</br>
+<div class="pretraga">
+  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
 </div>
+
+
+</br></br>
+<table class="table table-hover table-condensed tabela" ng-controller="ResourcesCtrl">
+    <thead>
+        <tr>
+            <th style="text-align: center; vertical-align: middle;">
+              <input type="checkbox" name="query_myTextEditBox" ng-click="checkAll()" ng-model="selectedAll">    
+            </th>
+            <th> {{ 'NAME' | translate }}</th>
+            <th>{{ 'MSG' | translate }}</th>
+            <th>{{ 'EMAIL' | translate }}</th>
+            <th>{{ 'TYPEF' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="upload in uploads | filter:query" >
+        <td style="text-align: center; vertical-align: middle;">
+            <input type="checkbox" name="query_myTextEditBox" ng-model="upload.Selected">    
+        </td>
+        <td> {{upload.id}}</td>
+        
+      </tr>
+</table>
+<div id="copyright">© Copyright 2015</div>

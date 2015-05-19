@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-lg-2 col-md-2" style="text-align:center;"> {{ question.category.name }} </div>
                     <div class="col-lg-2 col-md-2" style="text-align:center;"> {{question.number_of_comments}}</div>
-                    <a class="btn btn-default" ng-href="/#/questions/{{question.id}}/new_resource">Resources</a>
+                    <a class="btn btn-default" ng-href="/#/questions/{{question.id}}/resources">Resources</a>
                   </div>
               </div>
               <div href="#" class="list-group-item" ng-repeat="comment in comments | filter:query">

@@ -543,24 +543,34 @@ controllers.controller('RatingCtrl', function($scope) {
 controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$location', 'FileUploader', '$routeParams',
   function($scope, uploadsFactory, $location, FileUploader, $routeParams) {
   $scope.title = "RESOURCES";
-  $scope.uploader = new FileUploader({url: '/api/questions/2/uploads'});
+  $scope.uploader = new FileUploader({url: '/api/questions/' + $routeParams.id + '/uploads'});
 
   $scope.upload = function() {
     $scope.uploader.uploadItem(0);
-    $location.path('/questions/2');
+    $location.path('/questions/' + $routeParams.id);
   }
 }]);
 
 //controller for uploaded files
-controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routeParams', function($scope, uploadsFactory, $routeParams) {
+/*controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routeParams', function($scope, uploadsFactory, $routeParams) {
   $scope.title = "RESOURCES";
-  $scope.question_id = $routeParams.question_id;
+  $scope.question_id = $routeParams.id;
 
-  uploadsFactory.all($routeParams.question_id)
+  uploadsFactory.all($routeParams.id)
   .success(function(data) {
     console.log(data);
     $scope.resources = data.document.resources;
   });
+}]);
+*/
+
+controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routeParams', function($scope, uploadsFactory, $routeParams) {
+    $scope.title = "RESOURCES";
+  $scope.question_id = $routeParams.id;
+
+  
+  $scope.uploads = uploadsFactory.all($routeParams.id);
+
 }]);
 //Charts controller - Feedback
 controllers.controller('ChartsController', ['$scope','GetFeedback', '$location', 

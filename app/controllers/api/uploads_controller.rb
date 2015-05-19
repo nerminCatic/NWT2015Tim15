@@ -7,8 +7,8 @@ class Api::UploadsController < ApplicationController
 
   def index
     question = Question.find(params[:question_id])
-    uploads = question.uploads.order('created_at DESC')
-    render response: { resources: uploads }
+    @uploads = question.uploads.order('created_at DESC')
+    render response: { resources: @uploads }
   end
 
   def create
