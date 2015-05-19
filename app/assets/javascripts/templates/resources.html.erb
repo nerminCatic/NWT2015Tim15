@@ -8,21 +8,12 @@
 <table class="table table-hover table-condensed tabela" ng-controller="ResourcesCtrl">
     <thead>
         <tr>
-            <th style="text-align: center; vertical-align: middle;">
-              <input type="checkbox" name="query_myTextEditBox" ng-click="checkAll()" ng-model="selectedAll">    
-            </th>
             <th> {{ 'NAME' | translate }}</th>
-            <th>{{ 'MSG' | translate }}</th>
-            <th>{{ 'EMAIL' | translate }}</th>
-            <th>{{ 'TYPEF' | translate }}</th>
         </tr>
     </thead>
     <tbody>
       <tr ng-repeat="upload in uploads | filter:query" >
-        <td style="text-align: center; vertical-align: middle;">
-            <input type="checkbox" name="query_myTextEditBox" ng-model="upload.Selected">    
-        </td>
-        <td> {{upload.id}}</td>
+        <td> {{upload.filename}}</td>
         
       </tr>
 </table>
