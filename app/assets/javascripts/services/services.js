@@ -215,7 +215,7 @@ services.factory('DeleteQuestion', function ($resource) {
   });
 });
 
-//file upload
+//file upload create (function all is not in use)
 services.factory('uploadsFactory', function ($http) {
   return {
     all: function(question_id) {
@@ -226,4 +226,17 @@ services.factory('uploadsFactory', function ($http) {
     }
   }
 });
+
+//get uploaded files
+services.factory('GetUpload', ['$resource', function($resource) {
+  function GetUpload(question_id) {
+    this.service = $resource('api/questions/' + question_id + '/uploads');
+  };
+  GetUpload.prototype.all = function(question_id) {
+    this.service = $resource('api/questions/' + question_id + '/uploads');
+    return this.service.query();
+  };
+
+  return new GetUpload;
+}]);
 

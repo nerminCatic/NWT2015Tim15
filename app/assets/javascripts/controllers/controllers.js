@@ -564,13 +564,13 @@ controllers.controller('NewResourceCtrl', ['$scope', 'uploadsFactory', '$locatio
 }]);
 */
 
-controllers.controller('ResourcesCtrl', ['$scope', 'uploadsFactory', '$routeParams', function($scope, uploadsFactory, $routeParams) {
-    $scope.title = "RESOURCES";
+//controller for get uploaded files
+controllers.controller('ResourcesCtrl', ['$scope', 'GetUpload', '$routeParams', function($scope, GetUpload, $routeParams) {
+  $scope.title = "RESOURCES";
   $scope.question_id = $routeParams.id;
+  $scope.uploads = GetUpload.all($routeParams.id);
 
   
-  $scope.uploads = uploadsFactory.all($routeParams.id);
-
 }]);
 //Charts controller - Feedback
 controllers.controller('ChartsController', ['$scope','GetFeedback', '$location', 
