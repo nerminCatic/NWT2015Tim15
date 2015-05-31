@@ -9,7 +9,8 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         email: email,
         password: password
       }).success(function(resp) {
-        AuthToken.set(resp.auth_token, resp.user_name, resp.user_role, resp.userId);
+        AuthToken.set(resp.auth_token, resp.user_name, resp.user_role, resp.user_id);
+    
         d.resolve(resp.user);
         // For manager - special functionality
         if(AuthToken.getRole() == "menadzer")

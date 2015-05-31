@@ -239,8 +239,8 @@ h2{
                                     <label for="appointment_date">
                                     {{ 'APPOINTMENTDATE' | translate }}</label>
                                     <div class='input-group date' required="required" id='datetimepicker1'>
-                                        <input type='text' ng-model="reservation.appointment_date" class="form-control" />
-                                        <span class="input-group-addon">
+                                        <input type='text' class="form-control" id = "appointmentDate">
+                                        <span ng-model="reservation.appointment_date"  class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
                                     </div>
@@ -248,7 +248,9 @@ h2{
                             </div>
                             <script type="text/javascript">
                                 $(function () {
-                                    $('#datetimepicker1').datetimepicker();
+                                    $('#datetimepicker1').datetimepicker({
+                                        format: 'YYYY-MM-DD HH:mm:ss'
+                                    });
                                 });
                             </script>
                         </div>

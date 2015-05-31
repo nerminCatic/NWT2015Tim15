@@ -11,7 +11,8 @@ class Api::AuthController < ApplicationController
       render json: { 
         auth_token: user.generate_auth_token, 
         user_name: user.name, 
-        user_role: user.role.name }, status: 200
+        user_role: user.role.name,
+        user_id: user.id }, status: 200
     elsif user.confirmed == 'B'
       render json: { error: "Banovani ste!"}, status: 422
     else
