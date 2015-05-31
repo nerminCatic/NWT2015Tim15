@@ -1,4 +1,7 @@
 <div classs="container"  ng-controller="CommentsController">
+  <div>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+  </div>
     </br></br>
     <div class="pretraga">
       Pretraga: <input ng-model="query" class="form-control">
@@ -18,7 +21,7 @@
               <div class="list-group-item" style="background-color:#F2F2F0;">
                   <div class="row">
                     <div class="col-lg-8 col-md-8">
-                      <h4 class="list-group-item-heading blue-text"> {{question.name}}?</h4>
+                      <h4 class="list-group-item-heading blue-text"> {{question.name}}</h4>
                       <p class="list-group-item-text blue-text" style="font-size:11px; margin-top:10px;">
                         <span class="glyphicon glyphicon-pencil"></span> 
                         {{ question.user.name}} {{ question.user.surname}} &nbsp&nbsp&nbsp
@@ -43,6 +46,16 @@
                         <span class="glyphicon glyphicon-time"></span> {{ comment.time_created }}
                         </p>
                       <div style="color:black;margin-top:10px;"> {{comment.content}} </div>
+                    </div>
+                </div>
+              </div>
+              <div href="#" class="list-group-item"  style="background-color:#F2F2F0;">
+               <div class="row">
+                    <div class="col-lg-11 col-md-11">
+                        <input class="form-control comment" placeholder="Post a reply..." ng-model="cont">
+                    </div>
+                    <div class="col-lg-1 col-md-1" style="padding-left:0;">
+                      <button type="button" class="btn btn-primary" ng-click="postComment()" >Post</button>
                     </div>
                 </div>
               </div>

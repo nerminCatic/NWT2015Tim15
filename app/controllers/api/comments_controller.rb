@@ -1,7 +1,6 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  skip_before_action :authenticate_request, :set_current_user
   # GET /comments
   # GET /comments.json
   def index
@@ -29,7 +28,8 @@ class Api::CommentsController < ApplicationController
   # POST /comments.json
   def create
     @question = Question.find(params[:question_id])
-    @comment = @question.comments.build(comment_params)
+    @comment = @question.comments.build
+    @comment.content = params[:content]
     @comment.user = @current_user
     #@comment = Comment.new(comment_params)
 

@@ -127,7 +127,7 @@ services.factory('Question', function($resource) {
 });
 // Comments
 services.factory('Comment', function($resource) {
-  return $resource('/api/questions/:questionId/comments/:id', {questionId:'questionId',id:'@id'});
+  return $resource('/api/questions/:questionId/comments/:id', {questionId:'@questionId', id:'@id', content: '@content'});
 });
 // send Feedback
 services.factory('Feedback', function($resource) {

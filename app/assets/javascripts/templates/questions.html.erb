@@ -24,7 +24,7 @@
               <a href ng-click="showQuestion(question.id)" class="list-group-item" ng-repeat="question in questions | filter:query">
                <div class="row">
                    <div class="col-lg-8 col-md-8">
-                        <h4 class="list-group-item-heading"> {{question.name}}?</h4>
+                        <h4 class="list-group-item-heading"> {{question.name}}</h4>
                         <p class="list-group-item-text" style="font-size:11px;margin-top:10px;"><span class="glyphicon glyphicon-pencil"></span> 
                         {{ question.user.name}} {{ question.user.surname}} &nbsp&nbsp&nbsp
                         <span class="glyphicon glyphicon-time"></span> {{ question.time_created }}

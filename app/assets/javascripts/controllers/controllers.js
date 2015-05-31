@@ -269,15 +269,25 @@ controllers.controller('QuestionsController', ['$scope', 'alertService','Categor
       }
 }]);
 // Comments controller
-// Questions controller
-controllers.controller('CommentsController', ['$scope','AuthToken','Comment', 'Question','$routeParams','$location',
-    function($scope, AuthToken, Comment, Question, $routeParams, $location) {
-       // $scope.client = Clients.get({id:$routeParams.clientId})
-        //$scope.bills = ClientBills.get({clientId:$routeParams.clientId})
-
+controllers.controller('CommentsController', ['$scope','AuthToken','Comment', 'Question','$routeParams','$location', 'alertService',
+    function($scope, AuthToken, Comment, Question, $routeParams, $location, alertService) {
+        $scope.currUser = AuthToken.getUser();
         var question_id = $routeParams.id;
         $scope.comments = Comment.query({questionId: question_id});
         $scope.question = Question.get({ id: question_id  });
+
+        $scope.postComment = function() {
+            Comment.save( { questionId: question_id, content: $scope.cont},  
+            function success() {
+                var user = AuthToken.getUser();
+                alertService.add("success", "Vaše odgovor je dodan.");
+                $scope.comments = Comment.query({questionId: question_id});
+                $scope.cont = null;
+            }, 
+            function err() {
+                alertService.add("danger", "Desila se greška pri unosu.");
+            });
+        }
     }
 ]);
 
