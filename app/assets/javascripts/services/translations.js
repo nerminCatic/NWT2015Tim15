@@ -48,6 +48,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'BAN':'Ban',
     'UNBAN':'Unban',
     'STATUS':'Status',
+    'APPOINTMENTDATE':'Appointment',
+    'DOCTOR':'Doctor-unesi ID sad za sad',
+    'SENDRESERVATION':'Reservation',
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -96,6 +99,9 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'BAN':'Ban',
     'UNBAN':'Unban',
     'STATUS':'Status',
+    'APPOINTMENTDATE':'Termin',
+    'DOCTOR':'Kod doktora-unesi ID sad za sad',
+    'SENDRESERVATION':'Rezerviši',
   });
  
   $translateProvider.preferredLanguage('bs');

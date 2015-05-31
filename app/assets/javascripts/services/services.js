@@ -138,7 +138,9 @@ services.factory('Feedback', function($resource) {
 
 // CRUD services for Reservation
 services.factory('Reservation', function($resource) {
-  return $resource('/api/reservations/:id');
+  return $resource('/api/reservations', {}, {
+    send: { method: 'POST' }
+  });;
 });
 // Commit for resolving error
 

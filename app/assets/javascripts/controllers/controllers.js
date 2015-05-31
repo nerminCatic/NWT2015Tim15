@@ -226,6 +226,29 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location','a
             });
         }
 }]);
+
+//Send Reservation
+controllers.controller('ReservationController', ['$scope','Reservation','$location', 'alertService',
+    function($scope, Reservation, $location, alertService){
+       //alertService.add("success", "Vaše pitanje je dodano.");
+       //$scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
+        $scope.sendReservation = function(){
+            $scope.reservation.appointment_date = "2015-11-18";
+            $scope.reservation.status = "W";
+            $scope.reservation.user_patient_id = 19;
+            Reservation.send({reservation: $scope.reservation},
+                function success() {
+                    //alert("Svaka tebi cast");
+                    alertService.add("success", $scope.reservation.description + ", Vaša rezervacija je poslana, očekujte brzi odgovor!", 5000);
+                    $scope.reservation = null;
+                }, 
+                function err() {
+                    //alert("Ljudino, uozbilji se");
+                    alertService.add("danger", 'Pokušajte ponovo.');
+            });
+        }
+}]);
+
 // Questions controller
 controllers.controller('QuestionsController', ['$scope', 'alertService','Category', 'Question', 'DeleteQuestion','AuthToken','$location',
     function($scope, alertService, Category, Question, DeleteQuestion, AuthToken, $location) {
