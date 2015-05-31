@@ -21,7 +21,7 @@ services.factory('alertService', ['$rootScope',
                 alertService.closeAlert(this); 
             }, timeout); 
         }
-      },
+      }, 
       closeAlert: function(alert) {
         return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
       },
