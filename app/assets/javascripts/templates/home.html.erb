@@ -213,25 +213,67 @@ h2{
                 </div>
             </div>
             <div class="container">
-            <!--from-->
-    <!--<div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+    
+    <div class="col-lg-8">
+        <div class="boxed-grey"  ng-controller="ReservationController">
+            <form id="reservation-form" name="reservationForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="user_doctor_id">
+                                {{ 'DOCTOR' | translate }}</label>
+                            <div class="input-group">
+                                <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
+                                <input type="text" class="formf-control" required="required" ng-model="reservation.user_doctor_id" placeholder="Enter doctor's ID, TBD name'."></div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="subject">
+                                {{ 'TYPEF' | translate }}</label>
+                            <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
+                            </select>
+                        </div>-->
+                        <!--from-->
+                        <div class="row">
+                            <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <label for="appointment_date">
+                                    {{ 'APPOINTMENTDATE' | translate }}</label>
+                                    <div class='input-group date' required="required" id='datetimepicker1'>
+                                        <input type='text' class="form-control" id = "appointmentDate">
+                                        <span ng-model="reservation.appointment_date"  class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker({
+                                        format: 'YYYY-MM-DD HH:mm:ss'
+                                    });
+                                });
+                            </script>
+                        </div>
+                        <div>
+                        </div>      
+                    </div>
+                    <div class="col-md-6" id="msg">
+                        <div class="form-group">
+                            <label for="description">
+                                {{ 'DSC' | translate }}</label>
+                            <textarea name="message" ng-model="reservation.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" id="btnf" ng-click="sendReservation()" ng-disabled="reservationForm.$invalid">
+                            {{ 'SENDRESERVATION' | translate }}</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
     </div>
-</div>-->
+</div>
+
 <!--to-->
 <!--<div class="row">
         <div class='col-sm-6'>
@@ -250,8 +292,8 @@ h2{
             });
         </script>
     </div>
-</div>-->
-    
+</div>
+    -->
     <!-- /.orders form-->
 
     <!--feedback form-->

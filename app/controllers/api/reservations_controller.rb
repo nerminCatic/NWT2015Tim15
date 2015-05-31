@@ -44,7 +44,7 @@ class Api::ReservationsController < ApplicationController
   def create
     # user = logged_user 
     # on create - only user, appointment and status (by default Waiting)
-
+    
     @reservation = Reservation.new(reservation_params)
     @reservation.status = "W"
     @reservation.receive_date = Time.now
