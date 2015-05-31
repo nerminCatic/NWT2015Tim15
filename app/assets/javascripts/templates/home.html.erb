@@ -34,6 +34,52 @@ $(document).ready(function(){
     });
 });
 </script>
+<!--script for animations-->
+<script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.2.js"></script>
+<script>
+$(function() {
+
+  var $window           = $(window),
+      win_height_padded = $window.height() * 1.1,
+      isTouch           = Modernizr.touch;
+
+  if (isTouch) { $('.revealOnScroll').addClass('animated'); }
+
+  $window.on('scroll', revealOnScroll);
+
+  function revealOnScroll() {
+    var scrolled = $window.scrollTop(),
+        win_height_padded = $window.height() * 1.1;
+
+    // Showed...
+    $(".revealOnScroll:not(.animated)").each(function () {
+      var $this     = $(this),
+          offsetTop = $this.offset().top;
+
+      if (scrolled + win_height_padded > offsetTop) {
+        if ($this.data('timeout')) {
+          window.setTimeout(function(){
+            $this.addClass('animated ' + $this.data('animation'));
+          }, parseInt($this.data('timeout'),10));
+        } else {
+          $this.addClass('animated ' + $this.data('animation'));
+        }
+      }
+    });
+    // Hidden...
+   $(".revealOnScroll.animated").each(function (index) {
+      var $this     = $(this),
+          offsetTop = $this.offset().top;
+      if (scrolled + win_height_padded < offsetTop) {
+        $(this).removeClass('animated fadeInUp flipInX lightSpeedIn')
+      }
+    });
+  }
+
+  revealOnScroll();
+});
+</script>
+<!--end of script for animations-->
 <style type="text/css">
 h2{
     margin: 0;     
@@ -179,17 +225,15 @@ h2{
                 <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>{{ 'AHEAD' | translate }}</h2>
+                        <h2 class="revealOnScroll" data-animation="lightSpeedIn">{{ 'AHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
-                         </br>  
+                        </br>  
                             <div style="text-align:center;" ng-controller="QuestionsController"> Otvorite stranicu sa već postavljenim pitanjima 
                                 <a href ng-click="openQuestions()">OVDJE</a>. 
                             </div>
                          </br>
-                        </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
                 </div>
@@ -197,17 +241,14 @@ h2{
     <!-- /.advice form-->
 
     <!--orders form-->
-    <div class="heading-contact-title">
+        <div class="heading-contact-title">
                 <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>{{ 'OHEAD' | translate }}</h2>
+                        <h2 class="revealOnScroll" data-animation="lightSpeedIn">{{ 'OHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
-
-                        </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
                 </div>
@@ -301,13 +342,10 @@ h2{
                 <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
                         <div class="section-heading">
-                        <h2>{{ 'FHEAD' | translate }}</h2>
+                        <h2 class="revealOnScroll" data-animation="lightSpeedIn">{{ 'FHEAD' | translate }}</h2>
                         <i class="fa fa-2x fa-angle-down"></i>
-
-                        </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
                 </div>
@@ -408,4 +446,5 @@ h2{
             </div>
     </div>
     <!--/.Footer-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.js"></script>
 </body>
