@@ -9,7 +9,7 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         email: email,
         password: password
       }).success(function(resp) {
-        AuthToken.set(resp.auth_token, resp.user_name, resp.user_role);
+        AuthToken.set(resp.auth_token, resp.user_name, resp.user_role, resp.userId);
         d.resolve(resp.user);
         // For manager - special functionality
         if(AuthToken.getRole() == "menadzer")
@@ -33,18 +33,21 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
 });
 
 auth.service('AuthToken', function() {
-  this.set = function(token, name, role) { 
+  this.set = function(token, name, role, userId) { 
     localStorage.setItem("token", token);
     localStorage.setItem("name", name);
     localStorage.setItem("role", role);
+    localStorage.setItem("userId", userId);
   };
   this.get = function() { return localStorage.getItem("token"); };
   this.getRole = function() { return localStorage.getItem("role"); };
   this.getUser = function() { return localStorage.getItem("name"); };
+  this.getUserId = function() { return localStorage.getItem("userId"); };
   this.unset =  function() { 
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("name");
+    localStorage.removeItem("userId");
   }
 });
 
