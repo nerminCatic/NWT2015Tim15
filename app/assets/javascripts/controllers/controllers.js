@@ -583,6 +583,41 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
         }
 }]);
 
+// User management searching
+controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', '$location',
+    function($scope, GetReservation, $location) {
+        //$scope.roles = GetRole.all();
+        $scope.reservations = GetReservation.all(); 
+        
+        
+
+        $scope.deleteReservation = function(id, idx) {
+            $scope.reservations.splice(idx, 1);
+             return GetReservation.delete(id);
+        };
+
+        /*
+        $scope.openUpdateUser = function(id, idx) {
+            
+            $scope.users.splice(idx, 1);
+            var obj = new Object();
+            obj.user = GetMeUser.dajUsera({id: id},
+                function success() {
+                SharedUser.set(obj.user);
+                //var jsonString = JSON.stringify(Korisnik.get());
+                //alert(jsonString);
+                $location.path('/edit_user_by_manager');
+            }, 
+            function err() {
+                alert('Došlo je do greške!');
+            }
+            );
+        };
+        */
+
+}]);
+
+
 // Create category
 controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCategory', '$location',
 

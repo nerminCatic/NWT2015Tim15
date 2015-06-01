@@ -9,7 +9,7 @@ return {
   +         '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">'
   +            '<i class="fa fa-bars"></i>'
   +      '</button>'
-  +      '<a class="navbar-brand" href="#/home_admin">'
+  +      '<a class="navbar-brand" href="">'
   +         '<h1 class="naslov1">eSAVJETOVALISTE</h1>'
   +      '</a>'
   +        '</div>'
