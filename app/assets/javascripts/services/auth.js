@@ -16,6 +16,14 @@ auth.factory('AuthService', function($http, $q, $rootScope, AuthToken,$location)
         {
           $location.path('/home_admin'); 
         }
+        else if (AuthToken.getRole() == "Doktor")
+        {
+          $location.path('/doctor'); 
+        }
+        else if (AuthToken.getRole() == "Medicinska_Sestra")
+        {
+          $location.path('/nerse'); 
+        }
         else
         {
           $location.path('/home'); 

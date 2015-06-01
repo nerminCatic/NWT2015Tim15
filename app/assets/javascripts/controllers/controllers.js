@@ -14,6 +14,10 @@ controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$
                 $location.path('/home');
             else if(AuthToken.getRole() == "menadzer")
                 $location.path('/home_admin');
+            else if(AuthToken.getRole() == "Doktor")
+                $location.path('/doctor');
+            else if(AuthToken.getRole() == "Medicinska_sestra")
+                $location.path('/nerse');
             console.log("Vec ste logovani. Token: " + AuthToken.get());
         }
         $scope.loginUser = function() {
@@ -28,6 +32,42 @@ controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$
 }]);
 // Home controller
 controllers.controller('HomeController', ['$scope','$location','AuthToken',
+    function($scope, $location, AuthToken) {
+        if(!AuthToken.get()) {
+            $location.path('/login');
+            console.log("Morate se logovati!");
+        }
+        if(AuthToken.getRole() == "menadzer") $location.path('/home_admin');
+        $scope.userName = AuthToken.getUser();
+        $scope.openChangePass = function() {
+            $location.path('/changepass');
+        }
+        $scope.logout = function() {
+            AuthToken.unset();
+            console.log("Log out. Token: " + AuthToken.get());
+            $location.path('/login');
+        }
+}]);
+// Doctor controller
+controllers.controller('DoctorController', ['$scope','$location','AuthToken',
+    function($scope, $location, AuthToken) {
+        if(!AuthToken.get()) {
+            $location.path('/login');
+            console.log("Morate se logovati!");
+        }
+        if(AuthToken.getRole() == "menadzer") $location.path('/home_admin');
+        $scope.userName = AuthToken.getUser();
+        $scope.openChangePass = function() {
+            $location.path('/changepass');
+        }
+        $scope.logout = function() {
+            AuthToken.unset();
+            console.log("Log out. Token: " + AuthToken.get());
+            $location.path('/login');
+        }
+}]);
+// Nerse controller
+controllers.controller('NerseController', ['$scope','$location','AuthToken',
     function($scope, $location, AuthToken) {
         if(!AuthToken.get()) {
             $location.path('/login');

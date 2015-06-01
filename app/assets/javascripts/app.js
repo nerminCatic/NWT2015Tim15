@@ -105,6 +105,14 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "charts.html",
           
         }).
+       when('/doctor',{
+          templateUrl: "doctor.html",
+          controller: 'DoctorController'
+        }).
+       when('/nerse',{
+          templateUrl: "sestra.html",
+          controller: 'NerseController'
+        }).
       otherwise({
         redirectTo: '/login'
       });
