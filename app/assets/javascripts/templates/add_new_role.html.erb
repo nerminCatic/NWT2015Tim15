@@ -1,29 +1,48 @@
+<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
 <body>
+<div  class="bcgnonee">
+<div class="navbar" navbar></div>
+</br>
+	<div class="heading-contact-title">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                    <div class="section-heading">
+                    <h2>{{ 'UROLE' | translate }}</h2>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
 	<div class="container"> 
-	<div class="bcg" style="height:600px">   
-	    <div class="category-wall">
-			<form class="form-register" name="myForm" ng-controller="CreateRoleController">
-
-			  	<h1 class="text-center login-title"> Unos role </h1>
-
-			  	<!-- input name-->
-			  	<div class="input-prepend">
-	      			<span class="add-on"><i class="icon-user"></i></span>
-				  	<input name="name" pattern="^([A-z]){3,}$" maxlength="20" class="formr-control" type="text" placeholder="Ime" ng-model="role.name" required autofocus/>
-				  	<br>
+	<div class="bcgnone" style="height:600px">   
+	    <div class="new-category-wall">
+			<form class="form-register form-inline" role="form" name="myForm" ng-controller="CreateRoleController">
+				<!-- input name-->
+			  	<div class="input-prepend form-group has success has-feedback">
+			  		<label class="control-label" for="inputSuccess4"></label>
+			  		<input name="name" pattern="^([A-z]){3,}$" maxlength="20" class="form-control" type="text" placeholder="Ime" ng-model="role.name" required autofocus id="inputSuccess4"/>
+          			<span class="glyphicon glyphicon-user form-control-feedback"></span></br></br>
 				  	<!--name validation (client side)-->
 					<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
 						<span ng-show="myForm.name.$error.required">Unos imena je obavezan.</span>Ime mora sadržavati više od 3 karaktera.
 					</span>	
 			    </div>
-
-				<!-- input job-->
-				<div class="input-prepend">
-	      			<span class="add-on"><i class="icon-briefcase"></i></span>
-				  	<input name="desc" type="text" pattern="^([A-z]){2,}$" maxlength="255" class="formr-control" placeholder= "Opis" ng-model="role.description" /><br>
-				  	<span style="color:red" ng-show="myForm.description.$dirty && myForm.jdescriptionb.$invalid">Opis mora sadržavati više od 3 karaktera.
+			    <!-- input description-->
+			  	<div class="input-prepend form-group has success has-feedback">
+			  		<label class="control-label" for="inputSuccess4"></label>
+			  		<input name="desc" type="text" pattern="^([A-z]){2,}$" maxlength="255" class="form-control" placeholder= "Opis" ng-model="role.description"  id="inputSuccess4"/><br>
+          			<span class="glyphicon glyphicon-blog form-control-feedback"></span></br></br>
+				  	<!--name validation (client side)-->
+					<span style="color:red" ng-show="myForm.description.$dirty && myForm.jdescriptionb.$invalid">Opis mora sadržavati više od 3 karaktera.
 				    </span>	
-				</div>
+			    </div>
 
 				<!-- submit button-->
 				<div class="actions">
@@ -33,6 +52,6 @@
 			</div>
 		</div>
 		</div>
-	</div>
 	<div id="copyright">© Copyright 2015</div>
+	</div>
 </body>
