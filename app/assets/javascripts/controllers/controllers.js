@@ -265,16 +265,17 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location','a
 }]);
 
 //Send Reservation
-controllers.controller('ReservationController', ['$scope','Reservation', 'AuthToken', '$location', 'alertService',
-    function($scope, Reservation, AuthToken, $location, alertService){
+controllers.controller('ReservationController', ['$scope','Reservation', 'AuthToken', 'GetUser', '$location', 'alertService',
+    function($scope, Reservation, AuthToken, GetUser, $location, alertService){
         $scope.reservation = {appointment_date:''};
+        $scope.users = GetUser.all();
        //alertService.add("success", "Vaše pitanje je dodano.");
        //$scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
         $scope.sendReservation = function(){
             $scope.reservation.user_patient_id = AuthToken.getUserId();
             $scope.reservation.status = "W";
             $scope.reservation.appointment_date = $("#appointmentDate").val();
-            
+            $scope.reservation.user_doctor_id = $scope.user.id;
             
             Reservation.send({reservation: $scope.reservation},
                 function success() {

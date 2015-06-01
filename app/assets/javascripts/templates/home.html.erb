@@ -262,18 +262,16 @@ h2{
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="user_doctor_id">
-                                {{ 'DOCTOR' | translate }}</label>
+                                {{ 'DOCTOR' | translate }}
+                            </label>
                             <div class="input-group">
                                 <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
-                                <input type="text" class="formf-control" required="required" ng-model="reservation.user_doctor_id" placeholder="Enter doctor's ID, TBD name'."></div>
+                                <!--<input type="text" class="formf-control" required="required" ng-model="reservation.user_doctor_id" placeholder="Enter doctor's ID, TBD name'.">-->
+                                <label class="control-label" for="inputSuccess4"></label>
+                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter:{role_id:2} track by user.id " required id="inputSuccess4"></br></br>
+                                </select>
+                            </div>
                         </div>
-                        <!--<div class="form-group">
-                            <label for="subject">
-                                {{ 'TYPEF' | translate }}</label>
-                            <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
-                            </select>
-                        </div>-->
-                        <!--from-->
                         <div class="row">
                             <div class='col-sm-6'>
                                 <div class="form-group">
