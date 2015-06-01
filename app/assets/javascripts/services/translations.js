@@ -54,7 +54,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'APPOINTMENTDATE':'Appointment',
     'DOCTOR':'Doctor-unesi ID sad za sad',
     'SENDRESERVATION':'Reservation',
-    'EDITUSRMNG':'Edit user information'
+    'EDITUSRMNG':'Edit user information',
+    'DOCTORS':'Our doctors'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -109,7 +110,8 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'APPOINTMENTDATE':'Termin',
     'DOCTOR':'Kod doktora-unesi ID sad za sad',
     'SENDRESERVATION':'Rezerviši',
-    'EDITUSRMNG':'Izmjena podataka o korisniku'
+    'EDITUSRMNG':'Izmjena podataka o korisniku',
+    'DOCTORS':'Doktori'
   });
  
   $translateProvider.preferredLanguage('bs');
