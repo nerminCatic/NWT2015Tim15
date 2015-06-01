@@ -1,13 +1,15 @@
 class Api::QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  #skip_before_action :authenticate_request, :set_current_user
+  skip_before_action :authenticate_request, :set_current_user
   # GET /questions
   # GET /questions.json
   def index
       begin
         if params[:category_id] #&& params[:user_id]
           @questions = Question.where("category_id = ?", params[:category_id])
+        elsif params[:filter] 
+          @questions = Question.top
         else
           @questions = Question.order('created_at DESC')
         end
@@ -20,7 +22,6 @@ class Api::QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
   end
-
   # GET /questions/new
   def new
     @question = Question.new
@@ -82,6 +83,6 @@ class Api::QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:name, :question, :description, :user_id, :category_id)
+      params.require(:question).permit(:name, :question, :description, :user_id, :category_id, :filter)
     end
 end

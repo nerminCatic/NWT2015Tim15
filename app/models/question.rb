@@ -27,5 +27,8 @@ class Question < ActiveRecord::Base
 	        }
 	      ]
       end
+     def self.top
+     	questions = Question.all.sort{|q1,q2| q1.number_of_comments <=> q2.number_of_comments}.reverse.take(3)
+     end
 end
 

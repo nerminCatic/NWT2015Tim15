@@ -228,7 +228,7 @@ GetCategory.prototype.delete = function(catgoryId) {
 // Managers functionality with questions
 services.factory('GetQuestion', ['$resource', function($resource) {
   function GetQuestion() {
-    this.service = $resource('/api/questions/:questionId', {questionId: '@id'});
+    this.service = $resource('/api/questions/:questionId', {questionId: '@id',filter: '@filter'});
     this.charts = $resource('/api/questions/chart', {});
   };
 

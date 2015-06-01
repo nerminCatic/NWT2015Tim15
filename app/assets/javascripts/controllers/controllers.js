@@ -294,6 +294,7 @@ controllers.controller('QuestionsController', ['$scope', 'alertService','Categor
     function($scope, alertService, Category, Question, DeleteQuestion, AuthToken, $location) {
       $scope.categories = Category.query();
       $scope.questions = Question.query();
+      $scope.top_questions = Question.query({filter: "Top"});
       $scope.question = new Question();
       $scope.createQuestion = function() {
         $scope.question.category_id = $scope.category.id;
