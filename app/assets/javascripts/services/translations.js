@@ -55,7 +55,10 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'DOCTOR':'Doctor-unesi ID sad za sad',
     'SENDRESERVATION':'Reservation',
     'EDITUSRMNG':'Edit user information',
-    'DOCTORS':'Our doctors'
+    'DOCTORS':'Our doctors',
+    'GRAF':'Charts',
+    'GRAFD':'Charts about administration and management',
+    'ADMIN':'Administration'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -111,7 +114,10 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'DOCTOR':'Kod doktora-unesi ID sad za sad',
     'SENDRESERVATION':'Rezerviši',
     'EDITUSRMNG':'Izmjena podataka o korisniku',
-    'DOCTORS':'Doktori'
+    'DOCTORS':'Doktori',
+    'GRAF':'Grafici',
+    'GRAFD':'Omogućeno pregledanje grafika vezanih za administraciju i upravljanje.',
+    'ADMIN':'Administracija'
   });
  
   $translateProvider.preferredLanguage('bs');

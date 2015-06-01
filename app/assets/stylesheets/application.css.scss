@@ -473,6 +473,9 @@ a {
 .nblue a{
   color:white !important;
 }
+.dropdown-menu a{
+  color:#0B0080 !important;
+}
 .nblue a:hover{
   color:#0B0080 !important;
 }
@@ -714,14 +717,9 @@ form#contact-form input, form#contact-form select, form#contact-form textarea {
 }
 /*end of design for feedback form*/
 /*design for home_Admin*/
+
 .col-md-3 {
   width: 20%;
-  float: left;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left:50px;
 }
 .service-icon {
   margin-bottom: 20px;
