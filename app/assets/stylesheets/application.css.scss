@@ -917,3 +917,45 @@ animation-timing-function:ease-out
   }
 }
 /*end of animation fix*/
+/*edit user by manager*/
+.edit-user-by-mng-wall
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 0px;
+    
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    
+    margin-top: -200px;
+    width: 400px;
+    height: 500px;
+
+}
+.edit-title
+{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.bcgnonee {
+  display: block;
+  position: relative;
+}
+
+.bcgnonee::after {
+  content: "";
+  background: url('/assets/bg1.jpg') no-repeat center center fixed !important;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+/*end of edit user by manager*/

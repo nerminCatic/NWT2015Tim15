@@ -1,15 +1,30 @@
-<!--Refistration form-->
+<!--Edit user by manager-->
 <head>
-	<!--link for recaptcha-->
-	<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div class="container">    
-	<div class="bcg" style="height:600px">
-	    <div class="register-wall">                      <!-- TBD dodati ovaj kontroler!-->
-			<form class="form-register form-inline" role="form" name="myForm" ng-controller="EditUserByManagerController">  
+<div  class="bcgnonee">
+<div class="navbar" navbar></div>
+</br>
+	<div class="heading-contact-title">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown animated" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">
+                    <div class="section-heading">
+                    <h2>{{ 'EDITUSRMNG' | translate }}</h2>
+                    <i class="fa fa-2x fa-angle-down"></i>
 
-			  	<h1 class="text-center login-title"> Izmjena podataka o korisniku </h1>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+	<div class="container">    
+	<div class="bcgnone" style="height:600px">
+	    <div class="edit-user-by-mng-wall">                      <!-- TBD dodati ovaj kontroler!-->
+			<form class="form-register form-inline" role="form" name="myForm" ng-controller="EditUserByManagerController">  
 
 			  	<!-- input name-->
 			  	<div class="input-prepend form-group has success has-feedback">
@@ -95,5 +110,7 @@
 			</div>
 		</div>
 		</div>
+
 	<div id="copyright">© Copyright 2015</div>
+</div>
 </body>
