@@ -48,6 +48,7 @@ class Api::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.status = "W"
     @reservation.receive_date = Time.now
+    @reservation.user_patient = @current_user
     respond_to do |format|
       if @reservation.save
         format.json { render json: @reservation, status: :created, location: api_reservation_url(@reservation) }

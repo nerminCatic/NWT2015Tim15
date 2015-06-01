@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
   # GET /comments.json
   def index
     @question = Question.find(params[:question_id])
-    @comments = @question.comments.order('created_at DESC')
+    @comments = @question.comments.order('created_at')
   end
 
   # GET /comments/1

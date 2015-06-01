@@ -50,12 +50,10 @@ controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '
          CreateCategory.create ({name: $scope.category.name, 
          description: $scope.category.description}, 
             function success() {
-                //alert("Kategorija uspješno kreirana!");
                 alertService.add("success", "Kategorija uspješno kreirana!",5000);
                 //$location.path('/home_admin');
             }, 
             function err(){
-                //alert("Pogrešni podaci!"); 
                 alertService.add("danger", "Pogrešni podaci!");
                 //$location.path('/new_category');
              });
@@ -213,7 +211,6 @@ controllers.controller('InsertPwdForResetController', ['$scope','$route', '$rout
 //Send Feedback
 controllers.controller('FeedbackController', ['$scope','Feedback','$location','alertService',
     function($scope, Feedback, $location, alertService){
-       //alertService.add("success", "Vaše pitanje je dodano.");
        $scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
         $scope.sendFeedback = function(){
             Feedback.send({feedback: $scope.feedback},
@@ -305,13 +302,13 @@ controllers.controller('CommentsController', ['$scope','AuthToken','Comment', 'Q
         $scope.postComment = function() {
             Comment.save( { questionId: question_id, content: $scope.cont},  
             function success() {
-                var user = AuthToken.getUser();
-                alertService.add("success", "Vaše odgovor je dodan.");
+                //var user = AuthToken.getUser();
+                //alertService.add("success", "Vaše odgovor je dodan.",5000);
                 $scope.comments = Comment.query({questionId: question_id});
                 $scope.cont = null;
             }, 
             function err() {
-                alertService.add("danger", "Desila se greška pri unosu.");
+                alertService.add("danger", "Desila se greška pri unosu.",5000);
             });
         }
     }
