@@ -11,7 +11,7 @@
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
               <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="#/home_admin">
+        <a class="navbar-brand" href="#/sestra">
            <h1 class="naslov1">eSAVJETOVALISTE</h1>
         </a>
           </div>
@@ -26,8 +26,48 @@
    </nav>
 <!--/.navbar-->
 
-</br></br></br>
+</br>
+</br></br>
+</br></br>
+<div class="pretraga">
+  {{ 'SORT' | translate }}
+  <select ng-model="orderProp" class="form-control">
+    <option value="user_patient_id">Pacijent</option>
+    <option value="user_doctor_id">Doktor</option>
+  </select>
+  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
+  </br>
+</div>
 
+
+</br></br>
+<table class="table table-hover table-condensed tabela" ng-controller="SearchReservationsControler">
+    <thead>
+        <tr>
+            <th>Pacijent</th>
+            <th>Doktor</th>
+            <th>Kad bi da se lijeci</th>
+            <th>Opis</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="reservation in reservations | filter:query | orderBy:orderProp">
+        <td> {{reservation.user_patient_id}}</td>
+        <td> {{reservation.user_doctor_id}}</td>
+        <td> {{reservation.appointment_date}}</td>
+        <td> {{reservation.description}}</td>
+        <td> {{reservation.status}}</td>
+        <td>
+          
+          <div class="actions" >
+            <button class="btn btn-primary btn-usr-mng" ng-click="openUpdateReservation(reservation.id, $index)"  ng-disabled="myForm.$invalid">{{ 'CHANGE' | translate }}</button>
+          </div>
+        </td>
+      </tr>
+
+</table>
+<!--
 <div class="heading-contact-title">
             <div class="container">
             <div class="row">
@@ -46,3 +86,4 @@
 </br></br>
 
 <div id="copyright">© Copyright 2015</div>
+-->

@@ -288,18 +288,17 @@ h2{
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="user_doctor_id">
-                                {{ 'DOCTOR' | translate }}</label>
+                                {{ 'DOCTOR' | translate }}
+                            </label>
                             <div class="input-group">
-                                <!--<span class="add-on"><i class="icon-envelope"></i></span>-->
-                                <input type="text" class="formf-control" required="required" ng-model="reservation.user_doctor_id" placeholder="Enter doctor's ID, TBD name'."></div>
+                                <label class="control-label" for="inputSuccess4"></label>
+                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter:{role_id:2} track by user.id " required id="inputSuccess4"></br></br>
+                                </select>
+                                <label for="user.job">
+                                {{ 'PROFESSION' | translate }}: {{user.job}}
+                                </label>
+                            </div>
                         </div>
-                        <!--<div class="form-group">
-                            <label for="subject">
-                                {{ 'TYPEF' | translate }}</label>
-                            <select ng-model="feedback.form" ng-options="form for form in forms" class="formf-control">
-                            </select>
-                        </div>-->
-                        <!--from-->
                         <div class="row">
                             <div class='col-sm-6'>
                                 <div class="form-group">
@@ -328,7 +327,7 @@ h2{
                         <div class="form-group">
                             <label for="description">
                                 {{ 'DSC' | translate }}</label>
-                            <textarea name="message" ng-model="reservation.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                            <textarea name="message" ng-model="reservation.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Description"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">

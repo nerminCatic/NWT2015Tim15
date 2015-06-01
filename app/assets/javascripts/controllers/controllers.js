@@ -265,16 +265,17 @@ controllers.controller('FeedbackController', ['$scope','Feedback','$location','a
 }]);
 
 //Send Reservation
-controllers.controller('ReservationController', ['$scope','Reservation', 'AuthToken', '$location', 'alertService',
-    function($scope, Reservation, AuthToken, $location, alertService){
+controllers.controller('ReservationController', ['$scope','Reservation', 'AuthToken', 'GetUser', '$location', 'alertService',
+    function($scope, Reservation, AuthToken, GetUser, $location, alertService){
         $scope.reservation = {appointment_date:''};
+        $scope.users = GetUser.all();
        //alertService.add("success", "Vaše pitanje je dodano.");
        //$scope.forms = ['Compliment','Complaint','Suggestion','Comment'];
         $scope.sendReservation = function(){
             $scope.reservation.user_patient_id = AuthToken.getUserId();
             $scope.reservation.status = "W";
             $scope.reservation.appointment_date = $("#appointmentDate").val();
-            
+            $scope.reservation.user_doctor_id = $scope.user.id;
             
             Reservation.send({reservation: $scope.reservation},
                 function success() {
@@ -582,6 +583,41 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
             });
         }
 }]);
+
+// User management searching
+controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', '$location',
+    function($scope, GetReservation, $location) {
+        //$scope.roles = GetRole.all();
+        $scope.reservations = GetReservation.all(); 
+        
+        
+
+        $scope.deleteReservation = function(id, idx) {
+            $scope.reservations.splice(idx, 1);
+             return GetReservation.delete(id);
+        };
+
+        /*
+        $scope.openUpdateUser = function(id, idx) {
+            
+            $scope.users.splice(idx, 1);
+            var obj = new Object();
+            obj.user = GetMeUser.dajUsera({id: id},
+                function success() {
+                SharedUser.set(obj.user);
+                //var jsonString = JSON.stringify(Korisnik.get());
+                //alert(jsonString);
+                $location.path('/edit_user_by_manager');
+            }, 
+            function err() {
+                alert('Došlo je do greške!');
+            }
+            );
+        };
+        */
+
+}]);
+
 
 // Create category
 controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCategory', '$location',

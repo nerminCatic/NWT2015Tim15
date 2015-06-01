@@ -54,13 +54,14 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'UNBAN':'Unban',
     'STATUS':'Status',
     'APPOINTMENTDATE':'Appointment',
-    'DOCTOR':'Doctor-unesi ID sad za sad',
+    'DOCTOR':'Doctor',
     'SENDRESERVATION':'Reservation',
     'EDITUSRMNG':'Edit user information',
     'DOCTORS':'Our doctors',
     'GRAF':'Charts',
     'GRAFD':'Charts about administration and management',
-    'ADMIN':'Administration'
+    'ADMIN':'Administration',
+    'PROFESSION':'Profession'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -115,13 +116,14 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'UNBAN':'Unban',
     'STATUS':'Status',
     'APPOINTMENTDATE':'Termin',
-    'DOCTOR':'Kod doktora-unesi ID sad za sad',
+    'DOCTOR':'Doktor',
     'SENDRESERVATION':'Rezerviši',
     'EDITUSRMNG':'Izmjena podataka o korisniku',
     'DOCTORS':'Doktori',
     'GRAF':'Grafici',
     'GRAFD':'Omogućeno pregledanje grafika vezanih za administraciju i upravljanje.',
-    'ADMIN':'Administracija'
+    'ADMIN':'Administracija',
+    'PROFESSION':'Profesija'
   });
  
   $translateProvider.preferredLanguage('bs');

@@ -184,7 +184,6 @@ services.factory('GetUser', ['$resource', function($resource) {
   };
 
   GetUser.prototype.getUserForUpdate = function(usrId) {
-    alert(usrId);
     return $resource('/api/users/:userId', {userId: usrId});
   };
 
@@ -272,6 +271,32 @@ GetRole.prototype.delete = function(rlid) {
     });   
   };
   return new GetRole;
+}]);
+
+services.factory('GetReservation', ['$resource', function($resource) {
+  function GetReservation() {
+    this.service = $resource('/api/reservations/:reservationId', {reservationId: '@id'});
+  };
+
+  GetReservation.prototype.all = function() {
+    return this.service.query();
+  };
+
+  GetReservation.prototype.delete = function(rsvId) {
+    this.service.remove({reservationId: rsvId},
+    function success() {
+        alert("Rezervacija je uspjesno obrisana!");
+    }, 
+    function err() {
+      alert('Došlo je do greške!');
+    });   
+  };
+
+  GetReservation.prototype.getReservationForUpdate = function(rsv) {
+    return $resource('/api/reservations/:reservationId', {reservationId: rsvId});
+  };
+
+  return new GetReservation;
 }]);
 
 services.factory('DeleteQuestion', function ($resource) { 

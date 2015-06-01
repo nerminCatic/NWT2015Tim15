@@ -7,18 +7,13 @@ class Api::ReservationsController < ApplicationController
   # GET /reservations.json
   def index
       begin
-        if params[:status] # Search by status
-          @reservations = Reservation.where("status = ?", params[:status])
-        elsif params[:user_doctor_id] # Search by doctor
-          @reservations = Reservation.where("user_doctor_id = ?", params[:user_doctor_id])
-        else
-          @reservations = Reservation.all
-        end
-        respond_to do |format|
-          format.json {
-            render json: { reservations: @reservations }
-          }
-        end
+          if params[:status] # Search by status
+            @reservations = Reservation.where("status = ?", params[:status])
+          elsif params[:user_doctor_id] # Search by doctor
+            @reservations = Reservation.where("user_doctor_id = ?", params[:user_doctor_id])
+          else
+            @reservations = Reservation.all
+          end
       rescue
         render json: { message: 'Record not found!' }, :status => :bad_request
       end
@@ -27,7 +22,6 @@ class Api::ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    respond_with @reservation
   end
 
   # GET /reservations/new
