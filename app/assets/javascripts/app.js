@@ -70,6 +70,10 @@ esavjetovaliste.config([ '$routeProvider',
          templateUrl: "sestra.html",
          controller: 'SearchReservationsControler'
       }).
+      when('/edit_reservation',{
+         templateUrl: "edit_reservation.html",
+         controller: 'EditReservationController'
+      }).
       when('/questions',{
         templateUrl: "questions.html",
         //controller: 'ChangePassController'

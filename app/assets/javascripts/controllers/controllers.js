@@ -535,6 +535,43 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
 
 }]);
 
+controllers.controller('EditReservationController', ['$scope', 'SharedReservation', 'GetUser', 'UpdateReservation', '$location',
+    function($scope, SharedReservation, GetUser, UpdateReservation, $location) {
+        
+        $scope.users = GetUser.all();
+        $scope.reservation = SharedReservation.get();
+        $scope.forms = ['Prihvaćen','Odbijen'];
+        $scope.editReservation = function(stat) {
+        
+        var obj = new Object();
+        if($scope.reservation.form == "Prihvaćen"){
+            obj.status = "Y";    
+        }
+        else{
+            obj.status = $scope.reservation.status;
+        }
+        obj.confirm_date = new Date();//$scope.reservation.confirm_date;
+        obj.description = $scope.reservation.description;
+        obj.user_receive_id = 3;
+
+        var jsonString= JSON.stringify(obj);
+        
+        UpdateReservation.update({ id:$scope.reservation.id }, jsonString, 
+            function success() {
+                alert('Rezervacija je uspješno sačuvana.');
+                SharedReservation.set('');
+                $location.path('/sestra'); 
+                // TBD SharedUser set to null
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške.');
+                $location.path('/edit_reservation');
+            });
+        };
+
+
+}]);
+
 // Category management searching
 controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory', 
     function($scope, GetCategory) {
@@ -629,36 +666,30 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
 }]);
 
 // User management searching
-controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', '$location',
-    function($scope, GetReservation, $location) {
+controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', 'GetMeReservation', 'SharedReservation', '$location',
+    function($scope, GetReservation, GetMeReservation, SharedReservation, $location) {
         //$scope.roles = GetRole.all();
         $scope.reservations = GetReservation.all(); 
         
-        
-
         $scope.deleteReservation = function(id, idx) {
             $scope.reservations.splice(idx, 1);
              return GetReservation.delete(id);
         };
 
-        /*
-        $scope.openUpdateUser = function(id, idx) {
+        $scope.openUpdateReservation = function(id, idx) {
             
-            $scope.users.splice(idx, 1);
+            $scope.reservations.splice(idx, 1);
             var obj = new Object();
-            obj.user = GetMeUser.dajUsera({id: id},
+            obj.reservation = GetMeReservation.dajRezervaciju({id: id},
                 function success() {
-                SharedUser.set(obj.user);
-                //var jsonString = JSON.stringify(Korisnik.get());
-                //alert(jsonString);
-                $location.path('/edit_user_by_manager');
+                SharedReservation.set(obj.reservation);
+                $location.path('/edit_reservation');
             }, 
             function err() {
                 alert('Došlo je do greške!');
             }
             );
         };
-        */
 
 }]);
 

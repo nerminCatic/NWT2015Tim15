@@ -42,8 +42,31 @@ services.factory('GetMeUser', function($resource) {
   });
 });
 
+// CRUD services for Reservation
+services.factory('GetMeReservation', function($resource) {
+  return $resource('/api/reservations/:id', {id:'@id'}, {
+    dajRezervaciju: { method: 'GET' }
+  });
+});
+
 // For sharing data about User between controlers (SearchUsersControler and EditUserByManagerController)
 services.factory('SharedUser', function () {
+    //return { User: '' };
+    var savedData = {}
+    function set(data) {
+      savedData = data;
+    }
+    function get() {
+     return savedData;
+    }
+
+    return {
+     set: set,
+     get: get
+    }
+});
+
+services.factory('SharedReservation', function () {
     //return { User: '' };
     var savedData = {}
     function set(data) {
@@ -194,6 +217,13 @@ services.factory('GetUser', ['$resource', function($resource) {
 services.factory('UpdateUserByManager', function ($resource) { 
   return $resource('api/users/:id', {id:'@id', name: '@name', surname: '@surname', 
     role_id: '@role_id', phone: '@phone', job: '@job', email: '@email', adress: '@adress', confirmed: '@confirmed'}, {
+    update: { method: 'PUT' }
+  });
+});
+
+services.factory('UpdateReservation', function ($resource) { 
+  return $resource('api/reservations/:id', {id:'@id', status: '@status', confirm_date: '@confirm_date', 
+    description: '@description', user_receive_id: '@user_receive_id'}, {
     update: { method: 'PUT' }
   });
 });
