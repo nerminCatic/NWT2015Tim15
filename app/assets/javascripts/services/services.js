@@ -87,7 +87,7 @@ services.factory('CreateCategory', function ($resource) {
 services.factory('UpdateCategory', function ($resource) {
      return $resource('/api/categories',   {name: '@name', 
          description: '@description'}, {
-          create: { method: 'PUT' }
+          update: { method: 'POST' }
           });
 });
 
@@ -304,6 +304,14 @@ services.factory('DeleteQuestion', function ($resource) {
     destroy: { method: 'DELETE' }
   });
 });
+
+services.factory('UpdateRole', function ($resource) { 
+  return $resource('/api/roles/:id',   {id:'@id', name: '@name', 
+         description: '@description'}, {
+          update: { method: 'POST' }
+          });
+});
+
 
 //file upload create (function all is not in use)
 services.factory('uploadsFactory', function ($http) {

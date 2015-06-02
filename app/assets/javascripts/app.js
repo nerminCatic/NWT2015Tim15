@@ -105,6 +105,10 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "add_new_role.html",
           
         }).
+      when('/edit_role',{
+          templateUrl: "edit_role.html",
+          
+        }).
        when('/charts',{
           templateUrl: "charts.html",
           

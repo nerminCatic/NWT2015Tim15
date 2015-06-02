@@ -104,6 +104,10 @@ controllers.controller('UpdateCategoryController', ['$scope','UpdateCategory', '
 
     function($scope,UpdateCategory,$location) {
 
+        $scope.updateCategoryRead = function() {
+            $location.path('/update_category');
+        }
+
         $scope.updateCategoryC = function(){
          UpdateCategory.update ({name: $scope.category.name, 
          description: $scope.category.description}, 
@@ -546,8 +550,8 @@ controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
 ]);
 
 // Role management searching
-controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
-    function($scope, GetRole) {
+controllers.controller('SearchRoleControler', ['$scope', 'GetRole','UpdateRole',
+    function($scope, GetRole,UpdateRole) {
 
         $scope.roles = GetRole.all(); 
 
@@ -555,9 +559,50 @@ controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
             $scope.roles.splice(idx, 1);
              return GetRole.delete(id);
         };
+
+
+        $scope.updateRole = function() {
+         UpdateRole.update ({name: $scope.role.name, 
+         description: $scope.role.description}, 
+            function success() {
+                alert("Rola uspješno izmijenjena!");
+                $location.path('/role_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/add_new_role');
+             });
+        }
 }
     
 ]);
+
+controllers.controller('UpdateRoleControler', ['$scope', 'UpdateRole','GetRole','$location',
+function($scope, UpdateRole,GetRole,$location) {
+
+$scope.updateRoleRead = function() {
+            $location.path('/edit_role');
+        }
+
+$scope.updateRoleR = function( ) {
+         UpdateRole.update ({id:$scope.role.id  ,name: $scope.role.name, 
+         description: $scope.role.description}, 
+            function success() {
+                alert("Rola uspješno izmijenjena!");
+                $location.path('/role_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/role_admin');
+             });
+             
+        }  
+}
+
+
+]);
+
+
 
 //Registration users from manager - Possible add role!
 controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',
