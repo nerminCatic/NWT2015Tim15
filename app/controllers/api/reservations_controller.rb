@@ -84,12 +84,16 @@ class Api::ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
-    respond_to do |format|
-      if @reservation.update(reservation_params)
-        format.json { head :no_content }
-      else
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
+     reservation = Reservation.find_by!(id: params[:id])
+    if reservation 
+      reservation.status = params[:status]
+      reservation.confirm_date = params[:confirm_date]
+      reservation.description = params[:description]
+      reservation.user_receive_id = params[:user_receive_id]
+      reservation.save
+      render json: reservation, status: 200        
+    else
+      render json: { errors: "This link is invalid."}, status: 404
     end
   end
 

@@ -42,8 +42,31 @@ services.factory('GetMeUser', function($resource) {
   });
 });
 
+// CRUD services for Reservation
+services.factory('GetMeReservation', function($resource) {
+  return $resource('/api/reservations/:id', {id:'@id'}, {
+    dajRezervaciju: { method: 'GET' }
+  });
+});
+
 // For sharing data about User between controlers (SearchUsersControler and EditUserByManagerController)
 services.factory('SharedUser', function () {
+    //return { User: '' };
+    var savedData = {}
+    function set(data) {
+      savedData = data;
+    }
+    function get() {
+     return savedData;
+    }
+
+    return {
+     set: set,
+     get: get
+    }
+});
+
+services.factory('SharedReservation', function () {
     //return { User: '' };
     var savedData = {}
     function set(data) {
@@ -87,7 +110,7 @@ services.factory('CreateCategory', function ($resource) {
 services.factory('UpdateCategory', function ($resource) {
      return $resource('/api/categories',   {name: '@name', 
          description: '@description'}, {
-          create: { method: 'PUT' }
+          update: { method: 'POST' }
           });
 });
 
@@ -198,6 +221,13 @@ services.factory('UpdateUserByManager', function ($resource) {
   });
 });
 
+services.factory('UpdateReservation', function ($resource) { 
+  return $resource('api/reservations/:id', {id:'@id', status: '@status', confirm_date: '@confirm_date', 
+    description: '@description', user_receive_id: '@user_receive_id'}, {
+    update: { method: 'PUT' }
+  });
+});
+
 // Managers functionality with categories
 services.factory('GetCategory', ['$resource', function($resource) {
   function GetCategory() {
@@ -304,6 +334,14 @@ services.factory('DeleteQuestion', function ($resource) {
     destroy: { method: 'DELETE' }
   });
 });
+
+services.factory('UpdateRole', function ($resource) { 
+  return $resource('/api/roles/:id',   {id:'@id', name: '@name', 
+         description: '@description'}, {
+          update: { method: 'POST' }
+          });
+});
+
 
 //file upload create (function all is not in use)
 services.factory('uploadsFactory', function ($http) {

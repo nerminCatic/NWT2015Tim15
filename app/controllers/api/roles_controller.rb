@@ -15,6 +15,24 @@ class Api::RolesController < ApplicationController
     @role = Role.find(params[:id])
   end
 
+  def update_role
+
+    if params[:id] != "ssss"
+
+    id = params[:id]
+    name = params[:name]
+    desc = params[:description]
+
+    @role = Role.find(params[:id])
+    @role.name = name
+    @role.description = desc
+
+    render json: @role, status: 200
+    else
+        render json: { errors: ""}, status: 422
+    end
+
+  end
   # GET /roles/new
   def new
     @role = Role.new

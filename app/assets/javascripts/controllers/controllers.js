@@ -104,6 +104,10 @@ controllers.controller('UpdateCategoryController', ['$scope','UpdateCategory', '
 
     function($scope,UpdateCategory,$location) {
 
+        $scope.updateCategoryRead = function() {
+            $location.path('/update_category');
+        }
+
         $scope.updateCategoryC = function(){
          UpdateCategory.update ({name: $scope.category.name, 
          description: $scope.category.description}, 
@@ -532,6 +536,43 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
 
 }]);
 
+controllers.controller('EditReservationController', ['$scope', 'SharedReservation', 'GetUser', 'UpdateReservation', '$location',
+    function($scope, SharedReservation, GetUser, UpdateReservation, $location) {
+        
+        $scope.users = GetUser.all();
+        $scope.reservation = SharedReservation.get();
+        $scope.forms = ['Prihvaćen','Odbijen'];
+        $scope.editReservation = function(stat) {
+        
+        var obj = new Object();
+        if($scope.reservation.form == "Prihvaćen"){
+            obj.status = "Y";    
+        }
+        else{
+            obj.status = $scope.reservation.status;
+        }
+        obj.confirm_date = new Date();//$scope.reservation.confirm_date;
+        obj.description = $scope.reservation.description;
+        obj.user_receive_id = 3;
+
+        var jsonString= JSON.stringify(obj);
+        
+        UpdateReservation.update({ id:$scope.reservation.id }, jsonString, 
+            function success() {
+                alert('Rezervacija je uspješno sačuvana.');
+                SharedReservation.set('');
+                $location.path('/sestra'); 
+                // TBD SharedUser set to null
+            }, 
+            function err() {
+                alert('Došlo je do tehničke greške.');
+                $location.path('/edit_reservation');
+            });
+        };
+
+
+}]);
+
 // Category management searching
 controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory', 
     function($scope, GetCategory) {
@@ -547,8 +588,8 @@ controllers.controller('SearchCategoriesControler', ['$scope', 'GetCategory',
 ]);
 
 // Role management searching
-controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
-    function($scope, GetRole) {
+controllers.controller('SearchRoleControler', ['$scope', 'GetRole','UpdateRole',
+    function($scope, GetRole,UpdateRole) {
 
         $scope.roles = GetRole.all(); 
 
@@ -556,9 +597,50 @@ controllers.controller('SearchRoleControler', ['$scope', 'GetRole',
             $scope.roles.splice(idx, 1);
              return GetRole.delete(id);
         };
+
+
+        $scope.updateRole = function() {
+         UpdateRole.update ({name: $scope.role.name, 
+         description: $scope.role.description}, 
+            function success() {
+                alert("Rola uspješno izmijenjena!");
+                $location.path('/role_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/add_new_role');
+             });
+        }
 }
     
 ]);
+
+controllers.controller('UpdateRoleControler', ['$scope', 'UpdateRole','GetRole','$location',
+function($scope, UpdateRole,GetRole,$location) {
+
+$scope.updateRoleRead = function() {
+            $location.path('/edit_role');
+        }
+
+$scope.updateRoleR = function( ) {
+         UpdateRole.update ({id:$scope.role.id  ,name: $scope.role.name, 
+         description: $scope.role.description}, 
+            function success() {
+                alert("Rola uspješno izmijenjena!");
+                $location.path('/role_admin');
+            }, 
+            function err(){
+                alert("Pogrešni podaci!"); 
+                $location.path('/role_admin');
+             });
+             
+        }  
+}
+
+
+]);
+
+
 
 //Registration users from manager - Possible add role!
 controllers.controller('RegistrationUserByManagerController', ['$scope','UserRegister', 'GetRole', '$location',
@@ -585,36 +667,30 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
 }]);
 
 // User management searching
-controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', '$location',
-    function($scope, GetReservation, $location) {
+controllers.controller('SearchReservationsControler', ['$scope', 'GetReservation', 'GetMeReservation', 'SharedReservation', '$location',
+    function($scope, GetReservation, GetMeReservation, SharedReservation, $location) {
         //$scope.roles = GetRole.all();
         $scope.reservations = GetReservation.all(); 
         
-        
-
         $scope.deleteReservation = function(id, idx) {
             $scope.reservations.splice(idx, 1);
              return GetReservation.delete(id);
         };
 
-        /*
-        $scope.openUpdateUser = function(id, idx) {
+        $scope.openUpdateReservation = function(id, idx) {
             
-            $scope.users.splice(idx, 1);
+            $scope.reservations.splice(idx, 1);
             var obj = new Object();
-            obj.user = GetMeUser.dajUsera({id: id},
+            obj.reservation = GetMeReservation.dajRezervaciju({id: id},
                 function success() {
-                SharedUser.set(obj.user);
-                //var jsonString = JSON.stringify(Korisnik.get());
-                //alert(jsonString);
-                $location.path('/edit_user_by_manager');
+                SharedReservation.set(obj.reservation);
+                $location.path('/edit_reservation');
             }, 
             function err() {
                 alert('Došlo je do greške!');
             }
             );
         };
-        */
 
 }]);
 

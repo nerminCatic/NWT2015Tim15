@@ -57,9 +57,10 @@ ESavjetovaliste::Application.routes.draw do
         end
     end
 
-    resources :roles do
+  resources :roles do
     collection do
           post :create
+          post :update_role
           end
         end
   end

@@ -16,7 +16,7 @@ template : '<table class="table table-hover table-condensed tabela1" ng-controll
      +'   <td> {{category.description}}</td>'
      +'   <td>'
        +'   <div class="actions"> '
-           +' <button class="btn btn-primary btn-usr-mng" ng-click="updateCategoryC(category.id, $index)"  ng-disabled="myForm.$invalid">Izmijeni</button>'
+           +' <button class="btn btn-primary btn-usr-mng" ng-controller="UpdateCategoryController" ng-click="updateCategoryRead(category.id)"  ng-disabled="myForm.$invalid">Izmijeni</button>'
        +'   </div>'
         +'  <div class="actions" >'
         +'    <button class="btn btn-primary btn-usr-mng" ng-click="deleteCategory(category.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>'
