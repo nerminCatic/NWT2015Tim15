@@ -32,7 +32,7 @@
                             </label>
                             <div class="input-group">
                                 <label class="control-label" for="inputSuccess4"></label>
-                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter:{role_id:2} track by user.id " required id="inputSuccess4"></br></br>
+                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter: {role_id:3} track by user.id " required id="inputSuccess4"></br></br>
                                 </select>
                                 <label for="user.job">
                                 {{ 'PROFESSION' | translate }}: {{user.job}}

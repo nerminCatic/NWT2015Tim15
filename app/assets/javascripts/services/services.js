@@ -86,6 +86,12 @@ services.factory('SharedReservation', function () {
 services.factory('User', function($resource) {
   return $resource('/api/users/:id');
 });
+services.factory('Category', function($resource) {
+  return $resource('/api/categories/:id');
+});
+services.factory('Role', function($resource) {
+  return $resource('/api/roles/:id');
+});
 // Registration service for User
 services.factory('UserRegister', function ($resource) {
   return $resource('api/users/register', {}, {
@@ -108,10 +114,9 @@ services.factory('CreateCategory', function ($resource) {
 });
 
 services.factory('UpdateCategory', function ($resource) {
-     return $resource('/api/categories',   {name: '@name', 
-         description: '@description'}, {
-          update: { method: 'POST' }
-          });
+  return $resource('/api/categories/:id', {id:'@id', name: '@name', description: '@description'}, {
+    update: { method: 'PUT' }
+  });
 });
 
 services.factory('CreateRole', function ($resource) {
@@ -223,7 +228,7 @@ services.factory('UpdateUserByManager', function ($resource) {
 
 services.factory('UpdateReservation', function ($resource) { 
   return $resource('api/reservations/:id', {id:'@id', status: '@status', confirm_date: '@confirm_date', 
-    description: '@description', user_receive_id: '@user_receive_id'}, {
+    description: '@description', user_receive_id: '@user_receive_id', user_doctor_id: '@user_doctor_id'}, {
     update: { method: 'PUT' }
   });
 });
@@ -338,7 +343,7 @@ services.factory('DeleteQuestion', function ($resource) {
 services.factory('UpdateRole', function ($resource) { 
   return $resource('/api/roles/:id',   {id:'@id', name: '@name', 
          description: '@description'}, {
-          update: { method: 'POST' }
+          update: { method: 'PUT' }
           });
 });
 

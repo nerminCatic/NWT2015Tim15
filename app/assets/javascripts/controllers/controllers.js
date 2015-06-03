@@ -84,6 +84,7 @@ controllers.controller('NerseController', ['$scope','$location','AuthToken',
             $location.path('/login');
         }
 }]);
+// Create category
 controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '$location', 'alertService',
     function($scope, CreateCategory, $location, alertService) {
         $scope.createCategoryC = function(){
@@ -99,29 +100,10 @@ controllers.controller('CreateCategoryController', ['$scope','CreateCategory', '
              });
         }
     }
-    ]);
-controllers.controller('UpdateCategoryController', ['$scope','UpdateCategory', '$location',
+    ]); 
 
-    function($scope,UpdateCategory,$location) {
 
-        $scope.updateCategoryRead = function() {
-            $location.path('/update_category');
-        }
-
-        $scope.updateCategoryC = function(){
-         UpdateCategory.update ({name: $scope.category.name, 
-         description: $scope.category.description}, 
-            function success() {
-                alert("Kategorija uspješno izmijenjena!");
-                $location.path('/home_admin');
-            }, 
-            function err(){
-                alert("Pogrešni podaci!"); 
-                $location.path('/category_admin ');
-             });
-        }
-    }
-    ]);
+// Create role
 controllers.controller('CreateRoleController', ['$scope','CreateRole', '$location',
 
     function($scope,CreateRole,$location) {
@@ -536,8 +518,8 @@ controllers.controller('EditUserByManagerController', ['$scope', 'SharedUser', '
 
 }]);
 
-controllers.controller('EditReservationController', ['$scope', 'SharedReservation', 'GetUser', 'UpdateReservation', '$location',
-    function($scope, SharedReservation, GetUser, UpdateReservation, $location) {
+controllers.controller('EditReservationController', ['$scope', 'AuthToken','SharedReservation', 'GetUser', 'UpdateReservation', '$location',
+    function($scope, AuthToken, SharedReservation, GetUser, UpdateReservation, $location) {
         
         $scope.users = GetUser.all();
         $scope.reservation = SharedReservation.get();
@@ -553,7 +535,8 @@ controllers.controller('EditReservationController', ['$scope', 'SharedReservatio
         }
         obj.confirm_date = new Date();//$scope.reservation.confirm_date;
         obj.description = $scope.reservation.description;
-        obj.user_receive_id = 3;
+        obj.user_receive_id = AuthToken.getUserId();
+        obj.user_doctor_id = $scope.user.id;   
 
         var jsonString= JSON.stringify(obj);
         
@@ -617,29 +600,55 @@ controllers.controller('SearchRoleControler', ['$scope', 'GetRole','UpdateRole',
 
 controllers.controller('UpdateRoleControler', ['$scope', 'UpdateRole','GetRole','$location',
 function($scope, UpdateRole,GetRole,$location) {
-
-$scope.updateRoleRead = function() {
-            $location.path('/edit_role');
-        }
-
-$scope.updateRoleR = function( ) {
-         UpdateRole.update ({id:$scope.role.id  ,name: $scope.role.name, 
+        $scope.updateRoleRead = function(id) {
+            $location.path('/edit_role/'+id);
+        } 
+}
+]);
+controllers.controller('UpdateRoleControler2', ['alertService','$routeParams','Role','$scope', 'UpdateRole','GetRole','$location',
+function(alertService, $routeParams, Role, $scope, UpdateRole,GetRole,$location) {
+     var roleId = $routeParams.id;
+     $scope.role = Role.get({ id: roleId  });
+    $scope.updateRoleR = function( ) {
+         UpdateRole.update ({ id: roleId  ,name: $scope.role.name, 
          description: $scope.role.description}, 
             function success() {
-                alert("Rola uspješno izmijenjena!");
+                alertService.add("success", "Rola uspješno izmijenjena!",5000);
                 $location.path('/role_admin');
             }, 
             function err(){
-                alert("Pogrešni podaci!"); 
+                alertService.add("danger", "Pogrešni podaci!");
                 $location.path('/role_admin');
              });
              
         }  
 }
-
-
 ]);
-
+//Update category
+controllers.controller('UpdateCategoryController', ['$routeParams','$scope','UpdateCategory', '$location','Category',
+    function($routeParams,$scope,UpdateCategory,$location,Category) {
+        $scope.updateCategoryRead = function(c_id) {
+            $location.path('/update_category/'+c_id);
+        }
+    }
+    ]);
+controllers.controller('UpdateCategoryController2', ['alertService','$routeParams','$scope','UpdateCategory', '$location','Category',
+    function(alertService,$routeParams,$scope,UpdateCategory,$location,Category) {
+        var categoryId = $routeParams.id;
+        $scope.category = Category.get({ id: categoryId  });
+        $scope.updateCategoryC = function() {
+            UpdateCategory.update ({id: categoryId, name: $scope.category.name, description: $scope.category.description}, 
+            function success() {
+                alertService.add("success", "Kategorija uspješno izmijenjena!",5000);
+                $location.path('/category_admin');
+            }, 
+            function err(){
+                $location.path('/category_admin ');
+                alertService.add("danger", "Pogrešni podaci!");
+             });
+        }
+    }
+    ]);
 
 
 //Registration users from manager - Possible add role!

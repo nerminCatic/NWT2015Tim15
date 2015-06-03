@@ -1,5 +1,7 @@
 <div class="navbar" navbar></div>
 </br></br>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+<br>
 <div class="pretraga">
   Sortiraj po:
   <select ng-model="orderProp" class="form-control">

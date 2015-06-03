@@ -98,7 +98,7 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "new_category.html",
           controller: 'ChangePassController'
         }).
-      when('/update_category',{
+      when('/update_category/:id',{
           templateUrl: "update_category.html",
         }).
       when('/role_admin',{
@@ -109,7 +109,7 @@ esavjetovaliste.config([ '$routeProvider',
           templateUrl: "add_new_role.html",
           
         }).
-      when('/edit_role',{
+      when('/edit_role/:id',{
           templateUrl: "edit_role.html",
           
         }).

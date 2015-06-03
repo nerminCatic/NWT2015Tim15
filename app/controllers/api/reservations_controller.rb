@@ -90,6 +90,7 @@ class Api::ReservationsController < ApplicationController
       reservation.confirm_date = params[:confirm_date]
       reservation.description = params[:description]
       reservation.user_receive_id = params[:user_receive_id]
+      reservation.user_doctor_id = params[:user_doctor_id]
       reservation.save
       render json: reservation, status: 200        
     else

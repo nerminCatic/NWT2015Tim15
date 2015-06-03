@@ -1,5 +1,7 @@
 <div class="navbar" navbar></div>
 </br></br>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+<br>
 <div class="pretraga">
   Sortiraj po:
   <select ng-model="orderProp" class="form-control">
@@ -25,7 +27,7 @@
         <td> {{role.description}}</td>
         <td>
           <div class="actions"> 
-          <button class="btn btn-primary" ng-controller="UpdateRoleControler" ng-click="updateRoleRead()"  ng-disabled="myForm.$invalid">Izmijeni</button>
+          <button class="btn btn-primary" ng-controller="UpdateRoleControler" ng-click="updateRoleRead(role.id)"  ng-disabled="myForm.$invalid">Izmijeni</button>
           </div>
           <div class="actions" >
             <button class="btn btn-primary btn-usr-mng" ng-click="deleteRole(role.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
