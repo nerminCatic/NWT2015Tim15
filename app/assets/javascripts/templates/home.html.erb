@@ -317,7 +317,34 @@ h2{
       <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm time" custom-class="getDayClass(date, mode)"></datepicker>
     </div>
 <h4>Time</h4>
-     <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+     <div class="my-timepicker">
+     <table ng-model="mytime" class="time-size ng-isolate-scope ng-valid ng-valid-time ng-dirty" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian">
+    <tbody>
+        <tr class="text-center">
+            <td><a ng-click="incrementHours()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+            <td>&nbsp;</td>
+            <td><a ng-click="incrementMinutes()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+            <td ng-show="showMeridian"></td>
+        </tr>
+        <tr>
+            <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidHours}">
+                <input type="text" ng-model="hours" ng-change="updateHours()" class="form-control time-size text-center ng-pristine ng-untouched ng-valid ng-valid-maxlength" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
+            </td>
+            <td>:</td>
+            <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidMinutes}">
+                <input type="text" ng-model="minutes" ng-change="updateMinutes()" class="form-control time-size text-center ng-pristine ng-untouched ng-valid ng-valid-maxlength" ng-readonly="readonlyInput" maxlength="2">
+            </td>
+            <td ng-show="showMeridian"><button type="button" class="btn btn-default text-center ng-binding" ng-click="toggleMeridian()">AM</button></td>
+        </tr>
+        <tr class="text-center">
+            <td><a ng-click="decrementHours()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+            <td>&nbsp;</td>
+            <td><a ng-click="decrementMinutes()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+            <td ng-show="showMeridian"></td>
+        </tr>
+    </tbody>
+</table>
+                        </div>
                         </div>
                     </div>
                         </div>
