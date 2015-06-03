@@ -47,16 +47,16 @@
         <tr>
             <th>Pacijent</th>
             <th>Doktor</th>
-            <th>Kad bi da se lijeci</th>
+            <th>Termin</th>
             <th>Opis</th>
             <th>Status</th>
         </tr>
     </thead>
     <tbody>
       <tr ng-repeat="reservation in reservations | filter:query | orderBy:orderProp">
-        <td> {{reservation.user_patient_id}}</td>
-        <td> {{reservation.user_doctor_id}}</td>
-        <td> {{reservation.appointment_date}}</td>
+        <td> {{reservation.user_patient.name}} {{reservation.user_patient.surname}}</td>
+        <td> {{reservation.user_doctor.name }} {{reservation.user_doctor.surname }}</td>
+        <td> {{reservation.appointment_date | date:'short'}}</td>
         <td> {{reservation.description}}</td>
         <td> {{reservation.status}}</td>
         <td>

@@ -21,64 +21,52 @@
             </div>
             </div>
     </div>
-	<div class="col-lg-8">
+	<div class="col-lg-10 col-lg-offset-2">
         <div class="boxed-grey"  ng-controller="EditReservationController">
             <form id="reservation-form" name="reservationForm">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-lg-6">
                         <div class="form-group">
                             <label for="user_doctor_id">
                                 {{ 'DOCTOR' | translate }}
                             </label>
-                            <div class="input-group">
+                            <!--<div class="input-group">-->
                                 <label class="control-label" for="inputSuccess4"></label>
-                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter: {role_id:3} track by user.id " required id="inputSuccess4"></br></br>
+                                <select class="form-control" ng-model="user" ng-options="user.name for user in users | filter:{role_id:3} track by user.id " required id="inputSuccess4"></br></br>
                                 </select>
                                 <label for="user.job">
                                 {{ 'PROFESSION' | translate }}: {{user.job}}
                                 </label>
-                            </div>
+                            <!--</div>-->
                         </div>
-                        <div class="row">
-                            <div class='col-sm-6'>
-                                <div class="form-group">
-                                    <label for="appointment_date">
-                                    {{ 'APPOINTMENTDATE' | translate }}</label>
-                                    <div class='input-group date' required="required" id='datetimepicker1'>
-                                        <input type='text' ng-model="reservation.appointment_date" class="form-control" id = "appointmentDate">
-                                        <span ng-model="reservation.appointment_date"  class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <script type="text/javascript">
-                                $(function () {
-                                    $('#datetimepicker1').datetimepicker({
-                                        format: 'YYYY-MM-DD HH:mm:ss'
-                                    });
-                                });
-                            </script>
-                        </div>
-                        <div>
-                        </div>      
-                    </div>
-                    <div class="col-md-6" id="msg">
                         <div class="form-group">
                             <label for="description">
                                 {{ 'DSC' | translate }}</label>
                             <textarea name="message" ng-model="reservation.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Description"></textarea>
                         </div>
                         <div class="form-group">
-                                <label for="subject">
-                                    {{ 'TYPEF' | translate }}</label>
-                                <select ng-model="reservation.form" ng-options="form for form in forms" class="formf-control" required="required">
-                                </select>
-                            </div>
+                            <label for="subject">
+                                {{ 'TYPEF' | translate }}</label>
+                            <select ng-model="reservation.form" ng-options="form for form in forms" class="formf-control" required="required">
+                            </select>
+                        </div>
                     </div>
+                    <div class='col-sm-6 col-md-6 col-lg-6'>
+                        <div class="form-group">
+                           <h4> {{ 'APPOINTMENTDATE' | translate }}</h4>
+                            <div style="display:inline-block; min-height:290px;">
+                              <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm time" custom-class="getDayClass(date, mode)"></datepicker>
+                            </div>
+                        <h4>Time</h4>
+                             <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+                                                </div>
+                                            </div>
+                        </div>
+                     <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary" id="btnf" ng-click="editReservation()" ng-disabled="reservationForm.$invalid">
-                            POTDVRDI</button>
+                            POTVRDI</button>
+                    </div>
                     </div>
                 </div>
             </form>
