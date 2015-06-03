@@ -135,6 +135,9 @@ controllers.controller('HomeAdminController', ['$scope','$location','AuthToken',
         }
         if(AuthToken.getRole() == "gost") $location.path('/home');
         $scope.userName = AuthToken.getUser();
+        $scope.openHomeAdmin = function() {
+            $location.path('/home_admin');
+        }
         $scope.openChangePass = function() {
             $location.path('/changepass');
         }

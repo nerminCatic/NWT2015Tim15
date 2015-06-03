@@ -139,12 +139,15 @@ a:hover{
 /*end of design for login form*/
 
 /*application backround*/
-.bcg { 
+.bcg {
+content: ""; 
   background: url('/assets/bcgnwt1.jpg') no-repeat center center fixed !important; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  top: 0;
+  left: 0;
+  width:100%;
+  position: absolute;
+   
+ 
 }
 /*end of application backround*/
 
