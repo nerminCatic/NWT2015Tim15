@@ -1,11 +1,14 @@
 <div classs="container"  ng-controller="CommentsController">
+<div class="navbar" navbar></div>
   <div>
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
   </div>
     </br></br>
-    <div class="pretraga">
-      Pretraga: <input ng-model="query" class="form-control">
+    <div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;">
+    {{ 'SEARCH' | translate }}  &nbsp &nbsp<input style="display:inline-block;" ng-model="query" style="margin-top:5px;" class="form-control">
     </div>
+</div>
     </br><br>
     <div class="row">
         <div class="col-lg-2 col-md-2"></div>
@@ -34,8 +37,9 @@
                     </div>
                     <div class="col-lg-2 col-md-2" style="text-align:center;"> {{ question.category.name }} </div>
                     <div class="col-lg-2 col-md-2" style="text-align:center;"> {{question.number_of_comments}}</div>
-                    <a class="btn btn-default" ng-href="/#/questions/{{question.id}}/resources">Resources</a>
+                    
                   </div>
+                  Resursi: <a ng-href="/#/questions/{{question.id}}/resources"><b>OVDJE</b></a>
               </div>
               <div href="#" class="list-group-item" ng-repeat="comment in comments | filter:query">
                <div class="row">

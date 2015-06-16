@@ -1,9 +1,13 @@
+<div class="navbar" navbar></div>
 </br>
-<div class="pretraga">
-  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
+<div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;">
+    {{ 'SEARCH' | translate }}  &nbsp &nbsp<input style="display:inline-block;" ng-model="query" style="margin-top:5px;" class="form-control">
+    </div>
+    <a ng-href="/#/questions/{{question_id}}/new_resource" class="btn btn-common"><b>Novi resurs</b></a>
+
 </div>
 
-<a ng-href="/#/questions/{{question_id}}/new_resource" class="btn btn-common">New Resource</a>
 </br></br>
 <table class="table table-hover table-condensed tabela" ng-controller="ResourcesCtrl">
     <thead>
@@ -17,4 +21,3 @@
         
       </tr>
 </table>
-<div id="copyright">© Copyright 2015</div>

@@ -1,12 +1,13 @@
-<div classs="container"  ng-controller="QuestionsController">
+<div ng-controller="QuestionsController">
+<div class="navbar" navbar></div>
 <div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
-</div>
+</div><br><br><br>
   <div class="row">
        <div class="col-lg-4">
        </div>
        <div class="col-lg-4">
-                <div class="boxed-grey">
+                <div class="boxed-grey" style="width:100%;">
                     <form id="contact-form" name="feedbackForm" >
                     <div class="row">
                         <div class="col-md-12">
@@ -15,10 +16,10 @@
                                     {{ 'QUESTION' | translate }}</label>
                                 <input type="text" ng-model="question.name" class="formf-control" placeholder="Enter your question" required="required">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group"><div>
                                 <label for="description">
-                                    {{ 'DSC' | translate }}</label>
-                                <textarea  ng-model="question.description" class="formf-control" rows="9" cols="25" required="required" placeholder="Description"></textarea>
+                                    {{ 'DSC' | translate }}</label></div>
+                                <textarea  ng-model="question.description" class="formf-control msg-desc" rows="9" cols="25" required="required" placeholder="Description"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="subject">
@@ -27,8 +28,9 @@
                                 </select>
                             </div>
                         </div>
+                        <br>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary" ng-click="createQuestion()" ng-disabled="feedbackForm.$invalid">
+                            <button style="float:right;" type="submit" class="btn btn-primary" ng-click="createQuestion()" ng-disabled="feedbackForm.$invalid">
                                 {{ 'SQUESTION' | translate }}</button>
                         </div>
                     </div>
@@ -39,4 +41,3 @@
        </div>
   </div>
 </div>
-<div id="copyright">© Copyright 2015</div>

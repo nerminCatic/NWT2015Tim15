@@ -13,33 +13,50 @@
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
               <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href ng-click="openHomeAdmin()">
+        <a class="navbar-brand" href="#/home_admin">
            <h1 class="naslov1">eSAVJETOVALISTE</h1>
         </a>
           </div>
           <div class="collapse navbar-collapse navbar-right navbar-main-collapse navbar-font">
            <ul class="nav navbar-nav navbar-font">
-           <li><a href ng-click="openHomeAdmin()"><span>{{ "HOME" | translate }}</span></a></li>
+
+            <li class="dropdown">
+              <a href class="dropdown-toggle" data-toggle="dropdown"><span>{{ "ADMIN" | translate }}</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openUserManagement()" href><span>{{ 'USRMNG' | translate }}</span></a></li>
+                <li><a ng-click="openFeedback()" href><span>{{ 'FEEDBACKMNG' | translate }}</span></a></li>
+                <li><a ng-click="openCategory()" href><span>{{ 'CATEGORYMNG' | translate }}</span></a></li>
+                <li><a ng-click="openRoleManagement()" href><span>{{ 'USRROLE' | translate }}</span></a></li>
+                <li><a ng-click="openChartManagement()" href><span>{{ 'GRAF' | translate }}</span></a></li>
+              </ul>
+            </li>
+          <li><a href ng-click="openChangePass()"><span>{{ "CHANGE_PASS" | translate }}</span></a></li>
          <li><a href ng-click="logout()"><span>{{ "LOGOUT" | translate }}</span></a></li>
             </ul>
           </div>
        </div>
    </nav>
 <!--/.navbar-->
-</br></br></br></br></br></br>
-<div class="pretraga">
-	{{ 'SORT' | translate }}
-	<select ng-model="orderProp" class="form-control">
-	  <option value="name"> {{ 'NAME' | translate }}</option>
-	  <option value="description">{{ 'MSG' | translate }}</option>
-	  <option value="email">{{ 'EMAIL' | translate }}</option>
-	  <option value="form">{{ 'TYPEF' | translate }}</option>
-	</select>
-	{{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
-</div>
-
-
+</br></br></br>
 </br></br>
+<div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;margin-right: 10px;">
+   {{ 'SORT' | translate }}
+  <select ng-model="orderProp" class="form-control" style="margin-top:5px;">
+    <option value="name"> {{ 'NAME' | translate }}</option>
+    <option value="description">{{ 'MSG' | translate }}</option>
+    <option value="email">{{ 'EMAIL' | translate }}</option>
+    <option value="form">{{ 'TYPEF' | translate }}</option>
+  </select>
+  </div>
+  <div style="display:inline-block;">
+  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
+  </div>
+
+</div>
+<br>
+
+
 <table class="table table-hover table-condensed tabela" ng-controller="FeedbackCtrl">
     <thead>
         <tr>

@@ -26,6 +26,9 @@ controllers.controller('LoginController', ['$scope','AuthService','AuthToken','$
         $scope.openRegistration = function() {
             $location.path('/register');
         }
+        $scope.openLogin = function() {
+            $location.path('/login');
+        }
         $scope.openPassReset = function() {
             $location.path('/password-reset');
         }
@@ -41,6 +44,9 @@ controllers.controller('HomeController', ['$scope','$location','AuthToken',
         $scope.userName = AuthToken.getUser();
         $scope.openChangePass = function() {
             $location.path('/changepass');
+        }
+         $scope.openHome = function() {
+            $location.path('/home');
         }
         $scope.logout = function() {
             AuthToken.unset();
@@ -274,7 +280,7 @@ controllers.controller('ReservationController', ['$scope','Reservation', 'AuthTo
             Reservation.send({reservation: $scope.reservation},
                 function success() {
                     //alert("Svaka tebi cast");
-                    alertService.add("success", $scope.reservation.description + ", Vaša rezervacija je poslana, očekujte brzi odgovor!", 5000);
+                    alertService.add("success",AuthToken.getUser() + ", Vaša rezervacija je poslana.", 5000);
                     $scope.reservation = null;
                     $scope.clear();
                 }, 
@@ -356,7 +362,7 @@ $scope.mytime.setMinutes( 0 );
   $scope.hstep = 1;
   $scope.mstep = 15;
 
-  $scope.ismeridian = true;
+  $scope.ismeridian = false;
  
   $scope.update = function() {
     var d = new Date();
@@ -622,44 +628,58 @@ controllers.controller('EditReservationController', ['$scope', 'AuthToken','Shar
         $scope.users = GetUser.all();
         $scope.reservation = SharedReservation.get();
         $scope.forms = ['Prihvaćen','Odbijen'];
+        $scope.dt = new Date();
+        $scope.dt = $scope.reservation.appointment_date;
+        $scope.mytime = new Date();
+        $scope.mytime = $scope.reservation.appointment_date;
+        $scope.hstep = 1;
+        $scope.mstep = 15;
+        $scope.ismeridian = false;
+        //console.log(h);
         $scope.editReservation = function(stat) {
-        
-        var obj = new Object();
-        if($scope.reservation.form == "Prihvaćen"){
-            obj.status = "Y";    
-        }
-        else{
-            obj.status = $scope.reservation.status;
-        }
-        obj.confirm_date = new Date();//$scope.reservation.confirm_date;
-        obj.description = $scope.reservation.description;
-        obj.user_receive_id = AuthToken.getUserId();
-        obj.user_doctor_id = $scope.user.id;   
-
-        obj.appointment_date = $scope.dt;
+            var obj = new Object();
+            if($scope.reservation.form == "Prihvaćen"){
+                obj.status = "Y";    
+            }
+            else{
+                obj.status = $scope.reservation.status;
+            }
+            obj.confirm_date = new Date();//$scope.reservation.confirm_date;
+            obj.description = $scope.reservation.description;
+            obj.user_receive_id = AuthToken.getUserId();
+            obj.user_doctor_id = $scope.user.id;   
+            var d = new Date();
+            d = $scope.reservation.appointment_date;
+            d = $scope.dt;
             var hours = $scope.mytime.getHours();
             var minutes = $scope.mytime.getMinutes();
-        obj.appointment_date.setHours(hours);
-        obj.appointment_date.setMinutes(minutes);
+            console.log(hours);
+            d.setHours( hours );
+            d.setMinutes( minutes );
+            //$scope.mytime = d;
+            obj.appointment_date = d;
+            /*var hours = $scope.mytime.getHours();
+            var minutes = $scope.mytime.getMinutes();
+            obj.appointment_date.setHours(hours);
+            obj.appointment_date.setMinutes(minutes);*/
+            var jsonString= JSON.stringify(obj);
 
-        var jsonString= JSON.stringify(obj);
-        
         UpdateReservation.update({ id:$scope.reservation.id }, jsonString, 
             function success() {
-                alert('Rezervacija je uspješno sačuvana.');
+                //alert('Rezervacija je uspješno sačuvana.');
                 SharedReservation.set('');
                 $location.path('/sestra'); 
                 // TBD SharedUser set to null
             }, 
             function err() {
-                alert('Došlo je do tehničke greške.');
+               // alert('Došlo je do tehničke greške.');
                 $location.path('/edit_reservation');
             });
         };
-       $scope.today = function() {
+$scope.today = function() {
     $scope.dt = new Date();
   };
-  $scope.today();
+  //$scope.today();
 
   $scope.clear = function () {
     $scope.dt = null;
@@ -710,10 +730,10 @@ controllers.controller('EditReservationController', ['$scope', 'AuthToken','Shar
   $scope.getDayClass = function(date, mode) {
     if (mode === 'day') {
       var dayToCheck = new Date(date).setHours(0,0,0,0);
-
+      //var dayToCheck = $scope.reservation.appointment_date;
       for (var i=0;i<$scope.events.length;i++){
         var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
+        //var currentDay = $scope.reservation.appointment_date;
         if (dayToCheck === currentDay) {
           return $scope.events[i].status;
         }
@@ -723,13 +743,7 @@ controllers.controller('EditReservationController', ['$scope', 'AuthToken','Shar
     return '';
   };
 
-$scope.mytime = new Date();
-$scope.mytime.setHours( 8 );
-$scope.mytime.setMinutes( 0 );
-  $scope.hstep = 1;
-  $scope.mstep = 15;
 
-  $scope.ismeridian = true;
  
   $scope.update = function() {
     var d = new Date();
@@ -920,7 +934,7 @@ controllers.controller('CreateCategoryControllerByAdmin', ['$scope','CreateCateg
 controllers.controller('RatingCtrl', function($scope) {
     $scope.rating = 5;
     $scope.rateFunction = function(rating) {
-      alert('Rating selected - ' + rating);
+     // alert('Rating selected - ' + rating);
     };
 });
 //controller for file upload

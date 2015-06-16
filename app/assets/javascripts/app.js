@@ -60,7 +60,7 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/register_user_by_manager',{
          templateUrl: "register_user_by_manager.html",
-         controller: 'RegistrationUserByManagerController'
+        // controller: 'RegistrationUserByManagerController'
       }).
       when('/edit_user_by_manager',{
          templateUrl: "edit_user_by_manager.html",

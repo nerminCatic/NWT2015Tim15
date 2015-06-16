@@ -5,10 +5,33 @@
 </head>
 <body>
 <div id="background">
-    <img src="/assets/bcgnwt1.jpg" class="stretch" alt="" /> 
-	<div class="container">    
-	<div style="height:600px">
-	    <div class="register-wall">
+    <!--<img src="/assets/bcgnwt1.jpg" class="stretch" alt="" /> -->
+        <!--navbar-->
+<nav class="navbar navbar-custom navbar-fixed-top ribbon nblue" role="navigation">
+    <div class="localization-bs-en" localization-bs-en></div>
+     <div class="container">
+        <div class="navbar-header page-scroll">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+              <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#/home_admin">
+           <h1 class="naslov1">eSAVJETOVALISTE</h1>
+        </a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse navbar-font">
+           <ul class="nav navbar-nav navbar-font">
+          <li><a href ng-click="openHome()"><span>{{ "HOME" | translate }}</span></a></li>
+          <li><a href><span>{{ "ABOUT" | translate }}</span></a></li>
+          <li><a ng-controller="LoginController" href ng-click="openLogin()"><span>{{ 'LOGIN' | translate }}</span></a></li>
+          </div>
+       </div>
+   </nav>
+   <br><br><br>
+<!--/.navbar-->
+	  <div class="container" style="padding-top:20px;"> 
+	  <br>
+	<div style="height:600px" style="margin-top:15px;">
+	    <div class="register-wall" >
 			<form class="form-register form-inline" role="form" name="myForm" ng-controller="RegistrationController">
 
 			  	<h1 class="text-center login-title"> Registracija </h1>
@@ -110,5 +133,5 @@
 		</div>
 		</div>
 	</div>
-	<div id="copyright">© Copyright 2015</div>
+
 </body>

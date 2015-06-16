@@ -1,11 +1,16 @@
-<div classs="container"  ng-controller="QuestionsController">
+
+<div ng-controller="QuestionsController">
+<div class="navbar" navbar></div>
 <div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
 </div>
     </br></br>
-    <div class="pretraga">
-      Pretraga: <input ng-model="query" class="form-control">
+<div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;">
+    {{ 'SEARCH' | translate }}  &nbsp &nbsp<input style="display:inline-block;" ng-model="query" style="margin-top:5px;" class="form-control">
     </div>
+</div>
+
 
     </br>  
     <div style="text-align:center;">Trebate savjet? Postavite svoje pitanje <a href ng-click="newQuestion()">OVDJE</a>. </div>

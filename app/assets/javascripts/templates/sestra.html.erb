@@ -29,15 +29,20 @@
 </br>
 </br></br>
 </br></br>
-<div class="pretraga">
-  {{ 'SORT' | translate }}
-  <select ng-model="orderProp" class="form-control">
-    <option value="user_patient_id">Pacijent</option>
-    <option value="appointment_date">Datum rezervacije</option>
-    <option value="user_doctor_id">Doktor</option>
-  </select>
-  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
-  </br>
+<div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;margin-right: 10px;">
+    {{ 'SORT' | translate }}
+    <select ng-model="orderProp" class="form-control" style="margin-top:5px;">
+      <option value="user_patient_id">Pacijent</option>
+      <option value="user_doctor_id">Doktor</option>
+      <option value="appointment_date">Termin rezervacije</option>
+      <option value="recieve_date">Datum slanja rezervacije</option>
+    </select>
+  </div>
+
+  <div style="display:inline-block;">
+    {{ 'SEARCH' | translate }} <input ng-model="query" style="margin-top:5px;" class="form-control">
+    </div>
 </div>
 
 
@@ -50,15 +55,17 @@
             <th>Termin</th>
             <th>Opis</th>
             <th>Status</th>
+            <th>Datum slanja</th>
         </tr>
     </thead>
     <tbody>
       <tr ng-repeat="reservation in reservations | filter:query | orderBy:orderProp">
         <td> {{reservation.user_patient.name}} {{reservation.user_patient.surname}}</td>
         <td> {{reservation.user_doctor.name }} {{reservation.user_doctor.surname }}</td>
-        <td> {{reservation.appointment_date | date:'short'}}</td>
+        <td> {{reservation.appointment_date | date:'dd-MM-yyyy HH:mm'}}</td>
         <td> {{reservation.description}}</td>
         <td> {{reservation.status}}</td>
+        <td> {{reservation.receive_date | date:'dd-MM-yyyy HH:mm'}}</td>
         <td>
           
           <div class="actions" >

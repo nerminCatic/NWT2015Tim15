@@ -21,7 +21,7 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'MSG' : 'Message',
     'SMSG' : 'Send Message',
     'FHEAD' : 'Your feedback is very important to us!',
-    'OHEAD' : 'Online orders',
+    'OHEAD' : 'Online reservations',
     'ORDERS':'Orders',
     'AHEAD' : 'Need advice?', 
     'OPT' : 'Options',
@@ -57,13 +57,17 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'STATUS':'Status',
     'APPOINTMENTDATE':'Appointment',
     'DOCTOR':'Doctor',
-    'SENDRESERVATION':'Reservation',
+    'SENDRESERVATION':'Send',
     'EDITUSRMNG':'Edit user information',
     'DOCTORS':'Our doctors',
     'GRAF':'Charts',
     'GRAFD':'Charts about administration and management',
     'ADMIN':'Administration',
-    'PROFESSION':'Profession'
+    'PROFESSION':'Profession',
+    'SEL_APP': 'Selected appointment is',
+    'TIME': 'Time',
+    'EDIT': 'Edit',
+    'RESERVATION': 'Reservation'
   })
   .translations('bs', {
     'REMEMBER_ME': 'Zapamti me',
@@ -127,7 +131,11 @@ translations.config(['$translateProvider', function ($translateProvider) {
     'GRAF':'Grafici',
     'GRAFD':'Omogućeno pregledanje grafika vezanih za administraciju i upravljanje.',
     'ADMIN':'Administracija',
-    'PROFESSION':'Profesija'
+    'PROFESSION':'Profesija',
+    'SEL_APP': 'Izabrani termin je',
+    'TIME': 'Vrijeme',
+    'EDIT': 'Izmijeni',
+    'RESERVATION': 'Rezervacija'
   });
  
   $translateProvider.preferredLanguage('bs');

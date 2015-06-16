@@ -12,7 +12,7 @@ class Api::ReservationsController < ApplicationController
           elsif params[:user_doctor_id] # Search by doctor
             @reservations = Reservation.where("user_doctor_id = ?", params[:user_doctor_id])
           else
-            @reservations = Reservation.all
+            @reservations = Reservation.order('created_at DESC')
           end
       rescue
         render json: { message: 'Record not found!' }, :status => :bad_request
@@ -91,6 +91,7 @@ class Api::ReservationsController < ApplicationController
       reservation.description = params[:description]
       reservation.user_receive_id = params[:user_receive_id]
       reservation.user_doctor_id = params[:user_doctor_id]
+      reservation.appointment_date = params[:appointment_date]
       reservation.save
       render json: reservation, status: 200        
     else

@@ -13,35 +13,53 @@
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
               <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href ng-click="openHomeAdmin()">
+        <a class="navbar-brand" href="#/home_admin">
            <h1 class="naslov1">eSAVJETOVALISTE</h1>
         </a>
           </div>
           <div class="collapse navbar-collapse navbar-right navbar-main-collapse navbar-font">
            <ul class="nav navbar-nav navbar-font">
-           <li><a href ng-click="openHomeAdmin()"><span>{{ "HOME" | translate }}</span></a></li>
+
+            <li class="dropdown">
+              <a href class="dropdown-toggle" data-toggle="dropdown"><span>{{ "ADMIN" | translate }}</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openUserManagement()" href><span>{{ 'USRMNG' | translate }}</span></a></li>
+                <li><a ng-click="openFeedback()" href><span>{{ 'FEEDBACKMNG' | translate }}</span></a></li>
+                <li><a ng-click="openCategory()" href><span>{{ 'CATEGORYMNG' | translate }}</span></a></li>
+                <li><a ng-click="openRoleManagement()" href><span>{{ 'USRROLE' | translate }}</span></a></li>
+                <li><a ng-click="openChartManagement()" href><span>{{ 'GRAF' | translate }}</span></a></li>
+              </ul>
+            </li>
+          <li><a href ng-click="openChangePass()"><span>{{ "CHANGE_PASS" | translate }}</span></a></li>
          <li><a href ng-click="logout()"><span>{{ "LOGOUT" | translate }}</span></a></li>
             </ul>
           </div>
        </div>
    </nav>
-<!--/.navbar-->
-</br></br></br></br></br></br>
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
-<br>
-<div class="pretraga">
-  Sortiraj po:
-  <select ng-model="orderProp" class="form-control">
-    <option value="name">Naziv</option>
-    <option value="name">Opis</option>
-  </select>
-  Pretraga: <input ng-model="query" class="form-control"> <br><br>
-  Dodavanje nove role: 
-  <button class="btn btn-primary" ng-controller="CreateRoleController" ng-click="createRoleRead()"  ng-disabled="myForm.$invalid">Dodaj rolu</button>
-</div>
-
+</br></br></br>
 </br></br>
-<table class="table table-hover table-condensed tabela" ng-controller="SearchRoleControler">
+<div class="pretraga" style="margin-top:40px;text-align:center;">
+  <div style="display:inline-block;margin-right: 10px;">
+   {{ 'SORT' | translate }}
+  <select ng-model="orderProp" class="form-control" style="margin-top:5px;">
+    <option value="name">{{ 'ORDNAME' | translate }}</option>
+    <option value="description">Opis</option>
+  </select>
+  </div>
+
+  <div style="display:inline-block;">
+  {{ 'SEARCH' | translate }} <input ng-model="query" class="form-control">
+  </div>
+
+</div>
+<br>
+<div style="text-align:center;" ng-controller="RegistrationUserByManagerController">
+  Dodavanje nove role:
+  <a href   ng-controller="CreateRoleController" ng-click="createRoleRead()"  ng-disabled="myForm.$invalid"> OVDJE</a>
+</div>
+</br></br>
+
+<table class="table table-hover table-condensed tabela1" ng-controller="SearchRoleControler">
     <thead>
         <tr>s
             <th>Naziv</th>
@@ -53,12 +71,13 @@
         <td> {{role.name}}</td>
         <td> {{role.description}}</td>
         <td>
-          <div class="actions"> 
+          <div class="actions" style="margin-left:10px;float:right;">
+            <button class="btn btn-primary btn-usr-mng" ng-click="deleteRole(role.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
+          </div> &nbsp &nbsp
+          <div class="actions" style="float:right;"> 
           <button class="btn btn-primary btn-usr-mng" ng-controller="UpdateRoleControler" ng-click="updateRoleRead(role.id)"  ng-disabled="myForm.$invalid">Izmijeni</button>
           </div>
-          <div class="actions" >
-            <button class="btn btn-primary btn-usr-mng" ng-click="deleteRole(role.id, $index)"  ng-disabled="myForm.$invalid">Obriši</button>
-          </div>
+
         </td>
       </tr>
 </table>
