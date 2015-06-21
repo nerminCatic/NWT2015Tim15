@@ -57,8 +57,8 @@
 </div>
 <br>
 <div style="text-align:center;" ng-controller="RegistrationUserByManagerController">
-    {{ 'ADDNEWUSER' | translate }}:
-  <a href  ng-click="registerUserWithRole()"  ng-disabled="myForm.$invalid"> OVDJE</a>
+    {{ 'ADDNEWUSER' | translate }}
+  <a  ng-controller="RegistrationUserByManagerController" href ng-click="registerUserWithRole()"> OVDJE</a>
 </div>
 </br></br>
 <table class="table table-hover table-condensed tabela" ng-controller="SearchUsersControler">

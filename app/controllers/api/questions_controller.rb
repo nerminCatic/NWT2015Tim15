@@ -1,7 +1,6 @@
 class Api::QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   respond_to :json
-  skip_before_action :authenticate_request, :set_current_user
   # GET /questions
   # GET /questions.json
   def index

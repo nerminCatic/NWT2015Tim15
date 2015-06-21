@@ -96,7 +96,7 @@ esavjetovaliste.config([ '$routeProvider',
       }).
       when('/new_category',{
           templateUrl: "new_category.html",
-          controller: 'ChangePassController'
+         // controller: 'ChangePassController'
         }).
       when('/update_category/:id',{
           templateUrl: "update_category.html",

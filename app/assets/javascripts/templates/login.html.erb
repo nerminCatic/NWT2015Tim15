@@ -6,7 +6,7 @@
     <!--navbar-->
 <nav class="navbar navbar-custom navbar-fixed-top ribbon nblue" role="navigation">
     <div class="localization-bs-en" localization-bs-en></div>
-     <div class="container" ng-controller="HomeAdminController">
+     <div class="container">
         <div class="navbar-header page-scroll">
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
               <i class="fa fa-bars"></i>
@@ -17,7 +17,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right navbar-main-collapse navbar-font">
            <ul class="nav navbar-nav navbar-font">
-          <li><a href ng-click="openHome()"><span>{{ "HOME" | translate }}</span></a></li>
+          <li><a ng-controller="LoginController" href ng-click="openLogin()"><span>{{ "HOME" | translate }}</span></a></li>
           <li><a href><span>{{ "ABOUT" | translate }}</span></a></li>
           <li><a ng-controller="LoginController" href ng-click="openRegistration()"><span>{{ 'REGISTER' | translate }}</span></a></li>
           </div>

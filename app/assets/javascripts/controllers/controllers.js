@@ -867,7 +867,7 @@ controllers.controller('RegistrationUserByManagerController', ['$scope','UserReg
             $scope.user.role_id = $scope.role.id;
             UserRegister.register({user: $scope.user},
                 function success() {
-                    alert("Korisnik je dužan porvrditi registraciju preko email-a, a zatim izvršiti reset passworda preko istog emaila.");
+                    alert("Korisnik je dužan potvrditi registraciju preko email-a, a zatim izvršiti reset passworda preko istog emaila.");
                     $location.path('/user_management');
                 }, 
                 function err() {

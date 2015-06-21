@@ -20,7 +20,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right navbar-main-collapse navbar-font">
            <ul class="nav navbar-nav navbar-font">
-          <li><a href ng-click="openHome()"><span>{{ "HOME" | translate }}</span></a></li>
+          <li><a ng-controller="LoginController" href ng-click="openLogin()"><span>{{ "HOME" | translate }}</span></a></li>
           <li><a href><span>{{ "ABOUT" | translate }}</span></a></li>
           <li><a ng-controller="LoginController" href ng-click="openLogin()"><span>{{ 'LOGIN' | translate }}</span></a></li>
           </div>

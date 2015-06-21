@@ -63,7 +63,7 @@
 			  	<!-- input name-->
 			  	<div class="input-prepend form-group has success has-feedback">
 			  		<label class="control-label" for="inputSuccess4"></label>
-				  	<input name="name" pattern="^([A-z]){3,}$" maxlength="20" class="form-control" type="text" placeholder="Ime" ng-model="category.name" required autofocus id="inputSuccess4"/>
+				  	<input name="name" pattern="^([a-zA-Z0-9_ ]){3,}$" maxlength="20" class="form-control" type="text" placeholder="Ime" ng-model="category.name" required autofocus id="inputSuccess4"/>
 				  	<span class="glyphicon glyphicon-user form-control-feedback"></span></br></br>
 				  	<br>
 				  	<!--name validation (client side)-->
@@ -75,7 +75,7 @@
 				<!-- input job-->
 				<div class="input-prepend form-group has success has-feedback">
 					<label class="control-label" for="inputSuccess4"></label>
-				  	<input name="desc" type="text" pattern="^([A-z]){2,}$" maxlength="255" class="form-control" placeholder= "Opis" ng-model="category.description" id="inputSuccess4"/><br>
+				  	<input name="desc" type="text" pattern="^([a-zA-Z0-9_ ]){3,}$" maxlength="255" class="form-control" placeholder= "Opis" ng-model="category.description" id="inputSuccess4"/><br>
 				  	<span class="glyphicon glyphicon-briefcase form-control-feedback"></span></br></br>
 				  	<span style="color:red" ng-show="myForm.description.$dirty && myForm.jdescriptionb.$invalid">Opis mora sadržavati više od 3 karaktera.
 				    </span>	
